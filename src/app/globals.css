@@ -87,16 +87,55 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* CandidateCard.css */
+.candidate-card {
+  display: flex;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.candidate-card-headshot {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+
+.candidate-card-headshot img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.candidate-card-details {
+  flex: 2;
+  padding: 16px;
+}
+
+.candidate-card-details h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.candidate-card-details a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.candidate-card-details a:hover {
+  text-decoration: underline;
 }
