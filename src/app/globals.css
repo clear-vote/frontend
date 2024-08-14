@@ -1,3 +1,44 @@
+/* Preload fonts */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.woff2') format('woff2'),
+       url('/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.woff') format('woff'),
+       url('/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBM_Plex_Sans/IBMPlexSans-Bold.woff2') format('woff2'),
+       url('/fonts/IBM_Plex_Sans/IBMPlexSans-Bold.woff') format('woff'),
+       url('/fonts/IBM_Plex_Sans/IBMPlexSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.woff2') format('woff2'),
+       url('/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.woff') format('woff'),
+       url('/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBM_Plex_Mono/IBMPlexMono-Bold.woff2') format('woff2'),
+       url('/fonts/IBM_Plex_Mono/IBMPlexMono-Bold.woff') format('woff'),
+       url('/fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +47,34 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --ff-body: 'IBM Plex Sans', sans-serif;
+  --ff-mono: 'IBM Plex Mono', monospace;
+
+  --fs-lg: clamp(2rem, 5vh + 1rem, 5rem);
+  --fs-md: 1.5rem;
+  --fs-sm: 1rem;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  --color-teal: #16BAC5;
+  --color-red: #C84630;
+  --color-yellow: #EA9010;
+  --color-purple: #C179B9;
+  --color-green: #447604;
+  --color-grey: #666666;
+
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+
+  --border-radius-sm: 0.2rem;
+  --border-radius-md: 0.25rem;
+  --border-radius-lg: 0.3rem;
+
+  --animation-duration-fast: 0.3s;
+  --animation-duration-slow: 1s;
 }
 
 @media (prefers-color-scheme: dark) {
