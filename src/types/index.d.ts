@@ -9,15 +9,27 @@ For creating complex types, such as unions, intersections, and tuple types.
 When you need type aliases for primitives or when working with more complex type compositions. */
 
 // Defines a basic user type
-export interface User {
-  id: number;
+
+import { SelectionStatus } from "@/utils";
+
+export interface Candidate {
   name: string;
-  email: string;
-  isAuthenticated: boolean;
+  website: string;
+  selection_status: SelectionStatus
+}
+
+export interface Contest {
+  title_string: string;
+  area_name: string;
+  district_char: string;
+  position_char: string;
+  candidates: Candidate[];
+}
+
+export interface Election {
+  election_id: number;
+  contests: Contest[];
 }
 
 // Defines a type for a function that logs in a user
 export type LoginFunction = (email: string, password: string) => Promise<User>;
-
-// Defines a type for the application's theme
-export type Theme = 'light' | 'dark';

@@ -1,8 +1,3 @@
-/* Use Context for state or logic that needs to be accessible across many components, avoiding prop drilling.
- * Use Custom Hooks to encapsulate and reuse logic within or across components without global state management.
- * They can be used together: Context to share global state and hooks to manage logic or state within components.
- */
-
 // useFetchData.ts
 import { useState, useEffect } from 'react';
 

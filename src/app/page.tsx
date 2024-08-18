@@ -4,6 +4,8 @@ import { IElection } from "@/interfaces/ElectionInterfaces";
 import React, { useEffect, useState } from "react";
 import { ContestView } from "./views/ContestView";
 import { RejectedCandidatesProvider } from "@/context/RejectedCandidatesContext";
+// page.tsx
+import LandingPage from '@/app/LandingPage';
 
 /**
  * Creates the homepage of the website!
@@ -33,11 +35,15 @@ const TestComponent = () => {
     return <div>Loading...</div>;
   }
   const election_info : IElection = data[0];
+export default function Entry() {
   return (
     <div>
       <RejectedCandidatesProvider>
         <ContestView {...election_info.contests[0]}/>
       </RejectedCandidatesProvider>
+    </div>
+    <div>
+      <LandingPage />
     </div>
   );
 }
