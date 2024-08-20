@@ -4,6 +4,10 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input"
 import { Button } from '@/components/ui/button';
 
+/**
+ * The landing page for the application
+ * @returns A render of the landing page
+ */
 export default function LandingPage() {
   return (
     <div>

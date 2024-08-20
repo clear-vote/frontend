@@ -3,7 +3,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CandidateDrawer } from './CandidateDrawer';
 import { getPinnedCandidate, getHiddenCandidatesList } from '@/utils/index';
 import { Candidate, Contest } from "@/types/index";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 
 interface ContestAccordionsProps {
   selectedContest: Contest;
@@ -28,11 +28,20 @@ const ContestAccordions = ({
   const pinnedCandidate = getPinnedCandidate(selectedContest, pinnedCandidates);
   const hiddenCandidatesList = getHiddenCandidatesList(selectedContest, hiddenCandidates);
 
+  /**Function to change currently open accordion */
+  useEffect(() => {
+    if (pinnedCandidate) {
+      setDefaultAccordion("Pinned");
+    } else {
+      setDefaultAccordion("Unpicked");
+    }
+  }, [pinnedCandidate, setDefaultAccordion]);
+
   return (
     <Accordion key={defaultAccordion} type="single" defaultValue={defaultAccordion} collapsible>
-      {pinnedCandidate && (
-        <AccordionItem value="Pinned">
-          <AccordionTrigger>Pinned</AccordionTrigger>
+      <AccordionItem value="Pinned">
+        <AccordionTrigger>Pinned</AccordionTrigger>
+        {pinnedCandidate ? (
           <AccordionContent>
             <CandidateDrawer
               key={pinnedCandidate.name}
@@ -43,28 +52,17 @@ const ContestAccordions = ({
               setUnpickedCandidates={setUnpickedCandidates}
             />
           </AccordionContent>
-        </AccordionItem>
-      )}
+        ) : (
+          <AccordionContent>
+            <p>No pinned candidate; try pinning a candidate to get started!</p>
+          </AccordionContent>
+        )}
+      </AccordionItem>
       <AccordionItem value="Unpicked">
         <AccordionTrigger>Candidates ({unpickedCandidates.length})</AccordionTrigger>
         <AccordionContent>
-          {unpickedCandidates.map(candidate => (
-            <CandidateDrawer
-              key={candidate.name}
-              contest={selectedContest}
-              candidate={candidate}
-              setDefaultAccordion={setDefaultAccordion}
-              unpickedCandidates={unpickedCandidates}
-              setUnpickedCandidates={setUnpickedCandidates}
-            />
-          ))}
-        </AccordionContent>
-      </AccordionItem>
-      {hiddenCandidatesList.length > 0 && (
-        <AccordionItem value="Hidden">
-          <AccordionTrigger>Hidden Candidates ({hiddenCandidatesList.length})</AccordionTrigger>
-          <AccordionContent>
-            {hiddenCandidatesList.map(candidate => (
+          {(unpickedCandidates.length > 0) ? (
+            unpickedCandidates.map((candidate) => (
               <CandidateDrawer
                 key={candidate.name}
                 contest={selectedContest}
@@ -73,10 +71,35 @@ const ContestAccordions = ({
                 unpickedCandidates={unpickedCandidates}
                 setUnpickedCandidates={setUnpickedCandidates}
               />
-            ))}
-          </AccordionContent>
-        </AccordionItem>
-      )}
+            ))
+          ) : ((pinnedCandidate) ? (
+            <div>No candidates left; unhide or unpin a candidate to choose another.</div>
+          ) : (
+          <div>No candidates left; unhide a candidate to find your pick.</div>
+          ))}
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="Hidden">
+        <AccordionTrigger>Hidden Candidates ({hiddenCandidatesList.length})</AccordionTrigger>
+        <AccordionContent>
+          {(hiddenCandidatesList.length > 0) ? (
+            hiddenCandidatesList.map(candidate => (
+              <div>
+                <CandidateDrawer
+                  key={candidate.name}
+                  contest={selectedContest}
+                  candidate={candidate}
+                  setDefaultAccordion={setDefaultAccordion}
+                  unpickedCandidates={unpickedCandidates}
+                  setUnpickedCandidates={setUnpickedCandidates}
+                />
+              </div>
+            ))
+          ) : (
+            <p>Your hidden candidates will show up here.</p>
+          )}
+        </AccordionContent>
+      </AccordionItem>
     </Accordion>
   );
 };
