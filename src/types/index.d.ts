@@ -33,3 +33,5 @@ export interface Election {
 
 // Defines a type for a function that logs in a user
 export type LoginFunction = (email: string, password: string) => Promise<User>;
+
+export type Politigram = 'community' | 'humanitarianism' | 'prosperity' | 'liberty' | 'stewardship';
