@@ -1,4 +1,4 @@
-import { Candidate, Contest, Election } from '@/types/index';
+import { Candidate, Contest, Election, PinnedCandidates, HiddenCandidates } from '@/types/index';
 
 export const getElectionsRecord = (data: any[]): Record<number, Election> => {
   const electionsRecord: Record<number, Election> = {};
@@ -58,6 +58,40 @@ export const getDefaultEid = (elections: Record<number, Election>, date: Date): 
     }
   }
   return 0;
+}
+
+export const initPinnedCandidates = (elections: Record<number, Election>) => {
+  const pinnedCandidates: PinnedCandidates = {};
+
+  Object.keys(elections).forEach(electionId => {
+    const election: Election = elections[Number(electionId)];
+    pinnedCandidates[election.id] = {};
+    Object.keys(election.contests).forEach(contestId => {
+      if (contestId) {
+        pinnedCandidates[election.id][Number(contestId)] = null;
+      }
+    });
+  });
+
+  console.log("pinnedCandidates", pinnedCandidates);
+  return pinnedCandidates;
+}
+
+export const initHiddenCandidates = (elections: Record<number, Election>) => {
+  const hiddenCandidates: HiddenCandidates = {};
+
+  Object.keys(elections).forEach(electionId => {
+    const election: Election = elections[Number(electionId)];
+    hiddenCandidates[election.id] = {};
+    Object.keys(election.contests).forEach(contestId => {
+      if (contestId) {
+        hiddenCandidates[election.id][Number(contestId)] = new Set();
+      }
+    });
+  });
+
+  console.log("hidden candidates", hiddenCandidates);
+  return hiddenCandidates;
 }
 
 export const convertToDate = (dateString: string): Date => {

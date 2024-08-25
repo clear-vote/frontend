@@ -38,14 +38,11 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election }) => {
 
   // Calculate the number of contests and the difference
   const contestsRemaining = (): number => {
-    if (election === undefined) {
-      throw new Error("No election found.");
-    }
     const numContests = Object.keys(election.contests).length;;
     if (!pinnedCandidates[election.id]) {
       return numContests;
     }
-    return numContests - Object.keys(pinnedCandidates[election.id]).length;
+    return numContests - Object.values(pinnedCandidates[election.id]).filter(value => value !== null).length;
   }
 
   return ( 

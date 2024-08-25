@@ -1,29 +1,28 @@
 // ContestAccordions.tsx
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CandidateDrawer } from './CandidateDrawer';
-import { Contest } from "@/types/index";
+import { Election } from "@/types/index";
 import { Dispatch, SetStateAction } from "react";
+import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 
 interface ContestAccordionsProps {
-  electionId: number;
-  selectedContest: Contest;
+  election: Election;
+  contestId: number;
   pinnedCandidate: number|null;
   hiddenCandidates: Set<number>;
   unpickedCandidates: Set<number>;
+  setUnpickedCandidates: Dispatch<SetStateAction<Set<number>>>;
   defaultAccordion: string;
   setDefaultAccordion: Dispatch<SetStateAction<string>>;
-  setUnpickedCandidates: Dispatch<SetStateAction<Set<number>>>;
 }
 
 const ContestAccordions = ({
-  electionId,
-  selectedContest,
+  election,
+  contestId,
   pinnedCandidate,
   hiddenCandidates,
-  unpickedCandidates,
-  defaultAccordion,
-  setDefaultAccordion,
-  setUnpickedCandidates,
+  unpickedCandidates, setDefaultAccordion,
+  defaultAccordion, setUnpickedCandidates,
 }: ContestAccordionsProps) => {
 
   return (
@@ -33,9 +32,9 @@ const ContestAccordions = ({
           <AccordionTrigger>Pinned</AccordionTrigger>
           <AccordionContent>
             <CandidateDrawer
-              key={selectedContest.candidates[pinnedCandidate].name}
-              electionId={electionId}
-              contest={selectedContest}
+              key={election.contests[contestId].candidates[pinnedCandidate].name}
+              election={election}
+              contestId={contestId}
               candidateId={pinnedCandidate}
               setDefaultAccordion={setDefaultAccordion}
               unpickedCandidates={unpickedCandidates}
@@ -49,9 +48,9 @@ const ContestAccordions = ({
         <AccordionContent>
           {Array.from(unpickedCandidates).map(candidateId => (
             <CandidateDrawer
-              key={selectedContest.candidates[candidateId].name}
-              electionId={electionId}
-              contest={selectedContest}
+              key={election.contests[contestId].candidates[candidateId].name}
+              election={election}
+              contestId={contestId}
               candidateId={candidateId}
               setDefaultAccordion={setDefaultAccordion}
               unpickedCandidates={unpickedCandidates}
@@ -66,9 +65,9 @@ const ContestAccordions = ({
           <AccordionContent>
             {Array.from(hiddenCandidates).map(hiddenCandidate => (
               <CandidateDrawer
-                key={selectedContest.candidates[hiddenCandidate].name}
-                electionId={electionId}
-                contest={selectedContest}
+                key={election.contests[contestId].candidates[hiddenCandidate].name}
+                election={election}
+                contestId={contestId}
                 candidateId={hiddenCandidate}
                 setDefaultAccordion={setDefaultAccordion}
                 unpickedCandidates={unpickedCandidates}

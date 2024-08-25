@@ -4,7 +4,12 @@
 import { useEffect } from 'react';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import ContestPage from './ContestPage';
-import { getElectionsRecord, getDefaultEid } from '@/utils';
+import {
+  getElectionsRecord,
+  getDefaultEid,
+  initHiddenCandidates,
+  initPinnedCandidates
+} from '@/utils';
 import { AnimatedPage } from '../components/AnimatedPage';
 import { ElectionsPage } from './ElectionsPage';
 import Skeleton from '@mui/material/Skeleton';
@@ -18,46 +23,53 @@ const DecisionFlow = () => {
     selectedElection, setElections, 
     setSelectedElection,
     setSelectedContest,
+    setPinnedCandidates,
+    setHiddenCandidates,
     isDesktop
   } = useDecisionFlowContext();
 
   const { data, loading, error } = useFetchData<any>('/data/electionFoo.json');
-  const date = new Date();
 
   useEffect(() => {
-    if (!data) {
+    if (!data)
       return;
-    }
-    
     const electionsRecord: Record<number, Election> = getElectionsRecord(data);
-    if (Object.keys(electionsRecord).length === 0) {
+    if (Object.keys(electionsRecord).length === 0)
       return;
-    }
     setElections(electionsRecord);
-    setSelectedElection(getDefaultEid(elections, date));
-  }, [data]);
+    const defaultEid = getDefaultEid(electionsRecord, new Date());
+    setSelectedElection(defaultEid);
+    setPinnedCandidates(initPinnedCandidates(electionsRecord));
+    setHiddenCandidates(initHiddenCandidates(electionsRecord));
+  }, [data]); // Ensure these dependencies won't cause unnecessary re-renders  
+  
+  if (loading) {
+    console.log("Loading...");
+    return (
+      <div>
+        <Skeleton variant="rectangular" width={210} height={118}>
+          Loading...
+        </Skeleton>
+      </div>
+    );
+  }
+  
+  if (error) {
+    console.log(error);
+    return <div>Error: {error}</div>;
+  }
+  
+  if (!selectedElection || !(selectedElection in elections)) {
+    return <div>No valid election selected.</div>;
+  }
 
-  if (loading) 
-    return <div>
-      <Skeleton variant="rectangular" width={210} height={118}>
-        Loading...
-      </Skeleton>
-    </div>;
-
-  if (error) 
-    return <div>
-      Error: {error}
-    </div>;
+  if (isDesktop) {
+    return <div>Desktop not supported</div>;
+  }
 
   const handleBackClick = () => {
     setSelectedContest(null);
   };
-
-  if (isDesktop) {
-    return (
-      <div>Desktop not supported</div>
-    );
-  }
 
   // Invariant: election should be selected if data has loaded
   if (data !== null && selectedElection !== null && selectedElection in elections) {
@@ -96,7 +108,7 @@ const DecisionFlow = () => {
               return (
                 <AnimatedPage transitionType="contest">
                   <ContestPage 
-                    contest={contest}
+                    election={election}
                     onBackClick={handleBackClick}
                   />
                 </AnimatedPage>

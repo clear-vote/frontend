@@ -1,16 +1,4 @@
 import { HiddenCandidates } from './index.d';
-/* Use interface:
-
-For defining object shapes, especially when you need to extend or merge interfaces.
-When working with classes and needing to enforce a specific shape.
-
-Use type:
-
-For creating complex types, such as unions, intersections, and tuple types.
-When you need type aliases for primitives or when working with more complex type compositions. */
-
-// Defines a basic user type
-
 import { SelectionStatus } from "@/utils";
 
 export interface Candidate {
