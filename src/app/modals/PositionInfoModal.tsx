@@ -1,4 +1,4 @@
-// PositionInfo.tsx
+// PositionInfoModal.tsx
 import { useState } from 'react';
 import {
   Dialog,
@@ -11,11 +11,11 @@ import {
 import { Button } from "@/components/ui/button";
 import HelpOutlineRoundedIcon from '@mui/icons-material/HelpOutlineRounded';
 
-type PositionInfoProps = {
+type PositionInfoModalProps = {
   position: string;
 };
 
-const PositionInfo = ({ position }: PositionInfoProps) => {
+const PositionInfoModal = ({ position }: PositionInfoModalProps) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   let dialogDescription = '';
@@ -53,4 +53,4 @@ const PositionInfo = ({ position }: PositionInfoProps) => {
   );
 };
 
-export default PositionInfo;
+export default PositionInfoModal;

@@ -1,7 +1,8 @@
-interface BallotCardProps {
+// TODO:
+// interface BallotCardProps {
 
-}
+// }
 
-export const BallotCard: React.FC<BallotCardProps> = ({  }) => {
+// export const BallotCard: React.FC<BallotCardProps> = ({  }) => {
 
-}
+// }

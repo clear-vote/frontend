@@ -1,46 +1,52 @@
 'use client'
 
 import React, { createContext, useContext, useState } from 'react';
-import { Candidate, Contest, Election } from '@/types/index';
+import { Candidate, Contest, Election, Politigram } from '@/types/index';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { PinnedCandidates, HiddenCandidates } from '@/types/index';
 
-interface DecisionFlowContextType {
-  elections: Election[];
-  setElections: (elections: Election[]) => void;
-  selectedContest: Contest | null;
-  setSelectedContest: (selectedContest: Contest | null) => void;
-  selectedElectionId: number;
-  setSelectedElectionId: (selectedElectionId: number) => void;
-  pinnedCandidates: Set<Candidate>;
-  setPinnedCandidates: (pinnedCandidates: Set<Candidate>) => void;
-  hiddenCandidates: Set<Candidate>;
-  setHiddenCandidates: (hiddenCandidates: Set<Candidate>) => void;
+interface DecisionFlowContextProps {
+  elections: Record<number, Election>;
+  setElections: React.Dispatch<React.SetStateAction<Record<number, Election>>>;
+  
+  selectedElection: number | null;
+  setSelectedElection: React.Dispatch<React.SetStateAction<number | null>>;
+  
+  selectedContest: number | null;
+  setSelectedContest: React.Dispatch<React.SetStateAction<number | null>>;
+
+  pinnedCandidates: PinnedCandidates;
+  setPinnedCandidates: React.Dispatch<React.SetStateAction<PinnedCandidates>>;
+  
+  hiddenCandidates: Record<number, Record<number, Set<number>>>;
+  setHiddenCandidates: React.Dispatch<React.SetStateAction<Record<number, Record<number, Set<number>>>>>;
+
+  selectedPolitigram: Politigram | null;
+  setSelectedPolitigram: React.Dispatch<React.SetStateAction<Politigram | null>>;
+
   isDesktop: boolean;
 }
 
-const DecisionFlowContext = createContext<DecisionFlowContextType | undefined>(undefined);
+const DecisionFlowContext = createContext<DecisionFlowContextProps | undefined>(undefined);
 
 export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [elections, setElections] = useState<Election[]>([]);
-  const [selectedContest, setSelectedContest] = useState<Contest | null>(null);
-  const [selectedElectionId, setSelectedElectionId] = useState<number>(0);
-  const [pinnedCandidates, setPinnedCandidates] = useState<Set<Candidate>>(new Set());
-  const [hiddenCandidates, setHiddenCandidates] = useState<Set<Candidate>>(new Set());
+  const [elections, setElections] = useState<Record<number, Election>>({});
+  const [selectedElection, setSelectedElection] = useState<number | null>(null);
+  const [selectedContest, setSelectedContest] = useState<number | null>(null);
+  const [pinnedCandidates, setPinnedCandidates] = useState<PinnedCandidates>({});
+  const [hiddenCandidates, setHiddenCandidates] = useState<HiddenCandidates>({});
+  const [selectedPolitigram, setSelectedPolitigram] = useState<Politigram | null>(null);
   const isDesktop = useMediaQuery('(min-width:600px)');
 
   return (
     <DecisionFlowContext.Provider
       value={{
-        elections,
-        setElections,
-        selectedContest,
-        setSelectedContest,
-        selectedElectionId,
-        setSelectedElectionId,
-        pinnedCandidates,
-        setPinnedCandidates,
-        hiddenCandidates,
-        setHiddenCandidates,
+        elections, setElections,
+        selectedElection, setSelectedElection,
+        selectedContest, setSelectedContest,
+        pinnedCandidates, setPinnedCandidates,
+        hiddenCandidates, setHiddenCandidates,
+        selectedPolitigram, setSelectedPolitigram,
         isDesktop,
       }}
     >
@@ -51,7 +57,7 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
 
 export const useDecisionFlowContext = () => {
   const context = useContext(DecisionFlowContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useDecisionFlowContext must be used within a DecisionFlowProvider');
   }
   return context;
