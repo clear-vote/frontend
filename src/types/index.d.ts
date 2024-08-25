@@ -1,3 +1,4 @@
+import { HiddenCandidates } from './index.d';
 /* Use interface:
 
 For defining object shapes, especially when you need to extend or merge interfaces.
@@ -13,23 +14,46 @@ When you need type aliases for primitives or when working with more complex type
 import { SelectionStatus } from "@/utils";
 
 export interface Candidate {
+  id: number;
   name: string;
-  website: string;
-  selection_status: SelectionStatus
+  website: string|null;
+  image: string|null;
+  politigram: object|null; // TODO: if this is null, we DO NOT use the candidate
+  priorities: object[]|null;
+  financing: object|null; // not yet implemented fully TODO: help us support this
+  background: object[]|null;
+  sources: object[]|null;
 }
 
 export interface Contest {
-  title_string: string;
-  area_name: string;
-  district_char: string;
-  position_char: string;
-  candidates: Candidate[];
+  id: number;
+  title: string;
+  jurisdiction: string;
+  district: string;
+  position: string;
+  candidates: Record<number, Candidate>;
 }
 
 export interface Election {
-  election_id: number;
-  contests: Contest[];
+  id: number;
+  type: string;
+  voting_start: Date;
+  register_by: Date;
+  voting_end: Date;
+  contests: Record<number, Contest>;
 }
+
+export type PinnedCandidates = {
+  [electionId: number]: {
+    [contestId: number]: number | null;
+  };
+};
+
+export type HiddenCandidates = {
+  [electionId: number]: {
+    [contestId: number]: Set<number>;
+  };
+};
 
 // Defines a type for a function that logs in a user
 export type LoginFunction = (email: string, password: string) => Promise<User>;

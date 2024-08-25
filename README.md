@@ -16,4 +16,5 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 TODO:
 
-Figure out how to control the view with JUST the contest being selected
+- Figure out how to control the view with JUST the contest being selected
+- update this. gets the most 2nd most recent election in the data. setSelectedElectionId(elections[elections.length - 2].id);

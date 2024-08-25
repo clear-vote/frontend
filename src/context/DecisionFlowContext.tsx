@@ -3,54 +3,46 @@
 import React, { createContext, useContext, useState } from 'react';
 import { Candidate, Contest, Election, Politigram } from '@/types/index';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { PinnedCandidates, HiddenCandidates } from '@/types/index';
 
-interface DecisionFlowContextType {
-  elections: Election[];
-  setElections: (elections: Election[]) => void;
+interface DecisionFlowContextProps {
+  elections: Record<number, Election>;
+  setElections: React.Dispatch<React.SetStateAction<Record<number, Election>>>;
   
-  selectedElectionId: number;
-  setSelectedElectionId: (selectedElectionId: number) => void;
+  selectedElection: number | null;
+  setSelectedElection: React.Dispatch<React.SetStateAction<number | null>>;
   
-  // TODO: selectedContestId: number|null;
-  selectedContest: Contest|null;
-  setSelectedContest: (selectedContest: Contest|null) => void;
+  selectedContest: number | null;
+  setSelectedContest: React.Dispatch<React.SetStateAction<number | null>>;
 
-  // TODO: pinnedCandidates: Map<number, number>();
-  // contestID -> candidateID 
-  // remove the k/v if undoing
-  pinnedCandidates: Set<Candidate>;
-  setPinnedCandidates: (pinnedCandidates: Set<Candidate>) => void;
+  pinnedCandidates: PinnedCandidates;
+  setPinnedCandidates: React.Dispatch<React.SetStateAction<PinnedCandidates>>;
   
-  // TODO: hiddenCandidates: Map<number, Set<number>>
-  // remove k/v if last set
-  hiddenCandidates: Set<Candidate>;
-  setHiddenCandidates: (hiddenCandidates: Set<Candidate>) => void;
+  hiddenCandidates: Record<number, Record<number, Set<number>>>;
+  setHiddenCandidates: React.Dispatch<React.SetStateAction<Record<number, Record<number, Set<number>>>>>;
 
-  // This remains constant accross all instances
-  selectedPolitigram: Politigram|null;
-  setSelectedPolitigram: (selectedpolitigram: Politigram|null) => void;
+  selectedPolitigram: Politigram | null;
+  setSelectedPolitigram: React.Dispatch<React.SetStateAction<Politigram | null>>;
 
   isDesktop: boolean;
 }
 
-const DecisionFlowContext = createContext<DecisionFlowContextType | undefined>(undefined);
+const DecisionFlowContext = createContext<DecisionFlowContextProps | undefined>(undefined);
 
 export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [elections, setElections] = useState<Election[]>([]);
-  const [selectedElectionId, setSelectedElectionId] = useState<number>(0);
-  const [selectedContest, setSelectedContest] = useState<Contest|null>(null);
-  // TODO:
-  const [pinnedCandidates, setPinnedCandidates] = useState<Set<Candidate>>(new Set());
-  // TODO:
-  const [hiddenCandidates, setHiddenCandidates] = useState<Set<Candidate>>(new Set());
-  const [selectedPolitigram, setSelectedPolitigram] = useState<Politigram|null>(null);
+  const [elections, setElections] = useState<Record<number, Election>>({});
+  const [selectedElection, setSelectedElection] = useState<number | null>(null);
+  const [selectedContest, setSelectedContest] = useState<number | null>(null);
+  const [pinnedCandidates, setPinnedCandidates] = useState<PinnedCandidates>({});
+  const [hiddenCandidates, setHiddenCandidates] = useState<HiddenCandidates>({});
+  const [selectedPolitigram, setSelectedPolitigram] = useState<Politigram | null>(null);
   const isDesktop = useMediaQuery('(min-width:600px)');
 
   return (
     <DecisionFlowContext.Provider
       value={{
         elections, setElections,
-        selectedElectionId, setSelectedElectionId,
+        selectedElection, setSelectedElection,
         selectedContest, setSelectedContest,
         pinnedCandidates, setPinnedCandidates,
         hiddenCandidates, setHiddenCandidates,
@@ -65,7 +57,7 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
 
 export const useDecisionFlowContext = () => {
   const context = useContext(DecisionFlowContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useDecisionFlowContext must be used within a DecisionFlowProvider');
   }
   return context;

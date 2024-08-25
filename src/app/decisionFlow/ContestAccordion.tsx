@@ -1,32 +1,30 @@
 // ContestAccordions.tsx
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CandidateDrawer } from './CandidateDrawer';
-import { getPinnedCandidate, getHiddenCandidatesList } from '@/utils/index';
-import { Candidate, Contest } from "@/types/index";
+import { Contest } from "@/types/index";
 import { Dispatch, SetStateAction } from "react";
 
 interface ContestAccordionsProps {
+  electionId: number;
   selectedContest: Contest;
-  pinnedCandidates: Set<Candidate>;
-  hiddenCandidates: Set<Candidate>;
-  unpickedCandidates: Candidate[];
+  pinnedCandidate: number|null;
+  hiddenCandidates: Set<number>;
+  unpickedCandidates: Set<number>;
   defaultAccordion: string;
   setDefaultAccordion: Dispatch<SetStateAction<string>>;
-  setUnpickedCandidates: Dispatch<SetStateAction<Candidate[]>>;
+  setUnpickedCandidates: Dispatch<SetStateAction<Set<number>>>;
 }
 
 const ContestAccordions = ({
+  electionId,
   selectedContest,
-  pinnedCandidates,
+  pinnedCandidate,
   hiddenCandidates,
   unpickedCandidates,
   defaultAccordion,
   setDefaultAccordion,
   setUnpickedCandidates,
 }: ContestAccordionsProps) => {
-
-  const pinnedCandidate = getPinnedCandidate(selectedContest, pinnedCandidates);
-  const hiddenCandidatesList = getHiddenCandidatesList(selectedContest, hiddenCandidates);
 
   return (
     <Accordion key={defaultAccordion} type="single" defaultValue={defaultAccordion} collapsible>
@@ -35,9 +33,10 @@ const ContestAccordions = ({
           <AccordionTrigger>Pinned</AccordionTrigger>
           <AccordionContent>
             <CandidateDrawer
-              key={pinnedCandidate.name}
+              key={selectedContest.candidates[pinnedCandidate].name}
+              electionId={electionId}
               contest={selectedContest}
-              candidate={pinnedCandidate}
+              candidateId={pinnedCandidate}
               setDefaultAccordion={setDefaultAccordion}
               unpickedCandidates={unpickedCandidates}
               setUnpickedCandidates={setUnpickedCandidates}
@@ -46,13 +45,14 @@ const ContestAccordions = ({
         </AccordionItem>
       )}
       <AccordionItem value="Unpicked">
-        <AccordionTrigger>Candidates ({unpickedCandidates.length})</AccordionTrigger>
+        <AccordionTrigger>Candidates {unpickedCandidates.size}</AccordionTrigger>
         <AccordionContent>
-          {unpickedCandidates.map(candidate => (
+          {Array.from(unpickedCandidates).map(candidateId => (
             <CandidateDrawer
-              key={candidate.name}
+              key={selectedContest.candidates[candidateId].name}
+              electionId={electionId}
               contest={selectedContest}
-              candidate={candidate}
+              candidateId={candidateId}
               setDefaultAccordion={setDefaultAccordion}
               unpickedCandidates={unpickedCandidates}
               setUnpickedCandidates={setUnpickedCandidates}
@@ -60,15 +60,16 @@ const ContestAccordions = ({
           ))}
         </AccordionContent>
       </AccordionItem>
-      {hiddenCandidatesList.length > 0 && (
+      {hiddenCandidates.size > 0 && (
         <AccordionItem value="Hidden">
-          <AccordionTrigger>Hidden Candidates ({hiddenCandidatesList.length})</AccordionTrigger>
+          <AccordionTrigger>Hidden Candidates ({hiddenCandidates.size})</AccordionTrigger>
           <AccordionContent>
-            {hiddenCandidatesList.map(candidate => (
+            {Array.from(hiddenCandidates).map(hiddenCandidate => (
               <CandidateDrawer
-                key={candidate.name}
+                key={selectedContest.candidates[hiddenCandidate].name}
+                electionId={electionId}
                 contest={selectedContest}
-                candidate={candidate}
+                candidateId={hiddenCandidate}
                 setDefaultAccordion={setDefaultAccordion}
                 unpickedCandidates={unpickedCandidates}
                 setUnpickedCandidates={setUnpickedCandidates}

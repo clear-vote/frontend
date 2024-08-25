@@ -1,12 +1,6 @@
-// TODO:
-// move this all to ballot cart
-// implement precinctMapCard
-// implement progressCard
-// implement election details card
+// ElectionsPage.tsx
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
-import { Contest } from "@/types/index";
-import { getElectionIndex } from "@/utils";
-import Skeleton from '@mui/material/Skeleton';
+import { Contest, Election } from "@/types/index";
 import { ProgressCard } from "@/app/cards/ProgressCard";
 import { PrecinctMapCard } from "@/app/cards/PrecinctMapCard";
 import { ElectionDetailsCard } from "@/app/cards/ElectionDetailsCard";
@@ -19,17 +13,21 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 
-export const ElectionsPage = () => {
+interface ElectionsPageProps {
+  election: Election;
+}
+
+export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election }) => {
   const { 
     elections, 
     setSelectedContest,
-    selectedElectionId, setSelectedElectionId,
+    setSelectedElection,
     isDesktop,
     pinnedCandidates // Assuming pinnedCandidates is part of the context
   } = useDecisionFlowContext();
 
   const handleContestClick = (contest: Contest) => {
-    setSelectedContest(contest);
+    setSelectedContest(contest.id);
   };
 
   if (isDesktop) {
@@ -39,43 +37,42 @@ export const ElectionsPage = () => {
   }
 
   // Calculate the number of contests and the difference
-  const numberOfContests = elections.length > 0
-    ? getElectionIndex(elections, selectedElectionId) !== -1
-      ? elections[getElectionIndex(elections, selectedElectionId)].contests?.length || 0
-      : 0
-    : 0;
-  const difference = numberOfContests - (pinnedCandidates.size || 0);
+  const contestsRemaining = (): number => {
+    if (election === undefined) {
+      throw new Error("No election found.");
+    }
+    const numContests = Object.keys(election.contests).length;;
+    if (!pinnedCandidates[election.id]) {
+      return numContests;
+    }
+    return numContests - Object.keys(pinnedCandidates[election.id]).length;
+  }
 
   return ( 
     <div>
-      {elections.length <= 0 ? (
-        <Skeleton variant="rectangular" width={210} height={118} />
-      ) : (
+      <PrecinctMapCard />
+      <ElectionDetailsCard setSelectedElectionId={setSelectedElection}/>
+      {
         (() => {
-          const electionIndex = getElectionIndex(elections, selectedElectionId);
-          if (electionIndex !== -1 && elections[electionIndex].contests) {
-            return (
-              <>
-                <PrecinctMapCard />
-                <ElectionDetailsCard 
-                  elections={elections} 
-                  setSelectedElectionId={setSelectedElectionId}
-                />
-                <ProgressCard difference={difference}/>
-                {elections[electionIndex].contests.map((contest) => (
-                  <div key={`${contest.title_string} ${contest.area_name}`}>
+          const selectedElectionData = elections[election.id];
+          return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
+            <>
+              <ProgressCard difference={contestsRemaining()}/>
+              {
+                Object.values(selectedElectionData.contests).map((contest) => (
+                  <div key={`${contest.title} ${contest.jurisdiction}`}>
                     <Button variant="outline" onClick={() => handleContestClick(contest)}>
-                      {`${contest.area_name} ${contest.title_string}`}
+                      {`${contest.jurisdiction} ${contest.title}`}
                     </Button>
                   </div>
-                ))}
-              </>
-            );
-          } else {
-            return <p>No contests found for the selected election.</p>;
-          }
+                ))
+              }
+            </>
+          ) : (
+            <p>No contests found for the selected election.</p>
+          );
         })()
-      )}
+      }
     </div>
   );
 };
