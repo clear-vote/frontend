@@ -1,3 +1,5 @@
+/* ElectionDetailsCard.tsx */
+
 import { Election } from '@/types/index';
 import { getSortedElections } from '@/utils/index';
 import {
@@ -12,27 +14,50 @@ import {
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 
 interface ElectionDetailsCardProps {
-  setSelectedElectionId: (selectedElectionId: number) => void;
+  setDropdownIsOpen: (isOpen: boolean) => void;
 }
 
-export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({setSelectedElectionId}: ElectionDetailsCardProps) => {
+export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDropdownIsOpen }) => {
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  const { elections } = useDecisionFlowContext();
+  const { elections, setSelectedElection, selectedElection } = useDecisionFlowContext();
+
+  const handleValueChange = (value: string) => {
+    setSelectedElection(Number(value));
+  };
+
+  const formatElectionLabel = (election: Election) => {
+    return `${election.voting_end.getFullYear()} ${months[election.voting_end.getMonth()]} ${election.type}`;
+  };
+
+  const handleOpenChange = (isOpen: boolean) => {
+    if (isOpen) {
+      setDropdownIsOpen(true);
+    } else {
+      setTimeout(() => {
+        setDropdownIsOpen(false);
+      }, 50);
+    }
+  };
 
   return (
-    <Select>
+    <Select 
+      value={selectedElection?.toString()}
+      onValueChange={handleValueChange}
+      onOpenChange={handleOpenChange}
+    >
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select an election" />
+        <SelectValue placeholder="Select an election">
+          {selectedElection !== undefined && formatElectionLabel(elections[selectedElection!])}
+        </SelectValue>
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
           {getSortedElections(elections).map((election: Election) => (
             <SelectItem
               key={election.id}
-              value={`${election.id}`}
-              onSelect={() => setSelectedElectionId(election.id)}
+              value={election.id.toString()}
             >
-              {election.voting_end.getFullYear()} {months[election.voting_end.getMonth()]} {election.type}
+              {formatElectionLabel(election)}
             </SelectItem>
           ))}
         </SelectGroup>

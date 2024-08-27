@@ -15,6 +15,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 TODO:
-
-- Figure out how to control the view with JUST the contest being selected
-- update this. gets the most 2nd most recent election in the data. setSelectedElectionId(elections[elections.length - 2].id);
+- Candidate Card inside
+- Buttons inside
+- lil invisible box that fades
+- Carosul
+- start email card (for animations)
+- Connect Precinct mapper
+- cleanup, rearrange

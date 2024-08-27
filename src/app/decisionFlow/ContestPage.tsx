@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ContestAccordions from './ContestAccordion';
 import PositionInfo from '@/app/modals/PositionInfoModal';
-import { Candidate, PinnedCandidates, HiddenCandidates, Election } from "@/types/index";
+import { Candidate, Election } from "@/types/index";
 
 interface ContestPageProps {
   election: Election;
@@ -17,7 +17,7 @@ const ContestPage: React.FC<ContestPageProps> = ({ election, onBackClick }) => {
     selectedElection,
     selectedContest,
     pinnedCandidates, setPinnedCandidates,
-    hiddenCandidates, setHiddenCandidates,
+    hiddenCandidates,
     isDesktop 
   } = useDecisionFlowContext();
   
@@ -38,7 +38,6 @@ const ContestPage: React.FC<ContestPageProps> = ({ election, onBackClick }) => {
         ).map(candidate => candidate.id)
       )
     );
-    console.log('NEW UnpickedCandidates:', unpickedCandidates);
   }, [selectedElection, selectedContest, pinnedCandidates, setPinnedCandidates]);
 
   if (isDesktop) {
@@ -60,9 +59,8 @@ const ContestPage: React.FC<ContestPageProps> = ({ election, onBackClick }) => {
 
       <ContestAccordions
         election={election}
-        contestId={selectedContest}
         pinnedCandidate={pinnedCandidates[selectedElection][selectedContest]}
-        hiddenCandidates={hiddenCandidates[selectedElection][selectedContest]}
+        hiddenCandidateSet={hiddenCandidates[selectedElection][selectedContest]}
         unpickedCandidates={unpickedCandidates}
         defaultAccordion={defaultAccordion}
         setDefaultAccordion={setDefaultAccordion}

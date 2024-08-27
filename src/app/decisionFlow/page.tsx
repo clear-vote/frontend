@@ -1,7 +1,7 @@
 // page.tsx
 'use client'
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import ContestPage from './ContestPage';
 import {
@@ -27,9 +27,17 @@ const DecisionFlow = () => {
     setHiddenCandidates,
     isDesktop
   } = useDecisionFlowContext();
+  const {
+    data,
+    loading,
+    error
+  } = useFetchData<any>('/data/electionFoo.json');
+  
+  // when back button is pressed on contest, this sets to false IMMEDIATELY
+  // when a contest is clicked, this there is a slight delay before this is set
+  const [inContestPage, setInContestPage] = useState(false);
 
-  const { data, loading, error } = useFetchData<any>('/data/electionFoo.json');
-
+  // This renders page when new data is available
   useEffect(() => {
     if (!data)
       return;
@@ -42,6 +50,7 @@ const DecisionFlow = () => {
     setPinnedCandidates(initPinnedCandidates(electionsRecord));
     setHiddenCandidates(initHiddenCandidates(electionsRecord));
   }, [data]); // Ensure these dependencies won't cause unnecessary re-renders  
+
   
   if (loading) {
     console.log("Loading...");
@@ -62,13 +71,27 @@ const DecisionFlow = () => {
   if (!selectedElection || !(selectedElection in elections)) {
     return <div>No valid election selected.</div>;
   }
-
+  
   if (isDesktop) {
     return <div>Desktop not supported</div>;
   }
-
+  
+  // selectedContest is set via the button, here we are just delaying the animation of the contest page
+  const handleForwardClick = (contestId: number) => {
+    setSelectedContest(contestId);
+    const timer = setTimeout(() => {
+      setInContestPage(true);
+    }, 200);
+    return () => clearTimeout(timer);
+  };
+  
+  // we are delaying the deselection of the selected contest, for animation purposes
   const handleBackClick = () => {
-    setSelectedContest(null);
+    setInContestPage(false);
+    const timer = setTimeout(() => {
+      setSelectedContest(null);
+    }, 200);
+    return () => clearTimeout(timer);
   };
 
   // Invariant: election should be selected if data has loaded
@@ -87,8 +110,11 @@ const DecisionFlow = () => {
             pointerEvents: selectedContest === null ? 'auto' : 'none',
           }}
         >        
-          <AnimatedPage transitionType="elections">
-            <ElectionsPage election={election} />
+          <AnimatedPage page='left' isActive={selectedContest === null && !inContestPage}>
+            <ElectionsPage 
+              election={election} 
+              onForwardClick={handleForwardClick}
+            />
           </AnimatedPage>
         </div>
         <div
@@ -106,7 +132,7 @@ const DecisionFlow = () => {
             selectedContest !== null && (() => {
               const contest: Contest = election.contests[selectedContest];
               return (
-                <AnimatedPage transitionType="contest">
+                <AnimatedPage page='right' isActive={selectedContest !== null && inContestPage}>
                   <ContestPage 
                     election={election}
                     onBackClick={handleBackClick}
