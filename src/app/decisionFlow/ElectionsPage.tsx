@@ -1,4 +1,5 @@
-// ElectionsPage.tsx
+/* ElectionsPage.tsx */
+
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { Contest, Election } from "@/types/index";
 import { ProgressCard } from "@/app/cards/ProgressCard";
@@ -12,23 +13,23 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 interface ElectionsPageProps {
   election: Election;
+  onForwardClick: (contestId: number) => void;
 }
 
-export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election }) => {
+export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election, onForwardClick }) => {
   const { 
     elections, 
     setSelectedContest,
-    setSelectedElection,
     isDesktop,
     pinnedCandidates // Assuming pinnedCandidates is part of the context
   } = useDecisionFlowContext();
 
-  const handleContestClick = (contest: Contest) => {
-    setSelectedContest(contest.id);
-  };
+  // This prevents the user from clicking elements on the drop down behind itself
+  const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
 
   if (isDesktop) {
     return (
@@ -48,7 +49,9 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election }) => {
   return ( 
     <div>
       <PrecinctMapCard />
-      <ElectionDetailsCard setSelectedElectionId={setSelectedElection}/>
+      <ElectionDetailsCard
+        setDropdownIsOpen={setDropdownIsOpen}
+      />
       {
         (() => {
           const selectedElectionData = elections[election.id];
@@ -57,8 +60,14 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election }) => {
               <ProgressCard difference={contestsRemaining()}/>
               {
                 Object.values(selectedElectionData.contests).map((contest) => (
-                  <div key={`${contest.title} ${contest.jurisdiction}`}>
-                    <Button variant="outline" onClick={() => handleContestClick(contest)}>
+                  <div 
+                    key={`${contest.title} ${contest.jurisdiction}`}
+                    style={{ pointerEvents: dropdownIsOpen ? 'none' : 'auto' }}
+                  >
+                    <Button 
+                      variant="outline" 
+                      onClick={() => onForwardClick(contest.id)}
+                    >
                       {`${contest.jurisdiction} ${contest.title}`}
                     </Button>
                   </div>

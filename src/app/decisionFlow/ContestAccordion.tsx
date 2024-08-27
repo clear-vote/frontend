@@ -7,9 +7,8 @@ import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 
 interface ContestAccordionsProps {
   election: Election;
-  contestId: number;
   pinnedCandidate: number|null;
-  hiddenCandidates: Set<number>;
+  hiddenCandidateSet: Set<number>;
   unpickedCandidates: Set<number>;
   setUnpickedCandidates: Dispatch<SetStateAction<Set<number>>>;
   defaultAccordion: string;
@@ -18,25 +17,24 @@ interface ContestAccordionsProps {
 
 const ContestAccordions = ({
   election,
-  contestId,
   pinnedCandidate,
-  hiddenCandidates,
-  unpickedCandidates, setDefaultAccordion,
-  defaultAccordion, setUnpickedCandidates,
+  hiddenCandidateSet,
+  unpickedCandidates, setUnpickedCandidates
 }: ContestAccordionsProps) => {
 
+  const { selectedContest } = useDecisionFlowContext();
+  if (selectedContest === null) return null;
+
   return (
-    <Accordion key={defaultAccordion} type="single" defaultValue={defaultAccordion} collapsible>
+    <Accordion key={pinnedCandidate} type="single" defaultValue={pinnedCandidate ? "Pinned" : "Unpicked"} collapsible>
       {pinnedCandidate && (
         <AccordionItem value="Pinned">
           <AccordionTrigger>Pinned</AccordionTrigger>
           <AccordionContent>
             <CandidateDrawer
-              key={election.contests[contestId].candidates[pinnedCandidate].name}
+              key={election.contests[selectedContest].candidates[pinnedCandidate].name}
               election={election}
-              contestId={contestId}
               candidateId={pinnedCandidate}
-              setDefaultAccordion={setDefaultAccordion}
               unpickedCandidates={unpickedCandidates}
               setUnpickedCandidates={setUnpickedCandidates}
             />
@@ -46,30 +44,26 @@ const ContestAccordions = ({
       <AccordionItem value="Unpicked">
         <AccordionTrigger>Candidates {unpickedCandidates.size}</AccordionTrigger>
         <AccordionContent>
-          {Array.from(unpickedCandidates).map(candidateId => (
+          {Array.from(unpickedCandidates).map(unpickedCandidate => (
             <CandidateDrawer
-              key={election.contests[contestId].candidates[candidateId].name}
+              key={election.contests[selectedContest].candidates[unpickedCandidate].name}
               election={election}
-              contestId={contestId}
-              candidateId={candidateId}
-              setDefaultAccordion={setDefaultAccordion}
+              candidateId={unpickedCandidate}
               unpickedCandidates={unpickedCandidates}
               setUnpickedCandidates={setUnpickedCandidates}
             />
           ))}
         </AccordionContent>
       </AccordionItem>
-      {hiddenCandidates.size > 0 && (
+      {hiddenCandidateSet.size > 0 && (
         <AccordionItem value="Hidden">
-          <AccordionTrigger>Hidden Candidates ({hiddenCandidates.size})</AccordionTrigger>
+          <AccordionTrigger>Hidden Candidates ({hiddenCandidateSet.size})</AccordionTrigger>
           <AccordionContent>
-            {Array.from(hiddenCandidates).map(hiddenCandidate => (
+            {Array.from(hiddenCandidateSet).map(hiddenCandidate => (
               <CandidateDrawer
-                key={election.contests[contestId].candidates[hiddenCandidate].name}
+                key={election.contests[selectedContest].candidates[hiddenCandidate].name}
                 election={election}
-                contestId={contestId}
                 candidateId={hiddenCandidate}
-                setDefaultAccordion={setDefaultAccordion}
                 unpickedCandidates={unpickedCandidates}
                 setUnpickedCandidates={setUnpickedCandidates}
               />

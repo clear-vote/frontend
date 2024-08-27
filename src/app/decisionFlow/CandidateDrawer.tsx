@@ -26,24 +26,23 @@ import { CandidateListItem } from "@/app/cards/CandidateListCard";
 
 interface CandidateDrawerProps {
   election: Election;
-  contestId: number;
   candidateId: number;
-  setDefaultAccordion: Dispatch<SetStateAction<string>>;
   unpickedCandidates: Set<number>;
   setUnpickedCandidates: Dispatch<SetStateAction<Set<number>>>;
 }
 
 //CandidateDrawer.tsx
 export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
-  { election, contestId, candidateId, 
-    setDefaultAccordion, 
+  { election, candidateId, 
     unpickedCandidates, setUnpickedCandidates }) => {
   
   const {
+    selectedContest,
     pinnedCandidates, setPinnedCandidates,
     hiddenCandidates, setHiddenCandidates,
     isDesktop
   } = useDecisionFlowContext();
+  if (selectedContest === null) return;
 
   const [open, setOpen] = React.useState(false)
 
@@ -55,43 +54,43 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <CandidateListItem
-          name={election.contests[contestId].candidates[candidateId].name}
-          website={election.contests[contestId].candidates[candidateId].website}
+          name={election.contests[selectedContest].candidates[candidateId].name}
+          website={election.contests[selectedContest].candidates[candidateId].website}
         />
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
           <DrawerTitle>
-            {election.contests[contestId].jurisdiction}
-            {election.contests[contestId].title}
-            {election.contests[contestId].district ? "District " + election.contests[contestId].district : ""}
-            {election.contests[contestId].position ? "Position " + election.contests[contestId].position : ""}
-            {election.contests[contestId].candidates[candidateId].name}
+            {election.contests[selectedContest].jurisdiction}
+            {election.contests[selectedContest].title}
+            {election.contests[selectedContest].district ? "District " + election.contests[selectedContest].district : ""}
+            {election.contests[selectedContest].position ? "Position " + election.contests[selectedContest].position : ""}
+            {election.contests[selectedContest].candidates[candidateId].name}
           </DrawerTitle>
-          <CandidateCard candidate={election.contests[contestId].candidates[candidateId]}/>
+          <CandidateCard candidate={election.contests[selectedContest].candidates[candidateId]}/>
         </DrawerHeader>
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
-            { !pinnedCandidates[election.id][contestId] ?
-              <Button 
+            { (pinnedCandidates[election.id][selectedContest] !== candidateId) ?
+              <Button
                 variant="outline"
                 onClick={() => {
                   // Move current pinned candidate back to unpinned state
-                  const currentPinnedCandidate = pinnedCandidates[election.id][contestId];
+                  const currentPinnedCandidate = pinnedCandidates[election.id][selectedContest];
                   if (currentPinnedCandidate) {
                     setUnpickedCandidates(new Set(unpickedCandidates).add(currentPinnedCandidate));
                   }
 
                   // Remove the new candidate from the list of hidden candidates, if they are on it
-                  if (hiddenCandidates[election.id][contestId].has(candidateId)) {
+                  if (hiddenCandidates[election.id][selectedContest].has(candidateId)) {
                     const updatedHiddenCandidates: HiddenCandidates = {
                       ...hiddenCandidates,
                       [election.id]: {
                         ...hiddenCandidates[election.id],
-                        [contestId]: new Set(hiddenCandidates[election.id][contestId])
+                        [selectedContest]: new Set(hiddenCandidates[election.id][selectedContest])
                       }
                     };
-                    updatedHiddenCandidates[election.id][contestId].delete(candidateId);
+                    updatedHiddenCandidates[election.id][selectedContest].delete(candidateId);
                     setHiddenCandidates(updatedHiddenCandidates);
                   }
 
@@ -100,14 +99,11 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
                     ...pinnedCandidates,
                     [election.id]: {
                       ...pinnedCandidates[election.id],
-                      [contestId]: null
+                      [selectedContest]: null
                     }
                   };
-                  updatedPinnedCandidates[election.id][contestId] = candidateId;
+                  updatedPinnedCandidates[election.id][selectedContest] = candidateId;
                   setPinnedCandidates(updatedPinnedCandidates);
-
-                  // Set accordion state to pinned, so it will show up by default
-                  setDefaultAccordion("Pinned");
                 }}
               >
                 Pin Candidate
@@ -120,16 +116,13 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
                     ...pinnedCandidates,
                     [election.id]: {
                       ...pinnedCandidates[election.id],
-                      [contestId]: null
+                      [selectedContest]: null
                     }
                   };
                   setPinnedCandidates(updatedPinnedCandidates);
 
                   // Add the candidate to the unpicked set
                   setUnpickedCandidates(new Set(unpickedCandidates).add(candidateId));
-                  
-                  // set the state back to unpicked
-                  setDefaultAccordion("Unpicked");
                 }}
               >
                 Unpin Candidate
@@ -137,17 +130,17 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
             } 
           </DrawerClose>
           <DrawerClose asChild>
-            { !hiddenCandidates[election.id][contestId].has(candidateId) ?
+            { !hiddenCandidates[election.id][selectedContest].has(candidateId) ?
               <Button 
                 variant="outline"
                 onClick={() => {
                   // Remove the candidate from pinned candidates
-                  if (pinnedCandidates[election.id][contestId] === candidateId) {
+                  if (pinnedCandidates[election.id][selectedContest] === candidateId) {
                     const updatedPinnedCandidates: PinnedCandidates = {
                       ...pinnedCandidates,
                       [election.id]: {
                         ...pinnedCandidates[election.id],
-                        [contestId]: null
+                        [selectedContest]: null
                       }
                     };
                     setPinnedCandidates(updatedPinnedCandidates);
@@ -163,14 +156,11 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
                     ...hiddenCandidates,
                     [election.id]: {
                       ...hiddenCandidates[election.id],
-                      [contestId]: new Set(hiddenCandidates[election.id][contestId])
+                      [selectedContest]: new Set(hiddenCandidates[election.id][selectedContest])
                     }
                   };
-                  updatedHiddenCandidates[election.id][contestId].add(candidateId);
+                  updatedHiddenCandidates[election.id][selectedContest].add(candidateId);
                   setHiddenCandidates(updatedHiddenCandidates);
-
-                  // Unpick the candidate from the accordion
-                  setDefaultAccordion("Unpicked");
                 }}
               >
                 Hide Candidate
@@ -183,10 +173,10 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
                     ...hiddenCandidates,
                     [election.id]: {
                       ...hiddenCandidates[election.id],
-                      [contestId]: new Set(hiddenCandidates[election.id][contestId])
+                      [selectedContest]: new Set(hiddenCandidates[election.id][selectedContest])
                     }
                   };
-                  updatedHiddenCandidates[election.id][contestId].delete(candidateId);
+                  updatedHiddenCandidates[election.id][selectedContest].delete(candidateId);
                   setHiddenCandidates(updatedHiddenCandidates);
 
                   // Add to unpicked candidates

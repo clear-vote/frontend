@@ -1,39 +1,42 @@
+/* AnimatedPage.tsx */
+
 import { motion } from "framer-motion";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 
 interface AnimatedPageProps {
   children: React.ReactNode;
-  transitionType: 'elections' | 'contest';
+  page: string;
+  isActive: boolean;
 }
 
 // TODO: make animation smoother. in first, then pause, then out
-export const AnimatedPage = ({children, transitionType}: AnimatedPageProps) => {
-  const { selectedContest } = useDecisionFlowContext();
+export const AnimatedPage = ({children, page, isActive}: AnimatedPageProps) => {
   
-  const electionsPageTransition = {
-    in: {opacity: 1, x: 0},
-    out: {opacity: 0, x: -100},
+  const leftPageTransition = {
+    initial: { opacity: 0, x: -150 },
+    in: {opacity: 1, x: 0, transition: { duration: 0.2 }},
+    out: {opacity: 0, x: -150, transition: { duration: 0.2 }},
   }
   
-  const contestPageTransition = {
-    in: {opacity: 1, x: 0},
-    out: {opacity: 0, x: 100},
+  const rightPageTransition = {
+    initial: { opacity: 0, x: 150 },
+    in: {opacity: 1, x: 0, transition: { duration: 0.2 }},
+    out: {opacity: 0, x: 150, transition: { duration: 0.2 }},
   }
   
   return (
     <motion.div
+      initial={page === 'left' ? leftPageTransition.initial : rightPageTransition.initial}  
       variants={
-        transitionType === 'elections' 
-        ? electionsPageTransition 
-        : contestPageTransition
+        page === 'left'
+        ? leftPageTransition 
+        : rightPageTransition
       }
       animate={
-        (selectedContest === null && transitionType === 'elections') 
-        || (selectedContest !== null && transitionType !== 'elections')
+        isActive === true
         ? 'in' 
         : 'out'
       }
-      transition={{ duration: 0.5 }}
     >
       {children}
     </motion.div>
