@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import { Button } from "@/components/ui/button";
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
-import ContestAccordions from './ContestAccordion';
+import ContestAccordions from '../components/ContestAccordion';
 import PositionInfo from '@/app/modals/PositionInfoModal';
 import { Candidate, Election } from "@/types/index";
 

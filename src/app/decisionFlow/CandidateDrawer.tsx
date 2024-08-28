@@ -19,10 +19,11 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { trimLink } from "@/utils/index"
-import { Election, HiddenCandidates, PinnedCandidates } from "@/types/index";
+import { Candidate, Election, HiddenCandidates, PinnedCandidates } from "@/types/index";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { CandidateCard } from "@/app/cards/CandidateCard/CandidateCard";
 import { CandidateListItem } from "@/app/cards/CandidateListCard";
+import { PinButton } from "@/app/components/PinButton";
 
 interface CandidateDrawerProps {
   election: Election;
@@ -70,65 +71,8 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
           <CandidateCard candidate={election.contests[selectedContest].candidates[candidateId]}/>
         </DrawerHeader>
         <DrawerFooter className="pt-2">
-          <DrawerClose asChild>
-            { (pinnedCandidates[election.id][selectedContest] !== candidateId) ?
-              <Button
-                variant="outline"
-                onClick={() => {
-                  // Move current pinned candidate back to unpinned state
-                  const currentPinnedCandidate = pinnedCandidates[election.id][selectedContest];
-                  if (currentPinnedCandidate) {
-                    setUnpickedCandidates(new Set(unpickedCandidates).add(currentPinnedCandidate));
-                  }
-
-                  // Remove the new candidate from the list of hidden candidates, if they are on it
-                  if (hiddenCandidates[election.id][selectedContest].has(candidateId)) {
-                    const updatedHiddenCandidates: HiddenCandidates = {
-                      ...hiddenCandidates,
-                      [election.id]: {
-                        ...hiddenCandidates[election.id],
-                        [selectedContest]: new Set(hiddenCandidates[election.id][selectedContest])
-                      }
-                    };
-                    updatedHiddenCandidates[election.id][selectedContest].delete(candidateId);
-                    setHiddenCandidates(updatedHiddenCandidates);
-                  }
-
-                  // Pin the new candidate
-                  const updatedPinnedCandidates: PinnedCandidates = {
-                    ...pinnedCandidates,
-                    [election.id]: {
-                      ...pinnedCandidates[election.id],
-                      [selectedContest]: null
-                    }
-                  };
-                  updatedPinnedCandidates[election.id][selectedContest] = candidateId;
-                  setPinnedCandidates(updatedPinnedCandidates);
-                }}
-              >
-                Pin Candidate
-              </Button>
-            : <Button 
-                variant="outline"
-                onClick={() => {
-                  // Remove the pinned candidate
-                  const updatedPinnedCandidates: PinnedCandidates = {
-                    ...pinnedCandidates,
-                    [election.id]: {
-                      ...pinnedCandidates[election.id],
-                      [selectedContest]: null
-                    }
-                  };
-                  setPinnedCandidates(updatedPinnedCandidates);
-
-                  // Add the candidate to the unpicked set
-                  setUnpickedCandidates(new Set(unpickedCandidates).add(candidateId));
-                }}
-              >
-                Unpin Candidate
-              </Button>
-            } 
-          </DrawerClose>
+          <PinButton candidateId={candidateId} unpickedCandidates={unpickedCandidates} setUnpickedCandidates={setUnpickedCandidates}/>
+          {/* TODO: change this DrawerClose to HideButton, then put both in the candidate card and wrap the entire thing in a Scroll-Area */}
           <DrawerClose asChild>
             { !hiddenCandidates[election.id][selectedContest].has(candidateId) ?
               <Button 

@@ -7,7 +7,7 @@ export interface Candidate {
   website: string|null;
   image: string|null;
   politigram: object|null; // TODO: if this is null, we DO NOT use the candidate
-  priorities: object[]|null;
+  priorities: {"text": string, "politigram": Politigram[]}[]|null;
   financing: object|null; // not yet implemented fully TODO: help us support this
   background: object[]|null;
   sources: object[]|null;
