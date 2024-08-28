@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import Toolbar from "../components/Toolbar";
 
 interface ElectionsPageProps {
   election: Election;
@@ -47,7 +48,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election, onForwar
   }
 
   return ( 
-    <div>
+    <div> 
       <PrecinctMapCard />
       <ElectionDetailsCard
         setDropdownIsOpen={setDropdownIsOpen}
@@ -55,7 +56,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election, onForwar
       {
         (() => {
           const selectedElectionData = elections[election.id];
-          return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
+          return (selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
             <>
               <ProgressCard difference={contestsRemaining()}/>
               {
@@ -76,7 +77,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election, onForwar
             </>
           ) : (
             <p>No contests found for the selected election.</p>
-          );
+          ));
         })()
       }
     </div>

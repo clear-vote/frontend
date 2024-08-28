@@ -1,4 +1,5 @@
 import LandingPage from '@/app/LandingPage';
+import Toolbar from './components/Toolbar';
 // "use client"
 
 // import { IElection } from "@/interfaces/ElectionInterfaces";
