@@ -40,7 +40,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election, onForwar
 
   // Calculate the number of contests and the difference
   const contestsRemaining = (): number => {
-    const numContests = Object.keys(election.contests).length;;
+    const numContests = Object.keys(election.contests).length;
     if (!pinnedCandidates[election.id]) {
       return numContests;
     }
@@ -56,7 +56,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election, onForwar
       {
         (() => {
           const selectedElectionData = elections[election.id];
-          return (selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
+          return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
             <>
               <ProgressCard difference={contestsRemaining()}/>
               {
@@ -77,7 +77,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election, onForwar
             </>
           ) : (
             <p>No contests found for the selected election.</p>
-          ));
+          );
         })()
       }
     </div>
