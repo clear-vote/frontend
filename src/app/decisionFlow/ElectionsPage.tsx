@@ -16,16 +16,15 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 interface ElectionsPageProps {
-  election: Election;
-  onForwardClick: (contestId: number) => void;
+  onContestClick: (contestId: number) => void;
+  onSendResultsClick: () => void;
 }
 
-export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election, onForwardClick }) => {
+export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, onSendResultsClick }) => {
   const { 
     elections, 
-    setSelectedContest,
+    selectedElection,
     isDesktop,
-    pinnedCandidates // Assuming pinnedCandidates is part of the context
   } = useDecisionFlowContext();
 
   // This prevents the user from clicking elements on the drop down behind itself
@@ -37,15 +36,6 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election, onForwar
     );
   }
 
-  // Calculate the number of contests and the difference
-  const contestsRemaining = (): number => {
-    const numContests = Object.keys(election.contests).length;;
-    if (!pinnedCandidates[election.id]) {
-      return numContests;
-    }
-    return numContests - Object.values(pinnedCandidates[election.id]).filter(value => value !== null).length;
-  }
-
   return ( 
     <div>
       <PrecinctMapCard />
@@ -54,10 +44,10 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election, onForwar
       />
       {
         (() => {
-          const selectedElectionData = elections[election.id];
+          const selectedElectionData = elections[selectedElection!];
           return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
             <>
-              <ProgressCard difference={contestsRemaining()}/>
+              <ProgressCard onSendResultsClick={onSendResultsClick}/>
               {
                 Object.values(selectedElectionData.contests).map((contest) => (
                   <div 
@@ -65,8 +55,8 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ election, onForwar
                     style={{ pointerEvents: dropdownIsOpen ? 'none' : 'auto' }}
                   >
                     <Button 
-                      variant="outline" 
-                      onClick={() => onForwardClick(contest.id)}
+                      variant="outline"
+                      onClick={() => onContestClick(contest.id)}
                     >
                       {`${contest.jurisdiction} ${contest.title}`}
                     </Button>
