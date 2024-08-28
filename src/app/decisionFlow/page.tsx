@@ -68,18 +68,23 @@ const DecisionFlow = () => {
   if (error) {
     console.log(error);
     return <div style={{ paddingTop: '60px' }}>
-        <Toolbar /><p>Error: {error}</p></div>;
+        <Toolbar />
+        <p>Error: {error}</p>
+      </div>;
   }
 
   if (!selectedElection || !(selectedElection in elections)) {
     return <div style={{ paddingTop: '60px' }}>
-        <Toolbar /><p>No valid election selected.</p></div>;
+        <Toolbar />
+        <p>No valid election selected.</p>
+        </div>;
   }
 
   if (isDesktop) {
     return <div style={{ paddingTop: '60px' }}>
         <Toolbar />
-        <p>Desktop not supported</p></div>;
+        <p>Desktop not supported</p>
+        </div>;
   }
 
   // selectedContest is set via the button, here we are just delaying the animation of the contest page

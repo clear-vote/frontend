@@ -15,6 +15,7 @@ export const Toolbar: React.FC = () => {
       justifyContent: 'space-between',
       padding: '10px',
       background: '#f0f0f0',
+      zIndex: 100,
     }}>
         <Link href="/">Home</Link>
         <Link href="https://www.youtube.com/watch?v=rv4wf7bzfFE">About</Link>
