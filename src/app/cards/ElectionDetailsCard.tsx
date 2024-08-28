@@ -57,6 +57,7 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
             <SelectItem
               key={election.id}
               value={election.id.toString()}
+              disabled={Object.keys(election.contests).length === 0}
             >
               {formatElectionLabel(election)}
             </SelectItem>
