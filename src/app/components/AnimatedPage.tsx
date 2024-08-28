@@ -1,7 +1,6 @@
 /* AnimatedPage.tsx */
 
 import { motion } from "framer-motion";
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 
 interface AnimatedPageProps {
   children: React.ReactNode;
@@ -18,19 +17,27 @@ export const AnimatedPage = ({children, page, isActive}: AnimatedPageProps) => {
     out: {opacity: 0, x: -150, transition: { duration: 0.2 }},
   }
   
-  const rightPageTransition = {
+  const contestPageTransition = {
     initial: { opacity: 0, x: 150 },
     in: {opacity: 1, x: 0, transition: { duration: 0.2 }},
     out: {opacity: 0, x: 150, transition: { duration: 0.2 }},
   }
+
+  const sendResultsPageTransition = {
+    initial: { opacity: 0, x: 241.5 },
+    in: {opacity: 1, x: 0, transition: { duration: 0.324 }},
+    out: {opacity: 0, x: 241.5, transition: { duration: 0.324 }},
+  }
   
   return (
     <motion.div
-      initial={page === 'left' ? leftPageTransition.initial : rightPageTransition.initial}  
+      initial='initial'
       variants={
         page === 'left'
-        ? leftPageTransition 
-        : rightPageTransition
+          ? leftPageTransition
+          : page === 'contest'
+          ? contestPageTransition
+          : sendResultsPageTransition
       }
       animate={
         isActive === true

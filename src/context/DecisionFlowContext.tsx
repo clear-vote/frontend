@@ -1,8 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useState } from 'react';
-import { Candidate, Contest, Election, Politigram } from '@/types/index';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { Election, Politigram } from '@/types/index';
 import { PinnedCandidates, HiddenCandidates } from '@/types/index';
 
 interface DecisionFlowContextProps {
@@ -25,6 +24,7 @@ interface DecisionFlowContextProps {
   setSelectedPolitigram: React.Dispatch<React.SetStateAction<Politigram | null>>;
 
   isDesktop: boolean;
+  setIsDesktop: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const DecisionFlowContext = createContext<DecisionFlowContextProps | undefined>(undefined);
@@ -36,7 +36,7 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
   const [pinnedCandidates, setPinnedCandidates] = useState<PinnedCandidates>({});
   const [hiddenCandidates, setHiddenCandidates] = useState<HiddenCandidates>({});
   const [selectedPolitigram, setSelectedPolitigram] = useState<Politigram | null>(null);
-  const isDesktop = useMediaQuery('(min-width:600px)');
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
 
   return (
     <DecisionFlowContext.Provider
@@ -47,7 +47,7 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
         pinnedCandidates, setPinnedCandidates,
         hiddenCandidates, setHiddenCandidates,
         selectedPolitigram, setSelectedPolitigram,
-        isDesktop,
+        isDesktop, setIsDesktop
       }}
     >
       {children}

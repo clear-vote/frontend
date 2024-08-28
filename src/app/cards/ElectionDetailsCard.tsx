@@ -29,13 +29,14 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
     return `${election.voting_end.getFullYear()} ${months[election.voting_end.getMonth()]} ${election.type}`;
   };
 
+  // prevents a user from tapping on the election right away after changing the election
   const handleOpenChange = (isOpen: boolean) => {
     if (isOpen) {
       setDropdownIsOpen(true);
     } else {
       setTimeout(() => {
         setDropdownIsOpen(false);
-      }, 50);
+      }, 200);
     }
   };
 
