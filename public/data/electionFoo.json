@@ -29,23 +29,23 @@
             },
             "priorities": [
               {
-                "title": "Climate Equity Program funding",
+                "text": "Climate Equity Program funding",
                 "politigram": ["stewardship"]
               },
               {
-                "title": "Affordable housing construction",
+                "text": "Affordable housing construction",
                 "politigram": ["stewardship", "humanitarianism"]
               },
               {
-                "title": "Expand homeless support services",
+                "text": "Expand homeless support services",
                 "politigram": ["humanitarianism"]
               },
               {
-                "title": "County-wide Transportation Benefit District",
+                "text": "County-wide Transportation Benefit District",
                 "politigram": ["prosperity", "community"]
               },
               {
-                "title": "Green energy investment increase",
+                "text": "Green energy investment increase",
                 "politigram": ["stewardship"]
               }
             ],
@@ -77,7 +77,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -96,23 +96,23 @@
             },
             "priorities": [
               {
-                "title": "Community-based public safety",
+                "text": "Community-based public safety",
                 "politigram": ["community", "prosperity"]
               },
               {
-                "title": "Climate resilience initiatives",
+                "text": "Climate resilience initiatives",
                 "politigram": ["stewardship"]
               },
               {
-                "title": "Universal affordable childcare",
+                "text": "Universal affordable childcare",
                 "politigram": ["community"]
               },
               {
-                "title": "Expanded behavioral health services",
+                "text": "Expanded behavioral health services",
                 "politigram": ["community", "humanitarianism"]
               },
               {
-                "title": "Sustainable transportation system",
+                "text": "Sustainable transportation system",
                 "politigram": ["stewardship", "prosperity"]
               }
             ],
@@ -120,14 +120,14 @@
             "financing": null,
             "background": [
               {
-                "title": "Education",
+                "header": "Education",
                 "text": "J.D., Yale Law School; Bachelor’s in Economics and History, Duke University",
                 "politigram": {
                   "prosperity": [[6, 22]]
                 }
               },
               {
-                "title": "Elected Experience",
+                "header": "Elected Experience",
                 "text": "Executive Director, Northwest Immigrant Rights Project (2008-2023)",
                 "politigram": {
                   "humanitarianism": [[0, 67]]
@@ -143,7 +143,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -162,23 +162,23 @@
             },
             "priorities": [
               {
-                "title": "Affordable housing expansion",
+                "text": "Affordable housing expansion",
                 "politigram": ["community", "humanitarianism"]
               },
               {
-                "title": "Behavioral health services improvement",
+                "text": "Behavioral health services improvement",
                 "politigram": ["community", "humanitarianism"]
               },
               {
-                "title": "Public safety reform",
+                "text": "Public safety reform",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Reliable transit service",
+                "text": "Reliable transit service",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Climate crisis action",
+                "text": "Climate crisis action",
                 "politigram": ["stewardship"]
               }
             ],
@@ -209,7 +209,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -239,23 +239,23 @@
             },
             "priorities": [
               {
-                "title": "School safety enhancement",
+                "text": "School safety enhancement",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Equity in education",
+                "text": "Equity in education",
                 "politigram": ["humanitarianism"]
               },
               {
-                "title": "Inclusive learning environment",
+                "text": "Inclusive learning environment",
                 "politigram": ["humanitarianism"]
               },
               {
-                "title": "Focus on learner needs",
+                "text": "Focus on learner needs",
                 "politigram": ["humanitarianism"]
               },
               {
-                "title": "Educator support implementation",
+                "text": "Educator support implementation",
                 "politigram": ["community"]
               }
             ],
@@ -284,7 +284,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -303,23 +303,23 @@
             },
             "priorities": [
               {
-                "title": "High-quality education provision",
+                "text": "High-quality education provision",
                 "politigram": ["liberty"]
               },
               {
-                "title": "Fiscal responsibility",
+                "text": "Fiscal responsibility",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Careful decision-making",
+                "text": "Careful decision-making",
                 "politigram": ["stewardship", "liberty"]
               },
               {
-                "title": "Stakeholder engagement",
+                "text": "Stakeholder engagement",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Adapting to new challenges",
+                "text": "Adapting to new challenges",
                 "politigram": ["stewardship", "prosperity"]
               }
             ],
@@ -348,7 +348,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -367,23 +367,23 @@
             },
             "priorities": [
               {
-                "title": "Transparent decision-making",
+                "text": "Transparent decision-making",
                 "politigram": ["liberty"]
               },
               {
-                "title": "Institutional accountability",
+                "text": "Institutional accountability",
                 "politigram": ["liberty"]
               },
               {
-                "title": "Child safety prioritization",
+                "text": "Child safety prioritization",
                 "politigram": ["liberty", "prosperity"]
               },
               {
-                "title": "Educational equity improvement",
+                "text": "Educational equity improvement",
                 "politigram": ["humanitarianism"]
               },
               {
-                "title": "Budget management effectiveness",
+                "text": "Budget management effectiveness",
                 "politigram": ["liberty"]
               }
             ],
@@ -412,7 +412,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -468,23 +468,23 @@
             },
             "priorities": [
               {
-                "title": "Senior homeowner protection",
+                "text": "Senior homeowner protection",
                 "politigram": ["liberty", "humanitarianism"]
               },
               {
-                "title": "Property tax system reform",
+                "text": "Property tax system reform",
                 "politigram": ["liberty"]
               },
               {
-                "title": "Housing affordability improvement",
+                "text": "Housing affordability improvement",
                 "politigram": ["community"]
               },
               {
-                "title": "Homelessness crisis mitigation",
+                "text": "Homelessness crisis mitigation",
                 "politigram": ["humanitarianism"]
               },
               {
-                "title": "Taxpayer advocacy",
+                "text": "Taxpayer advocacy",
                 "politigram": ["liberty"]
               }
             ],
@@ -513,7 +513,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -543,23 +543,23 @@
             },
             "priorities": [
               {
-                "title": "Voter accessibility enhancement",
+                "text": "Voter accessibility enhancement",
                 "politigram": ["liberty"]
               },
               {
-                "title": "Election security strengthening",
+                "text": "Election security strengthening",
                 "politigram": ["liberty"]
               },
               {
-                "title": "Community outreach expansion",
+                "text": "Community outreach expansion",
                 "politigram": ["community"]
               },
               {
-                "title": "Ballot drop box increase",
+                "text": "Ballot drop box increase",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Nonpartisan transparency maintenance",
+                "text": "Nonpartisan transparency maintenance",
                 "politigram": ["liberty"]
               }
             ],
@@ -586,7 +586,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -607,23 +607,23 @@
             "financing": null,
             "priorities": [
               {
-                "title": "Election transparency improvement",
+                "text": "Election transparency improvement",
                 "politigram": ["liberty"]
               },
               {
-                "title": "Citizen oversight implementation",
+                "text": "Citizen oversight implementation",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Voter registration roll maintenance",
+                "text": "Voter registration roll maintenance",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Public information request responsiveness",
+                "text": "Public information request responsiveness",
                 "politigram": ["community"]
               },
               {
-                "title": "Balanced election audits conduct",
+                "text": "Balanced election audits conduct",
                 "politigram": ["liberty"]
               }
             ],
@@ -650,7 +650,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -680,23 +680,23 @@
             },
             "priorities": [
               {
-                "title": "Mental health investment",
+                "text": "Mental health investment",
                 "politigram": ["community"]
               },
               {
-                "title": "Affordable housing expansion",
+                "text": "Affordable housing expansion",
                 "politigram": ["humanitarianism"]
               },
               {
-                "title": "Community infrastructure development",
+                "text": "Community infrastructure development",
                 "politigram": ["community"]
               },
               {
-                "title": "Tenant protection strengthening",
+                "text": "Tenant protection strengthening",
                 "politigram": ["community"]
               },
               {
-                "title": "Gun violence prevention",
+                "text": "Gun violence prevention",
                 "politigram": ["community", "prosperity", "humanitarianism"]
               }
             ],
@@ -725,7 +725,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -755,23 +755,23 @@
             },
             "priorities": [
               {
-                "title": "Create strong family wage jobs.",
+                "text": "Create strong family wage jobs.",
                 "politigram": ["community"]
               },
               {
-                "title": "Make the port the greenest in North America.",
+                "text": "Make the port the greenest in North America.",
                 "politigram": ["stewardship"]
               },
               {
-                "title": "Usher in new technologies like hydrogen and offshore wind.",
+                "text": "Usher in new technologies like hydrogen and offshore wind.",
                 "politigram": ["stewardship", "prosperity"]
               },
               {
-                "title": "Ensure growth and prosperity in King County.",
+                "text": "Ensure growth and prosperity in King County.",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Support small and minority businesses.",
+                "text": "Support small and minority businesses.",
                 "politigram": ["prosperity"]
               }
             ],
@@ -802,7 +802,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -832,23 +832,23 @@
             },
             "priorities": [
               {
-                "title": "Advocate for Algona in regional projects.",
+                "text": "Advocate for Algona in regional projects.",
                 "politigram": []
               },
               {
-                "title": "Back city employees' efforts.",
+                "text": "Back city employees' efforts.",
                 "politigram": []
               },
               {
-                "title": "Align city priorities with residents' needs.",
+                "text": "Align city priorities with residents' needs.",
                 "politigram": []
               },
               {
-                "title": "Enhance streets, water, and sewer systems.",
+                "text": "Enhance streets, water, and sewer systems.",
                 "politigram": []
               },
               {
-                "title": "Develop housing, parks, and maintain the city's character.",
+                "text": "Develop housing, parks, and maintain the city's character.",
                 "politigram": []
               }
             ],
@@ -870,7 +870,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -889,23 +889,23 @@
             },
             "priorities": [
               { 
-                "title": "Represent all citizens and listen to everyone.",
+                "text": "Represent all citizens and listen to everyone.",
                 "politigram": ["community", "liberty"]
               },
               {
-                "title": "Address drugs, crime, and code enforcement.",
+                "text": "Address drugs, crime, and code enforcement.",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Tackle failing infrastructure.",
+                "text": "Tackle failing infrastructure.",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Form collaborations with residents, businesses, and the community.",
+                "text": "Form collaborations with residents, businesses, and the community.",
                 "politigram": ["community"]
               },
               {
-                "title": "Expand the tax base and support a thriving business community.",
+                "text": "Expand the tax base and support a thriving business community.",
                 "politigram": ["prosperity"]
               }
             ],
@@ -927,7 +927,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -957,23 +957,23 @@
             },
             "priorities": [
               {
-                "title": "Long-term investment in Algona's growth.",
+                "text": "Long-term investment in Algona's growth.",
                 "politigram": ["stewardship"]
               },
               {
-                "title": "Enhance the well-being of residents.",
+                "text": "Enhance the well-being of residents.",
                 "politigram": ["community"]
               },
               {
-                "title": "Support and maintain vital community spaces.",
+                "text": "Support and maintain vital community spaces.",
                 "politigram": ["stewardship", "prosperity"]
               },
               {
-                "title": "Back police and public works teams.",
+                "text": "Back police and public works teams.",
                 "politigram": ["prosperity"]
               },
               {
-                "title": "Serve on finance and fire governance boards.",
+                "text": "Serve on finance and fire governance boards.",
                 "politigram": ["prosperity"]
               }
             ],
@@ -1000,7 +1000,7 @@
             ],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]
@@ -1028,7 +1028,7 @@
             "about": [],
             "sources": [
               {
-                "name": "King County voter pamphlet",
+                "text": "King County voter pamphlet",
                 "link": "https://info.kingcounty.gov/kcelections/Vote/contests/candidates.aspx?eid=38"
               }
             ]

@@ -54,6 +54,13 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
                     key={`${contest.title} ${contest.jurisdiction}`}
                     style={{ pointerEvents: dropdownIsOpen ? 'none' : 'auto' }}
                   >
+                    {/* TODO: 
+                    
+                    <BallotCard 
+                      onClick={() => onContestClick(contest.id)}
+                    /> 
+                    
+                    */}
                     <Button 
                       variant="outline"
                       onClick={() => onContestClick(contest.id)}

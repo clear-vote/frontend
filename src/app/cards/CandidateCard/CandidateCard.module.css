@@ -1,0 +1,140 @@
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+      color: black;
+  }
+  50% {
+      transform: scale(1.1);
+      color: #222222;
+  }
+  100% {
+      transform: scale(1);
+      color: black;
+  }
+}
+
+/* Text Styles */
+.card__text {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  font-family: var(--ff-body);
+}
+.card__text--header {
+  font-size: var(--fs-md); /* Set font size as a fraction of the viewport */
+  font-weight: var(--fw-bold); /* Bold for headers */
+}
+.card__text--politigram {
+  font-size: var(--fs-md);
+  z-index: 5;
+}
+.card__text--highlighted {
+  opacity: 0; /* Start hidden */
+  transition: var(--animation-duration-fast) ease-in-out;
+  border-radius: 5px;
+  color: white;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.card__text--pulse {}
+
+/* Grid + Content Layout */
+.card__grid {
+  display: grid;
+  width: 100%;
+  gap: 0px;
+  border-radius: 10px; /* Add curved corners */
+  margin: var(--spacing-md);
+  border-radius: var(--border-radius-md); /* Add border radius */
+  background-color: lightgray;
+}
+.card__grid--header {
+  grid-template-columns: 1.62fr 1fr;
+  grid-template-rows: min-content min-content;
+  grid-template-areas: 
+      "name profile-pic"
+      "website profile-pic";
+}
+.card__grid--politigram {
+  grid-template-columns: 1.41fr 1fr; /* Set the width of grids */
+  grid-template-rows: 5vh 15vh;
+  grid-template-areas: 
+      "header politigram-text"
+      "politigram politigram-text";
+}
+
+/* Grid Box Styles */
+.card__grid-item {
+  padding: 0; /* No padding */
+  text-align: center; /* Center text */
+}
+.card__grid-item--name { 
+  grid-area: name; 
+  align-items: center;
+}
+.card__grid-item--website {
+  grid-area: website;
+}
+.card__grid-item--profile-pic {
+  grid-area: profile-pic;
+  width: 100%; /* Set width to fill the grid box */
+  height: 100%; /* Set height to fill the grid box */
+  overflow: hidden; /* Clip any overflow */
+  position: relative; /* Positioning context for absolute children */
+  max-width: 200px; /* Set maximum width to 100px */
+  justify-self: end;
+}
+.card__grid-item--header { grid-area: header; }
+.card__grid-item--politigram {
+  grid-area: politigram;
+  width: 100%;
+  height: 100%;
+  position: relative; /* Ensure it can contain absolutely positioned children */
+}
+.card__grid-item--politigram-text {
+  grid-area: politigram-text; 
+  transition: opacity 0.1s ease-in-out, box-shadow 0.3s ease-in-out, color 0.1s ease-in-out;
+}
+
+/* Header */
+.card__profile-pic {
+  max-width: 100%; 
+  height: auto;
+}
+.card__link {
+  color: black; /* Set link color to black */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Politigram */
+.card__politigram {
+  width: 100%; /* Take full width of the parent */
+  height: 100%; /* Take full height of the parent */
+  overflow: visible;
+}
+
+/* List */
+.card__priorities {
+  border-radius: 10px;
+  border: black solid;
+}
+.card__list {}
+.card__list-item {}
+
+/* Background */
+.card__background {
+  border-radius: 10px;
+  border: black solid;
+}
+
+/* Button Styles */
+.card__buttons {
+
+}
+.card__button {
+  width: 100%; /* Fill the box completely */
+  height: 100%; /* Fill the box completely */
+  border: black solid; /* Remove border */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+.card__button--pin {}
+.card__button--hide {}
