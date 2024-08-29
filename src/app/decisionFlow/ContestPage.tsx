@@ -6,6 +6,7 @@ import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ContestAccordions from '../components/ContestAccordion';
 import PositionInfo from '@/app/modals/PositionInfoModal';
 import { Candidate, Election } from "@/types/index";
+import PositionInfoModal from '@/app/modals/PositionInfoModal';
 
 interface ContestPageProps {
   election: Election;
@@ -55,7 +56,7 @@ const ContestPage: React.FC<ContestPageProps> = ({ election, onBackClick }) => {
         Back
       </Button>
 
-      <PositionInfo position={election.contests[selectedContest].title} />
+      <PositionInfoModal position={election.contests[selectedContest].title} />
 
       <ContestAccordions
         election={election}

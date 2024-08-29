@@ -32,7 +32,10 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({onBackClick}) =
         onChange={(e) => setEmail(e.target.value)}
         onKeyPress={handleKeyPress}
       />
-      <Button onClick={handleSubmit}>Enter</Button>
+      <Button onClick={handleSubmit}>Save my results</Button>
+      {/* donate is a new page */}
+      <Button>Donate</Button>
+      {/* <DonationsModal/> */}
     </div>
   );
 }

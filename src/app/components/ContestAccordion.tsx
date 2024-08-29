@@ -26,9 +26,9 @@ const ContestAccordions = ({
   if (selectedContest === null) return null;
 
   return (
-    <Accordion key={pinnedCandidate} type="single" defaultValue={pinnedCandidate ? "Pinned" : "Unpicked"} collapsible>
+    <Accordion key={pinnedCandidate} type="single" defaultValue={"Visible"} collapsible>
       {pinnedCandidate && (
-        <AccordionItem value="Pinned">
+        <AccordionItem value="Visible">
           <AccordionTrigger>Pinned</AccordionTrigger>
           <AccordionContent>
             <CandidateDrawer
@@ -41,7 +41,7 @@ const ContestAccordions = ({
           </AccordionContent>
         </AccordionItem>
       )}
-      <AccordionItem value="Unpicked">
+      <AccordionItem value="Visible">
         <AccordionTrigger>Candidates {unpickedCandidates.size}</AccordionTrigger>
         <AccordionContent>
           {Array.from(unpickedCandidates).map(unpickedCandidate => (

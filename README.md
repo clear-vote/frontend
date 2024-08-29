@@ -22,3 +22,6 @@ TODO:
 - start email card (for animations)
 - Connect Precinct mapper
 - cleanup, rearrange
+
+Anaya:
+In general, how is data structured. one number for each candidate or a break down for indivisuals vs organizations.
