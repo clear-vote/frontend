@@ -139,3 +139,51 @@ body {
 .candidate-card-details a:hover {
   text-decoration: underline;
 }
+
+/** Candidate List Card's Awesome Styling */
+.list-item {
+  width: 280px;
+  height: 100px;
+  border: 1px solid #000;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.list-item-image {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.splitscreen {
+  display: flex;
+}
+
+.splitscreen .left,
+.splitscreen .right {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list-item-name {
+  flex: 1;
+  margin-bottom: auto;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-item-website {
+  margin-top: auto;
+  word-wrap: break-word;
+}
+
+/** Juristication Cards Styling */
+
+.juristication-card {
+  /** TODO: Add Styling*/
+}

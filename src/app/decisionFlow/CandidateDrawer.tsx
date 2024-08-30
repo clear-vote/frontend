@@ -22,7 +22,7 @@ import { trimLink } from "@/utils/index"
 import { Candidate, Election, HiddenCandidates, PinnedCandidates } from "@/types/index";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { CandidateCard } from "@/app/cards/CandidateCard/CandidateCard";
-import { CandidateListItem } from "@/app/cards/CandidateListCard";
+import { CandidateListItem } from "../cards/CandidateListCard";
 import { PinButton } from "@/app/components/PinButton";
 
 interface CandidateDrawerProps {
@@ -57,6 +57,7 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
         <CandidateListItem
           name={election.contests[selectedContest].candidates[candidateId].name}
           website={election.contests[selectedContest].candidates[candidateId].website}
+          image={election.contests[selectedContest].candidates[candidateId].image}
         />
       </DrawerTrigger>
       <DrawerContent>

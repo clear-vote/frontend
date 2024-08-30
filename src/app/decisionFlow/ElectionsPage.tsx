@@ -3,7 +3,7 @@
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { Contest, Election } from "@/types/index";
 import { ProgressCard } from "@/app/cards/ProgressCard";
-import { PrecinctMapCard } from "@/app/cards/PrecinctMapCard";
+import PrecinctMapCard from "@/app/cards/PrecinctMapCard";
 import { ElectionDetailsCard } from "@/app/cards/ElectionDetailsCard";
 import {
   Select,
@@ -14,6 +14,9 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { BallotCard } from "../cards/BallotCard";
+import { JurisdictionCard } from "../cards/JurisdictionCard";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 interface ElectionsPageProps {
   onContestClick: (contestId: number) => void;
@@ -38,38 +41,19 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
 
   return ( 
     <div>
-      <PrecinctMapCard />
+      {/** TODO: Add Token support! */}
+      {/**<PrecinctMapCard token={???}/>*/}
       <ElectionDetailsCard
         setDropdownIsOpen={setDropdownIsOpen}
       />
+      <h3 className="font-bold text-lg">Explore Your Ballot!</h3>
       {
         (() => {
           const selectedElectionData = elections[selectedElection!];
           return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
             <>
               <ProgressCard onSendResultsClick={onSendResultsClick}/>
-              {
-                Object.values(selectedElectionData.contests).map((contest) => (
-                  <div 
-                    key={`${contest.title} ${contest.jurisdiction}`}
-                    style={{ pointerEvents: dropdownIsOpen ? 'none' : 'auto' }}
-                  >
-                    {/* TODO: 
-                    
-                    <BallotCard 
-                      onClick={() => onContestClick(contest.id)}
-                    /> 
-                    
-                    */}
-                    <Button 
-                      variant="outline"
-                      onClick={() => onContestClick(contest.id)}
-                    >
-                      {`${contest.jurisdiction} ${contest.title}`}
-                    </Button>
-                  </div>
-                ))
-              }
+              <JurisdictionCard election={selectedElectionData} contests={Object.values(selectedElectionData.contests)} onContestClick={onContestClick}/>
             </>
           ) : (
             <p>No contests found for the selected election.</p>
