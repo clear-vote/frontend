@@ -128,9 +128,6 @@ const DecisionFlow = () => {
             height: '100%',
           }}
         > 
-        {/** TODO: DANGER!! Will rerender on every state change; find way to make component not rerender every time
-         * (other than that it works perfectly though!)
-         * <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />*/}
           <AnimatedPage page='left' isActive={selectedContest === null && !inRightPage}>
             <ElectionsPage 
               onContestClick={handleContestClick}

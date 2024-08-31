@@ -12,7 +12,7 @@ interface CandidateListItemProps {
   image: string | null;
 }
 
-/** Used in several different places, mainly election page: keep generic! */
+/** TODO: Make Candidate List Items look better and fix minor formatting issues */
 export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItemProps>(
   ({ name, website, image, ...props }, ref?) => {
     return (

@@ -4,11 +4,11 @@ import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { Contest, Election } from "@/types/index";
 import { ProgressCard } from "@/app/cards/ProgressCard";
 import PrecinctMapCard from "@/app/cards/PrecinctMapCard";
-import { ElectionDetailsCard } from "@/app/cards/ElectionDetailsCard";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { JurisdictionCard } from "../cards/JurisdictionCard";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Button } from "@/components/ui/button";
+import { ElectionDetailsCard } from "../cards/ElectionDetailsCard";
 
 interface ElectionsPageProps {
   onContestClick: (contestId: number) => void;
@@ -25,13 +25,21 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
   // This prevents the user from clicking elements on the drop down behind itself
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
 
+  // Prevents the map from being rerendered on every single state change; that wouldn't be good!
+  const MemoizedPrecinctMapCard = useMemo(
+    () => <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />, 
+    []
+  );
+
   if (isDesktop) {
     return (
       <div>Desktop not supported</div>
     );
   }
+
   return ( 
     <div>
+      {MemoizedPrecinctMapCard}
       <ElectionDetailsCard
         setDropdownIsOpen={setDropdownIsOpen}
       />

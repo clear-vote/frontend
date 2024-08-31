@@ -44,7 +44,9 @@ export const BallotCard: any = (props : BallotCardProps) =>{
     }
     return (
         <div className="list-item rounded-lg" onClick={props.onClick}>
-            <p>Insert plus symbol here</p>
+            {/** TODO: Add actual plus icon here! */}
+            <h1 className="font-bold text-center">Click Here To Choose A Candidate!</h1>
+            <h1 className="font-bold text-center">*Insert fancy plus sign icon here*</h1>
         </div>
     );
 }
