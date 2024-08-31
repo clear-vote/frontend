@@ -1,7 +1,8 @@
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { Contest, Election } from "@/types";
-import { forwardRef } from "react"
 import { CandidateListItem } from "./CandidateListCard";
+import AddIcon from '@mui/icons-material/Add';
+
 
 interface BallotCardProps {
     /** The contest that the Ballot Card is a part of */
@@ -9,7 +10,7 @@ interface BallotCardProps {
     /** The election of which the Ballot Card is a part of */
     election: Election;
     /** Function that happens when the user click on the ballot card */
-    onClick? : () => void;
+    onClick?: () => void;
 }
 
 /**
@@ -18,35 +19,34 @@ interface BallotCardProps {
  * @returns A blank card with a plus symbol if no candidate is pinned for the contest, or a Candidate List Item
  * featuring the pinned candidate for the contest if otherwise!
  */
-export const BallotCard: any = (props : BallotCardProps) =>{
-    const { 
+export const BallotCard: any = (props: BallotCardProps) => {
+    const {
         pinnedCandidates,
         selectedElection,
-      } = useDecisionFlowContext();
+    } = useDecisionFlowContext();
     //Just to get rid of type errors!
-    if (selectedElection === null){
+    if (selectedElection === null) {
         return <div></div>;
     }
-    if (pinnedCandidates[props.election.id][props.contest.id] !== null){
+    if (pinnedCandidates[props.election.id][props.contest.id] !== null) {
         return (
             <div onClick={props.onClick}>
                 {/** I probably need to find a better way to do this to be honest */}
                 {Object.values(props.contest.candidates)
                     .filter((candidate) => candidate.id === pinnedCandidates[props.election.id][props.contest.id])
                     .map((candidate) => (
-                        <CandidateListItem name={candidate.name} 
-                        website={candidate.website} 
-                        image={candidate.image} 
-                        key={candidate.id}/>
+                        <CandidateListItem name={candidate.name}
+                            website={candidate.website}
+                            image={candidate.image}
+                            key={candidate.id} />
                     ))}
             </div>
         )
     }
     return (
-        <div className="list-item rounded-lg" onClick={props.onClick}>
-            {/** TODO: Add actual plus icon here! */}
-            <h1 className="font-bold text-center">Click Here To Choose A Candidate!</h1>
-            <h1 className="font-bold text-center">*Insert fancy plus sign icon here*</h1>
+        <div className="list-item-plus-card rounded-md flex justify-center items-center" onClick={props.onClick}>
+            <AddIcon style={{ color: 'darkgray' }} />
         </div>
+
     );
 }

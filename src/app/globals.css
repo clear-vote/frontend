@@ -144,12 +144,24 @@ body {
 .list-item {
   width: 280px;
   height: 100px;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   margin: 10px;
 }
+
+.list-item-plus-card {
+  display: flex;
+  width: 280px;
+  height: 100px;
+  border: 2px dashed lightgray;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 10px;
+}
+
 
 .list-item-image {
   width: 80px;

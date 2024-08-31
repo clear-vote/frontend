@@ -40,6 +40,7 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
   const [selectedPolitigram, setSelectedPolitigram] = useState<Politigram | null>(null);
   const [isDesktop, setIsDesktop] = useState<boolean>(useMediaQuery('(min-width: 600px)'));
 
+  //Internal state for now; probably will have to be changed so other pages can use it as well!
   const checkDesktop = useMediaQuery('(min-width: 600px)');
 
   useEffect(() => {

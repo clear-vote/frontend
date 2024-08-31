@@ -16,7 +16,7 @@ interface CandidateListItemProps {
 export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItemProps>(
   ({ name, website, image, ...props }, ref?) => {
     return (
-      <div className="list-item rounded-lg">
+      <div className="list-item rounded-md">
         <button ref={ref} {...props} className="splitscreen">
           <div className="left">
             <img src={image ? image : '/images/no_candidate_image.png'} alt={name} className="list-item-image" />
