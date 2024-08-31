@@ -47,6 +47,7 @@ const ContestPage: React.FC<ContestPageProps> = ({ election, onBackClick }) => {
     )
   }
 
+  /** TODO: Make element automatically scroll to the top of the page to prevent it from being cut off */
   return (
     <div>
       <p>{`${election.contests[selectedContest].jurisdiction} ${election.contests[selectedContest].title}`}</p>

@@ -16,7 +16,7 @@
         "position": null,
         "candidates": [
           {
-            "election_id": 1,
+            "candidate_id": 1,
             "name": "Becka Johnson Poppe",
             "website": "www.votebecka.com",
             "image": "https://info.kingcounty.gov/kcelections/vote/contests/GetPhoto.ashx?webapiaddress=https://websvc.kingcounty.gov/elections/WEBAPI/&candidateid=1604694&electionid=38&contestid=123797",

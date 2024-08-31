@@ -1,7 +1,7 @@
 // page.tsx
 'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import ContestPage from './ContestPage';
 import {
@@ -16,6 +16,7 @@ import Skeleton from '@mui/material/Skeleton';
 import { useFetchData } from '@/hooks/useFetchData';
 import { Contest, Election } from '@/types';
 import { SendResultsPage } from './SendResultsPage';
+import PrecinctMapCard from '../cards/PrecinctMapCard';
 
 const DecisionFlow = () => {
   const { 
@@ -115,6 +116,7 @@ const DecisionFlow = () => {
   // Invariant: election should be selected if data has loaded
   if (data !== null && selectedElection !== null && selectedElection in elections) {
     const election: Election = elections[selectedElection];
+
     return (
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
         <div
@@ -125,7 +127,7 @@ const DecisionFlow = () => {
             width: '100%',
             height: '100%',
           }}
-        >        
+        > 
           <AnimatedPage page='left' isActive={selectedContest === null && !inRightPage}>
             <ElectionsPage 
               onContestClick={handleContestClick}
