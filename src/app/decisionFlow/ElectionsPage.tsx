@@ -38,11 +38,9 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
       <div>Desktop not supported</div>
     );
   }
-
   return ( 
     <div>
-      {/** TODO: Add Token support! */}
-      {/**<PrecinctMapCard token={???}/>*/}
+      <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}/>
       <ElectionDetailsCard
         setDropdownIsOpen={setDropdownIsOpen}
       />

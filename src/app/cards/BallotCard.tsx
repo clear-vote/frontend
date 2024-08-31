@@ -43,7 +43,7 @@ export const BallotCard: any = (props : BallotCardProps) =>{
         )
     }
     return (
-        <div className="list-item" onClick={props.onClick}>
+        <div className="list-item rounded-lg" onClick={props.onClick}>
             <p>Insert plus symbol here</p>
         </div>
     );

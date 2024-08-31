@@ -185,5 +185,13 @@ body {
 /** Juristication Cards Styling */
 
 .juristication-card {
-  /** TODO: Add Styling*/
+  /** TODO: Add Styling */
+}
+
+/** Mapbox Styling */
+.mapbox {
+  width: 100%;
+  height: 300px; 
+  backgroundColor: lightgray;
+  margin-bottom: 10px;
 }
