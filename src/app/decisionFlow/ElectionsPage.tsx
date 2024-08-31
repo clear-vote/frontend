@@ -5,18 +5,10 @@ import { Contest, Election } from "@/types/index";
 import { ProgressCard } from "@/app/cards/ProgressCard";
 import PrecinctMapCard from "@/app/cards/PrecinctMapCard";
 import { ElectionDetailsCard } from "@/app/cards/ElectionDetailsCard";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { BallotCard } from "../cards/BallotCard";
 import { JurisdictionCard } from "../cards/JurisdictionCard";
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { Button } from "@/components/ui/button";
 
 interface ElectionsPageProps {
   onContestClick: (contestId: number) => void;
@@ -44,12 +36,20 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
       <ElectionDetailsCard
         setDropdownIsOpen={setDropdownIsOpen}
       />
-      <h3 className="font-bold text-lg">Explore Your Ballot!</h3>
       {
         (() => {
           const selectedElectionData = elections[selectedElection!];
           return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
             <>
+              <br></br>
+              <h3 className="font-bold text-lg">{selectedElectionData.type}</h3>
+              <p>A general election and a special election are both types of elections, but they serve different
+                purposes and occur under different circumstances.
+              </p>
+              {/** TODO: Make these buttons do something! */}
+              <Button>Sign up for reminders</Button><Button>Get registered</Button>
+              <br></br><br></br><br></br>
+              <h3 className="font-bold text-lg">Explore Your Ballot!</h3>
               <ProgressCard onSendResultsClick={onSendResultsClick}/>
               <JurisdictionCard election={selectedElectionData} contests={Object.values(selectedElectionData.contests)} onContestClick={onContestClick}/>
             </>

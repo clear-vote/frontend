@@ -195,3 +195,13 @@ body {
   backgroundColor: lightgray;
   margin-bottom: 20px;
 }
+
+/** Toolbar styling */
+.toolbar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  background: #f0f0f0;
+}

@@ -7,7 +7,7 @@ import Toolbar from './components/Toolbar';
 
 export default function LandingPage() {
   return (
-    <div style={{ paddingTop: '60px' }}> 
+    <div> 
       <Toolbar/>
       <h1>Welcome to Clearvote!</h1>
       <div className="flex w-full max-w-sm items-center space-x-2">
