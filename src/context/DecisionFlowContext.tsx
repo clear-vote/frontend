@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Election, Politigram } from '@/types/index';
 import { PinnedCandidates, HiddenCandidates } from '@/types/index';
 import { useMediaQuery } from '@mui/material';
@@ -38,7 +38,35 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
   const [pinnedCandidates, setPinnedCandidates] = useState<PinnedCandidates>({});
   const [hiddenCandidates, setHiddenCandidates] = useState<HiddenCandidates>({});
   const [selectedPolitigram, setSelectedPolitigram] = useState<Politigram | null>(null);
-  const [isDesktop, setIsDesktop] = useState<boolean>(useMediaQuery('(min-width:600px)'));
+  const [isDesktop, setIsDesktop] = useState<boolean>(useMediaQuery('(min-width: 600px)'));
+
+  const checkDesktop = useMediaQuery('(min-width: 600px)');
+
+  useEffect(() => {
+    setIsDesktop(checkDesktop);
+  }, [checkDesktop]);
+
+  //No toolbar on desktop at the moment
+  if (isDesktop) {
+    return (
+      <div>
+        <DecisionFlowContext.Provider
+          value={{
+            elections, setElections,
+            selectedElection, setSelectedElection,
+            selectedContest, setSelectedContest,
+            pinnedCandidates, setPinnedCandidates,
+            hiddenCandidates, setHiddenCandidates,
+            selectedPolitigram, setSelectedPolitigram,
+            isDesktop, setIsDesktop
+          }}
+        >
+          {children}
+        </DecisionFlowContext.Provider>
+      </div>
+    );
+  }
+
   return (
     <div style={{ paddingTop: '45px' }}>
       <Toolbar />
@@ -56,7 +84,6 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
         {children}
       </DecisionFlowContext.Provider>
     </div>
-
   );
 };
 
