@@ -67,6 +67,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
               <br></br><br></br><br></br>
               <h3 className="font-bold text-lg">Explore Your Ballot!  <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/></h3>
               <ProgressCard onSendResultsClick={onSendResultsClick}/>
+              <br></br>
               <JurisdictionCard election={selectedElectionData} contests={Object.values(selectedElectionData.contests)} onContestClick={onContestClick}/>
             </>
           ) : (
