@@ -26,7 +26,9 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
             <br></br>
             <div className="list-item-website">
               {website &&
-                <div className="text-sm text-gray-400" style={{overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}><LinkIcon style={{width: "15px", color: "gray-500"}}/> {trimLink(website)}</div>
+                <div className="text-sm text-gray-400" style={{overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
+                  <LinkIcon style={{width: "15px", color: "gray-500"}}/> {trimLink(website)}
+                </div>
               }
             </div>
           </div>
