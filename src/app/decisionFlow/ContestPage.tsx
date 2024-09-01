@@ -1,8 +1,6 @@
 // ContestPage.tsx
 import { useState, useEffect } from 'react';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
-import { Button } from "@/components/ui/button";
-import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ContestAccordions from '../components/ContestAccordion';
 import { Candidate, Election } from "@/types/index";
 import PositionInfoModal from '@/app/modals/PositionInfoModal';

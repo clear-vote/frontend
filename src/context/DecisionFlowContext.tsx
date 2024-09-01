@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { Election, Politigram } from '@/types/index';
 import { PinnedCandidates, HiddenCandidates } from '@/types/index';
 import { useMediaQuery } from '@mui/material';
