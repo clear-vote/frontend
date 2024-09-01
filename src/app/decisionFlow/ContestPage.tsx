@@ -4,9 +4,9 @@ import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import { Button } from "@/components/ui/button";
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ContestAccordions from '../components/ContestAccordion';
-import PositionInfo from '@/app/modals/PositionInfoModal';
 import { Candidate, Election } from "@/types/index";
 import PositionInfoModal from '@/app/modals/PositionInfoModal';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 interface ContestPageProps {
   election: Election;
@@ -47,18 +47,19 @@ const ContestPage: React.FC<ContestPageProps> = ({ election, onBackClick }) => {
     )
   }
 
-  /** TODO: Make element automatically scroll to the top of the page to prevent it from being cut off */
+  //Thanks Stack Overflow! This is to ensure that the Contest Page scrolls to the top when loaded
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div>
-      <p>{`${election.contests[selectedContest].jurisdiction} ${election.contests[selectedContest].title}`}</p>
-
-      <Button onClick={onBackClick} variant="outline" className="flex items-center">
-        <ArrowBackRoundedIcon />
-        Back
-      </Button>
-
+      <div className="font-bold" style={{padding: "10px", backgroundColor: "#2426280D", borderBottom : '1px solid #24262814'}}>
+        <ArrowBackIcon onClick={onBackClick} style={{ width: '20px', transform: "translateY(-2px)" }}/>
+        &nbsp;&nbsp;&nbsp;{`${election.contests[selectedContest].jurisdiction} ${election.contests[selectedContest].title}`}
+      </div>
+      <div style={{padding: '8px'}}>
       <PositionInfoModal position={election.contests[selectedContest].title} />
-
       <ContestAccordions
         election={election}
         pinnedCandidate={pinnedCandidates[selectedElection][selectedContest]}
@@ -68,6 +69,7 @@ const ContestPage: React.FC<ContestPageProps> = ({ election, onBackClick }) => {
         setDefaultAccordion={setDefaultAccordion}
         setUnpickedCandidates={setUnpickedCandidates}
       />
+      </div>
     </div>
   );
 }

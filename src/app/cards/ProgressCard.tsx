@@ -22,7 +22,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({ onSendResultsClick }
 
   return (
     <div>
-      <p>Difference between contests and pinned candidates: {contestsRemaining}</p>
+      <p>You have {contestsRemaining} contests to vote in remaining!</p>
       {contestsRemaining === 0 && (
         <Button 
           variant="outline"

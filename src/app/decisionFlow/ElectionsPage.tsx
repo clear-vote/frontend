@@ -1,7 +1,6 @@
 /* ElectionsPage.tsx */
 
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
-import { Contest, Election } from "@/types/index";
 import { ProgressCard } from "@/app/cards/ProgressCard";
 import PrecinctMapCard from "@/app/cards/PrecinctMapCard";
 import { useState, useMemo } from "react";
@@ -9,6 +8,10 @@ import { JurisdictionCard } from "../cards/JurisdictionCard";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Button } from "@/components/ui/button";
 import { ElectionDetailsCard } from "../cards/ElectionDetailsCard";
+import PersonIcon from '@mui/icons-material/Person';
+import HowToVoteIcon from '@mui/icons-material/HowToVote';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+
 
 interface ElectionsPageProps {
   onContestClick: (contestId: number) => void;
@@ -40,6 +43,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
   return ( 
     <div>
       {MemoizedPrecinctMapCard}
+      <div style={{padding: "8px"}}>
       <ElectionDetailsCard
         setDropdownIsOpen={setDropdownIsOpen}
       />
@@ -49,14 +53,19 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
           return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
             <>
               <br></br>
-              <h3 className="font-bold text-lg">{selectedElectionData.type}</h3>
+              <h1 className="font-bold text-lg">{selectedElectionData.type}</h1>
               <p>A general election and a special election are both types of elections, but they serve different
                 purposes and occur under different circumstances.
               </p>
-              {/** TODO: Make these buttons do something! */}
-              <Button>Sign up for reminders</Button><Button>Get registered</Button>
+              {/** TODO: Replace with "Sign up for reminders" link */}
+              <Button style={{backgroundColor : '#947FEE', color : 'white'}}><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
+                <PersonIcon style={{width : '15px'}}/> Sign up for reminders</a>
+              </Button>
+              <Button style={{ backgroundColor: 'white', border: '1px solid lightgray', color: 'black' }}><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
+                <HowToVoteIcon style={{width : '15px'}}/> Get registered</a>
+              </Button>
               <br></br><br></br><br></br>
-              <h3 className="font-bold text-lg">Explore Your Ballot!</h3>
+              <h3 className="font-bold text-lg">Explore Your Ballot!  <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/></h3>
               <ProgressCard onSendResultsClick={onSendResultsClick}/>
               <JurisdictionCard election={selectedElectionData} contests={Object.values(selectedElectionData.contests)} onContestClick={onContestClick}/>
             </>
@@ -65,6 +74,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
           );
         })()
       }
+    </div>
     </div>
   );
 };

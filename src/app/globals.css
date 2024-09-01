@@ -142,17 +142,32 @@ body {
 
 /** Generic List Item's Awesome Styling */
 .list-item {
-  width: 280px;
+  width: 290px;
   height: 100px;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   margin: 10px;
+  background-color: white;
+  position: relative;
+}
+
+.list-item-plus-card {
+  display: flex;
+  width: 290px;
+  height: 100px;
+  border: 2px dashed lightgray;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 10px;
+  background-color: white;
 }
 
 .list-item-image {
   width: 80px;
+  min-width: 80px;
   height: 100px;
   object-fit: cover;
   margin-right: 10px;
@@ -168,26 +183,39 @@ body {
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .list-item-name {
   flex: 1;
   margin-bottom: auto;
+  margin-left: auto;
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 0; 
 }
 
 .list-item-website {
-  margin-top: auto;
+  flex: 1;
+  margin-bottom: auto;
+  margin-left: auto;
+  position: absolute;
+  bottom: 8px;
   word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  flex-shrink: 0;
+  min-width: 0; 
 }
 
 /** Juristication Cards Styling */
-
 .juristication-card {
-  /** TODO: Add Styling */
+  backgroundColor : #06090B0A;
+  border: 2px solid #24262814;
 }
 
 /** Mapbox Styling */
@@ -205,5 +233,5 @@ body {
   width: 100%;
   display: flex;
   padding: 10px;
-  background: #f0f0f0;
+  background: #E8E8E8;
 }
