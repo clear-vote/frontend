@@ -58,7 +58,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
                 purposes and occur under different circumstances.
               </p>
               {/** TODO: Replace with "Sign up for reminders" link */}
-              <Button style={{backgroundColor : '#947FEE', color : 'white'}}><a href="https://www.youtube.com/watch?v=ha7smLPz2GY">
+              <Button style={{backgroundColor : '#947FEE', color : 'white'}}><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
                 <PersonIcon style={{width : '15px'}}/> Sign up for reminders</a>
               </Button>
               <Button style={{ backgroundColor: 'white', border: '1px solid lightgray', color: 'black' }}><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
