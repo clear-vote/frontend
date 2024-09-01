@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { ElectionDetailsCard } from "../cards/ElectionDetailsCard";
 import PersonIcon from '@mui/icons-material/Person';
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 
 interface ElectionsPageProps {
@@ -42,6 +43,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
   return ( 
     <div>
       {MemoizedPrecinctMapCard}
+      <div style={{padding: "8px"}}>
       <ElectionDetailsCard
         setDropdownIsOpen={setDropdownIsOpen}
       />
@@ -63,7 +65,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
                 <HowToVoteIcon style={{width : '15px'}}/> Get registered</a>
               </Button>
               <br></br><br></br><br></br>
-              <h3 className="font-bold text-lg">Explore Your Ballot!</h3>
+              <h3 className="font-bold text-lg">Explore Your Ballot!  <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/></h3>
               <ProgressCard onSendResultsClick={onSendResultsClick}/>
               <JurisdictionCard election={selectedElectionData} contests={Object.values(selectedElectionData.contests)} onContestClick={onContestClick}/>
             </>
@@ -72,6 +74,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
           );
         })()
       }
+    </div>
     </div>
   );
 };

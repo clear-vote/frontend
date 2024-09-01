@@ -13,7 +13,7 @@ interface JurisdictionCardProps {
 }
 
 export const JurisdictionCard : any = (props : JurisdictionCardProps) => {
-    /** Once the jurisdiction stuff is figured out, we will be able to properly sort these out! */
+    /** TODO: Once the jurisdiction stuff is figured out, we will be able to properly sort these out! */
     return (
         <div className="rounded-sm juristication-card">
             <div className="rounded-t-sm" style={{background: "linear-gradient(to right, #ff7e5f, #feb47b)"}}>

@@ -69,7 +69,7 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
   }
 
   return (
-    <div style={{ paddingTop: '45px' }}>
+    <div style={{ paddingTop: '44px' }}>
       <Toolbar />
       <DecisionFlowContext.Provider
         value={{
