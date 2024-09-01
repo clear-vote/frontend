@@ -47,6 +47,11 @@ const ContestPage: React.FC<ContestPageProps> = ({ election, onBackClick }) => {
     )
   }
 
+  //Thanks Stack Overflow! This is to ensure that the Contest Page scrolls to the top when loaded
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   /** TODO: Make element automatically scroll to the top of the page to prevent it from being cut off */
   return (
     <div>

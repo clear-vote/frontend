@@ -28,9 +28,12 @@ export const BallotCard: any = (props: BallotCardProps) => {
     if (selectedElection === null) {
         return <div></div>;
     }
+    //Pinned candidate contest card
     if (pinnedCandidates[props.election.id][props.contest.id] !== null) {
         return (
             <div onClick={props.onClick}>
+                <h3 className="font-bold">{props.contest.jurisdiction} {props.contest.title} &#x2022;
+                    {Object.values(props.contest.candidates).length} candidates</h3>
                 {/** I probably need to find a better way to do this to be honest */}
                 {Object.values(props.contest.candidates)
                     .filter((candidate) => candidate.id === pinnedCandidates[props.election.id][props.contest.id])
@@ -43,10 +46,13 @@ export const BallotCard: any = (props: BallotCardProps) => {
             </div>
         )
     }
+    //Ballot card with no selection
     return (
-        <div className="list-item-plus-card rounded-md flex justify-center items-center" onClick={props.onClick}>
-            <AddIcon style={{ color: 'darkgray' }} />
+        <div>
+            <h3 className="font-bold">{props.contest.jurisdiction} {props.contest.title} &#x2022; {Object.values(props.contest.candidates).length} candidates</h3>
+            <div className="list-item-plus-card rounded-md flex justify-center items-center" onClick={props.onClick}>
+                <AddIcon style={{ color: 'darkgray' }} />
+            </div>
         </div>
-
     );
 }

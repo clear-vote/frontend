@@ -1,5 +1,6 @@
 import { Contest, Election } from "@/types";
 import { BallotCard } from "./BallotCard";
+import JurisdictionModal from "../modals/JurisdictionModal";
 
 
 interface JurisdictionCardProps {
@@ -12,13 +13,16 @@ interface JurisdictionCardProps {
 }
 
 export const JurisdictionCard : any = (props : JurisdictionCardProps) => {
+    /** Once the jurisdiction stuff is figured out, we will be able to properly sort these out! */
     return (
-        <div>
-            {/** Enter Juristriction here! */}
+        <div className="rounded-sm juristication-card">
+            <div className="rounded-t-sm" style={{background: "linear-gradient(to right, #ff7e5f, #feb47b)"}}>
+                <h3 className="text-white" style={{ fontFamily: "'IBM Plex Mono', monospace", paddingLeft: "5px" }}>Robville City Council</h3>
+                <JurisdictionModal jurisdiction={"Robville City Council"}/>
+            </div>
             {props.contests.map((contest) => (
-                <div key={contest.id} className="juristication-card" onClick={() => props.onContestClick(contest.id)}
+                <div key={contest.id}  onClick={() => props.onContestClick(contest.id)}
                 style={{ backgroundColor : '#06090B0A', border: 'none', borderTop : '2px solid #24262814', padding : "10px"}}>
-                    <p>{contest.jurisdiction} {contest.title} &#x2022; {Object.values(contest.candidates).length} Candidates!</p>
                     <BallotCard contest={contest} election={props.election}/>
                 </div>
             ))}

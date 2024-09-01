@@ -60,7 +60,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
                 <PersonIcon style={{width : '15px'}}/> Sign up for reminders</a>
               </Button>
               <Button style={{ backgroundColor: 'white', border: '1px solid lightgray', color: 'black' }}><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
-                <HowToVoteIcon/> Get registered</a>
+                <HowToVoteIcon style={{width : '15px'}}/> Get registered</a>
               </Button>
               <br></br><br></br><br></br>
               <h3 className="font-bold text-lg">Explore Your Ballot!</h3>

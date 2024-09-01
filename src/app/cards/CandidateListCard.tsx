@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { trimLink } from "@/utils/index";
-import { Button } from "@/components/ui/button";
+import LinkIcon from '@mui/icons-material/Link';
 
 
 interface CandidateListItemProps {
@@ -22,11 +22,11 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
             <img src={image ? image : '/images/no_candidate_image.png'} alt={name} className="list-item-image" />
           </div>
           <div className="right">
-            <div className="list-item-name"><p className="font-bold">{name}</p></div>
+            <div className="list-item-name"><h1 className="font-bold">{name}</h1></div>
             <br></br>
             <div className="list-item-website">
               {website &&
-                <span className="text-sm text-gray-500">{trimLink(website)}</span>
+                <div className="text-sm text-gray-400" style={{overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}><LinkIcon style={{width: "15px", color: "gray-500"}}/> {trimLink(website)}</div>
               }
             </div>
           </div>
