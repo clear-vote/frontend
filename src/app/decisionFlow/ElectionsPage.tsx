@@ -11,7 +11,6 @@ import { ElectionDetailsCard } from "../cards/ElectionDetailsCard";
 import PersonIcon from '@mui/icons-material/Person';
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { Toolbar } from "@mui/material";
 
 
 interface ElectionsPageProps {

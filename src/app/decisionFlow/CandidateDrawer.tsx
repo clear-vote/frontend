@@ -1,25 +1,15 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Button } from "@/components/ui/button";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
-import { trimLink } from "@/utils/index"
-import { Candidate, Election, HiddenCandidates, PinnedCandidates } from "@/types/index";
+import { Election, HiddenCandidates, PinnedCandidates } from "@/types/index";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { CandidateCard } from "@/app/cards/CandidateCard/CandidateCard";
 import { CandidateListItem } from "../cards/CandidateListCard";
