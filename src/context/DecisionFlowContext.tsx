@@ -47,27 +47,6 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
     setIsDesktop(checkDesktop);
   }, [checkDesktop]);
 
-  //No toolbar on desktop at the moment
-  if (isDesktop) {
-    return (
-      <div>
-        <DecisionFlowContext.Provider
-          value={{
-            elections, setElections,
-            selectedElection, setSelectedElection,
-            selectedContest, setSelectedContest,
-            pinnedCandidates, setPinnedCandidates,
-            hiddenCandidates, setHiddenCandidates,
-            selectedPolitigram, setSelectedPolitigram,
-            isDesktop, setIsDesktop
-          }}
-        >
-          {children}
-        </DecisionFlowContext.Provider>
-      </div>
-    );
-  }
-
   return (
     <div style={{ paddingTop: '44px' }}>
       <Toolbar />

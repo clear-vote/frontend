@@ -39,16 +39,16 @@ const ContestPage: React.FC<ContestPageProps> = ({ election, onBackClick }) => {
     );
   }, [selectedElection, selectedContest, pinnedCandidates, setPinnedCandidates]);
 
+  //Thanks Stack Overflow! This is to ensure that the Contest Page scrolls to the top when loaded
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   if (isDesktop) {
     return (
       <div>Desktop not supported</div>
     )
   }
-
-  //Thanks Stack Overflow! This is to ensure that the Contest Page scrolls to the top when loaded
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
 
   return (
     <div>

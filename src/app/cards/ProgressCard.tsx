@@ -1,4 +1,5 @@
-import { Button } from '@/components/ui/button'; // Replace 'your-button-library' with the actual library you are using for buttons
+import { Button } from '@/components/ui/button';
+import ProgressBar from '@/components/ui/progress-bar';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import { Election } from '@/types';
 
@@ -12,7 +13,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({ onSendResultsClick }
 
   // Calculate the number of contests and the difference
   const calculateContestsRemaining = (election: Election): number => {
-    const numContests = Object.keys(election.contests).length;;
+    const numContests = Object.keys(election.contests).length;
     if (!pinnedCandidates[election.id]) {
       return numContests;
     }
@@ -22,14 +23,21 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({ onSendResultsClick }
 
   return (
     <div>
-      <p>You have {contestsRemaining} contests to vote in remaining!</p>
+      <ProgressBar value={(contestsRemaining*100) / Object.keys(elections[selectedElection!].contests).length}/>
+      <p className="font-bold" style={{ fontSize: '12px', color: 'gray' }}>
+        {Math.floor(100-(contestsRemaining*100) / Object.keys(elections[selectedElection!].contests).length)}&#x25; of votes cast!
+      </p>
+      <br></br>
       {contestsRemaining === 0 && (
+        <div className="flex justify-center items-center text-white">
         <Button 
           variant="outline"
           onClick={() => onSendResultsClick()}
+          style={{ backgroundColor : "#60D052"}}
         >
-          Next
+          All Votes Cast! Get Your Ballot!
         </Button>
+        </div>
       )}
     </div>
   );
