@@ -75,10 +75,6 @@ const DecisionFlow = () => {
     return <div>No valid election selected.</div>;
   }
   
-  if (isDesktop) {
-    return <div>Desktop not supported</div>;
-  }
-  
   const handleContestClick = (contestId: number) => {
     // selectedContest is set via the button, here we are just delaying the animation of the contest page
     setSelectedContest(contestId);

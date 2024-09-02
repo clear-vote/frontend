@@ -34,12 +34,54 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
     []
   );
 
+  /** Desktop Mode */
   if (isDesktop) {
     return (
-      <div>Desktop not supported</div>
-    );
+      <div>Desktop not yet supported</div>
+    )
+    // return (
+    //   <div className="w-full flex flex-col items-center">
+    //     <div className="max-w-[calc(100vw-8rem)] w-full p-16 flex flex-col gap-6 items-center rounded-xl">
+    //     <div className="max-w-[660px] w-full items-center">
+    //       <div className="w-full h-full">{MemoizedPrecinctMapCard}</div>
+    //       <div className="align-left"><ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen}/></div>
+    //     </div>
+    //     </div>
+    //     {
+    //     (() => {
+    //       const selectedElectionData = elections[selectedElection!];
+    //       return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
+    //         <>
+    //           <div className="rounded-lg bg-clip-border border w-full" style={{ maxWidth: "600px", padding: "8px"}}>
+    //             <h1 className="font-bold text-lg">{selectedElectionData.type}</h1>
+    //             <p>A general election and a special election are both types of elections, but they serve different
+    //               purposes and occur under different circumstances.
+    //             </p>
+    //           </div>
+    //           {/** TODO: Replace with "Sign up for reminders" link */}
+    //           <br></br>
+    //           <Button style={{backgroundColor : '#947FEE', color : 'white'}}><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
+    //             <PersonIcon style={{width : '15px'}}/> Sign up for reminders</a>
+    //           </Button>
+    //           <Button style={{ backgroundColor: 'white', border: '1px solid lightgray', color: 'black' }}><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
+    //             <HowToVoteIcon style={{width : '15px'}}/> Get registered</a>
+    //           </Button>
+    //           <br></br><br></br><br></br>
+    //           <h3 className="font-bold text-lg">Explore Your Ballot!  <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/></h3>
+    //           <ProgressCard onSendResultsClick={onSendResultsClick}/>
+    //           <br></br>
+    //           <JurisdictionCard election={selectedElectionData} contests={Object.values(selectedElectionData.contests)} onContestClick={onContestClick}/>
+    //         </>
+    //       ) : (
+    //         <p>No contests found for the selected election.</p>
+    //       );
+    //     })()
+    //   }
+    //   </div>
+    // );
   }
 
+  /** Mobile Mode */
   return ( 
     <div>
       {MemoizedPrecinctMapCard}

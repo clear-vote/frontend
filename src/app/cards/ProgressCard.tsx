@@ -25,7 +25,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({ onSendResultsClick }
     <div>
       <ProgressBar value={(contestsRemaining*100) / Object.keys(elections[selectedElection!].contests).length}/>
       <p className="font-bold" style={{ fontSize: '12px', color: 'gray' }}>
-        {100-(contestsRemaining*100) / Object.keys(elections[selectedElection!].contests).length}&#x25; of votes cast!
+        {Math.floor(100-(contestsRemaining*100) / Object.keys(elections[selectedElection!].contests).length)}&#x25; of votes cast!
       </p>
       {contestsRemaining === 0 && (
         <div>
