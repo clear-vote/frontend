@@ -27,14 +27,15 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({ onSendResultsClick }
       <p className="font-bold" style={{ fontSize: '12px', color: 'gray' }}>
         {Math.floor(100-(contestsRemaining*100) / Object.keys(elections[selectedElection!].contests).length)}&#x25; of votes cast!
       </p>
+      <br></br>
       {contestsRemaining === 0 && (
-        <div>
-        <p className="font-bold">Complete! Click "Next" to save your ballot!</p>
+        <div className="flex justify-center items-center text-white">
         <Button 
           variant="outline"
           onClick={() => onSendResultsClick()}
+          style={{ backgroundColor : "#60D052"}}
         >
-          Next
+          All Votes Cast! Get Your Ballot!
         </Button>
         </div>
       )}

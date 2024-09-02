@@ -34,8 +34,9 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
     <div>
       <div className="font-bold" style={{ padding: "10px", backgroundColor: "#2426280D", borderBottom: '1px solid #24262814' }}>
         <ArrowBackIcon onClick={onBackClick} style={{ width: '20px', transform: "translateY(-2px)" }} />
-        &nbsp;&nbsp;&nbsp;Send Results!
+        &nbsp;&nbsp;&nbsp;Get Your Ballot!
       </div>
+      <br></br>
       <div className="flex space-x-2">
         <Input
           type="email"
@@ -44,12 +45,17 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
           onChange={(e) => setEmail(e.target.value)}
           onKeyPress={handleKeyPress}
         />
-        <Button onClick={handleSubmit}>Save my results</Button>
+        <Button onClick={handleSubmit} style={{ backgroundColor: "#60D052"}}>Submit</Button>
       </div>
-      {/* donate is a new page */}
-      <Button>Donate</Button>
       <br></br>
-      <DonationsModal/>
+      <div className="flex justify-center items-center">
+        {/* donate is a new page */}
+        <Button style={{ backgroundColor: '#947FEE'}}>Donate</Button>
+      </div>
+      <br></br>
+      <div className="flex justify-center items-center">
+        <DonationsModal />
+      </div>
     </div>
   );
 }
