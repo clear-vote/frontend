@@ -1,13 +1,13 @@
 /* ElectionsPage.tsx */
 
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
-import { ProgressCard } from "@/app/cards/ProgressCard";
-import PrecinctMapCard from "@/app/cards/PrecinctMapCard";
+import { ProgressCard } from "@/app/modules/cards/ProgressCard";
+import PrecinctMapCard from "@/app/modules/cards/PrecinctMapCard";
 import { useState, useMemo } from "react";
-import { JurisdictionCard } from "../cards/JurisdictionCard";
+import { JurisdictionCard } from "@/app/modules/cards/JurisdictionCard";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Button } from "@/components/ui/button";
-import { ElectionDetailsCard } from "../cards/ElectionDetailsCard";
+import { ElectionDetailsCard } from "@/app/modules/cards/ElectionDetailsCard";
 import PersonIcon from '@mui/icons-material/Person';
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -20,6 +20,7 @@ interface ElectionsPageProps {
 
 export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, onSendResultsClick }) => {
   const { 
+    coordinates,
     elections, 
     selectedElection,
     isDesktop,
@@ -30,7 +31,9 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
 
   // Prevents the map from being rerendered on every single state change; that wouldn't be good!
   const MemoizedPrecinctMapCard = useMemo(
-    () => <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />, 
+    () => <PrecinctMapCard 
+      token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
+    />, 
     []
   );
 

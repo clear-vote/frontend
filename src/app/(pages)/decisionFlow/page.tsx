@@ -2,6 +2,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import ContestPage from './ContestPage';
 import {
@@ -9,17 +10,19 @@ import {
   getDefaultEid,
   initHiddenCandidates,
   initPinnedCandidates
-} from '@/utils';
-import { AnimatedPage } from '../components/AnimatedPage';
+} from '@/utils/helpers';
+import { AnimatedPage } from '../../modules/misc/AnimatedPage';
 import { ElectionsPage } from './ElectionsPage';
 import Skeleton from '@mui/material/Skeleton';
-import { useFetchData } from '@/hooks/useFetchData';
+import { useFetchData } from '@/api/useFetchData';
 import { Contest, Election } from '@/types';
 import { SendResultsPage } from './SendResultsPage';
-import PrecinctMapCard from '../cards/PrecinctMapCard';
+import PrecinctMapCard from '@/app/modules/cards/PrecinctMapCard';
 
 const DecisionFlow = () => {
   const { 
+    setPrecinct,
+    setCoordinates,
     elections,
     selectedContest,
     selectedElection, setElections, 
@@ -29,30 +32,34 @@ const DecisionFlow = () => {
     setHiddenCandidates,
     isDesktop
   } = useDecisionFlowContext();
-  const {
-    data,
-    loading,
-    error
-  } = useFetchData<any>('/data/electionFoo.json');
+
+  const { data, loading, error } = useFetchData<any>();
+  const router = useRouter();
   
   // when back button is pressed on contest, this sets to false IMMEDIATELY
   // when a contest is clicked, this there is a slight delay before this is set
   const [inRightPage, setInRightPage] = useState(false);
   const [inSendResultsPage, setInSendResultsPage] = useState(false);
-
+  
   // This renders page when new data is available
   useEffect(() => {
-    if (!data)
-      return;
-    const electionsRecord: Record<number, Election> = getElectionsRecord(data);
-    if (Object.keys(electionsRecord).length === 0)
-      return;
+    if (!data) return;
+    
+    if (data && typeof data === 'object' && 'precinct_id' in data) {
+      setPrecinct(data.precinct_id);
+      setCoordinates(data.coordinates);
+      router.push(`/decisionFlow?precinct_id=${data.precinct_id}`);
+    }
+
+    const electionsRecord: Record<number, Election> = getElectionsRecord(data.elections);
+    if (Object.keys(electionsRecord).length === 0) return;
+
     setElections(electionsRecord);
-    const defaultEid = getDefaultEid(electionsRecord, new Date());
+    const defaultEid: number = getDefaultEid(electionsRecord, new Date());
     setSelectedElection(defaultEid);
     setPinnedCandidates(initPinnedCandidates(electionsRecord));
     setHiddenCandidates(initHiddenCandidates(electionsRecord));
-  }, [data]); // Ensure these dependencies won't cause unnecessary re-renders  
+  }, [data, router]); // Ensure these dependencies won't cause unnecessary re-renders  
 
   
   if (loading) {

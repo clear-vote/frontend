@@ -1,9 +1,9 @@
 "use client"
 
 import Image from "next/image";
-import Toolbar from './components/Toolbar';
+import Toolbar from '../modules/misc/Toolbar';
 import * as React from "react"
-import { MapboxSearchInput } from './components/MapboxSearchInput';
+import { MapboxSearchInput } from '../modules/misc/MapboxSearchInput';
 import { Button } from '@/components/ui/button';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 

@@ -11,9 +11,9 @@ import {
 } from "@/components/ui/drawer"
 import { Election, HiddenCandidates, PinnedCandidates } from "@/types/index";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
-import { CandidateCard } from "@/app/cards/CandidateCard/CandidateCard";
-import { CandidateListItem } from "../cards/CandidateListCard";
-import { PinButton } from "@/app/components/PinButton";
+import { CandidateCard } from "@/app/modules/candidateCard/CandidateCard";
+import { CandidateListItem } from "../../modules/cards/CandidateListCard";
+import { PinButton } from "@/app/modules/misc/PinButton";
 
 interface CandidateDrawerProps {
   election: Election;

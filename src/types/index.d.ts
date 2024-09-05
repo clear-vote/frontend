@@ -1,7 +1,7 @@
 import { HiddenCandidates } from './index.d';
-import { SelectionStatus } from "@/utils";
+import { SelectionStatus } from "@/utils/helpers";
 
-export interface Candidate {
+export type Candidate = {
   id: number;
   name: string;
   website: string|null;
@@ -13,7 +13,7 @@ export interface Candidate {
   sources: object[]|null;
 }
 
-export interface Contest {
+export type Contest = {
   id: number;
   title: string;
   jurisdiction: string;
@@ -22,7 +22,7 @@ export interface Contest {
   candidates: Record<number, Candidate>;
 }
 
-export interface Election {
+export type Election = {
   id: number;
   type: string;
   voting_start: Date;

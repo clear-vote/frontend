@@ -1,6 +1,6 @@
 // ContestAccordions.tsx
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CandidateDrawer } from '../decisionFlow/CandidateDrawer';
+import { CandidateDrawer } from './CandidateDrawer';
 import { Election } from "@/types/index";
 import { Dispatch, SetStateAction } from "react";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";

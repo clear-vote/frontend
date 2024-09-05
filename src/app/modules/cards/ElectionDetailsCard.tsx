@@ -1,7 +1,7 @@
 /* ElectionDetailsCard.tsx */
 
 import { Election } from '@/types/index';
-import { getSortedElections } from '@/utils/index';
+import { getSortedElections } from '@/utils/helpers';
 import {
   Select,
   SelectContent,

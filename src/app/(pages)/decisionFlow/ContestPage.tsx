@@ -1,9 +1,9 @@
 // ContestPage.tsx
 import { useState, useEffect } from 'react';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
-import ContestAccordions from '../components/ContestAccordion';
+import ContestAccordions from '@/app/(pages)/decisionFlow/ContestAccordion';
 import { Candidate, Election } from "@/types/index";
-import PositionInfoModal from '@/app/modals/PositionInfoModal';
+import PositionInfoModal from '@/app/modules/modals/PositionInfoModal';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 interface ContestPageProps {

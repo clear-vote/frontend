@@ -4,9 +4,15 @@ import React, { createContext, useContext, useEffect, useMemo, useState } from '
 import { Election, Politigram } from '@/types/index';
 import { PinnedCandidates, HiddenCandidates } from '@/types/index';
 import { useMediaQuery } from '@mui/material';
-import Toolbar from '@/app/components/Toolbar';
+import Toolbar from '@/app/modules/misc/Toolbar';
 
 interface DecisionFlowContextProps {
+  precinct: number|undefined;
+  setPrecinct: React.Dispatch<number>;
+
+  coordinates: [number, number][][];
+  setCoordinates: React.Dispatch<React.SetStateAction<[number, number][][]>>;
+  
   elections: Record<number, Election>;
   setElections: React.Dispatch<React.SetStateAction<Record<number, Election>>>;
 
@@ -32,6 +38,8 @@ interface DecisionFlowContextProps {
 const DecisionFlowContext = createContext<DecisionFlowContextProps | undefined>(undefined);
 
 export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [precinct, setPrecinct] = useState<number>();
+  const [coordinates, setCoordinates] = useState<[number, number][][]>([]);
   const [elections, setElections] = useState<Record<number, Election>>({});
   const [selectedElection, setSelectedElection] = useState<number | null>(null);
   const [selectedContest, setSelectedContest] = useState<number | null>(null);
@@ -52,6 +60,8 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
       <Toolbar />
       <DecisionFlowContext.Provider
         value={{
+          precinct, setPrecinct,
+          coordinates, setCoordinates,
           elections, setElections,
           selectedElection, setSelectedElection,
           selectedContest, setSelectedContest,

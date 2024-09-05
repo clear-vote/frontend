@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { trimLink } from "@/utils/index";
+import { trimLink } from "@/utils/helpers";
 import LinkIcon from '@mui/icons-material/Link';
 
 
