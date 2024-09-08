@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { DonationsModal } from '@/app/modules/modals/DonationsModal';
+import { useMasterContext } from '@/context/MasterContext';
 
 interface SendResultsPageProps {
   onBackClick: () => void;
@@ -10,6 +11,7 @@ interface SendResultsPageProps {
 
 export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick }) => {
   const [email, setEmail] = useState('');
+  const { isDesktop } = useMasterContext();
 
   //Ensures email page starts on the top
   useEffect(() => {
@@ -28,9 +30,12 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
     }
   };
 
+  if (isDesktop) {
+    return (
+      <div>Desktop not supported</div>
+    )
+  }
   return (
-
-
     <div>
       <div className="font-bold" style={{ padding: "10px", backgroundColor: "#2426280D", borderBottom: '1px solid #24262814' }}>
         <ArrowBackIcon onClick={onBackClick} style={{ width: '20px', transform: "translateY(-2px)" }} />

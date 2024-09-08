@@ -14,6 +14,7 @@ import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { CandidateCard } from "@/app/modules/candidateCard/CandidateCard";
 import { CandidateListItem } from "../../modules/cards/CandidateListCard";
 import { PinButton } from "@/app/modules/misc/PinButton";
+import { useMasterContext } from "@/context/MasterContext";
 
 interface CandidateDrawerProps {
   election: Election;
@@ -31,14 +32,16 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
     selectedContest,
     pinnedCandidates, setPinnedCandidates,
     hiddenCandidates, setHiddenCandidates,
-    isDesktop
   } = useDecisionFlowContext();
+  const { isDesktop } = useMasterContext();
   if (selectedContest === null) return;
 
   const [open, setOpen] = React.useState(false)
 
   if (isDesktop) {
-    console.log("desktop not yet supported")
+    return (
+      <div>Desktop not supported</div>
+    )
   }
  
   return (

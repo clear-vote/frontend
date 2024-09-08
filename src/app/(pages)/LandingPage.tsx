@@ -6,6 +6,7 @@ import * as React from "react"
 import { MapboxSearchInput } from '../modules/misc/MapboxSearchInput';
 import { Button } from '@/components/ui/button';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
+import { useMasterContext } from "@/context/MasterContext";
 
 /** Hardcoded for now; I just imported them from the other website! */
 const KING_COUNTY: string = [-122.515967, 47.096484, -121.333360, 47.734145].join(',');
@@ -13,9 +14,14 @@ const MAX_RESULTS: number = 5;
 
 /** Landing page design works for both desktop & mobile mode */
 export default function LandingPage() {
+  const { isDesktop } = useMasterContext();
+  if (isDesktop) {
+      return (
+        <div>Desktop not supported</div>
+      )
+  }
   return (
     <div className="min-h-screen pt-24 flex flex-col items-center the-fancy-background">
-      <Toolbar />
       <div className="flex items-center justify-center h-full">
         <Image src="/branding/clearvote-full-banner.svg" alt="Clearvote Logo" width="300" height="300" style={{ maxWidth: "95%"}} />
         <br></br>

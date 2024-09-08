@@ -5,6 +5,7 @@ import ContestAccordions from '@/app/(pages)/decisionFlow/ContestAccordion';
 import { Candidate, Election } from "@/types/index";
 import PositionInfoModal from '@/app/modules/modals/PositionInfoModal';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useMasterContext } from '@/context/MasterContext';
 
 interface ContestPageProps {
   election: Election;
@@ -17,8 +18,8 @@ const ContestPage: React.FC<ContestPageProps> = ({ election, onBackClick }) => {
     selectedContest,
     pinnedCandidates, setPinnedCandidates,
     hiddenCandidates,
-    isDesktop 
   } = useDecisionFlowContext();
+  const { isDesktop } = useMasterContext();
   
   const [defaultAccordion, setDefaultAccordion] = useState('Unpicked');
   const [unpickedCandidates, setUnpickedCandidates] = useState<Set<number>>(new Set());

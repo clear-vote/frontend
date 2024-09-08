@@ -4,6 +4,7 @@ import { CandidateDrawer } from './CandidateDrawer';
 import { Election } from "@/types/index";
 import { Dispatch, SetStateAction } from "react";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
+import { useMasterContext } from "@/context/MasterContext";
 
 interface ContestAccordionsProps {
   election: Election;
@@ -23,7 +24,13 @@ const ContestAccordions = ({
 }: ContestAccordionsProps) => {
 
   const { selectedContest } = useDecisionFlowContext();
+  const { isDesktop } = useMasterContext();
   if (selectedContest === null) return null;
+  if (isDesktop) {
+    return (
+      <div>Desktop not supported</div>
+    )
+  }
 
   return (
     <Accordion key={pinnedCandidate} type="single" defaultValue={"Visible"} collapsible>

@@ -20,6 +20,7 @@ const PositionInfoModal = ({ position }: PositionInfoModalProps) => {
 
   let dialogDescription = '';
 
+  // TODO: this should be part of electionFoo modal
   switch (position) {
     case 'city council':
       dialogDescription = 'This is the information for city council.';

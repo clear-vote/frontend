@@ -3,8 +3,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { Election, Politigram } from '@/types/index';
 import { PinnedCandidates, HiddenCandidates } from '@/types/index';
-import { useMediaQuery } from '@mui/material';
-import Toolbar from '@/app/modules/misc/Toolbar';
 
 interface DecisionFlowContextProps {
   precinct: number|undefined;
@@ -30,9 +28,6 @@ interface DecisionFlowContextProps {
 
   selectedPolitigram: Politigram | null;
   setSelectedPolitigram: React.Dispatch<React.SetStateAction<Politigram | null>>;
-
-  isDesktop: boolean;
-  setIsDesktop: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const DecisionFlowContext = createContext<DecisionFlowContextProps | undefined>(undefined);
@@ -46,18 +41,9 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
   const [pinnedCandidates, setPinnedCandidates] = useState<PinnedCandidates>({});
   const [hiddenCandidates, setHiddenCandidates] = useState<HiddenCandidates>({});
   const [selectedPolitigram, setSelectedPolitigram] = useState<Politigram | null>(null);
-  const [isDesktop, setIsDesktop] = useState<boolean>(useMediaQuery('(min-width: 600px)'));
-
-  //Internal state for now; probably will have to be changed so other pages can use it as well!
-  const checkDesktop = useMediaQuery('(min-width: 600px)');
-
-  useEffect(() => {
-    setIsDesktop(checkDesktop);
-  }, [checkDesktop]);
 
   return (
     <div style={{ paddingTop: '44px' }}>
-      <Toolbar />
       <DecisionFlowContext.Provider
         value={{
           precinct, setPrecinct,
@@ -68,7 +54,6 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
           pinnedCandidates, setPinnedCandidates,
           hiddenCandidates, setHiddenCandidates,
           selectedPolitigram, setSelectedPolitigram,
-          isDesktop, setIsDesktop
         }}
       >
         {children}

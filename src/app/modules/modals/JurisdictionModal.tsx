@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import InfoIcon from '@mui/icons-material/Info';
+import { getJurisdictionLevelDescription } from '@/utils/informationals';
 
 type JurisdictionModalProps = {
   jurisdiction: string;
@@ -18,6 +19,7 @@ type JurisdictionModalProps = {
 /** TODO: Actually show Jurisdiction Information! */
 const JurisdictionModal = ({ jurisdiction }: JurisdictionModalProps) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const jurisdictionDescription = getJurisdictionLevelDescription(jurisdiction);
 
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -31,7 +33,7 @@ const JurisdictionModal = ({ jurisdiction }: JurisdictionModalProps) => {
           </DialogTitle>
         </DialogHeader>
         <DialogDescription>
-            This is the information for {jurisdiction}. Insert banger new things to learn about {jurisdiction} here.
+          {jurisdictionDescription}
         </DialogDescription>
       </DialogContent>
     </Dialog>
