@@ -1,5 +1,4 @@
 import { Politigram } from '@/types/index';
-import './CandidateCard.module.css';
 
 export interface PolitigramAttributes {
   color: string;

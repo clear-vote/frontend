@@ -1,0 +1,5 @@
+.politigram {
+  width: 100%; /* Take full width of the parent */
+  height: 100%; /* Take full height of the parent */
+  overflow: visible;
+}

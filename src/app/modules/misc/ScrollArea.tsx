@@ -37,6 +37,9 @@ const ScrollArea = ({ children, positionHook, height = '60vh', width = '100%' }:
         height,
         width,
         overflow: 'auto',
+        wordWrap: 'break-word', // Wrap long text (like links)
+        overflowWrap: 'break-word', // Ensure long text breaks to the next line
+        whiteSpace: 'normal', // Ensure words do not wrap within themselves
       }}
     >
       {children}
