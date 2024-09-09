@@ -19,7 +19,6 @@
       "contests": [
         {
           "contest_id": 1,
-          "jurisdiction_level": "County",
           "boundary_type": "County Council",
           "jurisdiction": "King",
           "title": "County Council",
@@ -229,7 +228,6 @@
         },
         {
           "contest_id": 2,
-          "jurisdiction_level": "County",
           "boundary_type": "School District",
           "jurisdiction": "Vashon Island",
           "title": "School District Director",
@@ -433,11 +431,11 @@
               "name": "River Branch",
               "website": null,
               "image": null,
-              "politigram": {},
-              "priorities": [],
+              "politigram": null,
+              "priorities": null,
               "voting_record": null,
               "financing": null,
-              "background": [],
+              "background": null,
               "sources": [
                 {
                   "name": "King County voter pamphlet",
@@ -458,7 +456,6 @@
       "contests": [
         {
           "contest_id": 3,
-          "jurisdiction_level": "County",
           "boundary_type": "County",
           "jurisdiction": "King",
           "title": "County Assessor",
@@ -533,7 +530,6 @@
         },
         {
           "contest_id": 4,
-          "jurisdiction_level": "County",
           "boundary_type": "County",
           "jurisdiction": "King",
           "title": "County Director of Elections",
@@ -670,7 +666,6 @@
         },
         {
           "contest_id": 5,
-          "jurisdiction_level": "County",
           "boundary_type": "County Council",
           "jurisdiction": "King",
           "title": "County Council",
@@ -745,7 +740,6 @@
         },
         {
           "contest_id": 6,
-          "jurisdiction_level": "County",
           "boundary_type": "Port",
           "jurisdiction": "Seattle",
           "title": "Port Commissioner",
@@ -822,7 +816,6 @@
         },
         {
           "contest_id": 7,
-          "jurisdiction_level": "County",
           "boundary_type": "City",
           "jurisdiction": "Algona",
           "title": "Mayor",
@@ -947,7 +940,6 @@
         },
         {
           "contest_id": 8,
-          "jurisdiction_level": "County",
           "boundary_type": "City",
           "jurisdiction": "Algona",
           "title": "City Council",
@@ -990,7 +982,7 @@
               ],
               "voting_record": null,
               "financing": null,
-              "about": [
+              "background": [
                 {
                   "header": "Education",
                   "text": "Some College; Life Experience",
@@ -1020,7 +1012,6 @@
         },
         {
           "contest_id": 9,
-          "jurisdiction_level": "County",
           "boundary_type": "School District",
           "jurisdiction": "Auburn",
           "title": "School District Director",
@@ -1032,11 +1023,11 @@
               "name": "Sheilia McLaughlin",
               "website": null,
               "image": null,
-              "politigram": {},
-              "priorities": [],
+              "politigram": null,
+              "priorities": null,
               "voting_record": null,
               "financing": null,
-              "about": [],
+              "background": null,
               "sources": [
                 {
                   "text": "King County voter pamphlet",

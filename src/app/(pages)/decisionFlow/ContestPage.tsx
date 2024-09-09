@@ -1,7 +1,7 @@
 // ContestPage.tsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
-import ContestAccordions from '@/app/(pages)/decisionFlow/ContestAccordion';
+import ContestAccordions from '@/app/modules/candidate/ContestAccordion';
 import { Candidate, Election } from "@/types/index";
 import PositionInfoModal from '@/app/modules/modals/PositionInfoModal';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -12,7 +12,7 @@ interface ContestPageProps {
   onBackClick: () => void;
 }
 
-const ContestPage: React.FC<ContestPageProps> = ({ election, onBackClick }) => {
+const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
   const { 
     selectedElection,
     selectedContest,

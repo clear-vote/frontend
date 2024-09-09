@@ -15,6 +15,7 @@ export const getElectionsRecord = (data: any[]): Record<number, Election> => {
             image: candidate.image,
             politigram: candidate.politigram,
             priorities: candidate.priorities,
+            voting_record: candidate.voting_record,
             financing: candidate.financing,
             background: candidate.background,
             sources: candidate.sources
@@ -73,7 +74,7 @@ export const initPinnedCandidates = (elections: Record<number, Election>) => {
     });
   });
 
-  console.log("pinnedCandidates", pinnedCandidates);
+  // console.log("pinnedCandidates", pinnedCandidates);
   return pinnedCandidates;
 }
 
@@ -90,7 +91,7 @@ export const initHiddenCandidates = (elections: Record<number, Election>) => {
     });
   });
 
-  console.log("hidden candidates", hiddenCandidates);
+  // console.log("hidden candidates", hiddenCandidates);
   return hiddenCandidates;
 }
 

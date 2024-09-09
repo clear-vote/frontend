@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { HiddenCandidates, PinnedCandidates } from "@/types";
 import { Dispatch, SetStateAction } from "react";
 
-// After
 interface PinButtonProps {
   candidateId: number;
   unpickedCandidates: Set<number>;

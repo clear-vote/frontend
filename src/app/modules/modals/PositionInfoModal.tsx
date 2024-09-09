@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import HelpOutlineRoundedIcon from '@mui/icons-material/HelpOutlineRounded';
+import { getPositionInfo } from '@/utils/informationals';
 
 type PositionInfoModalProps = {
   position: string;
@@ -17,21 +18,6 @@ type PositionInfoModalProps = {
 
 const PositionInfoModal = ({ position }: PositionInfoModalProps) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  let dialogDescription = '';
-
-  // TODO: this should be part of electionFoo modal
-  switch (position) {
-    case 'city council':
-      dialogDescription = 'This is the information for city council.';
-      break;
-    case 'county council':
-      dialogDescription = 'This is the information for county council.';
-      break;
-    default:
-      dialogDescription = 'We don\'t have any information for this position :( \n Let us know at hello@clearvote.info';
-      break;
-  }
 
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -47,7 +33,7 @@ const PositionInfoModal = ({ position }: PositionInfoModalProps) => {
           </DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          {dialogDescription}
+          {getPositionInfo(position)}
         </DialogDescription>
       </DialogContent>
     </Dialog>

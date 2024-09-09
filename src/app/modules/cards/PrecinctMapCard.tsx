@@ -5,12 +5,40 @@ import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 
-/** Default coordinates: for this really cool university */
-const defaultCoords: number[] = [-122.3076595, 47.654538];
-
 interface MapProps {
     token: string | undefined;
 }
+
+const getAverageLngLat = (coordinates: [number, number][][]) => {
+    const areaAverages = coordinates.map(area => {
+      const totalLngLat = area.reduce(
+        (sum, [lng, lat]) => {
+          sum.lng += lng;
+          sum.lat += lat;
+          return sum;
+        },
+        { lng: 0, lat: 0 }
+      );
+      return {
+        avgLng: totalLngLat.lng / area.length,
+        avgLat: totalLngLat.lat / area.length,
+      };
+    });
+  
+    const totalLngLatAverage = areaAverages.reduce(
+      (sum, avg) => {
+        sum.lng += avg.avgLng;
+        sum.lat += avg.avgLat;
+        return sum;
+      },
+      { lng: 0, lat: 0 }
+    );
+  
+    return {
+      lng: totalLngLatAverage.lng / areaAverages.length,
+      lat: totalLngLatAverage.lat / areaAverages.length,
+    };
+  };
 
 export default function Map ({ token }: MapProps) {
     const {precinct, coordinates} = useDecisionFlowContext();
@@ -28,9 +56,7 @@ export default function Map ({ token }: MapProps) {
 
     mapboxgl.accessToken = token || '';
     const mapContainer = useRef<HTMLDivElement>(null);
-    const searchParams = useSearchParams()!;
-    const lng = parseFloat(searchParams.get('lng') || `${defaultCoords[0]}`);
-    const lat = parseFloat(searchParams.get('lat') || `${defaultCoords[1]}`);
+    const { lng, lat } = getAverageLngLat(coordinates);
 
     useEffect(() => {
         if (mapContainer.current) {
@@ -39,7 +65,8 @@ export default function Map ({ token }: MapProps) {
                 style: 'mapbox://styles/mapbox/streets-v11',
                 center: [lng, lat],
                 zoom: 3,
-                interactive: false
+                interactive: false,
+                attributionControl: false,
             });
     
             map.on('load', function () {
@@ -80,14 +107,6 @@ export default function Map ({ token }: MapProps) {
                     bounds.extend(coord as [number, number]);
                 });
                 map.fitBounds(bounds, { padding: 20 });
-    
-                // Add marker at the center (if needed)
-                new mapboxgl.Marker({
-                    color: "#e95635",
-                    draggable: false,
-                })
-                .setLngLat([lng, lat])
-                .addTo(map);
             });
     
             return () => map.remove();

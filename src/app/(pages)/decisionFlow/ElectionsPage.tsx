@@ -29,7 +29,7 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
   // TODO: Not currently used, because dropdown doesn't populate over any interactable elements
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
 
-  // Prevents the map from b2eing rerendered on every single state change; that wouldn't be good!
+  // Prevents the map from being rerendered on every single state change; that wouldn't be good!
   const MemoizedPrecinctMapCard = useMemo(
     () => <PrecinctMapCard 
       token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}

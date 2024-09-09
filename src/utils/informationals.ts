@@ -29,9 +29,20 @@ const jurisdictionLevels: Record<string, JurisdictionLevel> = {
   }
 }
 
+// TODO: complete this
+export const getPositionInfo = (position: string): string => {
+  switch (position) {
+    case 'City Council':
+      return 'This is the information for city council.';
+    case 'County Council':
+      return 'This is the information for county council.';
+    default:
+      return 'We don\'t have any information for this position :( \n Let us know at hello@clearvote.info';
+  }
+}
+
 export const getJurisdictionLevelDescription = (jurisdiction: string): string|null => {
   const level = jurisdictionLevels[jurisdiction];
-  console.log(jurisdiction, level);
   return level ? level.description : null;
 };
 
@@ -51,4 +62,4 @@ export const getJurisdictionLevelPositions = (contests: Record<number, Contest>)
     }
   });
   return jurisdictions;
-}
+};

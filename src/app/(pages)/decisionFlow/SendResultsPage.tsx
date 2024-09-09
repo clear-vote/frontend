@@ -10,20 +10,31 @@ interface SendResultsPageProps {
 }
 
 export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick }) => {
-  const [email, setEmail] = useState('');
-  const { isDesktop } = useMasterContext();
+  const [error, setError] = useState('');
+  const { isDesktop, email, setEmail } = useMasterContext();
 
   //Ensures email page starts on the top
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  const handleSubmit = () => {
-    // Handle the submission here
-    console.log('Submitted email:', email);
-    // Add your logic here (e.g., form validation, API calls, etc.)
+  const validateEmail = (email: string|null) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
   };
 
+  const handleSubmit = () => {
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    setError('');
+    console.log('Submitted email:', email);
+    // TODO: email trigger with datapoints
+    window.location.href = '/results';
+  };
+
+  // TODO: make this for homepage of clearvote
   const handleKeyPress = (event: KeyboardEvent) => {
     if (event.key === 'Enter') {
       handleSubmit();
@@ -43,14 +54,16 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
       </div>
       <br></br>
       <div className="flex space-x-2">
-        <Input
+      <Input
           type="email"
           placeholder="Enter your email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onKeyPress={handleKeyPress}
         />
-        <Button onClick={handleSubmit} style={{ backgroundColor: "#60D052"}}>Submit</Button>
+        <Button onClick={handleSubmit} style={{ backgroundColor: '#60D052' }}>
+          Submit
+        </Button>
       </div>
       <br></br>
       <div className="flex justify-center items-center">
