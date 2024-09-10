@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.13.0",
+    "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
@@ -20,8 +20,11 @@
     "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@stripe/react-stripe-js": "^2.8.0",
+    "@stripe/stripe-js": "^4.4.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "d3": "^7.9.0",
     "framer-motion": "^11.3.28",
     "lucide-react": "^0.428.0",
     "mapbox-gl": "^3.6.0",
@@ -33,10 +36,12 @@
     "vaul": "^0.9.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/d3": "^7.4.3",
+    "@types/node": "^20.16.5",
+    "@types/react": "^18.3.5",
     "@types/react-dom": "^18",
     "@types/react-transition-group": "^4.4.11",
+    "@types/stripe-v3": "^3.1.33",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",

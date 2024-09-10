@@ -2,7 +2,7 @@
 
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { DecisionFlowProvider } from "@/context/DecisionFlowContext";
+import { MasterProvider } from "@/context/MasterContext";
 import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <DecisionFlowProvider>
+      <body>  
+        <MasterProvider>
           {children}
-        </DecisionFlowProvider>
+        </MasterProvider>
       </body>
     </html>
   );
