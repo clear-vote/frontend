@@ -7,23 +7,23 @@ export interface PolitigramAttributes {
 
 // Create a mapping object for Politigram attributes
 export const politigramAttributes: Record<Politigram, PolitigramAttributes> = {
-  Community: {
+  community: {
       color: '#16BAC5',
       description: "Focuses on community building and social cohesion.",
   },
-  Humanitarianism: {
+  humanitarianism: {
       color: '#C84630',
       description: "Emphasizes humanitarian efforts and social welfare.",
   },
-  Prosperity: {
+  prosperity: {
       color: '#EA9010',
       description: "Aims for economic growth and prosperity.",
   },
-  Liberty: {
+  liberty: {
       color: '#C179B9',
       description: "Values individual freedoms and liberties.",
   },
-  Stewardship: {
+  stewardship: {
       color: '#447604',
       description: "Focuses on environmental stewardship and sustainability.",
   }

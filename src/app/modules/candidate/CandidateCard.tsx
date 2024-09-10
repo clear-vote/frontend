@@ -12,7 +12,7 @@ import {
 } from '@/types/index';
 import { politigramAttributes } from '../politigram/politigram';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
-import PolitigramElement from '../politigram/PolitigramElement';
+import PolitigramPie from '../politigram/PolitigramPie';
 
 interface CandidateCardProps {
     candidate: Candidate;
@@ -26,6 +26,12 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, unpicke
             touchLock, setTouchLock } = useDecisionFlowContext();
     const prioritiesRef = useRef<HTMLOListElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
+    const parentRef = useRef<HTMLDivElement>(null);
+    const headerRef = useRef<HTMLHeadingElement>(null);
+
+
+    // Invariant: Politigram should not be null. Candidates with null politigrams are filtered out.
+    if (candidate.politigram === null) return;
 
     // Handles change to selected politigram
     // Repopulates priorities and background items with color changes
@@ -145,15 +151,15 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, unpicke
                     </div>
                 )}
             </div>
-            <div className={`${card.grid} ${card.gridPolitigram}`}>
+                <div className={`${card.grid} ${card.gridPolitigram}`}>
                 <div className={`${card.gridItem} ${card.gridItemHeader}`}>
                     <h2 className={`${card.text} ${card.textHeader}`}>Politigram</h2>
                 </div>
-                <div className={`${card.gridItem} ${card.gridItemPolitigram}`}>
-                    <PolitigramElement/>
+                <div className={`${card.gridItem} ${card.gridItemPolitigram}`} ref={parentRef}>
+                    <PolitigramPie politigramScores={candidate.politigram} parent={parentRef} header={headerRef}/>
                 </div>
                 <div className={`${card.gridItem} ${card.gridItemPolitigramText}`}>
-                    <h2 className={`${card.text} ${card.textPolitigram}`}>Overwrite politigram title</h2>
+                    <h2 className={`${card.text} ${card.textPolitigram}`} ref={headerRef}>Overwrite politigram title</h2>
                 </div>
             </div>
             {/* TODO: only show tags if they exist! */}
