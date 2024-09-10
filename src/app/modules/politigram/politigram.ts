@@ -1,4 +1,4 @@
-import { Politigram } from '@/types/index';
+import { Candidate, Politigram } from '@/types/index';
 
 export interface PolitigramAttributes {
   color: string;
@@ -28,3 +28,7 @@ export const politigramAttributes: Record<Politigram, PolitigramAttributes> = {
       description: "Focuses on environmental stewardship and sustainability.",
   }
 };
+
+export const scalePolitigramScores = (candidates: Record<number, Candidate>): Record<number, Candidate> => {
+    
+}

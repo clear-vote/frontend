@@ -22,8 +22,7 @@ interface CandidateCardProps {
 
 
 export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, unpickedCandidates, setUnpickedCandidates }) => {
-    const { selectedPolitigram, setSelectedPolitigram,
-            touchLock, setTouchLock } = useDecisionFlowContext();
+    const { selectedPolitigram } = useDecisionFlowContext();
     const prioritiesRef = useRef<HTMLOListElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
     const parentRef = useRef<HTMLDivElement>(null);

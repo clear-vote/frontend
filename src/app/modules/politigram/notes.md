@@ -1,33 +1,10 @@
-  // function updateSelectedName() {
-  //   if (!politigramRef) {
-  //     console.error('politigramRef is null, cannot update');
-  //     return;
-  //   }
-  
-  //   if (selectedPolitigram) {
-  //     const data = (selectedPolitigram as any).__data__?.data;
-  //     if (!data || typeof data.name !== 'string') {
-  //       console.error('Invalid data structure in selectedPolitigram');
-  //       return;
-  //     }
-
-  //     const name = data.name.charAt(0).toUpperCase() + data.name.slice(1);
-  //     nameDiv.innerHTML = name;
-
-  //     const fillColor = d3.select(selectedPolitigram).attr('fill');
-  //     const color = d3.color(fillColor);
-  //     if (color) {
-  //       (nameDiv as HTMLElement).style.color = color.darker(2).toString();
-  //     } else {
-  //       console.warn('Invalid color');
-  //     }
-
-  //     setSelectedPolitigram(name);
-  //   } else {
-  //     nameDiv.innerHTML = '<i>Select</i>';
-  //     setSelectedPolitigram(null);
-  //   }
-  // }
+  TODO: 
+  math equations for svg
+  color does not light up
+  header does not show text
+  pulsing effect
+  rounded corners
+  smooth transitions
 
   // const handleMouseOver = (event: PolitigramEvent, d: PolitigramDatum) => {
   //     if (!touchLock) {
@@ -51,9 +28,6 @@
   //         updateSelectedName();
   //     }
   // };
- 
-
-
  
 
   // let pulseInterval: number;

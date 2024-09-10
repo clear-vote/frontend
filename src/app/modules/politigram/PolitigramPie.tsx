@@ -5,9 +5,10 @@ import * as d3 from 'd3';
 import { politigramAttributes } from './politigram';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 
-const MIN_RADIUS: number = 0.44
-const MIN_ARC: number = 0.65
+const MIN_RADIUS: number = 0.34
+const MIN_ARC: number = 0.15
 const BRIGHTNESS: number = 0.65;
+const CORNER_ROUNDING: number = 0.15;
 
 interface PolitigramPieProps {
   politigramScores: PolitigramScores;
@@ -24,7 +25,8 @@ const PolitigramPie: FC<PolitigramPieProps> = ({politigramScores, parent, header
   // type PolitigramEvent = d3.D3DragEvent<SVGPathElement, PolitigramData, PolitigramData>;
   // type PolitigramDatum = d3.PieArcDatum<PolitigramData>;
   const politigramRef = useRef<HTMLDivElement>(null);
-  const { selectedPolitigram, setSelectedPolitigram,
+  const { selectedCandidate,
+          selectedPolitigram, setSelectedPolitigram,
           touchLock, setTouchLock
   } = useDecisionFlowContext();
   // const {svgElement, setSvgElement} = setState();
@@ -55,7 +57,7 @@ const PolitigramPie: FC<PolitigramPieProps> = ({politigramScores, parent, header
     const arc = d3.arc<d3.PieArcDatum<PolitigramData>>()
       .innerRadius(0)
       .outerRadius(d => radiusSize * (d.data.value + MIN_RADIUS * (100 - d.data.value)))
-      .cornerRadius(sideSize / 10);
+      .cornerRadius(sideSize * CORNER_ROUNDING);
   
     // New pie chart, computes start and end angles for each segment
     const pie = d3.pie<PolitigramData>()
@@ -150,7 +152,7 @@ const PolitigramPie: FC<PolitigramPieProps> = ({politigramScores, parent, header
       // .on('mouseleave', handleMouseLeave)
       // .on('mouseover', handleMouseOver)
   
-  }, [selectedPolitigram, parent])
+  }, [selectedPolitigram, selectedCandidate, parent])
 
   return (
     <div className={styles.politigram} ref={politigramRef}/>
