@@ -24,7 +24,7 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
   { election, candidateId, 
     unpickedCandidates, setUnpickedCandidates }) => {
   
-  const {selectedContest, selectedCandidate, setSelectedCandidate} = useDecisionFlowContext();
+  const {selectedContest, setSelectedCandidate} = useDecisionFlowContext();
   const {isDesktop} = useMasterContext();
 
   const [open, setOpen] = useState(false)
