@@ -19,7 +19,7 @@ export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({jurisdictionN
     
     if (isDesktop) {
         return (
-            <div className="rounded-sm juristication-card">
+            <div className="rounded-sm juristication-card" style={{ maxWidth: "315px"}}>
                 <div className="rounded-t-sm" style={{background: "linear-gradient(to right, #ff7e5f, #f45b)"}}>
                     <h3 className="text-white" style={{ fontFamily: "'IBM Plex Mono', monospace", paddingLeft: "5px" }}>{jurisdictionName}</h3>
                     {jurisdictionName !== "Other Contests" && (

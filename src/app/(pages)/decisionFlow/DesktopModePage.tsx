@@ -2,15 +2,12 @@ import { ElectionDetailsCard } from "@/app/modules/cards/ElectionDetailsCard";
 import { JurisdictionCard } from "@/app/modules/cards/JurisdictionCard";
 import PrecinctMapCard from "@/app/modules/cards/PrecinctMapCard";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
-import { useMasterContext } from "@/context/MasterContext";
 import { Contest } from "@/types";
 import { getJurisdictionLevelPositions } from "@/utils/informationals";
 import { useMemo, useState } from "react";
-import { Button } from "@/components/ui/button";
-import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import PersonIcon from '@mui/icons-material/Person';
 import { ProgressCard } from "@/app/modules/cards/ProgressCard";
+import ContestDesktopCard from "@/app/modules/cards/desktop/ContestDesktopCard";
 
 export interface DesktopModePageProps {
     onContestClick: (contestId: number) => void;
@@ -19,7 +16,7 @@ export interface DesktopModePageProps {
 
 /** 
  * Our beautiful desktop mode page for decision flow! 
- * TODO: Make pretty
+ * TODO: Make pretty & make work!!
 */
 export const DesktopModePage: React.FC<DesktopModePageProps> = ({ onContestClick, onSendResultsClick }) => {
 
@@ -28,6 +25,9 @@ export const DesktopModePage: React.FC<DesktopModePageProps> = ({ onContestClick
     const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
 
     const { elections, selectedElection } = useDecisionFlowContext();
+    const { selectedContest, setSelectedContest } = useDecisionFlowContext();
+    const [unpickedCandidates, setUnpickedCandidates] = useState<Set<number>>(new Set());
+    const { pinnedCandidates, setPinnedCandidates, hiddenCandidates } = useDecisionFlowContext();
 
     // Prevents the map from being rerendered on every single state change; that wouldn't be good!
     const MemoizedPrecinctMapCard = useMemo(
@@ -55,23 +55,27 @@ export const DesktopModePage: React.FC<DesktopModePageProps> = ({ onContestClick
                         return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
                             <>
                                 <br></br>
+
                                 <div style={{ width: "90%", maxWidth: "1099px" }}>
-                                <ProgressCard onSendResultsClick={onSendResultsClick}/>
-                                <h3 className="font-bold text-lg">Explore Your Ballot!  <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/></h3>
+                                    <ProgressCard onSendResultsClick={onSendResultsClick} />
+                                    <h3 className="font-bold text-lg">Explore Your Ballot!  <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }} /></h3>
                                 </div>
-                                <div>
-                                    {Object.entries(jurisdictions).map(([jurisdictionName, contests]) => (
-                                        <JurisdictionCard
-                                            key={jurisdictionName}
-                                            jurisdictionName={jurisdictionName}
-                                            filteredContests={contests}
-                                            onContestClick={onContestClick}
-                                        />
-                                    ))}
+                                <div className="flex items-center">
+                                    <div>
+                                        {Object.entries(jurisdictions).map(([jurisdictionName, contests]) => (
+                                            <JurisdictionCard
+                                                key={jurisdictionName}
+                                                jurisdictionName={jurisdictionName}
+                                                filteredContests={contests}
+                                                onContestClick={setSelectedContest}
+                                            />
+                                        ))}
+                                    </div>
+                                    <ContestDesktopCard election={selectedElectionData} />
                                 </div>
                             </>
                         ) : (
-                            <p>No contests found for the selected election.</p>
+                            <p>No contests for this election!</p>
                         );
                     })()
                 }
@@ -79,7 +83,5 @@ export const DesktopModePage: React.FC<DesktopModePageProps> = ({ onContestClick
         </div>
     );
 }
-
-
 
 export default DesktopModePage;

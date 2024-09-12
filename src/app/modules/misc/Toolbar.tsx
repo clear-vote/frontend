@@ -63,10 +63,10 @@ const ToolbarMobileModal = () => {
           </DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          <Link href="/about"><h3 className="font-bold">Home</h3></Link>
-          <Link href="/about"><h3 className="font-bold">About</h3></Link>
-          <Link href="https://medium.com/clearvote"><p className="font-bold">Blog</p></Link>
-          <Link href="https://discord.gg/A7teH7NV"><p className="font-bold">Join Our Discord</p></Link>
+          <Link href="/" onClick={() => setIsDialogOpen(false)}><h3 className="font-bold">Home</h3></Link>
+          <Link href="/about" onClick={() => setIsDialogOpen(false)}><h3 className="font-bold">About</h3></Link>
+          <Link href="https://medium.com/clearvote" onClick={() => setIsDialogOpen(false)}><p className="font-bold">Blog</p></Link>
+          <Link href="https://discord.gg/A7teH7NV" ><p className="font-bold">Join Our Discord</p></Link>
         </DialogDescription>
       </DialogContent>
     </Dialog>
