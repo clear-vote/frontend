@@ -14,23 +14,24 @@ const MAX_RESULTS: number = 5;
 
 /** Landing page design works for both desktop & mobile mode */
 export default function LandingPage() {
-  const { isDesktop } = useMasterContext();
-  if (isDesktop) {
-      return (
-        <div>Desktop not supported</div>
-      )
-  }
   return (
     <div className="min-h-screen pt-24 flex flex-col items-center the-fancy-background">
       <div className="flex items-center justify-center h-full">
         <Image src="/branding/clearvote-full-banner.svg" alt="Clearvote Logo" width="300" height="300" style={{ maxWidth: "95%"}} />
-        <br></br>
       </div>
-      <div className="flex flex-col items-center justify-center" style={{ padding: "8px", width: "90%", maxWidth: "400px" }}>
+      <div className="text-white font-bold" style={{ padding: "8px" }}>
+        <br></br>
+        <center>
+          <p>Welcome to Clear Vote!</p>
+          <p>Stay up to date during local, off-cycle elections!</p>
+        </center>
+      </div>
+      <br></br>
+      <div className="flex flex-col items-center justify-center" style={{ padding: "8px", width: "90%", maxWidth: "600px" }}>
         <div className="flex w-full items-center space-x-2">
           <MapboxSearchInput
             type="search"
-            placeholder="Enter an address..."
+            placeholder="Enter your address..."
             className="w-full"
             token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
             bounds={KING_COUNTY}

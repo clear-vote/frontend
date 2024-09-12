@@ -30,5 +30,6 @@ export const politigramAttributes: Record<Politigram, PolitigramAttributes> = {
 };
 
 export const scalePolitigramScores = (candidates: Record<number, Candidate>): Record<number, Candidate> => {
-    
+    /** Here for error checking */
+    return {};
 }
