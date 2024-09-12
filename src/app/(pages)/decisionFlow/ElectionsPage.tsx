@@ -37,13 +37,6 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
     []
   );
 
-  /** Desktop Mode */
-  if (isDesktop) {
-    return (
-      <div>Desktop not yet supported</div>
-    )
-  }
-
   /** Mobile Mode */
   return ( 
     <div>
@@ -58,18 +51,6 @@ export const ElectionsPage: React.FC<ElectionsPageProps> = ({ onContestClick, on
           const jurisdictions: Record<string, Contest[]> = getJurisdictionLevelPositions(selectedElectionData.contests);
           return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
             <>
-              <br></br>
-              <h1 className="font-bold text-lg">{selectedElectionData.type}</h1>
-              <p>A general election and a special election are both types of elections, but they serve different
-                purposes and occur under different circumstances.
-              </p>
-              {/** TODO: Replace with "Sign up for reminders" link */}
-              <Button style={{backgroundColor : '#947FEE', color : 'white'}}><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
-                <PersonIcon style={{width : '15px'}}/> Sign up for reminders</a>
-              </Button>
-              <Button style={{ backgroundColor: 'white', border: '1px solid lightgray', color: 'black' }}><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
-                <HowToVoteIcon style={{width : '15px'}}/> Get registered</a>
-              </Button>
               <br></br><br></br><br></br>
               <h3 className="font-bold text-lg">Explore Your Ballot!  <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/></h3>
               <ProgressCard onSendResultsClick={onSendResultsClick}/>

@@ -4,6 +4,9 @@ import mapboxgl from "mapbox-gl";
 import { useEffect, useRef } from "react";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import MyLocationIcon from '@mui/icons-material/MyLocation';
+import { useMasterContext } from "@/context/MasterContext";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface MapProps {
     token: string | undefined;
@@ -57,6 +60,7 @@ export default function Map({ token }: MapProps) {
     mapboxgl.accessToken = token || '';
     const mapContainer = useRef<HTMLDivElement>(null);
     const { lng, lat } = getAverageLngLat(coordinates);
+    const { isDesktop } = useMasterContext();
 
     useEffect(() => {
         if (mapContainer.current) {
@@ -112,6 +116,22 @@ export default function Map({ token }: MapProps) {
             return () => map.remove();
         }
     }, [lng, lat, precinct]);
+
+    if (isDesktop) {
+        return (
+            <div>
+                <div ref={mapContainer} style={{}}
+                    className="bg-clip-border border mapbox rounded-md">
+                </div>
+                <div className="flex items-center font-bold text-sm">
+                    <MyLocationIcon style={{ width: "20px", color: "#947FEEE5" }} />
+                    &nbsp;Washington State Precinct {precinct}&nbsp;
+                    <Link href="/"><Button>Change Location</Button></Link>
+                </div>
+            </div>
+        );
+
+    }
 
     return (
         <div>

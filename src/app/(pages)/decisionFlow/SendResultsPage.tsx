@@ -46,6 +46,7 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
       <div>Desktop not supported</div>
     )
   }
+  
   return (
     <div>
       <div className="font-bold" style={{ padding: "10px", backgroundColor: "#2426280D", borderBottom: '1px solid #24262814' }}>

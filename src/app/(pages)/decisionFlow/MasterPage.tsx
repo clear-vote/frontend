@@ -17,6 +17,7 @@ import { useFetchData } from '@/api/useFetchData';
 import { Contest, Election } from '@/types';
 import { SendResultsPage } from './SendResultsPage';
 import { useMasterContext } from '@/context/MasterContext';
+import DesktopModePage from './DesktopModePage';
 
 const DecisionFlow = () => {
   const { 
@@ -117,7 +118,9 @@ const DecisionFlow = () => {
 
   if (isDesktop) {
     return (
-      <div>Desktop mode not supported.</div>
+      <DesktopModePage               
+        onContestClick={handleContestClick}
+        onSendResultsClick={handleSendResultsClick}/>
     )
   }
 
