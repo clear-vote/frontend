@@ -10,9 +10,9 @@ import {
     Source,
     Candidate
 } from '@/types/index';
-import { politigramAttributes } from '../politigram/politigram';
+import { politigramAttributes } from './politigram';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
-import PolitigramPie from '../politigram/PolitigramPie';
+import PolitigramPie from './PolitigramPie';
 import LinkIcon from '@mui/icons-material/Link';
 import PolitigramInfoModal from '../modals/PolitigramInfoModal';
 

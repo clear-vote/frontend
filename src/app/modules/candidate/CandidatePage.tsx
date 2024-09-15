@@ -20,7 +20,8 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
   if (!selectedContest || !selectedCandidate) return;
   
   const handleShowButtons = (scrollPosition: number): void => {
-    if (scrollPosition > 200) {
+    // TODO: experimential feature. we can probably remove this or reuse the logic somewhere else
+    if (scrollPosition >= 50) {
       setShowButtons(true);
     } else {
       setShowButtons(false);

@@ -7,7 +7,7 @@ interface ScrollAreaProops {
   width?: string;
 }
 
-const ScrollArea = ({ children, positionHook, height = '60vh', width = '100%' }: ScrollAreaProops) => {
+const ScrollArea = ({ children, positionHook, height = '83vh', width = '100%' }: ScrollAreaProops) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

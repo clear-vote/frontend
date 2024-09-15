@@ -25,3 +25,5 @@ TODO:
 
 Anaya:
 In general, how is data structured. one number for each candidate or a break down for indivisuals vs organizations.
+
+https://lmstudio.ai/

@@ -7,7 +7,9 @@ export function useFetchData<T>() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    
+    const apiKey = process.env.AWS_API_KEY || '';
+    const defaultCoords: number[] = [-122.3076595, 47.654538] 
+    const url = `https://4qhxfecz53.execute-api.us-west-2.amazonaws.com/default/?latitude=${defaultCoords[0]}&longitude=${defaultCoords[1]}`;
     const fetchData = async () => {
       try {
         const queryParams = new URLSearchParams(window.location.search);
@@ -15,9 +17,21 @@ export function useFetchData<T>() {
         const address: string = "5027 brooklyn ave NE Seattle";
         let response;
         if (precinctId) {
-          response = await fetch('/data/electionFoo.json'); // TODO:
+          response = await fetch(url, {
+            method: 'GET',
+            headers: {
+              'x-api-key': apiKey,
+              'Content-Type': 'application/json'
+            }
+          });
         } else if (address) {
-          response = await fetch('/data/electionFoo.json'); // TODO:
+          response = await fetch(url, {
+            method: 'GET',
+            headers: {
+              'x-api-key': apiKey,
+              'Content-Type': 'application/json'
+            }
+          });
         } else {
           throw new Error("Cannot fetch election data without an address or precinct_id");
         }
