@@ -155,7 +155,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, unpicke
                     <h2 className={`${card.text} ${card.textHeader}`}>Politigram</h2>
                 </div>
                 <div className={`${card.gridItem} ${card.gridItemPolitigram}`} ref={parentRef}>
-                    <PolitigramPie politigramScores={candidate.politigram} parent={parentRef} header={headerRef}/>
+                    <PolitigramPie parent={parentRef} header={headerRef}/>
                 </div>
                 <div className={`${card.gridItem} ${card.gridItemPolitigramText}`}>
                     <h2 className={`${card.text} ${card.textPolitigram}`} ref={headerRef}>Overwrite politigram title</h2>

@@ -1,10 +1,12 @@
   TODO: 
   math equations for svg
   color does not light up
-  header does not show text
-  pulsing effect
-  rounded corners
+  header does not show text AND ADJUSTED SCORFE
+  Enlarging/shrinking effect
   smooth transitions
+
+  ***get precinct mapper working
+  ***record video for grant
 
   // const handleMouseOver = (event: PolitigramEvent, d: PolitigramDatum) => {
   //     if (!touchLock) {
@@ -72,3 +74,5 @@
           };
       });
   } -->
+
+  https://lmstudio.ai/
