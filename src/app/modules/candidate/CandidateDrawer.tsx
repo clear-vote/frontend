@@ -58,6 +58,7 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
       <DrawerContent>
           <DrawerTitle></DrawerTitle>
         <CandidatePage
+          open={open}
           election={election}
           unpickedCandidates={unpickedCandidates}
           setUnpickedCandidates={setUnpickedCandidates}

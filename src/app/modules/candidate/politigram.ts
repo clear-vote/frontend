@@ -28,7 +28,3 @@ export const politigramAttributes: Record<Politigram, PolitigramAttributes> = {
       description: "Focuses on environmental stewardship and sustainability.",
   }
 };
-
-export const scalePolitigramScores = (candidates: Record<number, Candidate>): Record<number, Candidate> => {
-    
-}

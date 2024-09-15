@@ -11,16 +11,18 @@ interface CandidatePageProps {
   election: Election,
   unpickedCandidates: Set<number>;
   setUnpickedCandidates: Dispatch<SetStateAction<Set<number>>>;
+  open: boolean;
 }
 
-export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidates}: CandidatePageProps) => {
+export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidates, open}: CandidatePageProps) => {
   const {selectedContest, selectedCandidate, setSelectedCandidate} = useDecisionFlowContext();
   const [showButtons, setShowButtons] = useState(false);
   
   if (!selectedContest || !selectedCandidate) return;
   
   const handleShowButtons = (scrollPosition: number): void => {
-    if (scrollPosition > 200) {
+    // TODO: experimential feature. we can probably remove this or reuse the logic somewhere else
+    if (scrollPosition >= 50) {
       setShowButtons(true);
     } else {
       setShowButtons(false);
@@ -51,7 +53,7 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
   return(
     <>
       <ScrollArea positionHook={handleShowButtons}>
-        <CandidateCard candidate={election.contests[selectedContest].candidates[selectedCandidate]} unpickedCandidates={unpickedCandidates} setUnpickedCandidates={setUnpickedCandidates}/>
+        <CandidateCard position={election.contests[selectedContest].title} candidate={election.contests[selectedContest].candidates[selectedCandidate]} open={open}/>
         <div
           style={{
             position: "sticky",

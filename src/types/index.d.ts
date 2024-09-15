@@ -1,3 +1,4 @@
+import { Politigram } from '@/types/index';
 import { HiddenCandidates } from './index.d';
 import { SelectionStatus } from "@/utils/helpers";
 
@@ -36,12 +37,13 @@ export type Candidate = {
   name: string;
   website: string;
   image: string;
-  politigram: PolitigramScores|null;
+  politigram: PolitigramScores; // a valid candidate will have politigram scores
   priorities: Priority[]|null;
   voting_record: VotingRecord|null;
   financing: Financing|null;
   background: Background[]|null;
-  sources: Source[];
+  sources: Source[]; // a valid candidate will have at least one source
+  compositeScore?: number; // this value is used to determine how our scaled stats equation is doing
 }
 
 export type Contest = {
@@ -51,6 +53,7 @@ export type Contest = {
   district: string;
   position: string;
   candidates: Record<number, Candidate>;
+  maximumCompositeScore?: number;
 }
 
 export type Election = {

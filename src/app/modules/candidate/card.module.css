@@ -3,55 +3,63 @@
   display: grid;
   width: 100%;
   gap: 0px;
-  border-radius: 10px; /* Add curved corners */
-  margin-top: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
-  border-radius: var(--border-radius-md); /* Add border radius */
-  background-color: lightgray;
+  /* margin-top: var(--spacing-md); */
+  /* margin-bottom: var(--spacing-md); */
+  background-color: #DDDDDD;
 }
 .gridHeader {
-  grid-template-columns: 1.62fr 1fr;
-  grid-template-rows: min-content min-content;
+  grid-template-columns: 1fr 1.41fr; /* Changed from 1fr 1.62fr */
+  grid-template-rows: auto auto;
   grid-template-areas: 
-  "name profile-pic"
-  "website profile-pic";
+    "profile-pic name"
+    "profile-pic website";
 }
+/* Ensure the parent div expands to fit the height of its children */
 .gridPolitigram {
-  grid-template-columns: 1.41fr 1fr; /* Set the width of grids */
-  grid-template-rows: 5vh 15vh;
-  grid-template-areas: 
-  "header politigram-text"
-  "politigram politigram-text";
+  display: grid;
+  grid-template-columns: 1.41fr, 1fr;
+  grid-template-areas:
+    "politigram politigram-text";
 }
 
-/* Grid Box Styles */
+/* Ensure the child items take up the necessary space */
 .gridItem {
-  padding: 0; /* No padding */
-  text-align: center; /* Center text */
+  flex: 1;
 }
+
 .gridItemName { 
   grid-area: name; 
-  align-items: center;
+  align-items: start; /* Changed from center to start */
 }
+
 .gridItemWebsite {
   grid-area: website;
+  align-self: start; /* Aligns the website to the top of its grid area */
 }
+
 .gridItemProfile {
   grid-area: profile-pic;
-  width: 100%; /* Set width to fill the grid box */
-  height: 100%; /* Set height to fill the grid box */
-  overflow: hidden; /* Clip any overflow */
-  position: relative; /* Positioning context for absolute children */
-  max-width: 200px; /* Set maximum width to 100px */
-  justify-self: end;
-}
-.gridItemHeader { grid-area: header; }
-.gridItemPolitigram {
-  grid-area: politigram;
   width: 100%;
   height: 100%;
-  position: relative; /* Ensure it can contain absolutely positioned children */
+  overflow: hidden;
+  position: relative;
+  justify-self: start; /* Changed from end to start */
+  border-radius: 5px;
+  padding: 5px;
 }
+
+.gridItemPolitigram {
+  grid-area: politigram;
+  overflow: visible; /* Allow content to overflow */
+  width: 58vw;
+  height: 58vw;
+}
+
+.gridItemHeader {
+  grid-area: header;
+  z-index: 1;
+}
+
 .gridItemPolitigramText {
   grid-area: politigram-text; 
   transition: opacity 0.1s ease-in-out, box-shadow 0.3s ease-in-out, color 0.1s ease-in-out;
@@ -61,16 +69,27 @@
 .profile {
   max-width: 100%; 
   height: auto;
+  border-radius: 20px;
+  padding: 5px;
 }
 .link {
-  color: black; /* Set link color to black */
+  color: #888888;
+  background-color: white;
+  padding: 7px;
+  border-radius: 15px;
+  margin: 5px;
+  border: 1px solid #888888;
   text-decoration: none; /* Remove underline */
+  overflow-wrap: break-word; /* Ensure text wraps */
+  word-break: break-all; /* Break words if necessary */
+  white-space: normal; /* Allow text to wrap */
+  display: inline-block; 
 }
 
 /* List */
 .priorities {
   border-radius: 10px;
-  border: black solid;
+  /* border: black solid; */
 }
 .list {}
 .listItem {}
@@ -78,7 +97,7 @@
 /* Background */
 .background {
   border-radius: 10px;
-  border: black solid;
+  /* border: black solid; */
 }
 
 @keyframes pulse {
@@ -103,14 +122,35 @@
 }
 .textPolitigram {
   font-size: var(--fs-md);
-  z-index: 5;
-}
-.textHighlighted {
-  opacity: 0; /* Start hidden */
-  transition: var(--animation-duration-fast) ease-in-out;
+  overflow-wrap: break-word; /* Ensure text wraps */
+  word-break: break-all; /* Break words if necessary */
   border-radius: 5px;
   color: white;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding: 5px;
+  transition: background-color 0.3s ease-in-out; 
 }
-.textPulse {}
+.textHighlighted {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  border-radius: 5px;
+  padding: 2px 0;
+  color: white;
+}
+
+.glow {
+  animation: glow 2.5s infinite ease-in-out;
+  font-size: var(--fs-md);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+@keyframes glow {
+  0% {
+    color: #444444;
+  }
+  50% {
+    color: #999999;
+  }
+  100% {
+    color: #444444;
+  }
+}

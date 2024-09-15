@@ -1,4 +1,4 @@
-import { Contest } from './../types/index.d';
+import { Contest, Politigram } from './../types/index.d';
 
 interface JurisdictionLevel {
   description: string;
@@ -62,4 +62,20 @@ export const getJurisdictionLevelPositions = (contests: Record<number, Contest>)
     }
   });
   return jurisdictions;
+};
+
+// TODO: this can be much better
+export const getPolitigramInfo = (politigram: Politigram): string => {
+  switch (politigram) {
+    case 'community':
+      return 'Community is a measure of how much a candidate values the well-being of their community.';
+    case 'humanitarianism':
+      return 'Humanitarianism is a measure of how much a candidate values the well-being of all people.';
+    case 'prosperity':
+      return 'Prosperity is a measure of how much a candidate values economic growth and financial stability.';
+    case 'liberty':
+      return 'Liberty is a measure of how much a candidate values individual freedoms and personal rights.';
+    case 'stewardship':
+      return 'Stewardship is a measure of how much a candidate values the environment and natural resources.';
+  }
 };

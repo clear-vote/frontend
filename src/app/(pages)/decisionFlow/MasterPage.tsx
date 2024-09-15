@@ -31,6 +31,7 @@ const DecisionFlow = () => {
     setHiddenCandidates,
   } = useDecisionFlowContext();
   const { isDesktop } = useMasterContext();
+  const [ nullElectionState, setNullElectionState ] = useState(false);
 
   const { data, loading, error } = useFetchData<any>();
   const router = useRouter();
@@ -44,6 +45,7 @@ const DecisionFlow = () => {
   useEffect(() => {
     if (!data) return;
     
+    // This is if we are getting the data by precinct id rather than coordinates
     if (data && typeof data === 'object' && 'precinct_id' in data) {
       setPrecinct(data.precinct_id);
       setCoordinates(data.coordinates);
@@ -51,7 +53,8 @@ const DecisionFlow = () => {
     }
 
     const electionsRecord: Record<number, Election> = getElectionsRecord(data.elections);
-    if (Object.keys(electionsRecord).length === 0) return;
+    
+    if (Object.keys(electionsRecord).length === 0) setNullElectionState(true);
 
     setElections(electionsRecord);
     const defaultEid: number = getDefaultEid(electionsRecord, new Date());
@@ -61,9 +64,10 @@ const DecisionFlow = () => {
   }, [data, router]); // Ensure these dependencies won't cause unnecessary re-renders  
 
   
-  if (loading) {
+  if (loading || data && !selectedElection) {
     console.log("Loading...");
     return (
+      // TODO: make a Election Page skeleton component
       <div>
         <Skeleton variant="rectangular" width={210} height={118}>
           Loading...
@@ -73,11 +77,14 @@ const DecisionFlow = () => {
   }
   
   if (error) {
-    console.log(error);
     return <div>Error: {error}</div>;
   }
+
+  if (nullElectionState) {
+    return <div>No </div>;
+  }
   
-  if (!selectedElection || !(selectedElection in elections)) {
+  if (nullElectionState) {
     return <div>No valid election selected.</div>;
   }
   
