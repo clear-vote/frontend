@@ -19,10 +19,11 @@ import PolitigramInfoModal from '../modals/PolitigramInfoModal';
 interface CandidateCardProps {
     position: string;
     candidate: Candidate;
+    open: boolean;
 }
 
 
-export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidate }) => {
+export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidate, open }) => {
     const { selectedPolitigram } = useDecisionFlowContext();
     const prioritiesRef = useRef<HTMLOListElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
@@ -65,6 +66,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
 
     // Update content when candidate or selectedPolitigram changes
     useEffect(() => {
+        console.log('UPDATING CANDIDATE!')
         updateContent();
     }, [candidate, selectedPolitigram]);
 
@@ -78,7 +80,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                 }, 0);
             }
         });
-    }, [selectedPolitigram]);
+    }, [selectedPolitigram, candidate]);
 
     // Prioroties get colored, if they are not null
     // Otherwise the priority text is returned plain
@@ -87,9 +89,12 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
         politigramName: Politigram | null,
         color: string | null
     ) {
+        // case where priority does not contain a politigram value
         if (politigramName === null || !(priority.politigram.includes(politigramName))) {
             return priority.text
-        } else {           
+        // otherwise, we have to color it
+        } else {      
+            console.log("LOGGING", color, priority.text); // TODO: THIS IS WHERE THE PROBLEM I AM REFERRING TO IT 
             return `<span class="${card.textHighlighted}" data-color="${color}">${priority.text}</span>`;                        
         }
     }
@@ -172,7 +177,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
             </div>
             <div className={`${card.grid} ${card.gridPolitigram}`}>
                 <div className={`${card.gridItem} ${card.gridItemPolitigram}`} ref={parentRef}>
-                    <PolitigramPie parent={parentRef} politigramScores={candidate.politigram}/>
+                    <PolitigramPie parent={parentRef} politigramScores={candidate.politigram} open={open}/>
                 </div>
                 <div className={`${card.gridItem} ${card.gridItemPolitigramText}`}>
                     {

@@ -14,6 +14,7 @@ const TRANSITION_DURATION: number = 300;
 interface PolitigramPieProps {
   parent: React.RefObject<HTMLDivElement>;
   politigramScores: PolitigramScores;
+  open: boolean;
 }
 
 interface PolitigramData {
@@ -21,16 +22,17 @@ interface PolitigramData {
   value: number;
 }
 
-const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores }) => {
+const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open }) => {
   const {
     selectedPolitigram,
+    selectedCandidate,
     setSelectedPolitigram,
     touchLock,
     setTouchLock
   } = useDecisionFlowContext();
 
   const selectedPolitigramRef = useRef(selectedPolitigram);
-
+  const firstRender = useRef(true);
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   const data: PolitigramData[] = useMemo(() => Object.entries(politigramScores).map(([key, value]) => ({
@@ -68,12 +70,38 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores }) => 
     }
   }, [setSelectedPolitigram, setTouchLock]);
 
+  const rotateAndExpandPie = useCallback(() => {
+    if (!svgRef.current) return;
+  
+    const svg = d3.select(svgRef.current);
+    const sideSize: number = Number(svg.attr("width"));
+  
+    // Set initial state to invisible
+    svg.select('g').style("opacity", 0);
+  
+    // Wait for 500ms (half a second) before starting the animation
+    setTimeout(() => {
+      svg.select('g')
+        .transition()
+        .duration(850)
+        .ease(d3.easeCubicOut)
+        .style("opacity", 1)
+        .attrTween("transform", function() {
+          return function(t) {
+            const scale = d3.interpolate(0, (selectedPolitigram ? SCALE : 1))(t);
+            const rotate = d3.interpolate(0, 360)(t);
+            return `translate(${sideSize / 2}, ${sideSize / 2}) scale(${scale}) rotate(${rotate})`;
+          };
+        });
+    }, 300);
+  }, [selectedPolitigram]);
+
   const renderPolitigram = useCallback(() => {
     if (!parent.current || !svgRef.current) return;
 
     const totalValue: number = d3.sum(data, d => d.value) || 0;
     const sideSize: number = parent.current.getBoundingClientRect().width;
-    const radiusSize: number = sideSize / 210;
+    const radiusSize: number = sideSize / 220;
 
     const arc = d3.arc<d3.PieArcDatum<PolitigramData>>()
       .innerRadius(0)
@@ -160,6 +188,13 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores }) => 
     selectedPolitigramRef.current = selectedPolitigram;
     renderPolitigram();
   }, [selectedPolitigram, renderPolitigram]);
+
+  useEffect(() => {
+    if (!firstRender) return;
+    console.log("First render");
+    firstRender.current = false;
+    rotateAndExpandPie();
+  }, [open]);
 
   return null;
 }

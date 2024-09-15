@@ -11,9 +11,10 @@ interface CandidatePageProps {
   election: Election,
   unpickedCandidates: Set<number>;
   setUnpickedCandidates: Dispatch<SetStateAction<Set<number>>>;
+  open: boolean;
 }
 
-export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidates}: CandidatePageProps) => {
+export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidates, open}: CandidatePageProps) => {
   const {selectedContest, selectedCandidate, setSelectedCandidate} = useDecisionFlowContext();
   const [showButtons, setShowButtons] = useState(false);
   
@@ -52,7 +53,7 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
   return(
     <>
       <ScrollArea positionHook={handleShowButtons}>
-        <CandidateCard position={election.contests[selectedContest].title} candidate={election.contests[selectedContest].candidates[selectedCandidate]}/>
+        <CandidateCard position={election.contests[selectedContest].title} candidate={election.contests[selectedContest].candidates[selectedCandidate]} open={open}/>
         <div
           style={{
             position: "sticky",

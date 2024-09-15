@@ -89,7 +89,7 @@
 /* List */
 .priorities {
   border-radius: 10px;
-  border: black solid;
+  /* border: black solid; */
 }
 .list {}
 .listItem {}
@@ -97,7 +97,7 @@
 /* Background */
 .background {
   border-radius: 10px;
-  border: black solid;
+  /* border: black solid; */
 }
 
 @keyframes pulse {
@@ -148,7 +148,7 @@
     color: #444444;
   }
   50% {
-    color: #888888;
+    color: #999999;
   }
   100% {
     color: #444444;
