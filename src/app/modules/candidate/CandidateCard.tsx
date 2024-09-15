@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 import card from './card.module.css';
 import {
     Politigram,
@@ -13,21 +13,21 @@ import {
 import { politigramAttributes } from '../politigram/politigram';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import PolitigramPie from '../politigram/PolitigramPie';
+import LinkIcon from '@mui/icons-material/Link';
+import PolitigramInfoModal from '../modals/PolitigramInfoModal';
 
 interface CandidateCardProps {
+    position: string;
     candidate: Candidate;
-    unpickedCandidates: Set<number> 
-    setUnpickedCandidates: Dispatch<SetStateAction<Set<number>>>;
 }
 
 
-export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, unpickedCandidates, setUnpickedCandidates }) => {
+export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidate }) => {
     const { selectedPolitigram } = useDecisionFlowContext();
     const prioritiesRef = useRef<HTMLOListElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
     const parentRef = useRef<HTMLDivElement>(null);
-    const headerRef = useRef<HTMLHeadingElement>(null);
-
+    const [displayScore, setDisplayScore] = useState<string>('');
 
     // Invariant: Politigram should not be null. Candidates with null politigrams are filtered out.
     if (candidate.politigram === null) return;
@@ -41,6 +41,10 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, unpicke
             ? politigramAttributes[selectedPolitigram].color
             : null;
 
+        selectedPolitigram 
+        ? setDisplayScore(((candidate.politigram[selectedPolitigram] / 100) * 9 + 1).toFixed(1))
+        : setDisplayScore('');
+        
         if (prioritiesRef.current && candidate.priorities) {
             prioritiesRef.current.innerHTML = '';
             for (let index = 0; index < 3; index++) {
@@ -64,6 +68,18 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, unpicke
         updateContent();
     }, [candidate, selectedPolitigram]);
 
+    useEffect(() => {
+        const highlightedElements = document.querySelectorAll(`.${card.textHighlighted}`);
+        highlightedElements.forEach((element) => {
+            const color = element.getAttribute('data-color');
+            if (color) {
+                setTimeout(() => {
+                    (element as HTMLElement).style.backgroundColor = color;
+                }, 0);
+            }
+        });
+    }, [selectedPolitigram]);
+
     // Prioroties get colored, if they are not null
     // Otherwise the priority text is returned plain
     function colorPriorities(
@@ -74,7 +90,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, unpicke
         if (politigramName === null || !(priority.politigram.includes(politigramName))) {
             return priority.text
         } else {           
-            return `<span class="${card.textHighlighted}" style="opacity: 1; background-color: ${color};">${priority.text}</span>`;                        
+            return `<span class="${card.textHighlighted}" data-color="${color}">${priority.text}</span>`;                        
         }
     }
 
@@ -120,8 +136,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, unpicke
                     const beforeText = background.text.slice(lastIndex, start);
                     const highlightedText = background.text.slice(start, end);
                     afterText = background.text.slice(end);
-                    styledText += `${beforeText}<span class="${card.textHighlighted}" style="opacity: 1; background-color: ${color};">${highlightedText}</span>`;                        
-                    lastIndex = end;
+                    styledText += `${beforeText}<span class="${card.textHighlighted}" data-color="${color}">${highlightedText}</span>`;
                 });
             }
 
@@ -131,34 +146,47 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, unpicke
 
     return (
         <>
+            <div>
+                <h2 className={`${card.text} ${card.textHeader}`}>{position}</h2>
+            </div>
             <div className={`${card.grid} ${card.gridHeader}`}>
+                {candidate.image && (
+                    <div className={`${card.gridItem} ${card.gridItemProfile}`}>
+                        <img className={card.profile} src={candidate.image} alt="Candidate Photo" />
+                    </div>
+                )}
                 <div className={`${card.gridItem} ${card.gridItemName}`}>
                     <h2 className={`${card.text} ${card.textHeader}`}>{candidate.name}</h2>
                 </div>
                 {candidate.website && (
                     <div className={`${card.gridItem} ${card.gridItemWebsite}`}>
                         <a className={card.link} href={candidate.website}>
-                            {/* TODO: icon for link */}
-                            <i className="fa-solid fa-link"></i>
-                            <span className={card.text}>{candidate.website}</span>
+                            <LinkIcon/>
+                            <span className={card.text}> {candidate.website}</span>
                         </a>
                     </div>
                 )}
-                {candidate.image && (
-                    <div className={`${card.gridItem} ${card.gridItemProfilePic}`}>
-                        <img className={card.profilePic} src={candidate.image} alt="Candidate Photo" />
-                    </div>
-                )}
             </div>
-                <div className={`${card.grid} ${card.gridPolitigram}`}>
-                <div className={`${card.gridItem} ${card.gridItemHeader}`}>
-                    <h2 className={`${card.text} ${card.textHeader}`}>Politigram</h2>
-                </div>
+            <div>
+                <h2 className={`${card.text} ${card.textHeader}`}>Politigram</h2>
+            </div>
+            <div className={`${card.grid} ${card.gridPolitigram}`}>
                 <div className={`${card.gridItem} ${card.gridItemPolitigram}`} ref={parentRef}>
-                    <PolitigramPie parent={parentRef} header={headerRef}/>
+                    <PolitigramPie parent={parentRef} politigramScores={candidate.politigram}/>
                 </div>
                 <div className={`${card.gridItem} ${card.gridItemPolitigramText}`}>
-                    <h2 className={`${card.text} ${card.textPolitigram}`} ref={headerRef}>Overwrite politigram title</h2>
+                    {
+                        selectedPolitigram 
+                    ?
+                        <>
+                            <h2 className={`${card.text} ${card.textPolitigram}`} style={{ backgroundColor: politigramAttributes[selectedPolitigram].color }}>
+                                {selectedPolitigram.charAt(0).toUpperCase() + selectedPolitigram.slice(1)}</h2>
+                            <span>{displayScore}</span>
+                            <PolitigramInfoModal politigram={selectedPolitigram}/>
+                        </>
+                    :
+                        <h2 className={`${card.text} ${card.glow}`}>Select</h2>
+                    }
                 </div>
             </div>
             {/* TODO: only show tags if they exist! */}

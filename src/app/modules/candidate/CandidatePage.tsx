@@ -51,7 +51,7 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
   return(
     <>
       <ScrollArea positionHook={handleShowButtons}>
-        <CandidateCard candidate={election.contests[selectedContest].candidates[selectedCandidate]} unpickedCandidates={unpickedCandidates} setUnpickedCandidates={setUnpickedCandidates}/>
+        <CandidateCard position={election.contests[selectedContest].title} candidate={election.contests[selectedContest].candidates[selectedCandidate]}/>
         <div
           style={{
             position: "sticky",
