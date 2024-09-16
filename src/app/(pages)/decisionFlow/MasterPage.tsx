@@ -133,28 +133,48 @@ const DecisionFlow = () => {
 
     return (
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }}
-        > 
-          <AnimatedPage page='election' isActive={!inSendResultsPage}>
+        <AnimatedPage page='election' isActive={!inSendResultsPage}>
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+            }}
+          > 
           {!isDesktop ? (
             // Mobile Transitions
             <>
-              <AnimatedPage page='election' isActive={selectedContest === null && !inRightPage && !inSendResultsPage}>
-                <ElectionsTopPage onSendResultsClick={handleSendResultsClick} />
-                <ElectionsBottomPage onContestClick={handleContestClick} />
-              </AnimatedPage>
-              {selectedContest !== null && (
-                <AnimatedPage page='contest' isActive={inRightPage && !inSendResultsPage}>
-                  <ContestPage election={election} onBackClick={handleBackContestClick} />
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                }}
+              > 
+                <AnimatedPage page='election' isActive={selectedContest === null && !inRightPage && !inSendResultsPage}>
+                  <ElectionsTopPage onSendResultsClick={handleSendResultsClick} />
+                  <ElectionsBottomPage onContestClick={handleContestClick} />
                 </AnimatedPage>
-              )}
+              </div>
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                }}
+              > 
+                {selectedContest !== null && (
+                  <AnimatedPage page='contest' isActive={inRightPage && !inSendResultsPage}>
+                    <ContestPage election={election} onBackClick={handleBackContestClick} />
+                  </AnimatedPage>
+                )}
+              </div>
             </>
           ) : (
             // Desktop Transitions
@@ -176,8 +196,8 @@ const DecisionFlow = () => {
               </div>
             </>
           )}
-          </AnimatedPage>
-        </div>
+          </div>
+        </AnimatedPage>
         <div
           style={{
             position: 'absolute',
