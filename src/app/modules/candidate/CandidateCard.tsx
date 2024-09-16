@@ -65,7 +65,6 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
 
     // Update content when candidate or selectedPolitigram changes
     useEffect(() => {
-        console.log('UPDATING CANDIDATE!')
         updateContent();
     }, [candidate, selectedPolitigram]);
 
