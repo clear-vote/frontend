@@ -227,3 +227,8 @@ export const getPositionConstituents = (position: string): string => {
   const pos = positionInfo[position];
   return pos ? pos.constituents : 'We don\'t have any information for this position :( \n Let us know at hello@clearvote.info';
 }
+
+export const getPositionInfoSource = (position: string): string => {
+  const pos = positionInfo[position];
+  return pos ? pos.source : 'We don\'t have any information for this position :( \n Let us know at hello@clearvote.info';
+}
