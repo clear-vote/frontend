@@ -26,7 +26,7 @@ export default function LandingPage() {
             type="search"
             placeholder="Enter an address..."
             className="w-full"
-            token={process.env.MAPBOX_TOKEN}
+            token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
             bounds={KING_COUNTY}
             maxResults={MAX_RESULTS}
           />

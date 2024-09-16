@@ -28,7 +28,7 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
   // Prevents the map from being rerendered on every single state change; that wouldn't be good!
   const MemoizedPrecinctMapCard = useMemo(
     () => <PrecinctMapCard 
-      token={process.env.MAPBOX_TOKEN}
+      token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
     />, 
     []
   );
