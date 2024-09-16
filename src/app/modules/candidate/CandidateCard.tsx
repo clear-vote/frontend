@@ -29,6 +29,29 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
     const parentRef = useRef<HTMLDivElement>(null);
     const [displayScore, setDisplayScore] = useState<string>('');
 
+    // ====================================================================================
+    // =========== Update from david: moved useEffect hooks to top of file, due to deployment errors in vercel.
+    // =========== I'm not sure if this will screw up the logic with null checks, but it seems to work for now.
+
+    // Update content when candidate or selectedPolitigram changes
+    useEffect(() => {
+        updateContent();
+    }, [candidate, selectedPolitigram]);
+
+    useEffect(() => {
+        const highlightedElements = document.querySelectorAll(`.${card.textHighlighted}`);
+        highlightedElements.forEach((element) => {
+            const color = element.getAttribute('data-color');
+            if (color) {
+                setTimeout(() => {
+                    (element as HTMLElement).style.backgroundColor = color;
+                }, 0);
+            }
+        });
+    }, [selectedPolitigram, candidate]);
+
+    // ====================================================================================
+
     // Invariant: Politigram should not be null. Candidates with null politigrams are filtered out.
     if (candidate.politigram === null) return;
 
@@ -62,23 +85,6 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
             }
         }
     };
-
-    // Update content when candidate or selectedPolitigram changes
-    useEffect(() => {
-        updateContent();
-    }, [candidate, selectedPolitigram]);
-
-    useEffect(() => {
-        const highlightedElements = document.querySelectorAll(`.${card.textHighlighted}`);
-        highlightedElements.forEach((element) => {
-            const color = element.getAttribute('data-color');
-            if (color) {
-                setTimeout(() => {
-                    (element as HTMLElement).style.backgroundColor = color;
-                }, 0);
-            }
-        });
-    }, [selectedPolitigram, candidate]);
 
     // Prioroties get colored, if they are not null
     // Otherwise the priority text is returned plain

@@ -39,3 +39,5 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
     );
   }
 );
+
+CandidateListItem.displayName = 'CandidateListItem'; // Added due to a deployment error: "Error: Component definition is missing display name react/display-name"

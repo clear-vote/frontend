@@ -7,7 +7,7 @@ const ResultsPage = () => {
 
   return (
     <div>
-      <p>We've sent an email to {email} with your picks. Be sure to fill out your ballot and mail it in before the specified date! Voter turnout in local elections is around 15-27%. You do the math --you're vote really does matter!</p>
+      <p>We&apos;ve sent an email to {email} with your picks. Be sure to fill out your ballot and mail it in before the specified date! Voter turnout in local elections is around 15-27%. You do the math—your vote really does matter!</p>
       <br />
       <p>Clearvote is run by a small team with very limited resources. You can help us empower more communities to vote locally by donating</p>
       <DonationsModal/>

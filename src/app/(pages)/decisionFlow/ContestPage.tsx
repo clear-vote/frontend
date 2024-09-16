@@ -22,27 +22,40 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
   
   const [defaultAccordion, setDefaultAccordion] = useState('Unpicked');
   const [unpickedCandidates, setUnpickedCandidates] = useState<Set<number>>(new Set());
+
+
+    // ====================================================================================
+    // =========== Update from david: moved useEffect hooks to top of file, due to deployment errors in vercel.
+    // =========== I'm not sure if this will screw up the logic with null checks, but it seems to work for now.
+
+
+    useEffect(() => {
+
+      // added this inside useEffect, idk if it will fuck things up
+      if (selectedElection === null || selectedContest === null) return;
+
+      // update the unpickedCandidates state with the list of candidates
+      // who are not pinned and not hidden for the selected election and contest.
+      setUnpickedCandidates(
+        new Set(
+          Object.values(election.contests[selectedContest].candidates).filter(
+            (candidate: Candidate) =>
+              pinnedCandidates[selectedElection]?.[selectedContest] !== candidate.id &&
+              !hiddenCandidates[selectedElection]?.[selectedContest]?.has(candidate.id)
+          ).map(candidate => candidate.id)
+        )
+      );
+    }, [selectedElection, selectedContest, pinnedCandidates, setPinnedCandidates]);
+  
+    //Thanks Stack Overflow! This is to ensure that the Contest Page scrolls to the top when loaded
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
+
+    // ====================================================================================
   
   if (selectedElection === null || selectedContest === null) return;
 
-  useEffect(() => {
-    // update the unpickedCandidates state with the list of candidates
-    // who are not pinned and not hidden for the selected election and contest.
-    setUnpickedCandidates(
-      new Set(
-        Object.values(election.contests[selectedContest].candidates).filter(
-          (candidate: Candidate) =>
-            pinnedCandidates[selectedElection]?.[selectedContest] !== candidate.id &&
-            !hiddenCandidates[selectedElection]?.[selectedContest]?.has(candidate.id)
-        ).map(candidate => candidate.id)
-      )
-    );
-  }, [selectedElection, selectedContest, pinnedCandidates, setPinnedCandidates]);
-
-  //Thanks Stack Overflow! This is to ensure that the Contest Page scrolls to the top when loaded
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
 
   return (
     <div>
