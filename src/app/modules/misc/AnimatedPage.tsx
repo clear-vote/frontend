@@ -33,11 +33,11 @@ export const AnimatedPage = ({children, page, isActive}: AnimatedPageProps) => {
     <motion.div
       initial='initial'
       variants={
-        page === 'left'
+        page === 'election' 
           ? leftPageTransition
           : page === 'contest'
-          ? contestPageTransition
-          : sendResultsPageTransition
+            ? contestPageTransition
+            : sendResultsPageTransition
       }
       animate={
         isActive === true

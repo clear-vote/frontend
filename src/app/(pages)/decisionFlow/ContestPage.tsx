@@ -19,7 +19,6 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
     pinnedCandidates, setPinnedCandidates,
     hiddenCandidates,
   } = useDecisionFlowContext();
-  const { isDesktop } = useMasterContext();
   
   const [defaultAccordion, setDefaultAccordion] = useState('Unpicked');
   const [unpickedCandidates, setUnpickedCandidates] = useState<Set<number>>(new Set());
@@ -44,12 +43,6 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-
-  if (isDesktop) {
-    return (
-      <div>Desktop not supported</div>
-    )
-  }
 
   return (
     <div>

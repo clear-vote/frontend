@@ -1,1 +1,0 @@
-ContestPage -> ContestAccordion -> CandidateDrawer -> CandidatePage -> CandidateCard -> Politigram

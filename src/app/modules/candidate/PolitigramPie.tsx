@@ -191,7 +191,7 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
 
   useEffect(() => {
     if (!firstRender) return;
-    console.log("First render");
+    // console.log("First render");
     firstRender.current = false;
     rotateAndExpandPie();
   }, [open]);

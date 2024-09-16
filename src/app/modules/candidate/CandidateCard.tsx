@@ -22,7 +22,6 @@ interface CandidateCardProps {
     open: boolean;
 }
 
-
 export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidate, open }) => {
     const { selectedPolitigram } = useDecisionFlowContext();
     const prioritiesRef = useRef<HTMLOListElement>(null);
@@ -66,7 +65,6 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
 
     // Update content when candidate or selectedPolitigram changes
     useEffect(() => {
-        console.log('UPDATING CANDIDATE!')
         updateContent();
     }, [candidate, selectedPolitigram]);
 
