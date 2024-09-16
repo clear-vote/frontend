@@ -11,12 +11,13 @@ import {
   initPinnedCandidates
 } from '@/utils/helpers';
 import { AnimatedPage } from '../../modules/misc/AnimatedPage';
-import { ElectionsPage } from './ElectionsPage';
+import { ElectionsTopPage } from './ElectionsTopPage';
 import Skeleton from '@mui/material/Skeleton';
 import { useFetchData } from '@/api/useFetchData';
 import { Contest, Election } from '@/types';
 import { SendResultsPage } from './SendResultsPage';
 import { useMasterContext } from '@/context/MasterContext';
+import { ElectionsBottomPage } from './ElectionsBottomPage';
 
 const DecisionFlow = () => {
   const { 
@@ -88,14 +89,19 @@ const DecisionFlow = () => {
     return <div>No valid election selected.</div>;
   }
   
-  const handleContestClick = (contestId: number) => {
-    // selectedContest is set via the button, here we are just delaying the animation of the contest page
+  const handleContestClick = async (contestId: number) => {
+    if (selectedContest) {
+      await handleBackContestClick();
+      await new Promise(resolve => setTimeout(resolve, 200));
+    }
     setSelectedContest(contestId);
-    const timer = setTimeout(() => {
-      setInRightPage(true);
-    }, 200);
-    return () => clearTimeout(timer);
-  }
+    await new Promise<void>(resolve => {
+      const timer = setTimeout(() => {
+        setInRightPage(true);
+        resolve();
+      }, 200);
+    });
+  };
 
   const handleSendResultsClick = () => {
     setInRightPage(true);
@@ -122,57 +128,77 @@ const DecisionFlow = () => {
     return () => clearTimeout(timer);
   };
 
-  if (isDesktop) {
-    return (
-      <div>Desktop mode not supported.</div>
-    )
-  }
-
   // Invariant: election should be selected if data has loaded
   if (data !== null && selectedElection !== null && selectedElection in elections) {
     const election: Election = elections[selectedElection];
 
     return (
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }}
-        > 
-          <AnimatedPage page='left' isActive={selectedContest === null && !inRightPage}>
-            <ElectionsPage 
-              onContestClick={handleContestClick}
-              onSendResultsClick={handleSendResultsClick}
-            />
-          </AnimatedPage>
-        </div>
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }}
-        >        
-          {
-            selectedContest !== null && (() => {
-              const contest: Contest = election.contests[selectedContest];
-              return (
+        <>
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+            }}
+            > 
+            {!isDesktop ? (
+              <AnimatedPage page='election' isActive={selectedContest === null && !inRightPage}>
+                <ElectionsTopPage 
+                  onSendResultsClick={handleSendResultsClick}
+                  />
+                <ElectionsBottomPage
+                  onContestClick={handleContestClick}
+                  />
+              </AnimatedPage>
+            ) : (
+              <>
+                <ElectionsTopPage onSendResultsClick={handleSendResultsClick}/>
+                <div style={{ display: 'flex', height: 'calc(100% - 60px)' }}> {/* Adjust 60px based on ElectionsTopPage height */}
+                  <div style={{ width: '30%', minWidth: '350px' }}>
+                    <ElectionsBottomPage
+                      onContestClick={handleContestClick}
+                      />
+                  </div>
+                  <div style={{ width: '70%' }}>
+                    <AnimatedPage page='contest' isActive={selectedContest !== null && inRightPage}>
+                      <div style={{ height: '100%', backgroundColor: '#f0f0f0' }}>
+                        {selectedContest !== null && (
+                          <ContestPage 
+                          election={election}
+                          onBackClick={handleBackContestClick}
+                          />
+                        )}
+                      </div>
+                    </AnimatedPage>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+          {!isDesktop && (
+            <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+            }}
+            >        
+              {selectedContest !== null && (
                 <AnimatedPage page='contest' isActive={selectedContest !== null && inRightPage}>
                   <ContestPage 
                     election={election}
                     onBackClick={handleBackContestClick}
-                  />
+                    />
                 </AnimatedPage>
-              );
-            })()
-          }
-        </div>
+              )}
+            </div>
+          )}
+        </>
         <div
           style={{
             position: 'absolute',
@@ -182,15 +208,13 @@ const DecisionFlow = () => {
             height: '100%',
           }}
         >     
-          {
-            inSendResultsPage && (
-              <AnimatedPage page='send-results' isActive={inSendResultsPage && inRightPage}>
-                <SendResultsPage
-                  onBackClick={handleBackSendResultsClick} 
-                />
-              </AnimatedPage>
-            )
-          }
+          {inSendResultsPage && (
+            <AnimatedPage page='send-results' isActive={inSendResultsPage && inRightPage}>
+              <SendResultsPage
+                onBackClick={handleBackSendResultsClick} 
+              />
+            </AnimatedPage>
+          )}
         </div>
       </div>
     );

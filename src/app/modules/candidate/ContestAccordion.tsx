@@ -24,13 +24,7 @@ const ContestAccordions = ({
 }: ContestAccordionsProps) => {
 
   const { selectedContest } = useDecisionFlowContext();
-  const { isDesktop } = useMasterContext();
   if (selectedContest === null) return null;
-  if (isDesktop) {
-    return (
-      <div>Desktop not supported</div>
-    )
-  }
 
   return (
     <Accordion key={pinnedCandidate} type="single" defaultValue={"Visible"} collapsible>

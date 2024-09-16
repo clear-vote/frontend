@@ -22,7 +22,6 @@ interface CandidateCardProps {
     open: boolean;
 }
 
-
 export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidate, open }) => {
     const { selectedPolitigram } = useDecisionFlowContext();
     const prioritiesRef = useRef<HTMLOListElement>(null);

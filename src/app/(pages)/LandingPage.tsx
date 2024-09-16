@@ -14,12 +14,6 @@ const MAX_RESULTS: number = 5;
 
 /** Landing page design works for both desktop & mobile mode */
 export default function LandingPage() {
-  const { isDesktop } = useMasterContext();
-  if (isDesktop) {
-      return (
-        <div>Desktop not supported</div>
-      )
-  }
   return (
     <div className="min-h-screen pt-24 flex flex-col items-center the-fancy-background">
       <div className="flex items-center justify-center h-full">

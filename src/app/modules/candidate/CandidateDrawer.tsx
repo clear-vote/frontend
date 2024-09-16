@@ -25,18 +25,11 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = (
     unpickedCandidates, setUnpickedCandidates }) => {
   
   const {selectedContest, setSelectedCandidate} = useDecisionFlowContext();
-  const {isDesktop} = useMasterContext();
 
   const [open, setOpen] = useState(false)
   
   if (selectedContest === null) return;
   
-  if (isDesktop) {
-    return (
-      <div>Desktop not supported</div>
-    )
-  }
-
   const handleOpenChange = (isOpen: boolean) => {
     setOpen(isOpen);
     if (isOpen) {
