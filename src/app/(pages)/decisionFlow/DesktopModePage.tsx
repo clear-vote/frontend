@@ -8,6 +8,7 @@ import { useMemo, useState } from "react";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { ProgressCard } from "@/app/modules/cards/ProgressCard";
 import ContestDesktopCard from "@/app/modules/cards/desktop/ContestDesktopCard";
+import CandidateCard from "@/app/modules/candidate/CandidateCard";
 
 export interface DesktopModePageProps {
     onContestClick: (contestId: number) => void;
@@ -55,12 +56,11 @@ export const DesktopModePage: React.FC<DesktopModePageProps> = ({ onContestClick
                         return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
                             <>
                                 <br></br>
-
                                 <div style={{ width: "90%", maxWidth: "1099px" }}>
                                     <ProgressCard onSendResultsClick={onSendResultsClick} />
                                     <h3 className="font-bold text-lg">Explore Your Ballot!  <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }} /></h3>
                                 </div>
-                                <div className="flex items-center">
+                                <div className="flex">
                                     <div>
                                         {Object.entries(jurisdictions).map(([jurisdictionName, contests]) => (
                                             <JurisdictionCard
