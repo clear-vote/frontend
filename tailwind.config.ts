@@ -1,3 +1,4 @@
+import { error } from "console"
 import type { Config } from "tailwindcss"
 
 const config = {
@@ -19,10 +20,8 @@ const config = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -52,6 +51,48 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        text: {
+          primary: "hsl(var(--text-primary))",
+          body: "hsl(var(--text-body))",
+          secondary: "hsl(var(--text-secondary))",
+          tertiary: "hsl(var(--text-tertiary))",
+          brand: "hsl(var(--text-brand))",
+          interactive: {
+            disabled: "hsl(var(--text-disabled))",
+            active: "hsl(var(--text-interactive-active))",
+            error: "hsl(var(--text-interactive-error))",
+            valid: "hsl(var(--text-interactive-valid))",
+          },
+        },
+        border: {
+          DEFAULT: "hsl(var(--border))",
+          primary: "hsl(var(--border-primary))",
+          secondary: "hsl(var(--border-secondary))",
+          interactive: {
+            hover: "hsl(var(--border-interactive-hover))",
+            selected: "hsl(var(--border-interactive-selected))",
+            focus: "hsl(var(--border-interactive-focus))",
+            disabled: "hsl(var(--border-interactive-disabled))",
+            active: "hsl(var(--border-interactive-active))",
+            error: "hsl(var(--border-interactive-error))",
+            valid: "hsl(var(--border-interactive-valid))",
+          },
+        },
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          primary: "hsl(var(--background-primary))",
+          secondary: "hsl(var(--background-secondary))",
+          tertiary: "hsl(var(--background-tertiary))",
+          interactive: {
+            hover: "hsl(var(--background-interactive-hover))",
+            selected: "hsl(var(--background-interactive-selected))",
+            pressed: "hsl(var(--background-interactive-pressed))",
+            disabled: "hsl(var(--background-interactive-disabled))",
+            active: "hsl(var(--background-interactive-active))",
+            error: "hsl(var(--background-interactive-error))",
+            valid: "hsl(var(--background-interactive-valid))",
+          },
+        }
       },
       borderRadius: {
         lg: "var(--radius)",
