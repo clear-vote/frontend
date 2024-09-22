@@ -17,6 +17,7 @@ export function useFetchData<T>() {
         const address: string = "5027 brooklyn ave NE Seattle";
         let response;
         if (precinctId) {
+          console.log("precinctId: ", precinctId);
           response = await fetch(url, {
             method: 'GET',
             headers: {
@@ -25,6 +26,7 @@ export function useFetchData<T>() {
             }
           });
         } else if (address) {
+          console.log("address: ", address);
           response = await fetch(url, {
             method: 'GET',
             headers: {
