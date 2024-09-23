@@ -1,4 +1,5 @@
 import { error } from "console"
+import { symbol } from "d3"
 import type { Config } from "tailwindcss"
 
 const config = {
@@ -30,7 +31,7 @@ const config = {
         fontWeight: '600',
       }],
       'body': ['1rem', {
-        lineHeight: '1.25rem',
+        lineHeight: '1.5rem',
         fontWeight: '400',
       }],
       'link': ['0.875rem', {
@@ -42,6 +43,10 @@ const config = {
         fontWeight: '400',
       }],
       'caption': ['0.813rem', {
+        lineHeight: '1rem',
+        fontWeight: '500',
+      }],
+      'symbol-caption': ['0.8rem', {
         lineHeight: '1rem',
         fontWeight: '500',
       }],
@@ -149,6 +154,9 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        symbol: 'IBM Plex Mono, ui-mono', // Adds a new `font-display` class
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

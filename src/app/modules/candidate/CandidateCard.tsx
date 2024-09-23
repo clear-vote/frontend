@@ -14,6 +14,9 @@ import { politigramAttributes } from './politigram';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import PolitigramPie from './PolitigramPie';
 import LinkIcon from '@mui/icons-material/Link';
+import CategoryIcon from '@mui/icons-material/Category';
+import FlagRoundedIcon from '@mui/icons-material/FlagRounded';
+import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
 import PolitigramInfoModal from '../modals/PolitigramInfoModal';
 
 interface CandidateCardProps {
@@ -105,13 +108,14 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
         color: string | null,
     ) {
         const div = document.createElement('div');
+        div.classList.add('mb-4');
 
         const h2 = document.createElement('h2');
-        h2.classList.add(card.text, card.textHeader);
+        h2.classList.add('text-symbol-caption', 'font-symbol', 'text-text-secondary', 'underline', 'mb-2');
         h2.textContent = backgroundData['header'];
 
         const p = document.createElement('p');
-        p.classList.add(card.text);
+        p.classList.add('text-body', 'text-text-body');
         p.innerHTML = colorParagraph(backgroundData, politigramName, color);
 
         div.appendChild(h2);
@@ -157,7 +161,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                     </div>
                 )}
                 <div>
-                    <h1 className="text-header">{candidate.name}</h1>
+                    <h1 className="text-header text-text-primary max-w-[150px]">{candidate.name}</h1>
                     {candidate.website && (
                     <div className={`${card.gridItem} ${card.gridItemWebsite}`}>
                         <a className={card.link} href={candidate.website}>
@@ -168,30 +172,11 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                     )}
                 </div>
             </div>
-            {/* <div>
-                <h2 className={`${card.text} ${card.textHeader}`}>{position}</h2>
-            </div>
-            <div className={`${card.grid} ${card.gridHeader}`}>
-                {candidate.image && (
-                    <div className={`${card.gridItem} ${card.gridItemProfile}`}>
-                        <img className={card.profile} src={candidate.image} alt="Candidate Photo" />
-                    </div>
-                )}
-                <div className={`${card.gridItem} ${card.gridItemName}`}>
-                    <h2 className={`${card.text} ${card.textHeader}`}>{candidate.name}</h2>
-                </div>
-                {candidate.website && (
-                    <div className={`${card.gridItem} ${card.gridItemWebsite}`}>
-                        <a className={card.link} href={candidate.website}>
-                            <LinkIcon/>
-                            <span className={card.text}> {candidate.website}</span>
-                        </a>
-                    </div>
-                )}
-            </div> */}
-            <div className="flex flex-col px-4 py-8">
+            
+            <div className="flex flex-col gap-2 px-4 py-8">
                 <div className="flex gap-2">
-                    <h3 className="text-title">Politigram</h3>
+                    <CategoryIcon />
+                    <h3 className="text-title text-text-primary">Politigram</h3>
                 </div>
                 <div className="flex pl-3 pr-2 py-4 border rounded-lg bg-background-secondary">
                     <div className="overflow-visible w-[32vw] h-[32vw]" ref={parentRef}>
@@ -214,37 +199,24 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                 </div>
             </div>
 
-
-
-
-            {/* <div>
-                <h2 className={`${card.text} ${card.textHeader}`}>Politigram</h2>
-            </div>
-            <div className={`${card.grid} ${card.gridPolitigram}`}>
-                <div className={`${card.gridItem} ${card.gridItemPolitigram}`} ref={parentRef}>
-                    <PolitigramPie parent={parentRef} politigramScores={candidate.politigram} open={open}/>
-                </div>
-                <div className={`${card.gridItem} ${card.gridItemPolitigramText}`}>
-                    {
-                        selectedPolitigram 
-                    ?
-                        <>
-                            <h2 className={`${card.text} ${card.textPolitigram}`} style={{ backgroundColor: politigramAttributes[selectedPolitigram].color }}>
-                                {selectedPolitigram.charAt(0).toUpperCase() + selectedPolitigram.slice(1)}</h2>
-                            <span>{displayScore}</span>
-                            <PolitigramInfoModal politigram={selectedPolitigram}/>
-                        </>
-                    :
-                        <h2 className={`${card.text} ${card.glow}`}>Select</h2>
-                    }
-                </div>
-            </div> */}
             {/* TODO: only show tags if they exist! */}
-            <div className={card.priorities}>
-                <h2 className={`${card.text} ${card.textHeader}`}>Top priorities</h2>
-                <ol ref={prioritiesRef}></ol>
+            <div className="flex flex-col gap-2 px-4 py-8">
+                <div className="flex gap-2">
+                    <FlagRoundedIcon />
+                    <h3 className="text-title text-text-primary">Top Priorities</h3>
+                </div>
+                <div className={card.priorities}>
+                    <ul className="list-disc ml-5 text-text-body" ref={prioritiesRef}></ul>
+                </div>
             </div>
-            <div className={card.background} ref={backgroundRef}></div>
+
+            <div className="flex flex-col gap-4 px-4 py-8">
+                <div className="flex gap-2">
+                    <ArticleRoundedIcon />
+                    <h3 className="text-title text-text-primary">Statement</h3>
+                </div>
+                <div ref={backgroundRef}></div>
+            </div>
         </>
     );
 };
