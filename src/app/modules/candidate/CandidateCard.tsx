@@ -149,7 +149,26 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
 
     return (
         <>
-            <div>
+            <div className="bg-background-tertiary border-b border-border-secondary px-4 py-2 text-sec">{position}</div>
+            <div className="flex gap-4 p-4 bg-background-tertiary border-b border-border-secondary">
+                {candidate.image && (
+                    <div className="rounded-lg">
+                        <img className="rounded-lg h-[200px]" src={candidate.image} alt="Candidate Photo" />
+                    </div>
+                )}
+                <div>
+                    <h1 className="text-header">{candidate.name}</h1>
+                    {candidate.website && (
+                    <div className={`${card.gridItem} ${card.gridItemWebsite}`}>
+                        <a className={card.link} href={candidate.website}>
+                            <LinkIcon/>
+                            <span className={card.text}> {candidate.website}</span>
+                        </a>
+                    </div>
+                    )}
+                </div>
+            </div>
+            {/* <div>
                 <h2 className={`${card.text} ${card.textHeader}`}>{position}</h2>
             </div>
             <div className={`${card.grid} ${card.gridHeader}`}>
@@ -169,8 +188,36 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                         </a>
                     </div>
                 )}
+            </div> */}
+            <div className="flex flex-col px-4 py-8">
+                <div className="flex gap-2">
+                    <h3 className="text-title">Politigram</h3>
+                </div>
+                <div className="flex pl-3 pr-2 py-4 border rounded-lg bg-background-secondary">
+                    <div className="overflow-visible w-[32vw] h-[32vw]" ref={parentRef}>
+                        <PolitigramPie parent={parentRef} politigramScores={candidate.politigram} open={open}/>
+                    </div>
+                    <div className="flex flex-col gap-1">
+                        {
+                            selectedPolitigram 
+                            ?
+                            <>
+                                <h2 className={`${card.text} ${card.textPolitigram}`} style={{ backgroundColor: politigramAttributes[selectedPolitigram].color }}>
+                                    {selectedPolitigram.charAt(0).toUpperCase() + selectedPolitigram.slice(1)}</h2>
+                                <span>{displayScore}</span>
+                                <PolitigramInfoModal politigram={selectedPolitigram}/>
+                            </>
+                        :
+                            <h2 className={`${card.text} ${card.glow}`}>Select</h2>
+                        }
+                    </div>
+                </div>
             </div>
-            <div>
+
+
+
+
+            {/* <div>
                 <h2 className={`${card.text} ${card.textHeader}`}>Politigram</h2>
             </div>
             <div className={`${card.grid} ${card.gridPolitigram}`}>
@@ -191,7 +238,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                         <h2 className={`${card.text} ${card.glow}`}>Select</h2>
                     }
                 </div>
-            </div>
+            </div> */}
             {/* TODO: only show tags if they exist! */}
             <div className={card.priorities}>
                 <h2 className={`${card.text} ${card.textHeader}`}>Top priorities</h2>
