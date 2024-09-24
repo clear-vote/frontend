@@ -40,7 +40,7 @@ const config = {
       }],
       'sec': ['0.875rem', {
         lineHeight: '1rem',
-        fontWeight: '400',
+        fontWeight: '500',
       }],
       'caption': ['0.813rem', {
         lineHeight: '1rem',
@@ -58,19 +58,19 @@ const config = {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
-          foreground: "hsla(var(--primary-foreground))",
-          background: "hsla(var(--primary-background))",
+          foreground: "hsl(var(--primary-foreground))",
+          background: "hsl(var(--primary-background))",
           body: "hsla(var(--primary-body))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsla(var(--secondary-foreground))",
-          background: "hsla(var(--secondary-background))",
+          foreground: "hsl(var(--secondary-foreground))",
+          background: "hsl(var(--secondary-background))",
         },
         tertiary: {
           DEFAULT: "hsl(var(--tertiary))",
-          foreground: "hsla(var(--tertiary-foreground))",
-          background: "hsla(var(--tertiary-background))",
+          foreground: "hsl(var(--tertiary-foreground))",
+          background: "hsl(var(--tertiary-background))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

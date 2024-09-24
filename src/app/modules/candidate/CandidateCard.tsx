@@ -32,6 +32,17 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
     const parentRef = useRef<HTMLDivElement>(null);
     const [displayScore, setDisplayScore] = useState<string>('');
 
+    // Scroll position for candidate name
+    const [scrollPosition, setScrollPosition] = useState(0);
+    useEffect(() => {
+      const handleScroll = () => {
+        setScrollPosition(window.pageYOffset);
+      };
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     // Invariant: Politigram should not be null. Candidates with null politigrams are filtered out.
     if (candidate.politigram === null) return;
 
@@ -153,7 +164,13 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
 
     return (
         <>
-            <div className="bg-background-tertiary border-b border-border-secondary px-4 py-2 text-sec">{position}</div>
+            <div className="bg-tertiary-background border-b border-border-secondary px-4 py-2 sticky top-0">
+                <h6 className="text-sec text-text-secondary">{position}</h6>
+                
+                {scrollPosition > 100 && (
+                    <h1 className="text-header text-text-primary">{candidate.name}</h1>
+                )}
+            </div>
             <div className="flex gap-4 p-4 bg-background-tertiary border-b border-border-secondary">
                 {candidate.image && (
                     <div className="rounded-lg">
