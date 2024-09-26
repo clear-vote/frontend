@@ -33,6 +33,24 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
     []
   );
 
+  if (isDesktop) {
+    return (
+      <div>
+      <br></br>
+      <div className="flex justify-center items-center">
+          {MemoizedPrecinctMapCard}
+      </div>
+      <br></br>
+      <div style={{ padding: "8px" }}>
+          <ElectionDetailsCard
+              setDropdownIsOpen={setDropdownIsOpen}
+          />
+      </div>
+      </div>
+    );
+
+  }
+
   /** Mobile Mode */
   const selectedElectionData = elections[selectedElection!];
   return ( 

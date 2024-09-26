@@ -22,6 +22,7 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
   
   const [defaultAccordion, setDefaultAccordion] = useState('Unpicked');
   const [unpickedCandidates, setUnpickedCandidates] = useState<Set<number>>(new Set());
+  const { isDesktop } = useMasterContext();
   
   if (selectedElection === null || selectedContest === null) return;
 
@@ -39,10 +40,13 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
     );
   }, [selectedElection, selectedContest, pinnedCandidates, setPinnedCandidates]);
 
-  //Thanks Stack Overflow! This is to ensure that the Contest Page scrolls to the top when loaded
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  //Thanks Stack Overflow! This is to ensure that the Contest Page scrolls to the top when loaded in mboile mode
+  if (!isDesktop){
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
+  }
+
 
   return (
     <div>
