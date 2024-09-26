@@ -38,6 +38,7 @@ const ContestAccordions = ({
               candidateId={pinnedCandidate}
               unpickedCandidates={unpickedCandidates}
               setUnpickedCandidates={setUnpickedCandidates}
+              pinned={true}
             />
           </AccordionContent>
         </AccordionItem>

@@ -173,6 +173,11 @@ body {
   margin-right: 10px;
 }
 
+/** Generic List Item's Awesome Styling */
+.pinned-list-item {
+  /** TODO: Make this fancy pinned card! */
+}
+
 .splitscreen {
   display: flex;
 }

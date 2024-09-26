@@ -155,7 +155,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
             <div className={`${card.grid} ${card.gridHeader}`}>
                 {candidate.image && (
                     <div className={`${card.gridItem} ${card.gridItemProfile}`}>
-                        <img className={card.profile} src={candidate.image} alt="Candidate Photo" />
+                        <img src={candidate.image ? candidate.image : '/images/no_candidate_image.png'} alt="Candidate Photo" className="list-item-image" />
                     </div>
                 )}
                 <div className={`${card.gridItem} ${card.gridItemName}`}>
