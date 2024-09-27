@@ -12,12 +12,13 @@ import {
 } from '@/utils/helpers';
 import { AnimatedPage } from '../../modules/misc/AnimatedPage';
 import { ElectionsTopPage } from './ElectionsTopPage';
-import Skeleton from '@mui/material/Skeleton';
 import { useFetchData } from '@/api/useFetchData';
 import { Election } from '@/types';
 import { SendResultsPage } from './SendResultsPage';
 import { useMasterContext } from '@/context/MasterContext';
 import { ElectionsBottomPage } from './ElectionsBottomPage';
+import { ContestSkeleton } from '@/app/modules/skeletons/contestSkeleton';
+import Toolbar from '@/app/modules/misc/Toolbar';
 
 const DecisionFlow = () => {
   const { 
@@ -77,14 +78,9 @@ const DecisionFlow = () => {
 
   if (loading || data && !selectedElection) {
     console.log("Loading...");
-    return (
-      // TODO: make a Election Page skeleton component
-      <div>
-        <Skeleton variant="rectangular" width={210} height={118}>
-          Loading...
-        </Skeleton>
+    return <div className="flex items-center justify-center h-full w-full">
+        <ContestSkeleton/>
       </div>
-    );
   }
   
   const handleContestClick = async (contestId: number) => {
@@ -133,6 +129,7 @@ const DecisionFlow = () => {
 
     return (
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+        <Toolbar isDesktop={isDesktop} />
         <AnimatedPage page='election' isActive={!inSendResultsPage}>
           <div
             style={{

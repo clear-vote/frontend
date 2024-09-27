@@ -121,7 +121,7 @@ export default function Map ({ token }: MapProps) {
     if (isDesktop) {
         return (
             <div>
-                <div ref={mapContainer} style={{}}
+                <div ref={mapContainer} style={{width: "516px", height: "326px"}}
                     className="bg-clip-border border mapbox rounded-md">
                 </div>
                 <div className="flex items-center font-bold text-sm">
