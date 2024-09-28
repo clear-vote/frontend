@@ -17,7 +17,7 @@ export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({ jurisdiction
     const { elections, selectedElection, selectedContest } = useDecisionFlowContext();
     return (
         <div>
-        <div className="rounded-sm juristication-card" style={{ maxWidth: "400px" }}>
+        <div className="rounded-sm juristication-card" style={{ maxWidth: "350px" }}>
             <div className="rounded-t-sm" style={{ background: "linear-gradient(to right, #ff7e5f, #feb47b)" }}>
                 <h3 className="text-white" style={{ fontFamily: "'IBM Plex Mono', monospace", paddingLeft: "5px" }}>{jurisdictionName}</h3>
                 {jurisdictionName !== "Other Contests" && (

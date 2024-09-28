@@ -25,7 +25,7 @@ const ContestList = ({
     if (selectedContest === null) return null;
 
     return (
-        <div className="py-10" style={{background: "#FFFFFF"}}>
+        <div className="py-1" style={{background: "#FFFFFF"}}>
             {pinnedCandidate && (
                 <div>
                 <p className="font-bold text-xl">Pinned</p>

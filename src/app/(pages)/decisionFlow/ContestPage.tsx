@@ -8,6 +8,7 @@ import { useMasterContext } from '@/context/MasterContext';
 import { CandidateDrawer } from '@/app/modules/candidate/CandidateDrawer';
 import ContestList from '@/app/modules/candidate/ContestList';
 import PositionInfoCard from '@/app/modules/cards/PositionInfoCard';
+import { Button } from '@/components/ui/button';
 
 interface ContestPageProps {
   election: Election;
@@ -51,6 +52,8 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
 
   if (isDesktop) {
     return (
+      <div style={{background: 'white'}}>
+      <button onClick={onBackClick} style={{ paddingTop: "5px"}}><Button><ArrowBackIcon/></Button></button>
       <ContestList
         election={election}
         pinnedCandidate={pinnedCandidates[selectedElection][selectedContest]}
@@ -60,6 +63,7 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
         setDefaultAccordion={setDefaultAccordion}
         setUnpickedCandidates={setUnpickedCandidates}
       />
+      </div>
     );
   }
 

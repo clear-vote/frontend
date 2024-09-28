@@ -177,7 +177,7 @@ const DecisionFlow = () => {
             <>
               <ElectionsTopPage onSendResultsClick={handleSendResultsClick}/>
               <div style={{ display: 'flex', height: 'calc(100% - 60px)' }}>
-                <div style={{ width: '30%', minWidth: '350px' }}>
+                <div style={{ width: '30%', minWidth: '350px', backgroundColor: '#F3F4F6'  }}>
                   <ElectionsBottomPage onContestClick={handleContestClick} />
                 </div>
                 <div style={{ width: '70%' }}>
