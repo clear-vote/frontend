@@ -12,7 +12,7 @@ interface ElectionsBottomPageProps {
 }
 
 export const ElectionsBottomPage: React.FC<ElectionsBottomPageProps> = ({ onContestClick }) => {
-  const { elections, selectedElection } = useDecisionFlowContext();
+  const { elections, selectedElection, selectedCandidate } = useDecisionFlowContext();
   const selectedElectionData = elections[selectedElection!];
   const jurisdictions: Record<string, Contest[]> = getJurisdictionLevelPositions(selectedElectionData.contests);
   const { isDesktop } = useMasterContext();

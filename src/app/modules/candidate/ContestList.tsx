@@ -2,6 +2,7 @@ import { Election } from "@/types";
 import { Dispatch, SetStateAction } from "react";
 import { CandidateDrawer } from "./CandidateDrawer";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface ContestListProps {
     election: Election;
@@ -24,8 +25,21 @@ const ContestList = ({
     if (selectedContest === null) return null;
 
     return (
-        <div style={{background: "#FFFFFF"}}>
-            <p className="font-bold text-xl">{election.contests[selectedContest].title}</p>
+        <div className="py-10" style={{background: "#FFFFFF"}}>
+            {pinnedCandidate && (
+                <div>
+                <p className="font-bold text-xl">Pinned</p>
+                <CandidateDrawer
+                    key={election.contests[selectedContest].candidates[pinnedCandidate].name}
+                    election={election}
+                    candidateId={pinnedCandidate}
+                    unpickedCandidates={unpickedCandidates}
+                    setUnpickedCandidates={setUnpickedCandidates}
+                    pinned={true}
+                />
+                </div>
+            )}
+            <p className="font-bold text-xl">Candidates</p>
             {Array.from(unpickedCandidates).map(unpickedCandidate => (
                 <CandidateDrawer
                     key={election.contests[selectedContest].candidates[unpickedCandidate].name}
@@ -35,6 +49,24 @@ const ContestList = ({
                     setUnpickedCandidates={setUnpickedCandidates}
                 />
             ))}
+        {hiddenCandidateSet.size > 0 && (
+        <Accordion key={pinnedCandidate} type="single" defaultValue={"Visible"} collapsible>
+        <AccordionItem value="Hidden">
+          <AccordionTrigger>Hidden Candidates ({hiddenCandidateSet.size})</AccordionTrigger>
+          <AccordionContent>
+            {Array.from(hiddenCandidateSet).map(hiddenCandidate => (
+              <CandidateDrawer
+                key={election.contests[selectedContest].candidates[hiddenCandidate].name}
+                election={election}
+                candidateId={hiddenCandidate}
+                unpickedCandidates={unpickedCandidates}
+                setUnpickedCandidates={setUnpickedCandidates}
+              />
+            ))}
+          </AccordionContent>
+        </AccordionItem>
+        </Accordion>
+      )}
         </div>
     )
 }

@@ -3,11 +3,11 @@ import { useState, useEffect, FC } from 'react';
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import ContestAccordions from '@/app/modules/candidate/ContestAccordion';
 import { Candidate, Election } from "@/types/index";
-import PositionInfoModal from '@/app/modules/modals/PositionInfoModal';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useMasterContext } from '@/context/MasterContext';
 import { CandidateDrawer } from '@/app/modules/candidate/CandidateDrawer';
 import ContestList from '@/app/modules/candidate/ContestList';
+import PositionInfoCard from '@/app/modules/cards/PositionInfoCard';
 
 interface ContestPageProps {
   election: Election;
@@ -71,7 +71,7 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
         &nbsp;&nbsp;&nbsp;{`${election.contests[selectedContest].jurisdiction} ${election.contests[selectedContest].title}`}
       </div>
       <div style={{ padding: '8px' }}>
-        <PositionInfoModal position={election.contests[selectedContest].title} />
+        <PositionInfoCard position={election.contests[selectedContest].title} />
         <ContestAccordions
           election={election}
           pinnedCandidate={pinnedCandidates[selectedElection][selectedContest]}

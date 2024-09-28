@@ -17,7 +17,7 @@ import { Election } from '@/types';
 import { SendResultsPage } from './SendResultsPage';
 import { useMasterContext } from '@/context/MasterContext';
 import { ElectionsBottomPage } from './ElectionsBottomPage';
-import { ContestSkeleton } from '@/app/modules/skeletons/contestSkeleton';
+import { ContestSkeleton } from '@/app/modules/skeletons/ContestSkeleton';
 import Toolbar from '@/app/modules/misc/Toolbar';
 
 const DecisionFlow = () => {
@@ -129,7 +129,6 @@ const DecisionFlow = () => {
 
     return (
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-        <Toolbar isDesktop={isDesktop} />
         <AnimatedPage page='election' isActive={!inSendResultsPage}>
           <div
             style={{
