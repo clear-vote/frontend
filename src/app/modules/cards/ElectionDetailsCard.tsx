@@ -23,7 +23,7 @@ interface ElectionDetailsCardProps {
 
 export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDropdownIsOpen }) => {
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  const { elections, setSelectedElection, selectedElection } = useDecisionFlowContext();
+  const { elections, setSelectedElection, selectedElection, selectedContest } = useDecisionFlowContext();
 
   const handleValueChange = (value: string) => {
     setSelectedElection(Number(value));
@@ -67,7 +67,7 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
                     <SelectItem
                       key={election.id}
                       value={election.id.toString()}
-                      disabled={Object.keys(election.contests).length === 0}
+                      disabled={Object.keys(election.contests).length === 0 || selectedContest !== undefined}
                     >
                       {formatElectionLabel(election)}
                     </SelectItem>

@@ -8,7 +8,7 @@ import { useMasterContext } from '@/context/MasterContext';
 import { CandidateDrawer } from '@/app/modules/candidate/CandidateDrawer';
 import ContestList from '@/app/modules/candidate/ContestList';
 import PositionInfoCard from '@/app/modules/cards/PositionInfoCard';
-import { Button } from '@/components/ui/button';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface ContestPageProps {
   election: Election;
@@ -52,17 +52,25 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
 
   if (isDesktop) {
     return (
-      <div style={{background: 'white'}}>
-      <button onClick={onBackClick} style={{ paddingTop: "5px"}}><Button><ArrowBackIcon/></Button></button>
-      <ContestList
-        election={election}
-        pinnedCandidate={pinnedCandidates[selectedElection][selectedContest]}
-        hiddenCandidateSet={hiddenCandidates[selectedElection][selectedContest]}
-        unpickedCandidates={unpickedCandidates}
-        defaultAccordion={defaultAccordion}
-        setDefaultAccordion={setDefaultAccordion}
-        setUnpickedCandidates={setUnpickedCandidates}
-      />
+      <div className="px-3 py-3">
+      <div className="rounded-md py-3 px-1" style={{ background: 'white', border: '1px solid lightgray' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <h1 className="font-bold text-3xl py-2 px-3">Candidates</h1>
+          <button className="px-3" onClick={onBackClick} style={{ paddingTop: "5px" }}>
+            <CloseIcon />
+          </button>
+        </div>
+        <hr style={{ width: '99%', border: '1px solid lightgray', margin: '0 auto' }} />
+        <ContestList
+          election={election}
+          pinnedCandidate={pinnedCandidates[selectedElection][selectedContest]}
+          hiddenCandidateSet={hiddenCandidates[selectedElection][selectedContest]}
+          unpickedCandidates={unpickedCandidates}
+          defaultAccordion={defaultAccordion}
+          setDefaultAccordion={setDefaultAccordion}
+          setUnpickedCandidates={setUnpickedCandidates}
+        />
+      </div>
       </div>
     );
   }

@@ -37,21 +37,20 @@ export const ElectionsBottomPage: React.FC<ElectionsBottomPageProps> = ({ onCont
       <p style={{ background: "#F3F4F6"}}>No contests found for the selected election.</p>
     );
   }
-
-  return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
-    <>
-      {Object.entries(jurisdictions).map(([jurisdictionName, contests]) => (
-        <>
-          <JurisdictionCard
-          key={jurisdictionName}
-          jurisdictionName={jurisdictionName}
-          filteredContests={contests}
-          onContestClick={onContestClick}
-        />
-        </>
-      ))}
-    </>
+return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
+  <div className="py-2" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+    {Object.entries(jurisdictions).map(([jurisdictionName, contests]) => (
+      <JurisdictionCard
+        key={jurisdictionName}
+        jurisdictionName={jurisdictionName}
+        filteredContests={contests}
+        onContestClick={onContestClick}
+      />
+    ))}
+  </div>
   ) : (
-    <p style={{ background: "#F3F4F6"}}>No contests found for the selected election.</p>
+    <div>
+      <p>No contests found for the selected election.</p>
+    </div>
   );
 };
