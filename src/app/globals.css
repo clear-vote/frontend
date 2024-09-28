@@ -232,15 +232,25 @@ body {
 }
 
 /** Toolbar styling */
-.toolbar {
+.toolbar-desktop {
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   padding: 10px;
-  background: #FFFFFF;
+  /** TODO: CHANGE THIS COLOR!! */
+  background: pink;
 }
 
+/** Toolbar styling */
+.toolbar-mobile {
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  background: white;
+}
 
 .the-fancy-background {
 	background: linear-gradient(-45deg, hsl(196, 76%, 39%), #FF964B 0%, #FB8383 36%, #F468A0 62%, #DC56E8 83%, #9D53FD 100%);

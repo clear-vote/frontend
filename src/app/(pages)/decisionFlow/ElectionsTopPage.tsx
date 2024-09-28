@@ -35,7 +35,7 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
 
   if (isDesktop) {
     return (
-      <div style={{ background: "#F3F4F6"}}>
+      <div>
       <br></br>
       <div className="flex justify-center items-center">
           {MemoizedPrecinctMapCard}
