@@ -19,7 +19,7 @@ export const ElectionsBottomPage: React.FC<ElectionsBottomPageProps> = ({ onCont
 
   if (isDesktop) {
     return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
-      <div style={{padding: "20px"}}>
+      <div className="px-5" style={{padding: "20px", paddingLeft: "50px"}}>
       <>
         {Object.entries(jurisdictions).map(([jurisdictionName, contests]) => (
           <>

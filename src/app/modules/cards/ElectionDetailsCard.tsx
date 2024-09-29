@@ -67,7 +67,7 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
                     <SelectItem
                       key={election.id}
                       value={election.id.toString()}
-                      disabled={Object.keys(election.contests).length === 0 || selectedContest !== undefined}
+                      disabled={Object.keys(election.contests).length === 0 || selectedContest !== null}
                     >
                       {formatElectionLabel(election)}
                     </SelectItem>
@@ -88,7 +88,7 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
               <HowToVoteIcon style={{ width: '15px' }} /> Get registered</a>
             </Button>
           </div>
-          <div className="flex-1 ml-4 box-border p-2 border border-gray-300 rounded-sm" style={{ backgroundColor: "#F9FAFB"}}>
+          <div className="flex-1 ml-4 box-border p-2 border border-gray-300 rounded-sm" style={{ backgroundColor: "##F3F4F6"}}>
             <h1 className="font-bold text-xl">Dates & Deadlines</h1>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <p className="font-bold text-sm py-3">{months[elections[selectedElection!].voting_start.getMonth()]} {elections[selectedElection!].voting_start.getDate()}</p>

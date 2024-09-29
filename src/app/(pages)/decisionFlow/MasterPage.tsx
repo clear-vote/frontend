@@ -18,8 +18,7 @@ import { SendResultsPage } from './SendResultsPage';
 import { useMasterContext } from '@/context/MasterContext';
 import { ElectionsBottomPage } from './ElectionsBottomPage';
 import { ContestSkeleton } from '@/app/modules/skeletons/ContestSkeleton';
-import Toolbar from '@/app/modules/misc/Toolbar';
-
+import WestIcon from '@mui/icons-material/West';
 const DecisionFlow = () => {
   const { 
     setPrecinct,
@@ -181,6 +180,12 @@ const DecisionFlow = () => {
                   <ElectionsBottomPage onContestClick={handleContestClick} />
                 </div>
                 <div style={{ width: '70%' }}>
+                  {selectedContest === null && (
+                    <div className="py-20 font-bold text-3xl" style={{ marginTop: '38px' }}>
+                      <WestIcon style={{ transform: 'translateY(-3px)', fontSize: '3rem' }} />
+                      &nbsp;Explore Your Ballot! Just Click On A Card To Get Started!
+                    </div>
+                  )}
                   <AnimatedPage page='contest' isActive={!inSendResultsPage && selectedContest !== null && inRightPage}>
                     <div style={{ height: '100%', backgroundColor: '#f0f0f0' }}>
                       {selectedContest !== null && (

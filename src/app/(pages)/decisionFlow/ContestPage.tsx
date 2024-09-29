@@ -55,7 +55,7 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
       <div className="px-3 py-3" style={{background: 'white'}}>
       <div className="rounded-md py-3 px-1" style={{ background: 'white', border: '1px solid lightgray' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h1 className="font-bold text-3xl py-2 px-3">Candidates</h1>
+          <h1 className="font-bold text-3xl py-2 px-3">{election.contests[selectedContest].jurisdiction}&nbsp;{election.contests[selectedContest].title}</h1>
           <button className="px-3" onClick={onBackClick} style={{ paddingTop: "5px" }}>
             <CloseIcon />
           </button>
@@ -78,7 +78,7 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
 
   return (
     <div>
-      <div className="font-bold" style={{ padding: "10px", borderBottom: '1px solid #24262814' }}>
+      <div className="font-bold" style={{ padding: "10px", borderBottom: '1px solid #24262814',backgroundColor: "#2426280D" }}>
         <ArrowBackIcon onClick={onBackClick} style={{ width: '20px', transform: "translateY(-2px)" }} />
         &nbsp;&nbsp;&nbsp;{`${election.contests[selectedContest].jurisdiction} ${election.contests[selectedContest].title}`}
       </div>

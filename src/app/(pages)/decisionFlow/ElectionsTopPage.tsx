@@ -46,7 +46,6 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
               setDropdownIsOpen={setDropdownIsOpen}
           />
           <br></br>
-          <h3 className="font-bold text-lg">Explore Your Ballot!  <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/></h3>
           <ProgressCard onSendResultsClick={onSendResultsClick}/>
       </div>
       </div>
@@ -63,8 +62,7 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
         <ElectionDetailsCard
           setDropdownIsOpen={setDropdownIsOpen}
         />
-        <br></br><br></br><br></br> {/* jajajajaja */}
-        <h3 className="font-bold text-lg">Explore Your Ballot!  <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/></h3>
+        <br></br><br></br> {/* jajajajaja */}
         <ProgressCard onSendResultsClick={onSendResultsClick}/>
       </div>
     </>

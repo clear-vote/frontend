@@ -124,9 +124,11 @@ export default function Map({ token }: MapProps) {
                 <div ref={mapContainer} style={{ width: "516px", height: "326px" }}
                     className="bg-clip-border border mapbox rounded-md">
                 </div>
-                <div className="flex items-center font-bold text-sm">
-                    <MyLocationIcon style={{ width: "20px", color: "#947FEEE5" }} />
-                    &nbsp;Washington State Precinct {precinct}&nbsp;
+                <div className="flex items-center justify-between font-bold text-sm border border-gray-300 rounded-sm px-2 py-3">
+                    <div className="flex items-center">
+                        <MyLocationIcon style={{ width: "20px", color: "#947FEEE5" }} />&nbsp;
+                        &nbsp;Washington State Precinct {precinct}
+                    </div>
                     <Link href="/"><Button>Change Location</Button></Link>
                 </div>
             </div>
