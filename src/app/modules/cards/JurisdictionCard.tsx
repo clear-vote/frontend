@@ -15,10 +15,15 @@ interface JurisdictionCardProps {
 
 export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({ jurisdictionName, filteredContests, onContestClick }) => {
     const { elections, selectedElection, selectedContest } = useDecisionFlowContext();
+    /** 
+     * Colors used for jurisdiction cards 
+     * TODO: Find a way to implement so different jursidictions have different colors!
+    */
+    const jurisdictionColors = ["linear-gradient(to right, #ff7e5f, #feb47b)", "linear-gradient(to right, #90C31A, #60D052)", "linear-gradient(to right, #947FEE, #D283FF)"];
     return (
         <div>
         <div className="rounded-sm juristication-card" style={{ maxWidth: "375px" }}>
-            <div className="rounded-t-sm" style={{ background: "linear-gradient(to right, #ff7e5f, #feb47b)" }}>
+            <div className="rounded-t-sm" style={{ background: jurisdictionColors[0] }}>
                 <h3 className="text-white" style={{ fontFamily: "'IBM Plex Mono', monospace", paddingLeft: "5px" }}>{jurisdictionName}</h3>
                 {jurisdictionName !== "Other Contests" && (
                     <JurisdictionModal jurisdiction={jurisdictionName} />

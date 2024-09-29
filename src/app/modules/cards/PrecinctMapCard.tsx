@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { useMasterContext } from "@/context/MasterContext";
-import MyLocationIcon from '@mui/icons-material/MyLocation';
+import PlaceIcon from '@mui/icons-material/Place';
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -124,10 +124,11 @@ export default function Map({ token }: MapProps) {
                 <div ref={mapContainer} style={{ width: "516px", height: "326px" }}
                     className="bg-clip-border border mapbox rounded-md">
                 </div>
-                <div className="flex items-center justify-between font-bold text-sm border border-gray-300 rounded-sm px-2 py-3">
+                <div className="flex items-center justify-between text-sm border border-gray-300 rounded-sm px-2 py-3">
                     <div className="flex items-center">
-                        <MyLocationIcon style={{ width: "20px", color: "#947FEEE5" }} />&nbsp;
-                        &nbsp;Washington State Precinct {precinct}
+                        <PlaceIcon style={{ width: "20px", color: "#947FEEE5" }} />
+                        <p className="text-gray-600 px-1">
+                        Washington State Precinct {precinct}</p>
                     </div>
                     <Link href="/"><Button>Change Location</Button></Link>
                 </div>
@@ -137,10 +138,15 @@ export default function Map({ token }: MapProps) {
     }
 
     return (
-        <div>
-            <div className="flex items-center font-bold text-sm">
-                <MyLocationIcon style={{ width: "20px", color: "#947FEEE5" }} />
-                &nbsp;Washington State Precinct {precinct}&nbsp;
+        <div className="bg-gray-100">
+            <div className="flex justify-between items-center bg-gray-100 py-1">
+                <div className="flex items-center text-sm px-1">
+                    <p>Your Precinct:</p>
+                </div>
+                <div className="flex items-center text-sm justify-end text-gray-600 px-1">
+                    <PlaceIcon style={{ width: "20px", color: "#947FEEE5" }} />
+                    &nbsp;Washington State Precinct {precinct}&nbsp;
+                </div>
             </div>
             <div ref={mapContainer} style={{}}
                 className="bg-clip-border border mapbox">

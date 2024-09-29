@@ -39,7 +39,7 @@ const ContestList = ({
           />
         </div>
       )}
-      <p className="font-bold text-xl px-1">Candidates</p>
+      {Array.from(unpickedCandidates).length > 0 && <p className="font-bold text-xl px-1">Candidates</p>}
       {Array.from(unpickedCandidates).map(unpickedCandidate => (
         <CandidateDrawer
           key={election.contests[selectedContest].candidates[unpickedCandidate].name}

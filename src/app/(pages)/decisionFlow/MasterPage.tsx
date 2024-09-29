@@ -127,7 +127,7 @@ const DecisionFlow = () => {
     const election: Election = elections[selectedElection];
 
     return (
-      <div style={{ position: 'relative', width: '100%', height: '100%'}}>
+      <div style={{ position: 'relative', width: '100%', height: '100%', fontFamily: "'IBM Plex Sans', sans-serif"}}>
         <AnimatedPage page='election' isActive={!inSendResultsPage}>
           <div
             style={{
@@ -183,7 +183,7 @@ const DecisionFlow = () => {
                   {selectedContest === null && (
                     <div className="py-20 font-bold text-3xl" style={{ marginTop: '38px' }}>
                       <WestIcon style={{ transform: 'translateY(-3px)', fontSize: '3rem' }} />
-                      &nbsp;Explore Your Ballot! Just Click On A Card To Get Started!
+                      &nbsp;Explore Your Ballot! Just Click On A Contest To Get Started!
                     </div>
                   )}
                   <AnimatedPage page='contest' isActive={!inSendResultsPage && selectedContest !== null && inRightPage}>

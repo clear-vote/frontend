@@ -20,7 +20,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({ isDesktop }) => {
   /** Mobile mode toolbar */
   if (!isDesktop) {
     return (
-      <div className="toolbar-mobile" style={{ position: 'fixed', zIndex: 100, justifyContent: 'space-between', }}>
+      <div className="toolbar-mobile" style={{ position: 'fixed', zIndex: 100, justifyContent: 'space-between', fontFamily: "'IBM Plex Mono', sans-serif"}}>
         <Link href="/" className="flex items-center">
           <img src="/branding/favicon.svg" alt="Home" style={{ width: '26px', height: '26px' }} />
           <h1 className="font-bold">&nbsp;Clearvote</h1>
@@ -32,7 +32,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({ isDesktop }) => {
 
   /** Desktop mode toolbar */
   return (
-    <div className="toolbar-desktop" style={{ position: 'fixed', zIndex: 100, justifyContent: 'space-between'}}>
+    <div className="toolbar-desktop" style={{ position: 'fixed', zIndex: 100, justifyContent: 'space-between', fontFamily: "'IBM Plex Mono', sans-serif"}}>
         <Link href="/" className="flex items-center">
           <img src="/branding/favicon.svg" alt="Home" style={{ width: '26px', height: '26px' }} />
           <h1 className="font-bold">&nbsp;Clearvote</h1>

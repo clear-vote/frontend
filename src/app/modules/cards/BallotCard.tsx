@@ -61,7 +61,7 @@ export const BallotCard: React.FC<BallotCardProps> = ({contest, onClick}) => {
                     {contest.jurisdiction} {contest.title}
                 </h3>
                 <p className='text-xs text-gray-500 flex-shrink-0'>
-                    {Object.values(contest.candidates).length} Candidates
+                    {Object.values(contest.candidates).length} {Object.values(contest.candidates).length > 1 ? "Candidates" : "Candidate"}
                 </p>
             </div>
                 <div className="flex justify-center items-center">

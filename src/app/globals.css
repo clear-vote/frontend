@@ -238,8 +238,8 @@ body {
   width: 100%;
   display: flex;
   padding: 10px;
-  /** TODO: CHANGE THIS COLOR!! */
-  background: pink;
+  /** TODO: find cool color! */
+  background: white;
 }
 
 /** Toolbar styling */
