@@ -18,19 +18,22 @@ import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { CandidateListItem } from "../cards/CandidateListCard";
 import { useMasterContext } from "@/context/MasterContext";
 import { CandidatePage } from "./CandidatePage";
+import { PinnedCandidateListItem } from "../cards/PinnedCandidateListCard";
 
 interface CandidateDrawerProps {
   election: Election;
   candidateId: number;
   unpickedCandidates: Set<number>;
   setUnpickedCandidates: Dispatch<SetStateAction<Set<number>>>;
+  pinned?: boolean;
 }
 
 export const CandidateDrawer: React.FC<CandidateDrawerProps> = ({
   election,
   candidateId,
   unpickedCandidates,
-  setUnpickedCandidates
+  setUnpickedCandidates,
+  pinned
 }) => {
   const { selectedContest, setSelectedCandidate } = useDecisionFlowContext();
   const { isDesktop } = useMasterContext();
@@ -56,12 +59,20 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = ({
     />
   );
 
-  const triggerContent = (
-    <CandidateListItem
-      name={election.contests[selectedContest].candidates[candidateId].name}
-      website={election.contests[selectedContest].candidates[candidateId].website}
-      image={election.contests[selectedContest].candidates[candidateId].image}
-    />
+  const triggerContent: JSX.Element = (
+    pinned ? (
+      <PinnedCandidateListItem
+        name={election.contests[selectedContest].candidates[candidateId].name}
+        website={election.contests[selectedContest].candidates[candidateId].website}
+        image={election.contests[selectedContest].candidates[candidateId].image}
+      />
+    ) : (
+      <CandidateListItem
+        name={election.contests[selectedContest].candidates[candidateId].name}
+        website={election.contests[selectedContest].candidates[candidateId].website}
+        image={election.contests[selectedContest].candidates[candidateId].image}
+      />
+    )
   );
 
   if (isDesktop) {

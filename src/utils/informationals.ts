@@ -37,7 +37,7 @@ export const getPositionInfo = (position: string): string => {
     case 'County Council':
       return 'This is the information for county council.';
     default:
-      return 'We don\'t have any information for this position :( \n Let us know at hello@clearvote.info';
+      return 'We don\'t have any information for this position at the moment. \n Let us know at hello@clearvote.info!';
   }
 }
 

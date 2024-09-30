@@ -3,21 +3,21 @@
   display: grid;
   width: 100%;
   gap: 0px;
-  /* margin-top: var(--spacing-md); */
-  /* margin-bottom: var(--spacing-md); */
   background-color: #DDDDDD;
 }
+
 .gridHeader {
-  grid-template-columns: 1fr 1.41fr; /* Changed from 1fr 1.62fr */
+  grid-template-columns: 1fr 1.41fr;
   grid-template-rows: auto auto;
   grid-template-areas: 
     "profile-pic name"
     "profile-pic website";
 }
+
 /* Ensure the parent div expands to fit the height of its children */
 .gridPolitigram {
   display: grid;
-  grid-template-columns: 1.41fr, 1fr;
+  grid-template-columns: 1.41fr 1fr;
   grid-template-areas:
     "politigram politigram-text";
 }
@@ -29,12 +29,18 @@
 
 .gridItemName { 
   grid-area: name; 
-  align-items: start; /* Changed from center to start */
+  align-items: start; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .gridItemWebsite {
   grid-area: website;
-  align-self: start; /* Aligns the website to the top of its grid area */
+  align-self: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .gridItemProfile {
@@ -43,26 +49,21 @@
   height: 100%;
   overflow: hidden;
   position: relative;
-  justify-self: start; /* Changed from end to start */
+  justify-self: start;
   border-radius: 5px;
   padding: 5px;
 }
 
 .gridItemPolitigram {
   grid-area: politigram;
-  overflow: visible; /* Allow content to overflow */
-  width: 58vw;
-  height: 58vw;
-}
-
-.gridItemHeader {
-  grid-area: header;
-  z-index: 1;
+  overflow: hidden;
 }
 
 .gridItemPolitigramText {
-  grid-area: politigram-text; 
-  transition: opacity 0.1s ease-in-out, box-shadow 0.3s ease-in-out, color 0.1s ease-in-out;
+  grid-area: politigram-text;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Header */

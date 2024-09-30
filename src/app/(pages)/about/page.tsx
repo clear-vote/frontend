@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 export default function AboutPage() {
     return (
-        <div className="flex justify-center p-2">
-            <div className="mb-4 w-full max-w-[calc(100%-2rem)] flex flex-col items-center">
-                <h1 className="text-3xl font-semibold my-8">About Us</h1>
+        <div className="flex justify-center p-2" style={{fontFamily: "'IBM Plex Sans', sans-serif"}}>
+            <div className="mb-4 w-full max-w-[calc(100%-2rem)] flex flex-col items-center py-5">
+                <h1 className="text-5xl font-semibold my-8">About Us</h1>
                 <p>Our goal here at Clearvote is to help the public stay
                     up-to-date during <strong>local</strong>, <strong>off-cycle</strong> elections and understand <strong>who </strong>
                     they are voting for.

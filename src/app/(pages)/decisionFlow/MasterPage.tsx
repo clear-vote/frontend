@@ -12,13 +12,13 @@ import {
 } from '@/utils/helpers';
 import { AnimatedPage } from '../../modules/misc/AnimatedPage';
 import { ElectionsTopPage } from './ElectionsTopPage';
-import Skeleton from '@mui/material/Skeleton';
 import { useFetchData } from '@/api/useFetchData';
 import { Election } from '@/types';
 import { SendResultsPage } from './SendResultsPage';
 import { useMasterContext } from '@/context/MasterContext';
 import { ElectionsBottomPage } from './ElectionsBottomPage';
-
+import { ContestSkeleton } from '@/app/modules/skeletons/ContestSkeleton';
+import WestIcon from '@mui/icons-material/West';
 const DecisionFlow = () => {
   const { 
     setPrecinct,
@@ -77,14 +77,9 @@ const DecisionFlow = () => {
 
   if (loading || data && !selectedElection) {
     console.log("Loading...");
-    return (
-      // TODO: make a Election Page skeleton component
-      <div>
-        <Skeleton variant="rectangular" width={210} height={118}>
-          Loading...
-        </Skeleton>
+    return <div className="flex items-center justify-center h-full w-full">
+        <ContestSkeleton/>
       </div>
-    );
   }
   
   const handleContestClick = async (contestId: number) => {
@@ -132,7 +127,7 @@ const DecisionFlow = () => {
     const election: Election = elections[selectedElection];
 
     return (
-      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <div style={{ position: 'relative', width: '100%', height: '100%', fontFamily: "'IBM Plex Sans', sans-serif"}}>
         <AnimatedPage page='election' isActive={!inSendResultsPage}>
           <div
             style={{
@@ -181,10 +176,16 @@ const DecisionFlow = () => {
             <>
               <ElectionsTopPage onSendResultsClick={handleSendResultsClick}/>
               <div style={{ display: 'flex', height: 'calc(100% - 60px)' }}>
-                <div style={{ width: '30%', minWidth: '350px' }}>
+                <div style={{ width: '30%', minWidth: '350px', backgroundColor: '#F3F4F6'  }}>
                   <ElectionsBottomPage onContestClick={handleContestClick} />
                 </div>
                 <div style={{ width: '70%' }}>
+                  {selectedContest === null && (
+                    <div className="py-20 font-bold text-3xl" style={{ marginTop: '38px' }}>
+                      <WestIcon style={{ transform: 'translateY(-3px)', fontSize: '3rem' }} />
+                      &nbsp;Explore Your Ballot! Just Click On A Contest To Get Started!
+                    </div>
+                  )}
                   <AnimatedPage page='contest' isActive={!inSendResultsPage && selectedContest !== null && inRightPage}>
                     <div style={{ height: '100%', backgroundColor: '#f0f0f0' }}>
                       {selectedContest !== null && (

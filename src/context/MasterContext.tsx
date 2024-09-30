@@ -45,7 +45,7 @@ export const MasterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   return (
     <div>
-      {isDesktop && <Toolbar />}
+      <Toolbar isDesktop={isDesktop}/>
       <MasterContext.Provider value={{ isDesktop, email, setEmail }}>
         {children}
       </MasterContext.Provider>

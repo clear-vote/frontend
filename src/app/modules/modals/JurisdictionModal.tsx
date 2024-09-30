@@ -8,8 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import InfoIcon from '@mui/icons-material/Info';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { getJurisdictionLevelDescription } from '@/utils/informationals';
 
 type JurisdictionModalProps = {
@@ -24,7 +23,7 @@ const JurisdictionModal = ({ jurisdiction }: JurisdictionModalProps) => {
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
-        <InfoIcon style={{ color: 'white', float: 'right', marginRight: '5px', marginTop: '-25px', width: "18px"}}/>
+        <InfoOutlinedIcon style={{ color: 'white', float: 'right', marginRight: '5px', marginTop: '-24px', width: "18px"}}/>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
