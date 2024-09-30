@@ -1,5 +1,6 @@
 // useFetchData.ts
 import { useState, useEffect } from 'react';
+import ElectionData from '../../public/data/electionFoo.json';
 
 export function useFetchData<T>() {
   const [data, setData] = useState<T | null>(null);
@@ -9,7 +10,8 @@ export function useFetchData<T>() {
   useEffect(() => {
     const apiKey = process.env.AWS_API_KEY || '';
     const defaultCoords: number[] = [-122.3076595, 47.654538] 
-    const url = `https://4qhxfecz53.execute-api.us-west-2.amazonaws.com/default/?latitude=${defaultCoords[0]}&longitude=${defaultCoords[1]}`;
+    // const url = `https://4qhxfecz53.execute-api.us-west-2.amazonaws.com/default/?latitude=${defaultCoords[0]}&longitude=${defaultCoords[1]}`;
+    const url = ElectionData as unknown as string;
     const fetchData = async () => {
       try {
         const queryParams = new URLSearchParams(window.location.search);
