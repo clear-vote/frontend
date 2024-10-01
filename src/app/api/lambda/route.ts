@@ -1,23 +1,34 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda";
+
+// Configure the Lambda client
+const client = new LambdaClient({ 
+  region: process.env.AWS_REGION,
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!
+  }
+});
 
 export async function POST(request: NextRequest) {
-  // Simulate some delay to mimic a real Lambda invocation
-  await new Promise(resolve => setTimeout(resolve, 100));
+  try {
+    const body = await request.json();
 
-  // Read the JSON file
-  const filePath = path.join(process.cwd(), 'public', 'data', 'electionFoo.json');
-  const fileContents = fs.readFileSync(filePath, 'utf8');
-  const data = JSON.parse(fileContents);
+    // Invoke the Lambda function
+    const command = new InvokeCommand({
+      FunctionName: process.env.LAMBDA_ARN,
+      Payload: JSON.stringify(body),
+    });
 
-  // You can process the event here if needed
-  const body = await request.json();
-  console.log('Mock Lambda received event:', body);
+    const { Payload } = await client.send(command);
 
-  // Return the data as if it was a Lambda response
-  return NextResponse.json({
-    statusCode: 200,
-    body: JSON.stringify(data)
-  });
+    // Parse the Lambda response
+    const result = JSON.parse(new TextDecoder().decode(Payload));
+
+    // Return the Lambda response
+    return NextResponse.json(result);
+  } catch (error) {
+    console.error('Error invoking Lambda:', error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+  }
 }

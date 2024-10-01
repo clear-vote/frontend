@@ -48,14 +48,14 @@ const DecisionFlow = () => {
       return;
  
     setPrecinct(data.precinct_id);
-    setCoordinates(data.coordinates);
+    setCoordinates(data.boundary_data);
 
-    const electionsRecord: Record<number, Election> = getElectionsRecord(data.elections);
+    const electionsRecord: Record<number, Election> = getElectionsRecord(data.jurisdiction_data);
     if (Object.keys(electionsRecord).length === 0) {
       setNullElectionState(true);
       return;
     }
-    
+
     setElections(electionsRecord);
     const defaultEid: number = getDefaultEid(electionsRecord, new Date());
     setSelectedElection(defaultEid);
