@@ -12,7 +12,7 @@ import {
 } from '@/utils/helpers';
 import { AnimatedPage } from '../../modules/misc/AnimatedPage';
 import { ElectionsTopPage } from './ElectionsTopPage';
-import { useFetchData } from '@/api/useFetchData';
+import { useFetchData } from '@/utils/useFetchData';
 import { Election } from '@/types';
 import { SendResultsPage } from './SendResultsPage';
 import { useMasterContext } from '@/context/MasterContext';
@@ -47,19 +47,15 @@ const DecisionFlow = () => {
     if (!data)
       return;
  
+    setPrecinct(data.precinct_id);
+    setCoordinates(data.coordinates);
+
     const electionsRecord: Record<number, Election> = getElectionsRecord(data.elections);
     if (Object.keys(electionsRecord).length === 0) {
       setNullElectionState(true);
       return;
     }
     
-    // This is if we are getting the data by precinct id rather than coordinates
-    if (data && typeof data === 'object' && 'precinct_id' in data) {
-      setPrecinct(data.precinct_id);
-      setCoordinates(data.coordinates);
-      router.push(`/decisionFlow?precinct_id=${data.precinct_id}`);
-    }    
-
     setElections(electionsRecord);
     const defaultEid: number = getDefaultEid(electionsRecord, new Date());
     setSelectedElection(defaultEid);
