@@ -16,9 +16,8 @@ const MAX_RESULTS: number = 5;
 export default function LandingPage() {
   return (
     <div className="min-h-screen pt-24 flex flex-col items-center the-fancy-background">
-      <div className="flex items-center justify-center h-full">
+      <div className="flex items-center justify-center h-full pt-8">
         <Image src="/branding/clearvote-full-banner.svg" alt="Clearvote Logo" width="300" height="300" style={{ maxWidth: "95%"}} />
-        <br></br>
       </div>
       <div className="flex flex-col items-center justify-center" style={{ padding: "8px", width: "90%", maxWidth: "400px" }}>
         <div className="flex w-full items-center space-x-2">

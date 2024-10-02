@@ -98,6 +98,7 @@ const config = {
           secondary: "hsla(var(--text-secondary))",
           tertiary: "hsla(var(--text-tertiary))",
           brand: "hsla(var(--text-brand))",
+          invert: "hsla(var(--text-invert))",
           interactive: {
             disabled: "hsla(var(--text-disabled))",
             active: "hsla(var(--text-interactive-active))",
@@ -132,6 +133,14 @@ const config = {
             active: "hsla(var(--background-interactive-active))",
             error: "hsla(var(--background-interactive-error))",
             valid: "hsla(var(--background-interactive-valid))",
+          },
+          button: {
+            brand: {
+              DEFAULT: "hsla(var(--background-button-brand))",
+              hover: "hsla(var(--background-button-brand-hover))",
+              pressed: "hsla(var(--background-button-brand-pressed))",
+              disabled: "hsla(var(--background-button-brand-disabled))",
+            }
           },
         }
       },
