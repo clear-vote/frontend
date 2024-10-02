@@ -33,7 +33,7 @@ export default function LandingPage() {
         <br></br>
         <small className="text-white"><HorizontalRuleIcon/>OR<HorizontalRuleIcon/></small>
         <br></br>
-        <Button style={{ backgroundColor: '#947FEE' }}><a href="/decisionFlow">See Example!</a></Button>
+        <a href="/decisionFlow"><Button variant="brand">See Example!</Button></a>
       </div>
     </div>
   );

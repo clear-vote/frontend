@@ -1,6 +1,7 @@
 import * as React from "react"
 import { cn } from "@/lib/utils";
 import SearchIcon from '@mui/icons-material/Search';
+import { Button } from '@/components/ui/button';
 
 
 interface MapboxSearchInputProps
@@ -112,22 +113,26 @@ const MapboxSearchInput = React.forwardRef<HTMLInputElement, MapboxSearchInputPr
 
     return (
       <div className={cn(
-          "relative flex flex-col h-auto items-start rounded-md border border-input bg-white pl-3 py-2 px-1 text-md ring-offset-background focus-within:ring-1 focus-within:ring-ring focus-within:ring-offset-2",
+          "relative flex flex-col h-auto items-start",
           className,
         )}
       >
-        <div className="flex w-full items-center">
-          <input
-            {...props}
-            type="search"
-            className="ml-3 w-full placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-            ref={ref}
-            value={inputValue}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-          />
-          <button onClick={handleEnterKey} className="rounded-lg h-full w-1/4 bg-[#947fee] hover:bg-[#D3D3D3] ">
-          <SearchIcon/></button><span></span>
+        <div className="flex w-full items-center gap-2">
+          <div className="flex-1 rounded-md border border-input bg-white pl-3 py-2 px-1 text-md ring-offset-background focus-within:ring-1 focus-within:ring-ring focus-within:ring-offset-2">
+            <input
+              {...props}
+              type="search"
+              className="w-full placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+              ref={ref}
+              value={inputValue}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+            />
+          </div>
+          <Button onClick={handleEnterKey} variant="brand"><SearchIcon/></Button>
+          {/* <button onClick={handleEnterKey} className="rounded-lg h-full w-1/4 bg-[#947fee] hover:bg-[#D3D3D3] ">
+          <SearchIcon/></button> */}
+          
         </div>
         {searchResults?.length > 0 && (
           <div className="absolute top-full mt-1 w-full z-10 border border-input bg-white rounded-md shadow-lg">
