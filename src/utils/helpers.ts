@@ -132,11 +132,9 @@ export const getElectionsRecord = (data: any[]): Record<number, Election> => {
     election.contests.forEach((contest: any) => {
       const candidatesRecord: Record<number, Candidate> = {};
       contest.candidates.forEach((candidate: any) => {
-        if (candidate.id === undefined) {
-          console.error(`Candidate ${candidate} is undefined!`);
-        } else if (candidate.politigram !== null) {
-          candidatesRecord[candidate.id] = {
-            id: candidate.id,
+        if (candidate.politigram !== null) {
+          candidatesRecord[candidate.candidate_id] = {
+            id: candidate.candidate_id,
             name: candidate.name,
             website: candidate.website,
             image: candidate.image,
@@ -150,26 +148,26 @@ export const getElectionsRecord = (data: any[]): Record<number, Election> => {
         }
       });
       if (Object.keys(candidatesRecord).length > 0) {
-        contestsRecord[contest.id] = {
-          id: contest.id,
+        contestsRecord[contest.contest_id] = {
+          id: contest.contest_id,
           title: contest.title,
           jurisdiction: contest.jurisdiction,
           district: contest.district,
           position: contest.position,
           candidates: scalePolitigramScores(candidatesRecord),
         };
-        const oldContestRecord = contestsRecord[contest.id];
+        const oldContestRecord = contestsRecord[contest.contest_id];
         const candidates = Object.values(oldContestRecord.candidates);
         const maximumCompositeScore = Math.max(...candidates.map(candidate => candidate.compositeScore || 0));
-        contestsRecord[contest.d] = {
+        contestsRecord[contest.contest_id] = {
           ...oldContestRecord,
           maximumCompositeScore: maximumCompositeScore,
         };
       }
     });
-    electionsRecord[election.id] = {
-      id: election.id,
-      type: election.type,
+    electionsRecord[election.election_id] = {
+      id: election.election_id,
+      type: election.election_type,
       voting_start: convertToDate(election.voting_start),
       voting_end: convertToDate(election.voting_end),
       register_by: convertToDate(election.register_by),
@@ -230,20 +228,12 @@ export const initHiddenCandidates = (elections: Record<number, Election>) => {
   return hiddenCandidates;
 }
 
-export const convertToDateString = (dateString: string): Date => {
+export const convertToDate = (dateString: string): Date => {
   const year = parseInt(dateString.slice(0, 4));
   const month = parseInt(dateString.slice(4, 6)) - 1; // Months are zero-based in JavaScript
   const day = parseInt(dateString.slice(6, 8));
   return new Date(year, month, day);
 };
-
-// in yyyymmdd number format
-export const convertToDate = (date: number): Date => {
-  const year = Math.floor(date / 10000);
-  const month = Math.floor((date % 10000) / 100) - 1;
-  const day = date % 100;
-  return new Date(year, month, day);
-}
 
 export const trimLink = (link: string) => {
   return link.replace(/^(https?:\/\/)?(www\.)?/, '');

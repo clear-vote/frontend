@@ -32,7 +32,7 @@ export default function LandingPage() {
           />
         </div>
         <br></br>
-        <small className="text-white"><HorizontalRuleIcon/>Currently only supported in Washington State<HorizontalRuleIcon/></small>
+        <small className="text-white"><HorizontalRuleIcon/>Currently only supporting Washington State<HorizontalRuleIcon/></small>
         {/* <Button style={{ backgroundColor: '#947FEE' }}><a href="/decisionFlow">See Example!</a></Button> */}
       </div>
     </div>

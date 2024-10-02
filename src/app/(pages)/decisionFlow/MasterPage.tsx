@@ -50,7 +50,7 @@ const DecisionFlow = () => {
     setPrecinct(data.precinct_id);
     setCoordinates(data.boundary_data);
 
-    const electionsRecord: Record<number, Election> = getElectionsRecord(data.jurisdiction_data);
+    const electionsRecord: Record<number, Election> = getElectionsRecord(data.elections);
     if (Object.keys(electionsRecord).length === 0) {
       setNullElectionState(true);
       return;
