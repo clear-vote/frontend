@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 interface ElectionDetailsCardProps {
   setDropdownIsOpen: (isOpen: boolean) => void;
@@ -52,8 +53,9 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
       onValueChange={handleValueChange}
       onOpenChange={handleOpenChange}
     >
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select an election">
+      <SelectTrigger className="w-[275px]" >
+        <CalendarMonthIcon color="error" />
+        <SelectValue placeholder="Select an election" className="">
           {selectedElection !== undefined && formatElectionLabel(elections[selectedElection!])}
         </SelectValue>
       </SelectTrigger>
