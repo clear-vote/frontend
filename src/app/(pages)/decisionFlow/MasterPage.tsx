@@ -132,17 +132,9 @@ const DecisionFlow = () => {
     const election: Election = elections[selectedElection];
 
     return (
-      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <div className="relative w-full h-full">
         <AnimatedPage page='election' isActive={!inSendResultsPage}>
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-            }}
-          > 
+          <div className="absolute top-0 left-0 w-full h-full"> 
           {!isDesktop ? (
             // Mobile Transitions
             <>

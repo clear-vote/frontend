@@ -10,8 +10,8 @@ export function useFetchData<T>() {
   useEffect(() => {
     const apiKey = process.env.AWS_API_KEY || '';
     const defaultCoords: number[] = [-122.3076595, 47.654538] 
-    // const url = `https://4qhxfecz53.execute-api.us-west-2.amazonaws.com/default/?latitude=${defaultCoords[0]}&longitude=${defaultCoords[1]}`;
-    const url = ElectionData as unknown as string;
+    const url = `https://4qhxfecz53.execute-api.us-west-2.amazonaws.com/default/?latitude=${defaultCoords[0]}&longitude=${defaultCoords[1]}`;
+    
     const fetchData = async () => {
       try {
         const queryParams = new URLSearchParams(window.location.search);
@@ -47,7 +47,9 @@ export function useFetchData<T>() {
       }
     };
 
-    fetchData();
+    // fetchData();
+    setData(ElectionData as T);
+    setLoading(false);
   }, []);
 
   return { data, loading, error };
