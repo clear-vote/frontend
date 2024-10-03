@@ -117,7 +117,7 @@ export default function Map ({ token }: MapProps) {
         <div>
             <p>Washington State Precinct {precinct}</p>
             <div ref={mapContainer} style={{ }} 
-                className="bg-clip-border border mapbox">
+                className="bg-clip-border border mapbox z-[-1] absolute">
             </div>
         </div>
     );

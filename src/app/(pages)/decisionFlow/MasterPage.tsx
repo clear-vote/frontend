@@ -132,35 +132,19 @@ const DecisionFlow = () => {
     const election: Election = elections[selectedElection];
 
     return (
-      <div className="relative w-full h-full">
+      <div className="bg-background-tertiary pt-24">
         <AnimatedPage page='election' isActive={!inSendResultsPage}>
-          <div className="absolute top-0 left-0 w-full h-full"> 
+          <> 
           {!isDesktop ? (
             // Mobile Transitions
             <>
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                }}
-              > 
+              <div className=""> 
                 <AnimatedPage page='election' isActive={selectedContest === null && !inRightPage && !inSendResultsPage}>
                   <ElectionsTopPage onSendResultsClick={handleSendResultsClick} />
                   <ElectionsBottomPage onContestClick={handleContestClick} />
                 </AnimatedPage>
               </div>
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                }}
-              > 
+              <div className=""> 
                 {selectedContest !== null && (
                   <AnimatedPage page='contest' isActive={inRightPage && !inSendResultsPage}>
                     <ContestPage election={election} onBackClick={handleBackContestClick} />
@@ -188,17 +172,9 @@ const DecisionFlow = () => {
               </div>
             </>
           )}
-          </div>
+          </>
         </AnimatedPage>
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }}
-        >     
+        <div className="top-0 left-0 w-full h-full">     
           {inSendResultsPage && (
             <AnimatedPage page='send-results' isActive={inSendResultsPage && inRightPage}>
               <SendResultsPage

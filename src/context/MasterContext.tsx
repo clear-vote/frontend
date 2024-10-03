@@ -44,12 +44,12 @@ export const MasterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, [email]);
 
   return (
-    <div>
+    <>
       {isDesktop && <Toolbar />}
       <MasterContext.Provider value={{ isDesktop, email, setEmail }}>
         {children}
       </MasterContext.Provider>
-    </div>
+    </>
   );
 };
 

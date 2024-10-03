@@ -51,7 +51,7 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
   const [touchLock, setTouchLock] = useState<boolean>(false);
 
   return (
-    <div style={{ paddingTop: '44px' }}>
+    <>
       <DecisionFlowContext.Provider
         value={{
           precinct, setPrecinct,
@@ -68,7 +68,7 @@ export const DecisionFlowProvider: React.FC<{ children: React.ReactNode }> = ({ 
       >
         {children}
       </DecisionFlowContext.Provider>
-    </div>
+    </>
   );
 };
 
