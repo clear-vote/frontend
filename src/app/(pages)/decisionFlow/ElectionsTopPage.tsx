@@ -37,7 +37,9 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
   const selectedElectionData = elections[selectedElection!];
   return ( 
     <>
-      {MemoizedPrecinctMapCard}
+      <div className="flex flex-col items-center">
+        {MemoizedPrecinctMapCard}
+      </div>
       <div style={{padding: "8px"}}>
         <ElectionDetailsCard
           setDropdownIsOpen={setDropdownIsOpen}

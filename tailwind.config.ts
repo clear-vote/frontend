@@ -30,6 +30,11 @@ const config = {
         letterSpacing: '-0.01em',
         fontWeight: '600',
       }],
+      'subtitle': ['1.125rem', {
+        lineHeight: '1.5rem',
+        letterSpacing: '-0.01em',
+        fontWeight: '600',
+      }],
       'body': ['1rem', {
         lineHeight: '1.5rem',
         fontWeight: '400',
@@ -40,7 +45,7 @@ const config = {
       }],
       'sec': ['0.875rem', {
         lineHeight: '1rem',
-        fontWeight: '500',
+        fontWeight: '400',
       }],
       'caption': ['0.813rem', {
         lineHeight: '1rem',
@@ -125,6 +130,7 @@ const config = {
           primary: "hsla(var(--background-primary))",
           secondary: "hsla(var(--background-secondary))",
           tertiary: "hsla(var(--background-tertiary))",
+          white: "hsla(var(--background-white))",
           interactive: {
             hover: "hsla(var(--background-interactive-hover))",
             selected: "hsla(var(--background-interactive-selected))",

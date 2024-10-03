@@ -1,11 +1,17 @@
 // layout.tsx
 
-import { Inter } from "next/font/google";
+import { Inter, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { MasterProvider } from "@/context/MasterContext";
 import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
+const ibm_plex_sans = IBM_Plex_Sans({ 
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Clearvote",

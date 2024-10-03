@@ -4,6 +4,7 @@ import mapboxgl from "mapbox-gl";
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
+import PinDropIcon from '@mui/icons-material/PinDrop';
 
 interface MapProps {
     token: string | undefined;
@@ -114,10 +115,14 @@ export default function Map ({ token }: MapProps) {
     }, [lng, lat, precinct]);
 
     return (
-        <div>
-            <p>Washington State Precinct {precinct}</p>
-            <div ref={mapContainer} style={{ }} 
-                className="bg-clip-border border mapbox z-[-1] absolute">
+        <div className="flex flex-col w-full max-w-[750px] md:px-16 px-8">
+            <div ref={mapContainer} className="bg-clip-border border mapbox z-[-1] absolute rounded-lg border"></div>
+            <div className="flex px-4 py-3 bg-background-white rounded-lg border border-border-primary items-center gap-4">
+                <PinDropIcon />
+                <div className="flex flex-col gap-1">
+                    <p className="text-subtitle">Precinct {precinct}</p>
+                    <p className="text-sec text-text-secondary">Washington</p>
+                </div>
             </div>
         </div>
     );
