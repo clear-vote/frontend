@@ -33,7 +33,7 @@ const config = {
       'subtitle': ['1.125rem', {
         lineHeight: '1.5rem',
         letterSpacing: '-0.01em',
-        fontWeight: '600',
+        fontWeight: '500',
       }],
       'body': ['1rem', {
         lineHeight: '1.5rem',

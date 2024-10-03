@@ -40,24 +40,36 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
       <div className="flex flex-col items-center">
         {MemoizedPrecinctMapCard}
       </div>
-      <div style={{padding: "8px"}}>
-        <ElectionDetailsCard
-          setDropdownIsOpen={setDropdownIsOpen}
-        />
-        <br></br>
-        <h1 className="font-bold text-lg">{selectedElectionData.type}</h1>
-        <p>A general election and a special election are both types of elections, but they serve different
-          purposes and occur under different circumstances.
-        </p>
-        {/** TODO: Replace with "Sign up for reminders" link */}
-        <Button style={{backgroundColor : '#947FEE', color : 'white'}}><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
-          <PersonIcon style={{width : '15px'}}/> Sign up for reminders</a>
-        </Button>
-        <Button style={{ backgroundColor: 'white', border: '1px solid lightgray', color: 'black' }}><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
-          <HowToVoteIcon style={{width : '15px'}}/> Get registered</a>
-        </Button>
-        <br></br><br></br><br></br> {/* jajajajaja */}
-        <h3 className="font-bold text-lg">Explore Your Ballot!  <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/></h3>
+
+      <div className="flex flex-col md:p-8 p-4">
+        <div className="border rounded-lg bg-background-white">
+          <div className="grid grid-cols-5 gap-16 max-w-[1100px] px-8 py-12">
+            {/* left side */}
+            <div className="col-span-3 flex flex-col w-full">
+              <ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />
+              <h1 className="font-bold text-lg">{selectedElectionData.type}</h1>
+              <p>A general election and a special election are both types of elections, but they serve different
+                purposes and occur under different circumstances.
+              </p>
+              {/** TODO: Replace with "Sign up for reminders" link */}
+              <Button style={{backgroundColor : '#947FEE', color : 'white'}}><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
+                <PersonIcon style={{width : '15px'}}/> Sign up for reminders</a>
+              </Button>
+              <Button style={{ backgroundColor: 'white', border: '1px solid lightgray', color: 'black' }}><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
+                <HowToVoteIcon style={{width : '15px'}}/> Get registered</a>
+              </Button>
+            </div>
+
+            {/* right side */}
+            <div className="flex flex-col w-full">
+              <p>hello</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 className="font-bold text-lg">Explore Your Ballot! 
+          <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/>
+        </h3>
         <ProgressCard onSendResultsClick={onSendResultsClick}/>
       </div>
     </>
