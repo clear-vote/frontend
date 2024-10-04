@@ -23,12 +23,12 @@ const config = {
       'header': ['1.5rem', {
         lineHeight: '2rem',
         letterSpacing: '-0.01em',
-        fontWeight: '600',
+        fontWeight: '500',
       }],
       'title': ['1.25rem', {
         lineHeight: '1.5rem',
         letterSpacing: '-0.01em',
-        fontWeight: '600',
+        fontWeight: '500',
       }],
       'subtitle': ['1.125rem', {
         lineHeight: '1.5rem',
@@ -38,6 +38,10 @@ const config = {
       'body': ['1rem', {
         lineHeight: '1.5rem',
         fontWeight: '400',
+      }],
+      'body-500': ['1rem', {
+        lineHeight: '1.5rem',
+        fontWeight: '500',
       }],
       'link': ['0.875rem', {
         lineHeight: '1.25rem',
