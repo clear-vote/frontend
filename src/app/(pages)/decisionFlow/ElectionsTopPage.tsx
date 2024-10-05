@@ -1,18 +1,9 @@
-import { memo, useState, useMemo } from "react";
+import { memo, useState, useMemo, useEffect } from "react";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useMasterContext } from "@/context/MasterContext";
 import PrecinctMapCard from "@/app/modules/cards/PrecinctMapCard";
 import { ElectionDetailsCard } from "@/app/modules/cards/ElectionDetailsCard";
 import { ProgressCard } from "@/app/modules/cards/ProgressCard";
-
-// Memoized subcomponents
-const MemoizedElectionDetailsCard = memo(({ setDropdownIsOpen }: { setDropdownIsOpen: (isOpen: boolean) => void }) => (
-  <ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />
-));
-
-const MemoizedProgressCard = memo(({ onSendResultsClick }: { onSendResultsClick: () => void }) => (
-  <ProgressCard onSendResultsClick={onSendResultsClick} />
-));
 
 interface ElectionsTopPageProps {
   onSendResultsClick: () => void;
@@ -21,43 +12,70 @@ interface ElectionsTopPageProps {
 const ElectionsTopPage: React.FC<ElectionsTopPageProps> = memo(({ onSendResultsClick }) => {
   const { isDesktop } = useMasterContext();
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
+  // const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsLargeScreen(window.innerWidth > 1024);
+  //   };
+    
+  //   handleResize(); // Check on initial render
+  //   window.addEventListener("resize", handleResize);
+    
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
   // Memoize the PrecinctMapCard
   const MemoizedPrecinctMapCard = useMemo(
-    () => <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />, 
-    []
+    () => (
+      <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />
+    ), []
   );
 
-  // Memoize the content based on isDesktop
   const content = useMemo(() => {
-    if (isDesktop) {
+    // layout for mobile
+    if (!isDesktop) {
       return (
-        <div>
-          <br />
-          <div className="flex justify-center items-center">
-            {MemoizedPrecinctMapCard}
+        <>
+          <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />
+          <div style={{padding: "8px"}}>
+            <ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />
+            <br /><br />
+            <ProgressCard onSendResultsClick={onSendResultsClick} />
           </div>
-          <br />
-          <div style={{ padding: "8px" }}>
-            <MemoizedElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />
-            <br />
-            <MemoizedProgressCard onSendResultsClick={onSendResultsClick} />
-          </div>
-        </div>
+        </>
       );
     }
+    
+    // // layout for small screens
+    // if (!isLargeScreen) (
+    //   <div>
+    //     <div className="flex justify-center items-center">
+    //       <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />
+    //     </div>
+    //     <br />
+    //     <div style={{ padding: "8px" }}>
+    //       <ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} isLargeScreen={false}/>
+    //       <br />
+    //       <ProgressCard onSendResultsClick={onSendResultsClick} />
+    //     </div>
+    //   </div>
+    // );
 
+    // Layout for screens larger than 1000px
     return (
-      <>
-        {MemoizedPrecinctMapCard}
-        <div style={{padding: "8px"}}>
-          <MemoizedElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />
-          <br /><br />
-          <MemoizedProgressCard onSendResultsClick={onSendResultsClick} />
+      <div className="flex justify-center">
+        <div style={{ width: "60%", paddingRight: "16px" }}>
+          <ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />
+          <br />
+          <ProgressCard onSendResultsClick={onSendResultsClick} />
         </div>
-      </>
+        <div style={{ width: "40%" }}>
+          <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />
+        </div>
+      </div>
     );
-  }, [isDesktop, MemoizedPrecinctMapCard, onSendResultsClick]);
+  }, [isDesktop, /*isLargeScreen,*/ MemoizedPrecinctMapCard, onSendResultsClick]);
 
   return content;
 });

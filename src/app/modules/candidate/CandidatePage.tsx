@@ -16,13 +16,13 @@ interface CandidatePageProps {
 
 export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidates, open}: CandidatePageProps) => {
   const {selectedContest, selectedCandidate, setSelectedCandidate} = useElectionContext();
-  const [showButtons, setShowButtons] = useState(false);
+  const [showButtons, setShowButtons] = useState(true);
   
   if (!selectedContest || !selectedCandidate) return;
   
   const handleShowButtons = (scrollPosition: number): void => {
     // TODO: experimential feature. we can probably remove this or reuse the logic somewhere else
-    if (scrollPosition >= 50) {
+    if (scrollPosition >= 0) {
       setShowButtons(true);
     } else {
       setShowButtons(false);
@@ -84,36 +84,38 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
           <button
             onClick={handleLeftSwipe}
             style={{
-              width: "40px",
-              height: "40px",
+              width: "50px", // Increased size
+              height: "50px", // Increased size
               borderRadius: "50%",
               background: "white",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)", // More pronounced drop shadow
               border: "none",
               cursor: "pointer",
+              fontWeight: "bold", // Bolder text
             }}
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={28} /> {/* Increased icon size */}
           </button>
           <button
             onClick={handleRightSwipe}
             style={{
-              width: "40px",
-              height: "40px",
+              width: "50px", // Increased size
+              height: "50px", // Increased size
               borderRadius: "50%",
               background: "white",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)", // More pronounced drop shadow
               border: "none",
               cursor: "pointer",
+              fontWeight: "bold", // Bolder text
             }}
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={28} /> {/* Increased icon size */}
           </button>
         </div>
       )}

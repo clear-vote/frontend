@@ -1,0 +1,13 @@
+{
+  "trigger": false,
+  "modules": [],
+  "parentResource": "existingLambda",
+  "functionName": "backend-orchestrator",
+  "resourceName": "existingLambda",
+  "parentStack": "function",
+  "permissions": {
+    "existingFunction": {
+      "Arn": "${env.LAMBDA_ARN}"
+    }
+  }
+}

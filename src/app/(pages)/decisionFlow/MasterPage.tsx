@@ -21,6 +21,7 @@ import WestIcon from '@mui/icons-material/West';
 import { useLocationContext } from '@/context/LocationContext';
 import { useElectionContext } from '@/context/ElectionContext';
 import { useCandidateContext } from '@/context/CandidateContext';
+import { dividerClasses } from '@mui/material';
 const MasterPage = () => {
   const { 
     setPrecinct,
@@ -138,6 +139,7 @@ const MasterPage = () => {
               left: 0,
               width: '100%',
               height: '100%',
+              paddingTop: isDesktop ? '64px' : '0', // Add top padding if isDesktop is true
             }}
           > 
           {!isDesktop ? (
