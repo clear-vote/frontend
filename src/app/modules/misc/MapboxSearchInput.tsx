@@ -94,8 +94,8 @@ const MapboxSearchInput = React.forwardRef<HTMLInputElement, MapboxSearchInputPr
         const [lng, lat] = center;
         if (typeof lng === 'number' && typeof lat === 'number' &&
           lng >= -180 && lng <= 180 && lat >= -90 && lat <= 90) {
-          // Coordinates are valid, redirect to /decisionFlow with these coordinates
-          window.location.href = `/decisionFlow?lat=${lat}&lng=${lng}`;
+          // Coordinates are valid, these will get passed up to the query parameter and cause a page reload
+          window.location.href = `/decisionFlow?latitude=${lat}&longitude=${lng}`;
         } else {
           alert('Invalid coordinates');
         }

@@ -15,15 +15,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 TODO:
-- Candidate Card inside
-- Buttons inside
-- lil invisible box that fades
-- Carosul
-- start email card (for animations)
-- Connect Precinct mapper
-- cleanup, rearrange
+- stringified dates
+- dataset_ prefex on ids
+- dataset scoped ids (1, 2, 3, ... not 2103490123)
 
-Anaya:
-In general, how is data structured. one number for each candidate or a break down for indivisuals vs organizations.
-
-https://lmstudio.ai/

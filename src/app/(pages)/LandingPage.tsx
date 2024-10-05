@@ -9,7 +9,7 @@ import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import { useMasterContext } from "@/context/MasterContext";
 
 /** Hardcoded for now; I just imported them from the other website! */
-const KING_COUNTY: string = [-122.515967, 47.096484, -121.333360, 47.734145].join(',');
+const WA_STATE: string = [-124.9036503, 45.6798, -116.7196941, 49.1739043].join(',');
 const MAX_RESULTS: number = 5;
 
 /** Landing page design works for both desktop & mobile mode */
@@ -27,14 +27,13 @@ export default function LandingPage() {
             placeholder="Enter an address..."
             className="w-full"
             token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-            bounds={KING_COUNTY}
+            bounds={WA_STATE}
             maxResults={MAX_RESULTS}
           />
         </div>
         <br></br>
-        <small className="text-white"><HorizontalRuleIcon/>OR<HorizontalRuleIcon/></small>
-        <br></br>
-        <Button style={{ backgroundColor: '#947FEE' }}><a href="/decisionFlow">See Example!</a></Button>
+        <small className="text-white"><HorizontalRuleIcon/>Currently only supporting Washington State<HorizontalRuleIcon/></small>
+        {/* <Button style={{ backgroundColor: '#947FEE' }}><a href="/decisionFlow">See Example!</a></Button> */}
       </div>
     </div>
   );
