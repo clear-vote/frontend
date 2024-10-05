@@ -1,4 +1,4 @@
-import { Candidate, Politigram } from '@/types/index';
+import { Politigram } from '@/types/index';
 
 export interface PolitigramAttributes {
   color: string;

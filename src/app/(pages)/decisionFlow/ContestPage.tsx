@@ -1,6 +1,7 @@
 // ContestPage.tsx
 import { useState, useEffect, FC } from 'react';
-import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
+import { useElectionContext } from '@/context/ElectionContext';
+import { useCandidateContext } from '@/context/CandidateContext';
 import ContestAccordions from '@/app/modules/candidate/ContestAccordion';
 import { Candidate, Election } from "@/types/index";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -18,10 +19,12 @@ interface ContestPageProps {
 const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
   const {
     selectedElection,
-    selectedContest,
+    selectedContest
+  } = useElectionContext();
+  const {
     pinnedCandidates, setPinnedCandidates,
     hiddenCandidates,
-  } = useDecisionFlowContext();
+  } = useCandidateContext();
 
   const [defaultAccordion, setDefaultAccordion] = useState('Unpicked');
   const [unpickedCandidates, setUnpickedCandidates] = useState<Set<number>>(new Set());

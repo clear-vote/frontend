@@ -18,18 +18,22 @@ interface ToolbarProps {
 
 export const Toolbar: React.FC<ToolbarProps> = ({ isDesktop }) => {
 
-  /** Mobile mode toolbar */
+  // TODO: We can't have a mobile toolbar yet, because it blocks the back button in the candidate flow!
   if (!isDesktop) {
-    return (
-      <div className="toolbar-mobile" style={{ position: 'fixed', zIndex: 100, justifyContent: 'space-between', fontFamily: "'IBM Plex Mono', sans-serif"}}>
-        <Link href="/" className="flex items-center">
-          <Image src="/branding/favicon.svg" alt="Home" width={26} height={26} />
-          <h1 className="font-bold">&nbsp;Clearvote</h1>
-        </Link>
-        <ToolbarMobileModal/>
-      </div>
-    );
+    return null;
   }
+  // /** Mobile mode toolbar */
+  // if (!isDesktop) {
+  //   return (
+  //     <div className="toolbar-mobile" style={{ position: 'fixed', zIndex: 100, justifyContent: 'space-between', fontFamily: "'IBM Plex Mono', sans-serif"}}>
+  //       <Link href="/" className="flex items-center">
+  //         <Image src="/branding/favicon.svg" alt="Home" width={26} height={26} />
+  //         <h1 className="font-bold">&nbsp;Clearvote</h1>
+  //       </Link>
+  //       <ToolbarMobileModal/>
+  //     </div>
+  //   );
+  // }
 
   /** Desktop mode toolbar */
   return (

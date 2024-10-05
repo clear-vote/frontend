@@ -8,10 +8,10 @@ import {
     Candidate
 } from '@/types/index';
 import { politigramAttributes } from './politigram';
-import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import PolitigramPie from './PolitigramPie';
 import LinkIcon from '@mui/icons-material/Link';
 import PolitigramInfoModal from '../modals/PolitigramInfoModal';
+import { useUIContext } from '@/context/UIContext';
 
 interface CandidateCardProps {
     position: string;
@@ -20,7 +20,7 @@ interface CandidateCardProps {
 }
 
 export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidate, open }) => {
-    const { selectedPolitigram } = useDecisionFlowContext();
+    const { selectedPolitigram } = useUIContext();
     const prioritiesRef = useRef<HTMLOListElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
     const parentRef = useRef<HTMLDivElement>(null);

@@ -1,8 +1,9 @@
 import { DrawerClose } from "@/components/ui/drawer";
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { Button } from "@/components/ui/button";
 import { HiddenCandidates, PinnedCandidates } from "@/types";
 import { Dispatch, SetStateAction } from "react";
+import { useCandidateContext } from "@/context/CandidateContext";
+import { useElectionContext } from "@/context/ElectionContext";
 
 interface PinButtonProps {
   candidateId: number;
@@ -11,7 +12,8 @@ interface PinButtonProps {
 }
 
 export const PinButton: React.FC<PinButtonProps> = ({ candidateId, unpickedCandidates, setUnpickedCandidates }) => {
-  const {selectedElection, selectedContest, pinnedCandidates, hiddenCandidates, setHiddenCandidates, setPinnedCandidates } = useDecisionFlowContext();
+  const {selectedElection, selectedContest } = useElectionContext();
+  const { pinnedCandidates, hiddenCandidates, setHiddenCandidates, setPinnedCandidates } = useCandidateContext();
   
   return(
     <DrawerClose asChild>

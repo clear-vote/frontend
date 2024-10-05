@@ -1,8 +1,9 @@
 import { DrawerClose } from "@/components/ui/drawer";
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { Button } from "@/components/ui/button";
 import { HiddenCandidates, PinnedCandidates } from "@/types";
 import { Dispatch, SetStateAction } from "react";
+import { useElectionContext } from "@/context/ElectionContext";
+import { useCandidateContext } from "@/context/CandidateContext";
 
 // After
 interface HideButtonProps {
@@ -12,7 +13,8 @@ interface HideButtonProps {
 }
 
 export const HideButton: React.FC<HideButtonProps> = ({candidateId, unpickedCandidates, setUnpickedCandidates}) => {
-  const {selectedElection, selectedContest, pinnedCandidates, hiddenCandidates, setHiddenCandidates, setPinnedCandidates } = useDecisionFlowContext();
+  const {selectedElection, selectedContest } = useElectionContext();
+  const {pinnedCandidates, hiddenCandidates, setPinnedCandidates, setHiddenCandidates} = useCandidateContext();
   
   if (selectedElection === null || selectedContest === null) return
 

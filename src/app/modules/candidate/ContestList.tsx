@@ -1,8 +1,8 @@
 import { Election } from "@/types";
 import { Dispatch, SetStateAction } from "react";
 import { CandidateDrawer } from "./CandidateDrawer";
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useElectionContext } from "@/context/ElectionContext";
 
 interface ContestListProps {
   election: Election;
@@ -21,7 +21,7 @@ const ContestList = ({
   unpickedCandidates, setUnpickedCandidates
 }: ContestListProps) => {
 
-  const { selectedContest } = useDecisionFlowContext();
+  const { selectedContest } = useElectionContext();
   if (selectedContest === null) return null;
 
   return (

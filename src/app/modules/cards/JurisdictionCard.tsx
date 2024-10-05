@@ -1,8 +1,8 @@
 import { Contest, Election } from "@/types";
 import { BallotCard } from "./BallotCard";
 import JurisdictionModal from "../modals/JurisdictionModal";
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import PositionInfoCard from "./PositionInfoCard";
+import { useElectionContext } from "@/context/ElectionContext";
 
 
 interface JurisdictionCardProps {
@@ -14,7 +14,7 @@ interface JurisdictionCardProps {
 }
 
 export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({ jurisdictionName, filteredContests, onContestClick }) => {
-    const { elections, selectedElection, selectedContest } = useDecisionFlowContext();
+    const { elections, selectedElection, selectedContest } = useElectionContext();
     /** 
      * Colors used for jurisdiction cards 
      * TODO: Find a way to implement so different jursidictions have different colors!

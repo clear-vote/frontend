@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import ContestPage from './ContestPage';
 import {
   getElectionsRecord,
@@ -19,18 +18,25 @@ import { useMasterContext } from '@/context/MasterContext';
 import { ElectionsBottomPage } from './ElectionsBottomPage';
 import { ContestSkeleton } from '@/app/modules/skeletons/ContestSkeleton';
 import WestIcon from '@mui/icons-material/West';
+import { useLocationContext } from '@/context/LocationContext';
+import { useElectionContext } from '@/context/ElectionContext';
+import { useCandidateContext } from '@/context/CandidateContext';
 const MasterPage = () => {
   const { 
     setPrecinct,
     setCoordinates,
+  } = useLocationContext();
+  const {
     elections,
     selectedContest,
     selectedElection, setElections, 
     setSelectedElection,
     setSelectedContest,
+  } = useElectionContext();
+  const {  
     setPinnedCandidates,
     setHiddenCandidates,
-  } = useDecisionFlowContext();
+  } = useCandidateContext();
   const { isDesktop } = useMasterContext();
   const [ nullElectionState, setNullElectionState ] = useState(false);
 

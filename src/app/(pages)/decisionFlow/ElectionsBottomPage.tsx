@@ -1,6 +1,6 @@
 /* ElectionsPage.tsx */
 
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
+import { useElectionContext } from "@/context/ElectionContext";
 import { JurisdictionCard } from "@/app/modules/cards/JurisdictionCard";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Contest } from "@/types";
@@ -12,7 +12,7 @@ interface ElectionsBottomPageProps {
 }
 
 export const ElectionsBottomPage: React.FC<ElectionsBottomPageProps> = ({ onContestClick }) => {
-  const { elections, selectedElection, selectedCandidate } = useDecisionFlowContext();
+  const { elections, selectedElection } = useElectionContext();
   const selectedElectionData = elections[selectedElection!];
   const jurisdictions: Record<string, Contest[]> = getJurisdictionLevelPositions(selectedElectionData.contests);
   const { isDesktop } = useMasterContext();

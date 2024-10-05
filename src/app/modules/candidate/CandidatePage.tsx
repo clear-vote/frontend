@@ -2,7 +2,7 @@ import CandidateCard from "./CandidateCard"
 import { HideButton } from "@/app/modules/misc/HideButton"
 import { PinButton } from "@/app/modules/misc/PinButton"
 import ScrollArea from "@/app/modules/misc/ScrollArea"
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext"
+import { useElectionContext } from "@/context/ElectionContext"
 import { Election } from "@/types"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Dispatch, SetStateAction, useState } from "react"
@@ -15,7 +15,7 @@ interface CandidatePageProps {
 }
 
 export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidates, open}: CandidatePageProps) => {
-  const {selectedContest, selectedCandidate, setSelectedCandidate} = useDecisionFlowContext();
+  const {selectedContest, selectedCandidate, setSelectedCandidate} = useElectionContext();
   const [showButtons, setShowButtons] = useState(false);
   
   if (!selectedContest || !selectedCandidate) return;

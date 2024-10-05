@@ -11,11 +11,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import { useMasterContext } from '@/context/MasterContext';
 import { Button } from '@/components/ui/button';
 import PersonIcon from '@mui/icons-material/Person';
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
+import { useElectionContext } from '@/context/ElectionContext';
 
 interface ElectionDetailsCardProps {
   setDropdownIsOpen: (isOpen: boolean) => void;
@@ -23,7 +23,7 @@ interface ElectionDetailsCardProps {
 
 export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDropdownIsOpen }) => {
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  const { elections, setSelectedElection, selectedElection, selectedContest } = useDecisionFlowContext();
+  const { elections, setSelectedElection, selectedElection, selectedContest } = useElectionContext();
 
   const handleValueChange = (value: string) => {
     setSelectedElection(Number(value));

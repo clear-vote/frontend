@@ -1,12 +1,9 @@
 "use client"
 
 import Image from "next/image";
-import Toolbar from '../modules/misc/Toolbar';
 import * as React from "react"
 import { MapboxSearchInput } from '../modules/misc/MapboxSearchInput';
-import { Button } from '@/components/ui/button';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
-import { useMasterContext } from "@/context/MasterContext";
 
 /** Hardcoded for now; I just imported them from the other website! */
 const WA_STATE: string = [-124.9036503, 45.6798, -116.7196941, 49.1739043].join(',');

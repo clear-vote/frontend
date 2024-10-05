@@ -1,5 +1,5 @@
 "use client";
-import { DonationsModal } from "@/app/modules/modals/DonationsModal";
+// import { DonationsModal } from "@/app/modules/modals/DonationsModal";
 import { useMasterContext } from "@/context/MasterContext";
 
 const ResultsPage = () => {

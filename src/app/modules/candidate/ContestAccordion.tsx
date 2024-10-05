@@ -3,8 +3,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CandidateDrawer } from './CandidateDrawer';
 import { Election } from "@/types/index";
 import { Dispatch, SetStateAction } from "react";
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { useMasterContext } from "@/context/MasterContext";
+import { useElectionContext } from "@/context/ElectionContext";
 
 interface ContestAccordionsProps {
   election: Election;
@@ -23,7 +23,7 @@ const ContestAccordions = ({
   unpickedCandidates, setUnpickedCandidates
 }: ContestAccordionsProps) => {
 
-  const { selectedContest } = useDecisionFlowContext();
+  const { selectedContest } = useElectionContext();
   if (selectedContest === null) return null;
 
   return (

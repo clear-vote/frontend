@@ -3,11 +3,11 @@
 import mapboxgl from "mapbox-gl";
 import { useEffect, useRef, memo } from "react";
 import { useSearchParams } from "next/navigation";
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { useMasterContext } from "@/context/MasterContext";
 import PlaceIcon from '@mui/icons-material/Place';
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useLocationContext } from "@/context/LocationContext";
 
 interface MapProps {
     token: string | undefined;
@@ -45,7 +45,7 @@ const getAverageLngLat = (coordinates: [number, number][][]) => {
 };
 
 const PrecinctMapCard: React.FC<MapProps> = memo(({ token }) => {
-    const { precinct, coordinates } = useDecisionFlowContext();
+    const { precinct, coordinates } = useLocationContext();
     const { isDesktop } = useMasterContext();
     if (!token) {
         alert("Mapbox token is required!");

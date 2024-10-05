@@ -2,8 +2,8 @@ import React, { FC, useEffect, useRef, useCallback, useMemo } from 'react';
 import { Politigram, PolitigramScores } from '@/types';
 import * as d3 from 'd3';
 import { politigramAttributes } from './politigram';
-import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import { lighten } from 'polished';
+import { useUIContext } from '@/context/UIContext';
 
 const MIN_RADIUS: number = 0.33 // 0 to 1
 const MIN_ARC: number = 0.5; // 0 to 1
@@ -25,11 +25,10 @@ interface PolitigramData {
 const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open }) => {
   const {
     selectedPolitigram,
-    selectedCandidate,
     setSelectedPolitigram,
     touchLock,
     setTouchLock
-  } = useDecisionFlowContext();
+  } = useUIContext();
 
   const selectedPolitigramRef = useRef(selectedPolitigram);
   const firstRender = useRef(true);
