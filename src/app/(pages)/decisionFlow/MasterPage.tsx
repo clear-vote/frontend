@@ -1,8 +1,7 @@
-/* MasterPage.tsx */
+/* (pages)/decisionFlow/MasterPage.tsx */
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import ContestPage from './ContestPage';
 import {
   getElectionsRecord,
@@ -19,18 +18,26 @@ import { useMasterContext } from '@/context/MasterContext';
 import { ElectionsBottomPage } from './ElectionsBottomPage';
 import { ContestSkeleton } from '@/app/modules/skeletons/ContestSkeleton';
 import WestIcon from '@mui/icons-material/West';
-const DecisionFlow = () => {
+import { useLocationContext } from '@/context/LocationContext';
+import { useElectionContext } from '@/context/ElectionContext';
+import { useCandidateContext } from '@/context/CandidateContext';
+import { dividerClasses } from '@mui/material';
+const MasterPage = () => {
   const { 
     setPrecinct,
     setCoordinates,
+  } = useLocationContext();
+  const {
     elections,
     selectedContest,
     selectedElection, setElections, 
     setSelectedElection,
     setSelectedContest,
+  } = useElectionContext();
+  const {  
     setPinnedCandidates,
     setHiddenCandidates,
-  } = useDecisionFlowContext();
+  } = useCandidateContext();
   const { isDesktop } = useMasterContext();
   const [ nullElectionState, setNullElectionState ] = useState(false);
 
@@ -132,6 +139,7 @@ const DecisionFlow = () => {
               left: 0,
               width: '100%',
               height: '100%',
+              paddingTop: isDesktop ? '64px' : '0', // Add top padding if isDesktop is true
             }}
           > 
           {!isDesktop ? (
@@ -217,4 +225,4 @@ const DecisionFlow = () => {
   }
 };
 
-export default DecisionFlow;
+export default MasterPage;

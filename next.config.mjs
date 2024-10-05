@@ -6,6 +6,10 @@ const nextConfig = {
     AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
     LAMBDA_ARN: process.env.LAMBDA_ARN,
   },
+  reactStrictMode: true,
+  images: {
+    domains: ['info.kingcounty.gov'],
+  },
 };
 
 export default nextConfig;

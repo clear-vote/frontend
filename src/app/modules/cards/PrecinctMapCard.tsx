@@ -1,13 +1,12 @@
 'use client'
 
 import mapboxgl from "mapbox-gl";
-import { useEffect, useRef } from "react";
-import { useSearchParams } from "next/navigation";
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
+import { useEffect, useRef, memo } from "react";
 import { useMasterContext } from "@/context/MasterContext";
 import PlaceIcon from '@mui/icons-material/Place';
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useLocationContext } from "@/context/LocationContext";
 
 interface MapProps {
     token: string | undefined;
@@ -44,8 +43,8 @@ const getAverageLngLat = (coordinates: [number, number][][]) => {
     };
 };
 
-export default function Map({ token }: MapProps) {
-    const { precinct, coordinates } = useDecisionFlowContext();
+const PrecinctMapCard: React.FC<MapProps> = memo(({ token }) => {
+    const { precinct, coordinates } = useLocationContext();
     const { isDesktop } = useMasterContext();
     if (!token) {
         alert("Mapbox token is required!");
@@ -116,22 +115,26 @@ export default function Map({ token }: MapProps) {
 
             return () => map.remove();
         }
-    }, [lng, lat, precinct]);
+    }, [lng, lat, precinctData]);
 
     if (isDesktop) {
         return (
-            <div>
-                <div ref={mapContainer} style={{ width: "516px", height: "326px" }}
-                    className="bg-clip-border border mapbox rounded-md">
-                </div>
-                <div className="flex items-center justify-between text-sm border border-gray-300 rounded-sm px-2 py-3">
-                    <div className="flex items-center">
-                        <PlaceIcon style={{ width: "20px", color: "#947FEEE5" }} />
-                        <p className="text-gray-600 px-1">
-                        Washington State Precinct {precinct}</p>
-                    </div>
-                    <Link href="/"><Button>Change Location</Button></Link>
-                </div>
+            <div style={{ width: '100%' }}>
+            <div
+                ref={mapContainer}
+                style={{ width: '100%', height: '326px' }}
+                className="bg-clip-border border mapbox rounded-md"
+            ></div>
+            <div style={{ display: 'flex', alignItems: 'center', marginTop: '1rem' }}>
+                <PlaceIcon style={{ width: '20px', color: '#947FEEE5' }} />
+                <p style={{ color: '#4B5563', paddingLeft: '0.25rem' }}>
+                Washington State Precinct {precinct}
+                </p>
+            </div>
+            {/* TODO: a little too  confusing for the time being */}
+            {/* <Link href="/">
+                <Button>Change Location</Button>
+            </Link> */}
             </div>
         );
 
@@ -153,4 +156,7 @@ export default function Map({ token }: MapProps) {
             </div>
         </div>
     );
-}
+});
+
+PrecinctMapCard.displayName = 'PrecinctMapCard';
+export default PrecinctMapCard;

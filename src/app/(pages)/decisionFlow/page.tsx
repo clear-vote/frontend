@@ -1,14 +1,25 @@
+/* (pages)/decisionFlow/page.tsx */
+
 "use client";
 
+import { CandidateProvider } from '@/context/CandidateContext';
+import { ElectionProvider } from '@/context/ElectionContext';
+import { LocationProvider } from '@/context/LocationContext';
+import { UIProvider } from '@/context/UIContext';
 import MasterPage from './MasterPage';
-import { DecisionFlowProvider } from '@/context/DecisionFlowContext';
 
 export default function Entry() {
   return (
     <div>
-      <DecisionFlowProvider>
-        <MasterPage />
-      </DecisionFlowProvider>
+      <CandidateProvider>
+        <ElectionProvider>
+          <LocationProvider>
+            <UIProvider>
+              <MasterPage />
+            </UIProvider>
+          </LocationProvider>
+        </ElectionProvider>
+      </CandidateProvider>
     </div>
   );
 }

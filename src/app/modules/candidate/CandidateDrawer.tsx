@@ -14,11 +14,11 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Election } from "@/types/index";
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { CandidateListItem } from "../cards/CandidateListCard";
 import { useMasterContext } from "@/context/MasterContext";
 import { CandidatePage } from "./CandidatePage";
 import { PinnedCandidateListItem } from "../cards/PinnedCandidateListCard";
+import { useElectionContext } from "@/context/ElectionContext";
 
 interface CandidateDrawerProps {
   election: Election;
@@ -35,7 +35,7 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = ({
   setUnpickedCandidates,
   pinned
 }) => {
-  const { selectedContest, setSelectedCandidate } = useDecisionFlowContext();
+  const { selectedContest, setSelectedCandidate } = useElectionContext();
   const { isDesktop } = useMasterContext();
   const [open, setOpen] = useState(false);
 

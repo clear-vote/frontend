@@ -12,7 +12,6 @@ import { useState } from "react";
 import HelpOutlineRoundedIcon from '@mui/icons-material/HelpOutlineRounded';
 import { getPolitigramInfo } from "@/utils/informationals";
 
-
 type PolitigramInfoModalProps = {
   politigram: Politigram;
 };
@@ -35,8 +34,8 @@ const PolitigramInfoModal = ({ politigram }: PolitigramInfoModalProps) => {
         </DialogHeader>
         <DialogDescription>
           <p>The one-dimensional political binary represents local candidates poorly.</p>
-          <p>The Politigram is a 5-dimensional representation of a candidate's political values.</p>
-          <p>We determine this by processing the candidate's provided statements into an Large Language Model (Artificial Intelligence) that outputs a composite rating for each metric on dozens of qualities</p>
+          <p>The Politigram is a 5-dimensional representation of a candidate&apos;s political values.</p>
+          <p>We determine this by processing the candidate&apos;s provided statements into an Large Language Model (Artificial Intelligence) that outputs a composite rating for each metric on dozens of qualities</p>
           <p>{getPolitigramInfo(politigram)}</p>
         </DialogDescription>
       </DialogContent>

@@ -1,20 +1,17 @@
-import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import card from './card.module.css';
+import Image from 'next/image';
 import {
     Politigram,
-    PolitigramScores,
     Priority,
-    VotingRecord,
-    Financing,
     Background,
-    Source,
     Candidate
 } from '@/types/index';
 import { politigramAttributes } from './politigram';
-import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import PolitigramPie from './PolitigramPie';
 import LinkIcon from '@mui/icons-material/Link';
 import PolitigramInfoModal from '../modals/PolitigramInfoModal';
+import { useUIContext } from '@/context/UIContext';
 
 interface CandidateCardProps {
     position: string;
@@ -23,14 +20,11 @@ interface CandidateCardProps {
 }
 
 export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidate, open }) => {
-    const { selectedPolitigram } = useDecisionFlowContext();
+    const { selectedPolitigram } = useUIContext();
     const prioritiesRef = useRef<HTMLOListElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
     const parentRef = useRef<HTMLDivElement>(null);
     const [displayScore, setDisplayScore] = useState<string>('');
-
-    // Invariant: Politigram should not be null. Candidates with null politigrams are filtered out.
-    if (candidate.politigram === null) return;
 
     // Handles change to selected politigram
     // Repopulates priorities and background items with color changes
@@ -62,13 +56,10 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
             }
         }
     };
-
+    
     // Update content when candidate or selectedPolitigram changes
     useEffect(() => {
         updateContent();
-    }, [candidate, selectedPolitigram]);
-
-    useEffect(() => {
         const highlightedElements = document.querySelectorAll(`.${card.textHighlighted}`);
         highlightedElements.forEach((element) => {
             const color = element.getAttribute('data-color');
@@ -78,9 +69,12 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                 }, 0);
             }
         });
-    }, [selectedPolitigram, candidate]);
+    }, [selectedPolitigram, updateContent, candidate]);
 
-    // Prioroties get colored, if they are not null
+    // Invariant: Politigram should not be null. Candidates with null politigrams are filtered out.
+    if (candidate.politigram === null) return;
+
+    // Priorities get colored, if they are not null
     // Otherwise the priority text is returned plain
     function colorPriorities(
         priority: Priority,
@@ -92,7 +86,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
             return priority.text
         // otherwise, we have to color it
         } else {      
-            console.log("LOGGING", color, priority.text); // TODO: THIS IS WHERE THE PROBLEM I AM REFERRING TO IT 
+            // console.log("LOGGING", color, priority.text); // TODO: THIS IS WHERE THE PROBLEM I AM REFERRING TO IT 
             return `<span class="${card.textHighlighted}" data-color="${color}">${priority.text}</span>`;                        
         }
     }

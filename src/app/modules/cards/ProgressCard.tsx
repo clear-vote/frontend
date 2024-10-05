@@ -1,8 +1,9 @@
 import { Button } from '@/components/ui/button';
 import ProgressBar from '@/components/ui/progress-bar';
-import { useDecisionFlowContext } from '@/context/DecisionFlowContext';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { Election } from '@/types';
+import { useCandidateContext } from '@/context/CandidateContext';
+import { useElectionContext } from '@/context/ElectionContext';
 
 interface ProgressCardProps {
   onSendResultsClick: () => void;
@@ -10,7 +11,8 @@ interface ProgressCardProps {
 
 
 export const ProgressCard: React.FC<ProgressCardProps> = ({ onSendResultsClick }: ProgressCardProps) => {
-  const { elections, selectedElection, pinnedCandidates } = useDecisionFlowContext();
+  const { elections, selectedElection} = useElectionContext();
+  const { pinnedCandidates } = useCandidateContext();
 
   // Calculate the number of contests and the difference
   const calculateContestsRemaining = (election: Election): number => {

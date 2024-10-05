@@ -2,7 +2,7 @@ import React, { useState, KeyboardEvent, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { DonationsModal } from '@/app/modules/modals/DonationsModal';
+// import { DonationsModal } from '@/app/modules/modals/DonationsModal';
 import { useMasterContext } from '@/context/MasterContext';
 
 interface SendResultsPageProps {
@@ -67,7 +67,8 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
       </div>
       <br></br>
       <div className="flex justify-center items-center">
-        <DonationsModal />
+        {/* <DonationsModal /> */}
+        {/* TODO: add donations link! */}
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
-import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
-import { Contest, Election } from "@/types";
+import { Contest } from "@/types";
 import { CandidateListItem } from "./CandidateListCard";
 import AddIcon from '@mui/icons-material/Add';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { useElectionContext } from "@/context/ElectionContext";
+import { useCandidateContext } from "@/context/CandidateContext";
 
 
 interface BallotCardProps {
@@ -20,10 +21,13 @@ interface BallotCardProps {
  */
 export const BallotCard: React.FC<BallotCardProps> = ({contest, onClick}) => {
     const {
-        pinnedCandidates,
         selectedElection,
-    } = useDecisionFlowContext();
-
+    } = useElectionContext();
+    
+    const {
+        pinnedCandidates,
+    } = useCandidateContext();
+    
     //Just to get rid of type errors!
     if (selectedElection === null) {
         return <div></div>;
