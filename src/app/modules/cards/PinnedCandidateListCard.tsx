@@ -2,7 +2,7 @@ import { useMasterContext } from "@/context/MasterContext";
 import { trimLink } from "@/utils/helpers";
 import LinkIcon from '@mui/icons-material/Link';
 import StarIcon from '@mui/icons-material/Star';
-import InfoIcon from '@mui/icons-material/Info';
+import Image from 'next/image';
 import { forwardRef } from "react";
 
 
@@ -71,4 +71,7 @@ export const PinnedCandidateListItem = forwardRef<HTMLButtonElement, PinnedCandi
         </div>
       </button>
     </div>
-  );});
+  );
+});
+
+PinnedCandidateListItem.displayName = 'PinnedCandidateListCard';

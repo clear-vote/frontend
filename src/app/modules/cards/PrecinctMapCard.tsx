@@ -1,7 +1,7 @@
 'use client'
 
 import mapboxgl from "mapbox-gl";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 import { useSearchParams } from "next/navigation";
 import { useDecisionFlowContext } from "@/context/DecisionFlowContext";
 import { useMasterContext } from "@/context/MasterContext";
@@ -44,7 +44,7 @@ const getAverageLngLat = (coordinates: [number, number][][]) => {
     };
 };
 
-export default function Map({ token }: MapProps) {
+const PrecinctMapCard: React.FC<MapProps> = memo(({ token }) => {
     const { precinct, coordinates } = useDecisionFlowContext();
     const { isDesktop } = useMasterContext();
     if (!token) {
@@ -116,7 +116,7 @@ export default function Map({ token }: MapProps) {
 
             return () => map.remove();
         }
-    }, [lng, lat, precinct]);
+    }, [lng, lat, precinctData]);
 
     if (isDesktop) {
         return (
@@ -153,4 +153,7 @@ export default function Map({ token }: MapProps) {
             </div>
         </div>
     );
-}
+});
+
+PrecinctMapCard.displayName = 'PrecinctMapCard';
+export default PrecinctMapCard;

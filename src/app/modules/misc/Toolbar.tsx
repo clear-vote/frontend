@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
@@ -22,7 +23,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({ isDesktop }) => {
     return (
       <div className="toolbar-mobile" style={{ position: 'fixed', zIndex: 100, justifyContent: 'space-between', fontFamily: "'IBM Plex Mono', sans-serif"}}>
         <Link href="/" className="flex items-center">
-          <img src="/branding/favicon.svg" alt="Home" style={{ width: '26px', height: '26px' }} />
+          <Image src="/branding/favicon.svg" alt="Home" width={26} height={26} />
           <h1 className="font-bold">&nbsp;Clearvote</h1>
         </Link>
         <ToolbarMobileModal/>
@@ -34,7 +35,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({ isDesktop }) => {
   return (
     <div className="toolbar-desktop" style={{ position: 'fixed', zIndex: 100, justifyContent: 'space-between', fontFamily: "'IBM Plex Mono', sans-serif"}}>
         <Link href="/" className="flex items-center">
-          <img src="/branding/favicon.svg" alt="Home" style={{ width: '26px', height: '26px' }} />
+          <Image src="/branding/favicon.svg" alt="Home" width={26} height={26} />
           <h1 className="font-bold">&nbsp;Clearvote</h1>
         </Link>
       <div className="flex justify-end space-x-4">

@@ -67,7 +67,8 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
       </div>
       <br></br>
       <div className="flex justify-center items-center">
-        <DonationsModal />
+        {/* <DonationsModal /> */}
+        {/* TODO: add donations link! */}
       </div>
     </div>
   );

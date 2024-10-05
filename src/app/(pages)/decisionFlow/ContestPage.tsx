@@ -26,12 +26,11 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
   const [defaultAccordion, setDefaultAccordion] = useState('Unpicked');
   const [unpickedCandidates, setUnpickedCandidates] = useState<Set<number>>(new Set());
   const { isDesktop } = useMasterContext();
-
-  if (selectedElection === null || selectedContest === null) return;
-
+  
   useEffect(() => {
     // update the unpickedCandidates state with the list of candidates
     // who are not pinned and not hidden for the selected election and contest.
+    if (selectedElection === null || selectedContest === null) return;
     setUnpickedCandidates(
       new Set(
         Object.values(election.contests[selectedContest].candidates).filter(
@@ -44,11 +43,14 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
   }, [selectedElection, selectedContest, pinnedCandidates, setPinnedCandidates]);
 
   //Thanks Stack Overflow! This is to ensure that the Contest Page scrolls to the top when loaded in mboile mode
-  if (!isDesktop) {
-    useEffect(() => {
+  useEffect(() => {
+    if (selectedElection === null || selectedContest === null) return;
+    if (!isDesktop) {
       window.scrollTo(0, 0)
-    }, [])
-  }
+    }
+  }, [])
+
+  if (selectedElection === null || selectedContest === null) return;
 
   if (isDesktop) {
     return (

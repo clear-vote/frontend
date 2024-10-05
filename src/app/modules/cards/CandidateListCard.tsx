@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import Image from 'next/image';
 import { trimLink } from "@/utils/helpers";
 import LinkIcon from '@mui/icons-material/Link';
 import { useMasterContext } from '@/context/MasterContext';
@@ -13,7 +14,7 @@ interface CandidateListItemProps {
   image: string | null;
 }
 
-export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItemProps>(     ({ name, website, image, ...props }, ref?) => {
+export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItemProps>(({ name, website, image, ...props }, ref?) => {
 
   const { isDesktop } = useMasterContext();
 
@@ -64,7 +65,6 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
       </div>
     );
   }
-
-
-
 );
+
+CandidateListItem.displayName = 'PinnedCandidateListCard';

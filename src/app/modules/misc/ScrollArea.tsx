@@ -28,7 +28,7 @@ const ScrollArea = ({ children, positionHook, height = '83vh', width = '100%' }:
         scrollElement.removeEventListener('scroll', handleScroll);
       }
     };
-  }, []);
+  }, [positionHook]);
 
   return (
     <div

@@ -1,4 +1,4 @@
-/* MasterPage.tsx */
+/* (pages)/decisionFlow/MasterPage.tsx */
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -19,7 +19,7 @@ import { useMasterContext } from '@/context/MasterContext';
 import { ElectionsBottomPage } from './ElectionsBottomPage';
 import { ContestSkeleton } from '@/app/modules/skeletons/ContestSkeleton';
 import WestIcon from '@mui/icons-material/West';
-const DecisionFlow = () => {
+const MasterPage = () => {
   const { 
     setPrecinct,
     setCoordinates,
@@ -217,4 +217,4 @@ const DecisionFlow = () => {
   }
 };
 
-export default DecisionFlow;
+export default MasterPage;
