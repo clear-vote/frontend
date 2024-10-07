@@ -10,7 +10,7 @@ const client = new LambdaClient({
   }
 });
 
-// // Call to REAL Lambda
+// Call to REAL Lambda
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Call to mock lambda
+// // Call to mock lambda
 // import fs from 'fs';
 // import path from 'path';
 // export async function POST(request: NextRequest) {
@@ -42,7 +42,8 @@ export async function POST(request: NextRequest) {
 //   await new Promise(resolve => setTimeout(resolve, 100));
 
 //   // Read the JSON file
-//   const filePath = path.join(process.cwd(), 'public', 'data', 'electionFoo.json');
+//   // const filePath = path.join(process.cwd(), 'public', 'data', 'testData.json');
+//   const filePath = path.join(process.cwd(), 'public', 'data', 'queryData.json');
 //   const fileContents = fs.readFileSync(filePath, 'utf8');
 //   const data = JSON.parse(fileContents);
 

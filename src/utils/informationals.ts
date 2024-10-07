@@ -7,12 +7,10 @@ interface JurisdictionLevel {
 
 // TODO: complete this
 const jurisdictionLevels: Record<string, JurisdictionLevel> = {
-  "Federal Contests": {
+  "Presidential Contests": {
     "description": "All these candidates are for a national level election",
     "positions": [
-      "President",
-      "U.S. Representative",
-      "U.S. Senator"
+      "President"
     ],
   },
   "Federal Legislature": {
@@ -26,7 +24,7 @@ const jurisdictionLevels: Record<string, JurisdictionLevel> = {
     "description": "All these candidates are for a state level election",
     "positions": [
       "Governor",
-      "Lt. Governor",
+      "Lieutenant Governor",
       "Commissioner of Public Lands",
       "Insurance Commissioner",
       "Secretary of State",
@@ -88,7 +86,7 @@ export const getPositionInfo = (position: string): string => {
       return 'A U.S. Senator represents an entire state in the U.S. Senate for a six-year term. Senators vote on federal legislation, ratify treaties, and confirm judicial appointments.';
     case 'Governor':
       return 'The Governor is the chief executive of the state, responsible for implementing state laws, overseeing the state government, and managing state resources.';
-    case 'Lt. Governor':
+    case 'Lieutenant Governor':
       return 'The Lt. Governor is the second-highest state official, typically presiding over the state senate and serving as the successor to the Governor.';
     case 'Commissioner of Public Lands':
       return 'The Commissioner of Public Lands oversees the management of state-owned lands, forests, and natural resources, ensuring sustainable use and environmental protection.';
