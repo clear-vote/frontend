@@ -1,28 +1,23 @@
-// route.ts
-
 import { NextRequest, NextResponse } from 'next/server';
-import { Amplify } from 'aws-amplify';
-import { post } from 'aws-amplify/api';
-import awsconfig from '@/aws-exports';
+import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda";
 
-Amplify.configure(awsconfig);
+const lambdaClient = new LambdaClient({ region: 'us-west-2' });
 
-// Configure Amplify
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-
-    // Invoke the Amplify function
-    const result = await post({
-      apiName: 'amplifyBackendOrchestrator',
-      path: '/',
-      options: { body }
+    
+    const command = new InvokeCommand({
+      FunctionName: 'amplifyBackendOrchestrator',
+      Payload: JSON.stringify(body)
     });
 
-    // Return the function response
+    const { Payload } = await lambdaClient.send(command);
+    const result = JSON.parse(new TextDecoder().decode(Payload));
+    
     return NextResponse.json(result);
   } catch (error) {
-    console.error('Error invoking Amplify function:', error);
+    console.error('Error:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
