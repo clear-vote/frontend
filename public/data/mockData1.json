@@ -1,0 +1,946 @@
+{
+  "precinct_id": 8913,
+  "boundary_data": [
+    [
+      [-122.3066595, 47.653538],
+      [-122.3066595, 47.665538],
+      [-122.3186595, 47.665538],
+      [-122.3186595, 47.653538],
+      [-122.3066595, 47.653538]
+    ]
+  ],
+  "elections": [
+    {
+      "election_type": "Primary",
+      "register_by": "20240729",
+      "voting_start": "20240719",
+      "voting_end": "20240806",
+      "election_id": 888,
+      "contests": [
+        {
+          "alias": null,
+          "district": null,
+          "contest_id": 1,
+          "jurisdiction": "Seattle",
+          "position": null,
+          "title": "City Council (at Large)",
+          "candidates": [
+            {
+              "politigram": {
+                "humanitarianism": 95,
+                "prosperity": 70,
+                "community": 90,
+                "liberty": 85,
+                "stewardship": 80
+              },
+              "website": "https://tariqforcouncil.org/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=17#/candidates/151714/1573612",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "info@tariqforcouncil.org",
+              "name": "Tariq Yusuf",
+              "candidate_id": 1,
+              "image": "https://info.kingcounty.gov/kcelections/vote/contests/GetPhoto.ashx?webapiaddress=https://websvc.kingcounty.gov/elections/WEBAPI/&candidateid=1604694&electionid=38&contestid=123797",
+              "priorities": [
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Uplift marginalized communities"
+                },
+                {
+                  "politigram": [
+                    "liberty"
+                  ],
+                  "text": "Hold Big Tech accountable"
+                },
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Prioritize affordable housing"
+                }
+              ],
+              "phone": "(206) 395-9356",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        0,
+                        30
+                      ],
+                      [
+                        58,
+                        83
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [
+                      [
+                        70,
+                        83
+                      ]
+                    ],
+                    "stewardship": []
+                  },
+                  "text": "Bachelor\u2019s in Computer Science, University of Washington; Master\u2019s in Jurisprudence, UW School of Law",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Tech Privacy Consultant",
+                  "header": "Occupation"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        376,
+                        387
+                      ],
+                      [
+                        503,
+                        534
+                      ],
+                      [
+                        878,
+                        923
+                      ],
+                      [
+                        1295,
+                        1333
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        587,
+                        636
+                      ],
+                      [
+                        678,
+                        709
+                      ]
+                    ],
+                    "community": [
+                      [
+                        25,
+                        49
+                      ],
+                      [
+                        51,
+                        61
+                      ],
+                      [
+                        67,
+                        77
+                      ],
+                      [
+                        474,
+                        489
+                      ],
+                      [
+                        652,
+                        709
+                      ],
+                      [
+                        714,
+                        734
+                      ],
+                      [
+                        878,
+                        923
+                      ],
+                      [
+                        1072,
+                        1124
+                      ],
+                      [
+                        1129,
+                        1180
+                      ],
+                      [
+                        1628,
+                        1666
+                      ]
+                    ],
+                    "liberty": [
+                      [
+                        925,
+                        989
+                      ],
+                      [
+                        1250,
+                        1273
+                      ]
+                    ],
+                    "stewardship": [
+                      [
+                        1617,
+                        1666
+                      ],
+                      [
+                        820,
+                        871
+                      ]
+                    ]
+                  },
+                  "text": "Seattle is a city with a deep culture of kindness, compassion, and generosity. Unfortunately, our city\u2019s policies have gone counter to this tradition, opting for inhumane and cruel bandages to the social and economic problems we are facing. I grew up in New Holly, a Seattle Housing Authority project. My family and I relied heavily on programs from public health clinics and food stamps to Running Start and college grants to survive. My story is a testament to how we can uplift everyone by promising safety and security to everyone. We currently have a council majority that puts the priorities of the wealthy ahead of the rest of us, and we need a citywide leader that will stand up to corporate influence and put the people first. We need a bolder representative who is not scared to stand up to these entities and fight for the best interest of all of our residents. I\u2019ve dedicated my career to protecting our privacy; keeping Big Tech accountable to the social and community impacts that their inventions have. I\u2019ve spent my entire life among the Seattle community amplifying the political voice and power of refugees and volunteering with programs that connect us together. My professional and personal track record outlines my dedication to speaking truth to power and unapologetically addressing the challenges that face us. I\u2019m not running for office for power or authority, I\u2019m running because I\u2019m tired of seeing our city force out people who lack the money or power to stay here. Seeing my friends and family suffer while knowing I was able to do something is something I can no longer tolerate. I have pledged to leave this city better than I found it. I hope you will join me in making a Seattle built for everyone.",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 90,
+                "prosperity": 85,
+                "community": 95,
+                "liberty": 80,
+                "stewardship": 90
+              },
+              "website": "https://alexisforseattle.com/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=17#/candidates/151714/1568526",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "info@alexisforseattle.com",
+              "name": "Alexis Mercedes Rinck",
+              "candidate_id": 2,
+              "image": "https://info.kingcounty.gov/kcelections/vote/contests/GetPhoto.ashx?webapiaddress=https://websvc.kingcounty.gov/elections/WEBAPI/&candidateid=1605890&electionid=38&contestid=123797",
+              "priorities": [
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Affordable housing"
+                },
+                {
+                  "politigram": [
+                    "prosperity"
+                  ],
+                  "text": "Public safety resources"
+                },
+                {
+                  "politigram": [
+                    "stewardship"
+                  ],
+                  "text": "Climate action"
+                }
+              ],
+              "phone": "(206) 705-9305",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "MA Public Administration, UW Evans School; BA, Syracuse University",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Assistant Director of Policy, Planning and State Operations, UW",
+                  "header": "Occupation"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        130,
+                        165
+                      ],
+                      [
+                        170,
+                        191
+                      ],
+                      [
+                        956,
+                        995
+                      ],
+                      [
+                        1015,
+                        1069
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        193,
+                        206
+                      ],
+                      [
+                        1150,
+                        1166
+                      ],
+                      [
+                        1484,
+                        1509
+                      ]
+                    ],
+                    "community": [
+                      [
+                        21,
+                        42
+                      ],
+                      [
+                        97,
+                        125
+                      ],
+                      [
+                        388,
+                        414
+                      ],
+                      [
+                        921,
+                        954
+                      ],
+                      [
+                        967,
+                        995
+                      ],
+                      [
+                        1097,
+                        1144
+                      ],
+                      [
+                        1752,
+                        1770
+                      ],
+                      [
+                        1772,
+                        1796
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        497,
+                        525
+                      ],
+                      [
+                        1556,
+                        1583
+                      ],
+                      [
+                        1585,
+                        1599
+                      ],
+                      [
+                        1605,
+                        1625
+                      ]
+                    ]
+                  },
+                  "text": "My commitment to the diverse neighborhoods and communities of Seattle is rooted in my experience building regional coalitions and advancing solutions to homelessness and housing affordability, public safety, clean energy, and higher education access. With your vote, I\u2019ll bring bold leadership and a generational voice to City Council to champion equitable investments in our priorities, community-driven solutions, and a brighter future for the next generation. While I approach policy rooted in data and measurable outcomes, I am equally informed by personal experience. Born to teenagers caught up in gang violence and cycles of substance use, homelessness, and incarceration, I was able to break those cycles thanks to loving grandparents, educational mentors, and afternoons at the Boys & Girls Club. My family\u2019s struggles mirror many of the challenges we face in Seattle, but we can break these cycles by providing affordable and supportive housing, supporting safe and healthy communities, and ensuring that no child is limited from reaching their full potential. On the Council, I\u2019ll work collaboratively to address Seattle\u2019s challenges with proven solutions and personal understanding: Public safety resources targeted to reducing crime and harm, including law enforcement and alternative staffing, proven community interventions, and gun violence prevention. Affordable housing at every level so seniors, working families, and renters like myself can remain in the city and build generational wealth. Climate action without compromise, including transit and electrification, more sidewalks, and green infrastructure. Progressive revenue solutions to a budget deficit that must maintain core services and support healthy outcomes. I\u2019m proudly endorsed by unions, diverse community voices, and elected leaders who know my work and commitment to positive change: 36th, 46th & King County Democrats; State Senators Rebecca Salda\u00f1a & Noel Frame; State Representatives Nicole Macri & Julia Reed; Councilmember Tammy Morales; Sage Leaders; UFCW 3000; essential workers; & more!",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 90,
+                "prosperity": 80,
+                "community": 95,
+                "liberty": 70,
+                "stewardship": 85
+              },
+              "website": "https://wooforseattle.com/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=17#/candidates/151714/1574090",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "info@wooforseattle.com",
+              "name": "Tanya Woo",
+              "candidate_id": 3,
+              "image": "yeet",
+              "priorities": [
+                {
+                  "politigram": [
+                    "prosperity"
+                  ],
+                  "text": "Public Safety"
+                },
+                {
+                  "politigram": [
+                    "humanitarianism"
+                  ],
+                  "text": "Homelessness"
+                },
+                {
+                  "politigram": [
+                    "community"
+                  ],
+                  "text": "Affordability"
+                }
+              ],
+              "phone": "(206) 657-6679",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "B. A. , University of Washington.",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        28,
+                        50
+                      ]
+                    ],
+                    "community": [
+                      [
+                        8,
+                        26
+                      ],
+                      [
+                        52,
+                        70
+                      ],
+                      [
+                        28,
+                        50
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Seattle City Councilmember, small restaurant owner, community advocate.",
+                  "header": "Occupation"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        304,
+                        343
+                      ],
+                      [
+                        367,
+                        402
+                      ],
+                      [
+                        809,
+                        872
+                      ],
+                      [
+                        1492,
+                        1549
+                      ],
+                      [
+                        1714,
+                        1732
+                      ],
+                      [
+                        1149,
+                        1174
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        350,
+                        363
+                      ],
+                      [
+                        1405,
+                        1437
+                      ],
+                      [
+                        1621,
+                        1650
+                      ]
+                    ],
+                    "community": [
+                      [
+                        279,
+                        297
+                      ],
+                      [
+                        246,
+                        272
+                      ],
+                      [
+                        538,
+                        570
+                      ],
+                      [
+                        634,
+                        690
+                      ],
+                      [
+                        461,
+                        474
+                      ],
+                      [
+                        480,
+                        495
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        1079,
+                        1121
+                      ],
+                      [
+                        1130,
+                        1174
+                      ],
+                      [
+                        1198,
+                        1248
+                      ]
+                    ]
+                  },
+                  "text": "As your Councilmember, it\u2019s an honor to represent you \u2013 and my hometown. I grew up on Beacon Hill, working at my family\u2019s business in the Chinatown/International District. Today, I live in Rainier Beach, and operate a neighborhood restaurant and affordable housing complex. As a community advocate, I\u2019ve confronted our toughest citywide issues, from public safety to combating racism and gentrification. Progress in Seattle demands leaders who are hardworking, collaborative, and action-oriented. When neighborhoods faced rising crime, I organized community safety teams. Seeing too many friends and neighbors priced out, I worked to convert the historic Louisa Hotel into workforce housing, where tenants pay based on what they can afford. I\u2019ve done everything from championing government accountability, to administering Narcan and CPR to unsheltered neighbors in crisis. I believe Seattle is at a crossroads. For too long, regional leaders have doubled down on failed approaches to issues like homelessness and public safety. These broken promises hurt the marginalized most. Seattle can move mountains on these issues! We can lead the nation in protecting the vulnerable. However, it will take leadership willing to prioritize what really works. As your citywide Councilmember, I\u2019m most focused on three challenges: Public Safety , Homelessness , and Affordability. To keep Seattle safe, I\u2019ll work to fully staff our first responders while supporting commonsense reforms. I will fight to improve the effectiveness of services for the unsheltered. And, to address the rising cost of living, I will bring my experience developing low-income housing to foster more affordable housing across Seattle. Seattle is a compassionate city. Neighbors take care of neighbors, especially the vulnerable. As your citywide Councilmember, I work for the City Council Seattle deserves\u2014one that focuses on what matters most and, above all, delivers compassionate results. I\u2019m Tanya Woo, and I ask for your vote.",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 90,
+                "prosperity": 75,
+                "community": 95,
+                "liberty": 70,
+                "stewardship": 85
+              },
+              "website": "https://www.saunatinaforseattle.com/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=17#/candidates/151714/1576097",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "info@saunatinaforseattle.com",
+              "name": "Saunatina Sanchez",
+              "candidate_id": 4,
+              "image": "https://info.kingcounty.gov/kcelections/vote/contests/GetPhoto.ashx?webapiaddress=https://websvc.kingcounty.gov/elections/WEBAPI/&candidateid=1606869&electionid=38&contestid=123797",
+              "priorities": [
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Affordable housing"
+                },
+                {
+                  "politigram": [
+                    "community",
+                    "prosperity",
+                    "stewardship"
+                  ],
+                  "text": "Public infrastructure"
+                },
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Equitable public services"
+                }
+              ],
+              "phone": "(425) 499-3476",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        63,
+                        83
+                      ]
+                    ],
+                    "community": [
+                      [
+                        0,
+                        14
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Communications and Religious Studies at Seattle University and Database Development at Seattle Central Community College",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [
+                      [
+                        5,
+                        32
+                      ],
+                      [
+                        43,
+                        82
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "SIFF Guest Relations Coordinator; 20 years Seattle Community Organizing Experience",
+                  "header": "Occupation"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        118,
+                        133
+                      ],
+                      [
+                        663,
+                        706
+                      ],
+                      [
+                        922,
+                        958
+                      ],
+                      [
+                        1020,
+                        1090
+                      ],
+                      [
+                        1472,
+                        1496
+                      ],
+                      [
+                        1503,
+                        1530
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        1250,
+                        1290
+                      ],
+                      [
+                        1340,
+                        1367
+                      ],
+                      [
+                        1373,
+                        1407
+                      ],
+                      [
+                        1412,
+                        1465
+                      ]
+                    ],
+                    "community": [
+                      [
+                        6,
+                        60
+                      ],
+                      [
+                        141,
+                        163
+                      ],
+                      [
+                        257,
+                        278
+                      ],
+                      [
+                        283,
+                        297
+                      ],
+                      [
+                        411,
+                        431
+                      ],
+                      [
+                        440,
+                        489
+                      ],
+                      [
+                        520,
+                        565
+                      ],
+                      [
+                        663,
+                        706
+                      ],
+                      [
+                        806,
+                        832
+                      ],
+                      [
+                        922,
+                        958
+                      ],
+                      [
+                        960,
+                        1014
+                      ],
+                      [
+                        1020,
+                        1053
+                      ],
+                      [
+                        1135,
+                        1169
+                      ],
+                      [
+                        1472,
+                        1496
+                      ],
+                      [
+                        1581,
+                        1614
+                      ],
+                      [
+                        1707,
+                        1746
+                      ],
+                      [
+                        1777,
+                        1821
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        257,
+                        278
+                      ],
+                      [
+                        283,
+                        297
+                      ],
+                      [
+                        1707,
+                        1746
+                      ]
+                    ]
+                  },
+                  "text": "I was raised in Holly Park, Kingway Apts, and Yesler Terrace by my dad\u2014a farmworker, ship crewmember, and mechanic\u2014my disabled mother, and a community of neighbors, while I helped raise my younger siblings. It takes a village! I've always had a passion for public infrastructure and urban planning, sparked by my experience living in public housing and relying on King County Metro. I\u2019m proudly endorsed by the Transit Riders Union where I co-founded the Bus and Transit Services Workgroup and served as Treasurer. I've collaborated with diverse groups of neighbors, including businesses, to expand bike and transit infrastructure alongside Cascade Bicycle Club, advocated for an Office of Renter Standards through the Seattle Renter Organizing Council, and stood for democracy serving on the board of the League of Women Voters\u2013SKC. When considering legislation, I ask: \u201c What\u2019s the goal? Who benefits? Who\u2019s harmed? \u201d I support I-137 to fund social housing, updating zoning laws to create more homes for families, and partnering with housing providers to enact right-to-shelter agreements. I\u2019m a Teamster in Local 117, and I plan to facilitate apprenticeship programs like those I\u2019m developing as a Board Member of Community Roots Housing. We must confront the $200 million budget deficit, without sacrificing Seattleite welfare, through progressive revenue streams like protecting and expanding Jumpstart and enacting new revenue like a Seattle Capital Gains tax. I'll focus on public services, like 24/7/365 restrooms in parks, so everyone can enjoy the city\u2019s culture through safe and accessible public spaces. I want Seattle to become the livable city we know it can be. On City Council, I will bring collaborative, detail-oriented thinking to bridge department silos in creating an equitable and accessible Seattle for all. If this is the Seattle you want to help create, then I humbly ask for your vote.",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 90,
+                "prosperity": 85,
+                "community": 95,
+                "liberty": 75,
+                "stewardship": 80
+              },
+              "website": "http://www.pdc.wa.gov/sos/rd.aspx?id=X1576452PAT",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=17#/candidates/151714/1576452",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": null,
+              "name": "Saul Patu",
+              "candidate_id": 5,
+              "image": "https://info.kingcounty.gov/kcelections/vote/contests/GetPhoto.ashx?webapiaddress=https://websvc.kingcounty.gov/elections/WEBAPI/&candidateid=1605800&electionid=38&contestid=124005",
+              "priorities": [
+                {
+                  "politigram": [
+                    "humanitarianism"
+                  ],
+                  "text": "Improve public education"
+                },
+                {
+                  "politigram": [
+                    "humanitarianism"
+                  ],
+                  "text": "Tackle homelessness"
+                },
+                {
+                  "politigram": [
+                    "prosperity"
+                  ],
+                  "text": "Foster economic growth"
+                }
+              ],
+              "phone": null,
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Bachelor's in Education, University of Oregon",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        14,
+                        29
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        0,
+                        12
+                      ],
+                      [
+                        30,
+                        38
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Entrepreneur, Social Services/Business/Sports Leadership",
+                  "header": "Occupation"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        119,
+                        212
+                      ],
+                      [
+                        245,
+                        293
+                      ],
+                      [
+                        321,
+                        359
+                      ],
+                      [
+                        1113,
+                        1134
+                      ],
+                      [
+                        1138,
+                        1175
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        724,
+                        790
+                      ],
+                      [
+                        1180,
+                        1230
+                      ],
+                      [
+                        1044,
+                        1106
+                      ]
+                    ],
+                    "community": [
+                      [
+                        30,
+                        60
+                      ],
+                      [
+                        119,
+                        179
+                      ],
+                      [
+                        245,
+                        293
+                      ],
+                      [
+                        321,
+                        359
+                      ],
+                      [
+                        584,
+                        629
+                      ],
+                      [
+                        638,
+                        667
+                      ],
+                      [
+                        1113,
+                        1134
+                      ],
+                      [
+                        1138,
+                        1175
+                      ],
+                      [
+                        1180,
+                        1230
+                      ],
+                      [
+                        1297,
+                        1329
+                      ],
+                      [
+                        1368,
+                        1393
+                      ],
+                      [
+                        1766,
+                        1812
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        638,
+                        667
+                      ],
+                      [
+                        876,
+                        968
+                      ],
+                      [
+                        970,
+                        1039
+                      ]
+                    ]
+                  },
+                  "text": "Seattle needs leaders who are deeply rooted in its community and committed to making a difference \u2013 Raised in a family dedicated to serving the Seattle community for over 60 years in education and social services, I have witnessed firsthand the impact of quality service on diverse communities. I have devoted my life to providing quality services to families because of my lived experience and the lessons learned from my parents and older siblings. Growing up in Seattle has given me a deep understanding of our city's unique challenges and opportunities. Seattle needs leaders who understand the diverse needs of its residents and can implement effective solutions - Over the past 20 years, I have dedicated my career to developing high-performing people and teams across various sectors including business, education, sports, social services, and spiritual growth. I have led innovative programs such as the Workforce Development Program for youth and young adults, developed a text app process for the Dept of Human Services in Oregon and managed a $200 million channel business for Veritas Technology. From tackling homelessness to improving our public education system and fostering economic growth through small businesses\u2014my background allows me to understand these challenges deeply and work towards practical solutions. Seattle needs leaders who understand resilience and dedication - My journey began as a college athlete, manifesting a remarkable skill set that I developed in trust, confidence, and connection based on relationships. If you bless me with the opportunity to serve as your Seattle City Councilman, your support would be the intrinsic drive and motivation that fuels me, not the accolades. I will show up when circumstances are tough and work tirelessly for our community\u2019s betterment. My commitment, work ethic and tenacity are bar none, bringing the same resilience and dedication if elected Seattle City Councilman.",
+                  "header": "Statement"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

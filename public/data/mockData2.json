@@ -1,0 +1,2698 @@
+{
+  "precinct_id": 8913,
+  "boundary_data": [
+    [
+      [-122.3066595, 47.653538],
+      [-122.3066595, 47.665538],
+      [-122.3186595, 47.665538],
+      [-122.3186595, 47.653538],
+      [-122.3066595, 47.653538]
+    ]
+  ],
+  "elections": [
+    {
+      "election_type": "Primary",
+      "register_by": "20240729",
+      "voting_start": "20240719",
+      "voting_end": "20240806",
+      "election_id": 888,
+      "contests": [
+        {
+          "alias": null,
+          "district": "10",
+          "contest_id": 115,
+          "jurisdiction": "Washington",
+          "position": "1",
+          "title": "State Representative",
+          "candidates": [
+            {
+              "politigram": {
+                "humanitarianism": 75,
+                "prosperity": 80,
+                "community": 70,
+                "liberty": 85,
+                "stewardship": 65
+              },
+              "website": "https://www.carriekennedy4wa.net/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=15#/candidates/161225/1570000",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "carrie4wa@yahoo.com",
+              "name": "Carrie R. Kennedy",
+              "candidate_id": 1,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Washington_StateHouse_d10_p1_CarrieR.Kennedy.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "humanitarianism"
+                  ],
+                  "text": "Support Veterans"
+                },
+                {
+                  "politigram": [
+                    "liberty"
+                  ],
+                  "text": "Defend Constitution"
+                },
+                {
+                  "politigram": [],
+                  "text": "Promote Family Values"
+                }
+              ],
+              "phone": "(360) 218-4547",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "",
+                  "header": "Elected Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        312,
+                        363
+                      ],
+                      [
+                        396,
+                        420
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        147,
+                        154
+                      ],
+                      [
+                        137,
+                        154
+                      ],
+                      [
+                        156,
+                        174
+                      ],
+                      [
+                        176,
+                        193
+                      ],
+                      [
+                        195,
+                        210
+                      ],
+                      [
+                        212,
+                        222
+                      ],
+                      [
+                        224,
+                        234
+                      ]
+                    ],
+                    "community": [
+                      [
+                        147,
+                        154
+                      ],
+                      [
+                        137,
+                        154
+                      ],
+                      [
+                        176,
+                        193
+                      ],
+                      [
+                        212,
+                        222
+                      ],
+                      [
+                        224,
+                        234
+                      ],
+                      [
+                        253,
+                        282
+                      ],
+                      [
+                        312,
+                        363
+                      ],
+                      [
+                        365,
+                        394
+                      ],
+                      [
+                        396,
+                        420
+                      ],
+                      [
+                        464,
+                        470
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        443,
+                        462
+                      ]
+                    ]
+                  },
+                  "text": "2020, 2022 US Congressional candidate, WA CD-2. Administrative assistant for military departments, organizations and companies. Manager, assistant manager, professional buyer, procurement clerk, central cashier, bookkeeper, salesclerk, construction QC, contacts specialist assistant, ER-Ambulatory intake clerk, WA State Developmental Disabilities admin assistant, WA State Liquor Control clerk, English teacher in Japan, waitress, bartender, US Navy Seabee wife, mother.",
+                  "header": "Other Professional Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Monterey Peninsula College, A. A. Degree. College of the Redwoods. Skagit Valley College.",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        31,
+                        64
+                      ],
+                      [
+                        152,
+                        161
+                      ],
+                      [
+                        199,
+                        220
+                      ]
+                    ],
+                    "prosperity": [],
+                    "community": [
+                      [
+                        152,
+                        161
+                      ],
+                      [
+                        66,
+                        93
+                      ],
+                      [
+                        95,
+                        122
+                      ],
+                      [
+                        138,
+                        161
+                      ],
+                      [
+                        163,
+                        189
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Volunteer: detention facility, domestic violence victim advocate, Navy Family Service Centers, Command appointed Ombudsman, Girls Scouts, school parent volunteer, Precinct Committee Officer. Devoted supporter of Veterans, law enforcement, their families.",
+                  "header": "Community Service"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        601,
+                        634
+                      ]
+                    ],
+                    "community": [
+                      [
+                        347,
+                        398
+                      ],
+                      [
+                        547,
+                        564
+                      ]
+                    ],
+                    "liberty": [
+                      [
+                        242,
+                        284
+                      ],
+                      [
+                        479,
+                        500
+                      ],
+                      [
+                        502,
+                        508
+                      ],
+                      [
+                        513,
+                        538
+                      ],
+                      [
+                        404,
+                        413
+                      ],
+                      [
+                        415,
+                        420
+                      ]
+                    ],
+                    "stewardship": []
+                  },
+                  "text": "Legislative District 10 Position 1 deserves representation by an honest, trustworthy individual who will fulfill their entire term in office. I am a thirty seven year resident of Island County, wife and daughter of career naval servicemen. A defender of our United States Constitution, I align with traditional American values and beliefs. I will represent interests and concerns of my constituents with integrity, honor and dedication. My common sense decisions will defend and preserve our freedoms, rights and traditional family values. I am a dedicated patriot representing you to ensure there is prosperity for future generations of Washington citizens.",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 70,
+                "prosperity": 80,
+                "community": 85,
+                "liberty": 75,
+                "stewardship": 65
+              },
+              "website": "https://www.electyvonnegallardo.com/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=15#/candidates/161225/1569530",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "Info@ElectYvonneGallardo.com",
+              "name": "Yvonne Gallardo-Van Ornam",
+              "candidate_id": 2,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Washington_StateHouse_d10_p1_YvonneGallardo-VanOrnam.jpg",
+              "priorities": [
+                {
+                  "politigram": [],
+                  "text": "Control spending"
+                },
+                {
+                  "politigram": [
+                    "prosperity"
+                  ],
+                  "text": "Reduce crime"
+                },
+                {
+                  "politigram": [
+                    "prosperity"
+                  ],
+                  "text": "Encourage economic growth"
+                }
+              ],
+              "phone": "(360) 502-8844",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        44,
+                        99
+                      ]
+                    ],
+                    "community": [
+                      [
+                        0,
+                        22
+                      ],
+                      [
+                        124,
+                        153
+                      ],
+                      [
+                        171,
+                        203
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Arlington City Council (July 2022-present); Central Puget Sound Economic Development District Board (January 2024-present); Arlington Planning Commission (April 2020-22); Snohomish County Arts Commission (May 2018-19)",
+                  "header": "Elected Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        0,
+                        34
+                      ],
+                      [
+                        46,
+                        83
+                      ],
+                      [
+                        112,
+                        159
+                      ],
+                      [
+                        161,
+                        179
+                      ]
+                    ],
+                    "community": [
+                      [
+                        46,
+                        83
+                      ],
+                      [
+                        85,
+                        110
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Electronics Technician for US Navy (9 years); Executive Director for Monroe Chamber; Owner of Uncorked Delites; Endorsed by AWB (Statewide Chamber of Commerce); Endorsed by WACOPS",
+                  "header": "Other Professional Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        0,
+                        25
+                      ],
+                      [
+                        27,
+                        63
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        109,
+                        136
+                      ]
+                    ]
+                  },
+                  "text": "MBA from Columbia College; Bachelor from Henry Cogswell College; Craft Brewing Academy certificate from SVC; Leadership Snohomish County",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        134,
+                        187
+                      ],
+                      [
+                        192,
+                        225
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        78,
+                        122
+                      ]
+                    ],
+                    "community": [
+                      [
+                        9,
+                        25
+                      ],
+                      [
+                        27,
+                        76
+                      ],
+                      [
+                        78,
+                        122
+                      ],
+                      [
+                        134,
+                        187
+                      ],
+                      [
+                        192,
+                        225
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Current: member of Rotary; Volleyball Coach at Arlington Boys and Girls Club; Arlington Police Department Citizens Academy; Previous: founding member of Veteran Memorial Wreath Foundation and Snohomish County Latino Coalition",
+                  "header": "Community Service"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        530,
+                        599
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        130,
+                        152
+                      ],
+                      [
+                        196,
+                        270
+                      ],
+                      [
+                        324,
+                        340
+                      ],
+                      [
+                        342,
+                        354
+                      ],
+                      [
+                        356,
+                        381
+                      ],
+                      [
+                        383,
+                        408
+                      ]
+                    ],
+                    "community": [
+                      [
+                        54,
+                        119
+                      ],
+                      [
+                        160,
+                        186
+                      ],
+                      [
+                        288,
+                        315
+                      ],
+                      [
+                        509,
+                        525
+                      ],
+                      [
+                        530,
+                        547
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        625,
+                        646
+                      ]
+                    ]
+                  },
+                  "text": "You deserve an enthusiastic State Representative with 19 years of history living within and serving the local community, who is a proud military veteran, and a dedicated community leader who will challenge the current broken and dysfunctional culture of State Government. I will fight to find common-sense solutions to help control spending, reduce crime, encourage economic growth, reduce traffic congestion, and straighten out the ferry system mess. Our budget should reflect our values and duty to provide safe communities and quality education that prepares students for success in life and work. With your vote, we will build a better future.",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 85,
+                "prosperity": 80,
+                "community": 90,
+                "liberty": 75,
+                "stewardship": 90
+              },
+              "website": "https://clydeshavers.com/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=15#/candidates/161225/1569871",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "campaign@clydeshavers.com",
+              "name": "Clyde Shavers",
+              "candidate_id": 3,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Washington_StateHouse_d10_p1_ClydeShavers.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "liberty",
+                    "prosperity"
+                  ],
+                  "text": "Lower property taxes"
+                },
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Affordable housing"
+                },
+                {
+                  "politigram": [],
+                  "text": "Support veterans"
+                }
+              ],
+              "phone": "(425) 394-6765",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "State Representative (current) \u2013 Vice Chair of the House Education Committee (Kindergarten-12th Grade), Member of the Artificial Intelligence Task Force",
+                  "header": "Elected Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        163,
+                        182
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [
+                      [
+                        174,
+                        182
+                      ],
+                      [
+                        195,
+                        212
+                      ]
+                    ],
+                    "stewardship": [
+                      [
+                        187,
+                        212
+                      ],
+                      [
+                        241,
+                        274
+                      ]
+                    ]
+                  },
+                  "text": "After graduating from the U. S. Naval Academy, Clyde served in the U. S. Navy stationed in the Middle East and Southeast Asia. He lives on Whidbey Island and is a practicing attorney. He studied environmental law at Yale Law School with the Natural Resources Defense Council (NRDC).",
+                  "header": "Other Professional Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        0,
+                        19
+                      ],
+                      [
+                        29,
+                        44
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [
+                      [
+                        29,
+                        44
+                      ]
+                    ],
+                    "stewardship": []
+                  },
+                  "text": "U. S. Naval Academy, B. S. ; Yale Law School, J. D.",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        40,
+                        49
+                      ],
+                      [
+                        25,
+                        37
+                      ],
+                      [
+                        62,
+                        81
+                      ]
+                    ],
+                    "prosperity": [],
+                    "community": [
+                      [
+                        25,
+                        37
+                      ],
+                      [
+                        40,
+                        49
+                      ],
+                      [
+                        62,
+                        81
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Skagit Friendship House, Board Member & Volunteer; Goosefoot, former Board Member; Whidbey Veterans Resource Center, former Board Member; Hearts and Hammers, Volunteer",
+                  "header": "Community Service"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        77,
+                        142
+                      ],
+                      [
+                        172,
+                        235
+                      ],
+                      [
+                        248,
+                        266
+                      ],
+                      [
+                        404,
+                        447
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        77,
+                        97
+                      ],
+                      [
+                        148,
+                        168
+                      ],
+                      [
+                        241,
+                        266
+                      ]
+                    ],
+                    "community": [
+                      [
+                        77,
+                        142
+                      ],
+                      [
+                        241,
+                        315
+                      ],
+                      [
+                        404,
+                        447
+                      ]
+                    ],
+                    "liberty": [
+                      [
+                        356,
+                        371
+                      ],
+                      [
+                        498,
+                        532
+                      ],
+                      [
+                        534,
+                        565
+                      ]
+                    ],
+                    "stewardship": [
+                      [
+                        376,
+                        398
+                      ],
+                      [
+                        571,
+                        591
+                      ]
+                    ]
+                  },
+                  "text": "With soaring costs, our economy isn\u2019t working for us. That\u2019s why I fought to lower property taxes for more seniors, veterans, and the disabled; and cap medication costs. I increased retirement benefits for teachers and public employees; and funded affordable housing for Langley, Coupeville, Stanwood, and Arlington. I\u2019ll keep fighting to lower costs. I\u2019m 100% pro-choice, an environmental advocate, and champion for veterans and military families. After nearly a decade defending our nation, I\u2019ll stand up for our American freedoms, fight for what\u2019s right and fair, and defend our democracy. Endorsed by Washington State Labor Council, police, nurses, teachers, VoteVets.",
+                  "header": "Statement"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "alias": null,
+          "district": null,
+          "contest_id": 7,
+          "jurisdiction": "Spokane",
+          "position": "11",
+          "title": "Superior Court Justice",
+          "candidates": [
+            {
+              "politigram": {
+                "humanitarianism": 75,
+                "prosperity": 80,
+                "community": 70,
+                "liberty": 85,
+                "stewardship": 60
+              },
+              "website": "https://fdaforjudge.com/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=32#/candidates/147471/1569775",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "FDAforJudge@gmail.com",
+              "name": "F. Dayle Andersen",
+              "candidate_id": 1,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Spokane_SuperiorCourtJustice_p11_F.DayleAndersen.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "liberty"
+                  ],
+                  "text": "Fairness in court"
+                },
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism",
+                    "liberty"
+                  ],
+                  "text": "Listening to all"
+                },
+                {
+                  "politigram": [],
+                  "text": "Reducing anxiety"
+                }
+              ],
+              "phone": "(509) 220-8767",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        44,
+                        60
+                      ],
+                      [
+                        33,
+                        42
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [
+                      [
+                        24,
+                        31
+                      ],
+                      [
+                        85,
+                        93
+                      ]
+                    ],
+                    "stewardship": []
+                  },
+                  "text": "Personal injury, injury defense, insurance, criminal defense, and general litigation attorney for more than 31 years in Washington and Idaho.",
+                  "header": "Legal/Judicial Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        0,
+                        10
+                      ],
+                      [
+                        15,
+                        31
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [
+                      [
+                        42,
+                        65
+                      ]
+                    ],
+                    "stewardship": []
+                  },
+                  "text": "Arbitrator and trained mediator. Frequent Legal Education Speaker.",
+                  "header": "Other Professional Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Gonzaga University School of Law, J. D. 1993; Eastern Washington University, B. A. 1990. North Central H. S. , Spokane 1982.",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        0,
+                        37
+                      ],
+                      [
+                        39,
+                        84
+                      ]
+                    ],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Supporter of Second Harvest Food Bank, past volunteer at School Districts 81 and 360.",
+                  "header": "Community Service"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        294,
+                        320
+                      ],
+                      [
+                        340,
+                        369
+                      ],
+                      [
+                        457,
+                        482
+                      ],
+                      [
+                        496,
+                        516
+                      ]
+                    ],
+                    "prosperity": [],
+                    "community": [
+                      [
+                        522,
+                        530
+                      ],
+                      [
+                        535,
+                        548
+                      ],
+                      [
+                        619,
+                        669
+                      ],
+                      [
+                        680,
+                        715
+                      ],
+                      [
+                        747,
+                        775
+                      ]
+                    ],
+                    "liberty": [
+                      [
+                        680,
+                        698
+                      ]
+                    ],
+                    "stewardship": []
+                  },
+                  "text": "My 31 years of litigation practice includes personal injury, insurance coverage, injury defense, contract disputes, collection matters, bankruptcy, felony and misdemeanor defense, administrative law, appeals, family law, and probate matters. Throughout the time of my practice, the most common fear and anxiety expressed to me has been the uncertainty of going to court. For most people, their initial encounter with the Washington state judicial system is confusing and frightening. By allowing everyone to be heard with fairness and consideration a judge can reduce these anxieties. Regardless of position or status, everyone in the justice system should feel welcome and given even consideration in the courtroom. If elected, I plan to bring a willingness to listen to all with even consideration and without bias. I would be proud to serve as a judge for Spokane County and thank you for your consideration.",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 80,
+                "prosperity": 75,
+                "community": 85,
+                "liberty": 90,
+                "stewardship": 85
+              },
+              "website": "https://www.votevw.org/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=32#/candidates/147471/1568357",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "andrew@votevw.org",
+              "name": "Andrew B. Van Winkle",
+              "candidate_id": 2,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Spokane_SuperiorCourtJustice_p11_AndrewB.VanWinkle.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "prosperity",
+                    "liberty"
+                  ],
+                  "text": "Modernize court processes"
+                },
+                {
+                  "politigram": [
+                    "liberty",
+                    "prosperity"
+                  ],
+                  "text": "Enhance accountability measures"
+                },
+                {
+                  "politigram": [
+                    "humanitarianism",
+                    "prosperity"
+                  ],
+                  "text": "Promote effective rehabilitation programs"
+                }
+              ],
+              "phone": "(509) 903-6125",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Senior staff attorney at the Washington State Court of Appeals and commissioner pro tempore for Spokane County Superior Court; former prosecutor who has tried cases from theft to homicide and everything in between; argued in the Washington State Court of Appeals and the Washington State Supreme Court.",
+                  "header": "Legal/Judicial Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [
+                      [
+                        20,
+                        72
+                      ]
+                    ],
+                    "stewardship": []
+                  },
+                  "text": "Author and frequent lecturer at training programs for lawyers and judges.",
+                  "header": "Other Professional Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [
+                      [
+                        8,
+                        46
+                      ]
+                    ],
+                    "stewardship": []
+                  },
+                  "text": "J. D. , University of Washington School of Law; B. A. , University of Washington; A. A. , Spokane Falls Community College.",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        10,
+                        50
+                      ],
+                      [
+                        101,
+                        131
+                      ]
+                    ],
+                    "prosperity": [],
+                    "community": [
+                      [
+                        10,
+                        50
+                      ],
+                      [
+                        139,
+                        172
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        139,
+                        172
+                      ]
+                    ]
+                  },
+                  "text": "Chairman: Spokane Behavioral Health Advisory Board; WSBA Court Rules & Procedures Committee; Spokane Juvenile Court Diversion Board; SRTC: Transportation Advisory Committee; Angus Scott Pipe Band",
+                  "header": "Community Service"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        748,
+                        758
+                      ],
+                      [
+                        762,
+                        796
+                      ],
+                      [
+                        960,
+                        1004
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        273,
+                        305
+                      ],
+                      [
+                        360,
+                        394
+                      ],
+                      [
+                        589,
+                        610
+                      ]
+                    ],
+                    "community": [
+                      [
+                        61,
+                        78
+                      ],
+                      [
+                        1209,
+                        1226
+                      ],
+                      [
+                        1185,
+                        1203
+                      ]
+                    ],
+                    "liberty": [
+                      [
+                        1012,
+                        1038
+                      ],
+                      [
+                        1047,
+                        1058
+                      ]
+                    ],
+                    "stewardship": [
+                      [
+                        454,
+                        487
+                      ],
+                      [
+                        615,
+                        640
+                      ]
+                    ]
+                  },
+                  "text": "Spokane deserves judges who don\u2019t fear change and who embody impartial justice and accountability. Our superior court is outdated and out of balance. Everyday technologies are shunned and paper filings are still required. More importantly, too many dangerous people escape accountability for their actions, and too many people are behind bars, who could, with effective supervision and programs, return to positive and productive lives. With the goal of modernizing and restoring balance to superior court, Andrew stands out as a beacon of ingenuity and integrity. As a prosecutor, Andrew streamlined processes and embraced new technologies. He earned a reputation for holding people accountable for their actions and a reputation for fairness and compassion by helping create a felony drug court from the ground up. Now as a pro tem and as a staff attorney for the Court of Appeals, Andrew has established a reputation for impartiality and professionalism by treating all people with respect and dignity, while upholding the Constitution and the rule of law. Andrew has received excellent judicial candidate ratings from several independent bar associations. His endorsements include bipartisan support from community leaders, the Spokane Police Guild, and judges at all court levels, including on Washington\u2019s Supreme Court.",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 80,
+                "prosperity": 75,
+                "community": 85,
+                "liberty": 70,
+                "stewardship": 65
+              },
+              "website": "https://reelectjudgefennessy.com/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=32#/candidates/147471/1573062",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "Campaign@ReElectJudgeFennessy.com",
+              "name": "Timothy B Fennessy",
+              "candidate_id": 3,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Spokane_SuperiorCourtJustice_p11_TimothyBFennessy.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "prosperity",
+                    "liberty"
+                  ],
+                  "text": "Strengthen local judiciary"
+                },
+                {
+                  "politigram": [
+                    "prosperity",
+                    "liberty"
+                  ],
+                  "text": "Ensure fair justice"
+                },
+                {
+                  "politigram": [
+                    "humanitarianism"
+                  ],
+                  "text": "Compassionate decision making"
+                }
+              ],
+              "phone": "(509) 939-1897",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        12,
+                        25
+                      ],
+                      [
+                        44,
+                        56
+                      ],
+                      [
+                        211,
+                        233
+                      ],
+                      [
+                        235,
+                        245
+                      ],
+                      [
+                        247,
+                        266
+                      ],
+                      [
+                        290,
+                        312
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [
+                      [
+                        12,
+                        25
+                      ],
+                      [
+                        44,
+                        113
+                      ],
+                      [
+                        123,
+                        142
+                      ]
+                    ],
+                    "stewardship": [
+                      [
+                        211,
+                        233
+                      ]
+                    ]
+                  },
+                  "text": "33 years as trial counsel in civil matters, argued cases before the Washington Courts of Appeal and Supreme Court, and the Idaho Supreme Court. Elected Superior Court Judge in 2016 and for 2nd term in 2020. Has heard individual trial, family law, plea and sentencing, unlawful detainer and chief criminal dockets. Present Presiding Judge",
+                  "header": "Legal/Judicial Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        43,
+                        83
+                      ],
+                      [
+                        108,
+                        132
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [
+                      [
+                        12,
+                        41
+                      ]
+                    ],
+                    "stewardship": []
+                  },
+                  "text": "Past member Gonzaga Law Board of Advisors; member Superior Court Judges Association Education Committee and Criminal Rules Committee",
+                  "header": "Other Professional Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "GU School of Law JD, 1983; Gonzaga BA, 1979",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        58,
+                        67
+                      ]
+                    ],
+                    "prosperity": [],
+                    "community": [
+                      [
+                        13,
+                        34
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        84,
+                        111
+                      ]
+                    ]
+                  },
+                  "text": "Past member: Hutton Elementary PTG; HEAL Board; Hoopfest; Headstart to Construction frequent graduation speaker",
+                  "header": "Community Service"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        807,
+                        830
+                      ],
+                      [
+                        526,
+                        534
+                      ],
+                      [
+                        1081,
+                        1096
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        193,
+                        207
+                      ],
+                      [
+                        284,
+                        300
+                      ],
+                      [
+                        310,
+                        322
+                      ],
+                      [
+                        327,
+                        345
+                      ]
+                    ],
+                    "community": [
+                      [
+                        23,
+                        43
+                      ],
+                      [
+                        1038,
+                        1053
+                      ]
+                    ],
+                    "liberty": [
+                      [
+                        909,
+                        945
+                      ],
+                      [
+                        879,
+                        915
+                      ]
+                    ],
+                    "stewardship": [
+                      [
+                        389,
+                        404
+                      ],
+                      [
+                        477,
+                        493
+                      ]
+                    ]
+                  },
+                  "text": "I have been honored to serve Spokane County on the Superior Court for the past 8 years. With more than 33 years in private practice prior to my first election, I bring practical experience and sound judgment to the myriad decisions required of a Judge. Presiding over cases involving criminal charges, diverse civil claims and family law matters has deepened that experience, sharpened my decision making, and furthered my respect for the legal process. Being a judge requires active listening, legal acumen and a devotion to fairness. Superior Court cases involve all manner of disputes, and parties under extreme stress, where determinations result in lasting outcomes. Our legal system provides the framework for resolutions that are fair and without bias. My experiences allow me to make competent, yet compassionate decisions in line with that framework. Justice depends on consistent application of the rights provided to all under the law. As an incumbent Superior Court Judge, I seek the opportunity to continue to strengthen our local judiciary and pledge to work to find justice for all matters before me. Please vote Fennessy, Department 11 and let me continue in service to you and Spokane County.",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 80,
+                "prosperity": 75,
+                "community": 85,
+                "liberty": 70,
+                "stewardship": 90
+              },
+              "website": "https://www.jerryforjudge.net/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=32#/candidates/147471/1568369",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "electjerryforjudge@gmail.com",
+              "name": "Jerry Scharosch",
+              "candidate_id": 4,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Spokane_SuperiorCourtJustice_p11_JerryScharosch.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "prosperity"
+                  ],
+                  "text": "Community safety"
+                },
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Partnerships for support"
+                },
+                {
+                  "politigram": [
+                    "liberty"
+                  ],
+                  "text": "Integrity in service"
+                }
+              ],
+              "phone": "(509) 570-2907",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Spokane County Superior Court Commissioner, 2023 \u2013 present; Deputy Prosecutor, Spokane County, 2019 \u2013 2023; Washington State Assistant Attorney General, 2013 \u2013 2019; Associate Attorney at Evans, Craven & Lackie, P. S. and Phillabaum, Ledlin, Matthews & Sheldon, PLLC, 2008 \u2013 2013; Deputy Prosecutor, Thurston County, 2007 \u2013 2008",
+                  "header": "Legal/Judicial Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "",
+                  "header": "Other Professional Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "J. D. , Gonzaga University School of Law, magna cum laude , 2007; B. S. in Geography, Portland State University, summa cum laude , 2004",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        0,
+                        18
+                      ]
+                    ],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Catholic Charities Volunteer; Spokane County Bar Association Diversity Section Officer; Cheney Parks & Recreation Volunteer",
+                  "header": "Community Service"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        49,
+                        85
+                      ],
+                      [
+                        90,
+                        111
+                      ],
+                      [
+                        766,
+                        783
+                      ],
+                      [
+                        931,
+                        956
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        676,
+                        704
+                      ],
+                      [
+                        708,
+                        752
+                      ]
+                    ],
+                    "community": [
+                      [
+                        90,
+                        111
+                      ],
+                      [
+                        676,
+                        704
+                      ],
+                      [
+                        789,
+                        813
+                      ],
+                      [
+                        876,
+                        889
+                      ]
+                    ],
+                    "liberty": [
+                      [
+                        544,
+                        556
+                      ],
+                      [
+                        117,
+                        126
+                      ]
+                    ],
+                    "stewardship": [
+                      [
+                        993,
+                        1021
+                      ],
+                      [
+                        754,
+                        783
+                      ],
+                      [
+                        817,
+                        843
+                      ]
+                    ]
+                  },
+                  "text": "Character & Experience Matter. I am committed to respecting the dignity of all people and serving our community with integrity. I have practiced civil and criminal law, with more than 15 years of courtroom experience in Spokane County. I currently serve as a Superior Court Commissioner presiding over cases involving family law, civil commitments, juvenile dependencies, and guardianships. Before joining the bench, I prosecuted people for sex crimes committed against children and adults, represented Child Protective Services, and litigated civil rights, torts, and collection cases. Safe Communities Matter. As the father of three children, I understand the importance of keeping our communities safe by holding people accountable for their actions, encouraging treatment options, and supporting at-risk youth to strive for a better future. Partnerships Matter. We need a team approach to keep our communities safe and provide services to those in need. Throughout my career, I have built strong working relationships with law enforcement officers, social workers, correctional officers, and treatment providers. Ratings Matter. I am rated exceptionally well-qualified to be a superior court judge by Washington Women Lawyers and the Latina/o Bar Association, and well-qualified by the Joint Asian Judicial Evaluation Committee and Q Law Association of Washington.",
+                  "header": "Statement"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }, {
+      "election_type": "General",
+      "voting_start": "20241018",
+      "register_by": "20241029",
+      "voting_end": "20241106",
+      "election_id": 889,
+      "contests": [
+        {
+          "alias": null,
+          "district": "1",
+          "contest_id": 67,
+          "jurisdiction": "Spokane",
+          "position": null,
+          "title": "County Commissioner",
+          "candidates": [
+            {
+              "politigram": {
+                "humanitarianism": 90,
+                "prosperity": 85,
+                "community": 95,
+                "liberty": 80,
+                "stewardship": 90
+              },
+              "website": "https://chrisjordanforspokane.com/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=32#/candidates/145339/1570620",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "chris@chrisjordanforspokane.com",
+              "name": "Chris Jordan",
+              "candidate_id": 1,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Spokane_CountyCommissioner_d1_ChrisJordan.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "prosperity"
+                  ],
+                  "text": "Reduce crime"
+                },
+                {
+                  "politigram": [
+                    "humanitarianism"
+                  ],
+                  "text": "Tackle homelessness"
+                },
+                {
+                  "politigram": [
+                    "liberty",
+                    "humanitarianism"
+                  ],
+                  "text": "Improve access to justice"
+                }
+              ],
+              "phone": "(509) 530-1448",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Spokane County Commissioner.",
+                  "header": "Elected Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        92,
+                        121
+                      ],
+                      [
+                        165,
+                        245
+                      ]
+                    ],
+                    "prosperity": [],
+                    "community": [
+                      [
+                        291,
+                        326
+                      ],
+                      [
+                        328,
+                        346
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Assistant Attorney General - Washington State Attorney General\u2019s Office (Spokane Division), protected vulnerable children; Project Fellow - Columbia Legal Services, led campaign to pass bipartisan law helping homeless schoolchildren and families; Governor\u2019s Appointee - UW Board of Regents, advocated for college affordability; Proud Union Member.",
+                  "header": "Other Professional Experience"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        49,
+                        59
+                      ],
+                      [
+                        61,
+                        92
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [
+                      [
+                        49,
+                        59
+                      ]
+                    ],
+                    "stewardship": []
+                  },
+                  "text": "Mead Schools graduate - Mt. Spokane High School; Law Degree, Master of Public Administration, B. A. - University of Washington.",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        176,
+                        209
+                      ],
+                      [
+                        211,
+                        236
+                      ]
+                    ],
+                    "prosperity": [],
+                    "community": [
+                      [
+                        0,
+                        36
+                      ],
+                      [
+                        38,
+                        79
+                      ],
+                      [
+                        81,
+                        131
+                      ],
+                      [
+                        176,
+                        209
+                      ],
+                      [
+                        211,
+                        236
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        133,
+                        174
+                      ]
+                    ]
+                  },
+                  "text": "Juvenile Court Improvement Committee, Hope and Teamwork Awards - Spokane County; Bishop\u2019s Committee - St. Andrew\u2019s Episcopal Church; Legislative Intern - Senator Patty Murray; Volunteer - Spokane River Cleanup, West Central Dinner Table.",
+                  "header": "Community Service"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        494,
+                        513
+                      ],
+                      [
+                        409,
+                        430
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        244,
+                        283
+                      ],
+                      [
+                        374,
+                        407
+                      ]
+                    ],
+                    "community": [
+                      [
+                        147,
+                        174
+                      ],
+                      [
+                        555,
+                        565
+                      ],
+                      [
+                        436,
+                        460
+                      ],
+                      [
+                        465,
+                        490
+                      ],
+                      [
+                        522,
+                        599
+                      ],
+                      [
+                        602,
+                        635
+                      ]
+                    ],
+                    "liberty": [
+                      [
+                        111,
+                        145
+                      ]
+                    ],
+                    "stewardship": [
+                      [
+                        289,
+                        338
+                      ]
+                    ]
+                  },
+                  "text": "Serving as your County Commissioner is a privilege. I\u2019m proud of my work with both parties to get things done: making government more transparent, improving access to justice, and appointing a medical doctor to the Health Board. I\u2019ve pushed to expand job training and apprenticeships, and urged the County to take climate change seriously. Let\u2019s build on this progress with smart investments to reduce crime, expand drug treatment, and support first responders; by collaborating as a region to tackle homelessness; and by working for a County that\u2019s more affordable, welcoming, and accessible to all - where working families can thrive.",
+                  "header": "Statement"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "alias": null,
+          "district": null,
+          "contest_id": 1,
+          "jurisdiction": "Seattle",
+          "position": null,
+          "title": "City Council (at Large)",
+          "candidates": [
+            {
+              "politigram": {
+                "humanitarianism": 95,
+                "prosperity": 70,
+                "community": 90,
+                "liberty": 85,
+                "stewardship": 80
+              },
+              "website": "https://tariqforcouncil.org/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=17#/candidates/151714/1573612",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "info@tariqforcouncil.org",
+              "name": "Tariq Yusuf",
+              "candidate_id": 1,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Seattle_CityCouncil(atLarge)_TariqYusuf.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Uplift marginalized communities"
+                },
+                {
+                  "politigram": [
+                    "liberty"
+                  ],
+                  "text": "Hold Big Tech accountable"
+                },
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Prioritize affordable housing"
+                }
+              ],
+              "phone": "(206) 395-9356",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        0,
+                        30
+                      ],
+                      [
+                        58,
+                        83
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [
+                      [
+                        70,
+                        83
+                      ]
+                    ],
+                    "stewardship": []
+                  },
+                  "text": "Bachelor\u2019s in Computer Science, University of Washington; Master\u2019s in Jurisprudence, UW School of Law",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Tech Privacy Consultant",
+                  "header": "Occupation"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        376,
+                        387
+                      ],
+                      [
+                        503,
+                        534
+                      ],
+                      [
+                        878,
+                        923
+                      ],
+                      [
+                        1295,
+                        1333
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        587,
+                        636
+                      ],
+                      [
+                        678,
+                        709
+                      ]
+                    ],
+                    "community": [
+                      [
+                        25,
+                        49
+                      ],
+                      [
+                        51,
+                        61
+                      ],
+                      [
+                        67,
+                        77
+                      ],
+                      [
+                        474,
+                        489
+                      ],
+                      [
+                        652,
+                        709
+                      ],
+                      [
+                        714,
+                        734
+                      ],
+                      [
+                        878,
+                        923
+                      ],
+                      [
+                        1072,
+                        1124
+                      ],
+                      [
+                        1129,
+                        1180
+                      ],
+                      [
+                        1628,
+                        1666
+                      ]
+                    ],
+                    "liberty": [
+                      [
+                        925,
+                        989
+                      ],
+                      [
+                        1250,
+                        1273
+                      ]
+                    ],
+                    "stewardship": [
+                      [
+                        1617,
+                        1666
+                      ],
+                      [
+                        820,
+                        871
+                      ]
+                    ]
+                  },
+                  "text": "Seattle is a city with a deep culture of kindness, compassion, and generosity. Unfortunately, our city\u2019s policies have gone counter to this tradition, opting for inhumane and cruel bandages to the social and economic problems we are facing. I grew up in New Holly, a Seattle Housing Authority project. My family and I relied heavily on programs from public health clinics and food stamps to Running Start and college grants to survive. My story is a testament to how we can uplift everyone by promising safety and security to everyone. We currently have a council majority that puts the priorities of the wealthy ahead of the rest of us, and we need a citywide leader that will stand up to corporate influence and put the people first. We need a bolder representative who is not scared to stand up to these entities and fight for the best interest of all of our residents. I\u2019ve dedicated my career to protecting our privacy; keeping Big Tech accountable to the social and community impacts that their inventions have. I\u2019ve spent my entire life among the Seattle community amplifying the political voice and power of refugees and volunteering with programs that connect us together. My professional and personal track record outlines my dedication to speaking truth to power and unapologetically addressing the challenges that face us. I\u2019m not running for office for power or authority, I\u2019m running because I\u2019m tired of seeing our city force out people who lack the money or power to stay here. Seeing my friends and family suffer while knowing I was able to do something is something I can no longer tolerate. I have pledged to leave this city better than I found it. I hope you will join me in making a Seattle built for everyone.",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 90,
+                "prosperity": 85,
+                "community": 95,
+                "liberty": 80,
+                "stewardship": 90
+              },
+              "website": "https://alexisforseattle.com/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=17#/candidates/151714/1568526",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "info@alexisforseattle.com",
+              "name": "Alexis Mercedes Rinck",
+              "candidate_id": 2,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Seattle_CityCouncil(atLarge)_AlexisMercedesRinck.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Affordable housing"
+                },
+                {
+                  "politigram": [
+                    "prosperity"
+                  ],
+                  "text": "Public safety resources"
+                },
+                {
+                  "politigram": [
+                    "stewardship"
+                  ],
+                  "text": "Climate action"
+                }
+              ],
+              "phone": "(206) 705-9305",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "MA Public Administration, UW Evans School; BA, Syracuse University",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Assistant Director of Policy, Planning and State Operations, UW",
+                  "header": "Occupation"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        130,
+                        165
+                      ],
+                      [
+                        170,
+                        191
+                      ],
+                      [
+                        956,
+                        995
+                      ],
+                      [
+                        1015,
+                        1069
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        193,
+                        206
+                      ],
+                      [
+                        1150,
+                        1166
+                      ],
+                      [
+                        1484,
+                        1509
+                      ]
+                    ],
+                    "community": [
+                      [
+                        21,
+                        42
+                      ],
+                      [
+                        97,
+                        125
+                      ],
+                      [
+                        388,
+                        414
+                      ],
+                      [
+                        921,
+                        954
+                      ],
+                      [
+                        967,
+                        995
+                      ],
+                      [
+                        1097,
+                        1144
+                      ],
+                      [
+                        1752,
+                        1770
+                      ],
+                      [
+                        1772,
+                        1796
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        497,
+                        525
+                      ],
+                      [
+                        1556,
+                        1583
+                      ],
+                      [
+                        1585,
+                        1599
+                      ],
+                      [
+                        1605,
+                        1625
+                      ]
+                    ]
+                  },
+                  "text": "My commitment to the diverse neighborhoods and communities of Seattle is rooted in my experience building regional coalitions and advancing solutions to homelessness and housing affordability, public safety, clean energy, and higher education access. With your vote, I\u2019ll bring bold leadership and a generational voice to City Council to champion equitable investments in our priorities, community-driven solutions, and a brighter future for the next generation. While I approach policy rooted in data and measurable outcomes, I am equally informed by personal experience. Born to teenagers caught up in gang violence and cycles of substance use, homelessness, and incarceration, I was able to break those cycles thanks to loving grandparents, educational mentors, and afternoons at the Boys & Girls Club. My family\u2019s struggles mirror many of the challenges we face in Seattle, but we can break these cycles by providing affordable and supportive housing, supporting safe and healthy communities, and ensuring that no child is limited from reaching their full potential. On the Council, I\u2019ll work collaboratively to address Seattle\u2019s challenges with proven solutions and personal understanding: Public safety resources targeted to reducing crime and harm, including law enforcement and alternative staffing, proven community interventions, and gun violence prevention. Affordable housing at every level so seniors, working families, and renters like myself can remain in the city and build generational wealth. Climate action without compromise, including transit and electrification, more sidewalks, and green infrastructure. Progressive revenue solutions to a budget deficit that must maintain core services and support healthy outcomes. I\u2019m proudly endorsed by unions, diverse community voices, and elected leaders who know my work and commitment to positive change: 36th, 46th & King County Democrats; State Senators Rebecca Salda\u00f1a & Noel Frame; State Representatives Nicole Macri & Julia Reed; Councilmember Tammy Morales; Sage Leaders; UFCW 3000; essential workers; & more!",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 90,
+                "prosperity": 80,
+                "community": 95,
+                "liberty": 70,
+                "stewardship": 85
+              },
+              "website": "https://wooforseattle.com/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=17#/candidates/151714/1574090",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "info@wooforseattle.com",
+              "name": "Tanya Woo",
+              "candidate_id": 3,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Seattle_CityCouncil(atLarge)_TanyaWoo.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "prosperity"
+                  ],
+                  "text": "Public Safety"
+                },
+                {
+                  "politigram": [
+                    "humanitarianism"
+                  ],
+                  "text": "Homelessness"
+                },
+                {
+                  "politigram": [
+                    "community"
+                  ],
+                  "text": "Affordability"
+                }
+              ],
+              "phone": "(206) 657-6679",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "B. A. , University of Washington.",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        28,
+                        50
+                      ]
+                    ],
+                    "community": [
+                      [
+                        8,
+                        26
+                      ],
+                      [
+                        52,
+                        70
+                      ],
+                      [
+                        28,
+                        50
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Seattle City Councilmember, small restaurant owner, community advocate.",
+                  "header": "Occupation"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        304,
+                        343
+                      ],
+                      [
+                        367,
+                        402
+                      ],
+                      [
+                        809,
+                        872
+                      ],
+                      [
+                        1492,
+                        1549
+                      ],
+                      [
+                        1714,
+                        1732
+                      ],
+                      [
+                        1149,
+                        1174
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        350,
+                        363
+                      ],
+                      [
+                        1405,
+                        1437
+                      ],
+                      [
+                        1621,
+                        1650
+                      ]
+                    ],
+                    "community": [
+                      [
+                        279,
+                        297
+                      ],
+                      [
+                        246,
+                        272
+                      ],
+                      [
+                        538,
+                        570
+                      ],
+                      [
+                        634,
+                        690
+                      ],
+                      [
+                        461,
+                        474
+                      ],
+                      [
+                        480,
+                        495
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        1079,
+                        1121
+                      ],
+                      [
+                        1130,
+                        1174
+                      ],
+                      [
+                        1198,
+                        1248
+                      ]
+                    ]
+                  },
+                  "text": "As your Councilmember, it\u2019s an honor to represent you \u2013 and my hometown. I grew up on Beacon Hill, working at my family\u2019s business in the Chinatown/International District. Today, I live in Rainier Beach, and operate a neighborhood restaurant and affordable housing complex. As a community advocate, I\u2019ve confronted our toughest citywide issues, from public safety to combating racism and gentrification. Progress in Seattle demands leaders who are hardworking, collaborative, and action-oriented. When neighborhoods faced rising crime, I organized community safety teams. Seeing too many friends and neighbors priced out, I worked to convert the historic Louisa Hotel into workforce housing, where tenants pay based on what they can afford. I\u2019ve done everything from championing government accountability, to administering Narcan and CPR to unsheltered neighbors in crisis. I believe Seattle is at a crossroads. For too long, regional leaders have doubled down on failed approaches to issues like homelessness and public safety. These broken promises hurt the marginalized most. Seattle can move mountains on these issues! We can lead the nation in protecting the vulnerable. However, it will take leadership willing to prioritize what really works. As your citywide Councilmember, I\u2019m most focused on three challenges: Public Safety , Homelessness , and Affordability. To keep Seattle safe, I\u2019ll work to fully staff our first responders while supporting commonsense reforms. I will fight to improve the effectiveness of services for the unsheltered. And, to address the rising cost of living, I will bring my experience developing low-income housing to foster more affordable housing across Seattle. Seattle is a compassionate city. Neighbors take care of neighbors, especially the vulnerable. As your citywide Councilmember, I work for the City Council Seattle deserves\u2014one that focuses on what matters most and, above all, delivers compassionate results. I\u2019m Tanya Woo, and I ask for your vote.",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 90,
+                "prosperity": 75,
+                "community": 95,
+                "liberty": 70,
+                "stewardship": 85
+              },
+              "website": "https://www.saunatinaforseattle.com/",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=17#/candidates/151714/1576097",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": "info@saunatinaforseattle.com",
+              "name": "Saunatina Sanchez",
+              "candidate_id": 4,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Seattle_CityCouncil(atLarge)_SaunatinaSanchez.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Affordable housing"
+                },
+                {
+                  "politigram": [
+                    "community",
+                    "prosperity",
+                    "stewardship"
+                  ],
+                  "text": "Public infrastructure"
+                },
+                {
+                  "politigram": [
+                    "community",
+                    "humanitarianism"
+                  ],
+                  "text": "Equitable public services"
+                }
+              ],
+              "phone": "(425) 499-3476",
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [
+                      [
+                        63,
+                        83
+                      ]
+                    ],
+                    "community": [
+                      [
+                        0,
+                        14
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Communications and Religious Studies at Seattle University and Database Development at Seattle Central Community College",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [
+                      [
+                        5,
+                        32
+                      ],
+                      [
+                        43,
+                        82
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "SIFF Guest Relations Coordinator; 20 years Seattle Community Organizing Experience",
+                  "header": "Occupation"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        118,
+                        133
+                      ],
+                      [
+                        663,
+                        706
+                      ],
+                      [
+                        922,
+                        958
+                      ],
+                      [
+                        1020,
+                        1090
+                      ],
+                      [
+                        1472,
+                        1496
+                      ],
+                      [
+                        1503,
+                        1530
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        1250,
+                        1290
+                      ],
+                      [
+                        1340,
+                        1367
+                      ],
+                      [
+                        1373,
+                        1407
+                      ],
+                      [
+                        1412,
+                        1465
+                      ]
+                    ],
+                    "community": [
+                      [
+                        6,
+                        60
+                      ],
+                      [
+                        141,
+                        163
+                      ],
+                      [
+                        257,
+                        278
+                      ],
+                      [
+                        283,
+                        297
+                      ],
+                      [
+                        411,
+                        431
+                      ],
+                      [
+                        440,
+                        489
+                      ],
+                      [
+                        520,
+                        565
+                      ],
+                      [
+                        663,
+                        706
+                      ],
+                      [
+                        806,
+                        832
+                      ],
+                      [
+                        922,
+                        958
+                      ],
+                      [
+                        960,
+                        1014
+                      ],
+                      [
+                        1020,
+                        1053
+                      ],
+                      [
+                        1135,
+                        1169
+                      ],
+                      [
+                        1472,
+                        1496
+                      ],
+                      [
+                        1581,
+                        1614
+                      ],
+                      [
+                        1707,
+                        1746
+                      ],
+                      [
+                        1777,
+                        1821
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        257,
+                        278
+                      ],
+                      [
+                        283,
+                        297
+                      ],
+                      [
+                        1707,
+                        1746
+                      ]
+                    ]
+                  },
+                  "text": "I was raised in Holly Park, Kingway Apts, and Yesler Terrace by my dad\u2014a farmworker, ship crewmember, and mechanic\u2014my disabled mother, and a community of neighbors, while I helped raise my younger siblings. It takes a village! I've always had a passion for public infrastructure and urban planning, sparked by my experience living in public housing and relying on King County Metro. I\u2019m proudly endorsed by the Transit Riders Union where I co-founded the Bus and Transit Services Workgroup and served as Treasurer. I've collaborated with diverse groups of neighbors, including businesses, to expand bike and transit infrastructure alongside Cascade Bicycle Club, advocated for an Office of Renter Standards through the Seattle Renter Organizing Council, and stood for democracy serving on the board of the League of Women Voters\u2013SKC. When considering legislation, I ask: \u201c What\u2019s the goal? Who benefits? Who\u2019s harmed? \u201d I support I-137 to fund social housing, updating zoning laws to create more homes for families, and partnering with housing providers to enact right-to-shelter agreements. I\u2019m a Teamster in Local 117, and I plan to facilitate apprenticeship programs like those I\u2019m developing as a Board Member of Community Roots Housing. We must confront the $200 million budget deficit, without sacrificing Seattleite welfare, through progressive revenue streams like protecting and expanding Jumpstart and enacting new revenue like a Seattle Capital Gains tax. I'll focus on public services, like 24/7/365 restrooms in parks, so everyone can enjoy the city\u2019s culture through safe and accessible public spaces. I want Seattle to become the livable city we know it can be. On City Council, I will bring collaborative, detail-oriented thinking to bridge department silos in creating an equitable and accessible Seattle for all. If this is the Seattle you want to help create, then I humbly ask for your vote.",
+                  "header": "Statement"
+                }
+              ]
+            },
+            {
+              "politigram": {
+                "humanitarianism": 90,
+                "prosperity": 85,
+                "community": 95,
+                "liberty": 75,
+                "stewardship": 80
+              },
+              "website": "http://www.pdc.wa.gov/sos/rd.aspx?id=X1576452PAT",
+              "sources": [
+                {
+                  "link": "https://voter.votewa.gov/GenericVoterGuide.aspx?e=888&c=17#/candidates/151714/1576452",
+                  "text": "King County voter pamphlet"
+                }
+              ],
+              "email": null,
+              "name": "Saul Patu",
+              "candidate_id": 5,
+              "image": "https://candidate-image-bucket.s3.amazonaws.com/888_Seattle_CityCouncil(atLarge)_SaulPatu.jpg",
+              "priorities": [
+                {
+                  "politigram": [
+                    "humanitarianism"
+                  ],
+                  "text": "Improve public education"
+                },
+                {
+                  "politigram": [
+                    "humanitarianism"
+                  ],
+                  "text": "Tackle homelessness"
+                },
+                {
+                  "politigram": [
+                    "prosperity"
+                  ],
+                  "text": "Foster economic growth"
+                }
+              ],
+              "phone": null,
+              "background": [
+                {
+                  "politigram": {
+                    "humanitarianism": [],
+                    "prosperity": [],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Bachelor's in Education, University of Oregon",
+                  "header": "Education"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        14,
+                        29
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        0,
+                        12
+                      ],
+                      [
+                        30,
+                        38
+                      ]
+                    ],
+                    "community": [],
+                    "liberty": [],
+                    "stewardship": []
+                  },
+                  "text": "Entrepreneur, Social Services/Business/Sports Leadership",
+                  "header": "Occupation"
+                },
+                {
+                  "politigram": {
+                    "humanitarianism": [
+                      [
+                        119,
+                        212
+                      ],
+                      [
+                        245,
+                        293
+                      ],
+                      [
+                        321,
+                        359
+                      ],
+                      [
+                        1113,
+                        1134
+                      ],
+                      [
+                        1138,
+                        1175
+                      ]
+                    ],
+                    "prosperity": [
+                      [
+                        724,
+                        790
+                      ],
+                      [
+                        1180,
+                        1230
+                      ],
+                      [
+                        1044,
+                        1106
+                      ]
+                    ],
+                    "community": [
+                      [
+                        30,
+                        60
+                      ],
+                      [
+                        119,
+                        179
+                      ],
+                      [
+                        245,
+                        293
+                      ],
+                      [
+                        321,
+                        359
+                      ],
+                      [
+                        584,
+                        629
+                      ],
+                      [
+                        638,
+                        667
+                      ],
+                      [
+                        1113,
+                        1134
+                      ],
+                      [
+                        1138,
+                        1175
+                      ],
+                      [
+                        1180,
+                        1230
+                      ],
+                      [
+                        1297,
+                        1329
+                      ],
+                      [
+                        1368,
+                        1393
+                      ],
+                      [
+                        1766,
+                        1812
+                      ]
+                    ],
+                    "liberty": [],
+                    "stewardship": [
+                      [
+                        638,
+                        667
+                      ],
+                      [
+                        876,
+                        968
+                      ],
+                      [
+                        970,
+                        1039
+                      ]
+                    ]
+                  },
+                  "text": "Seattle needs leaders who are deeply rooted in its community and committed to making a difference \u2013 Raised in a family dedicated to serving the Seattle community for over 60 years in education and social services, I have witnessed firsthand the impact of quality service on diverse communities. I have devoted my life to providing quality services to families because of my lived experience and the lessons learned from my parents and older siblings. Growing up in Seattle has given me a deep understanding of our city's unique challenges and opportunities. Seattle needs leaders who understand the diverse needs of its residents and can implement effective solutions - Over the past 20 years, I have dedicated my career to developing high-performing people and teams across various sectors including business, education, sports, social services, and spiritual growth. I have led innovative programs such as the Workforce Development Program for youth and young adults, developed a text app process for the Dept of Human Services in Oregon and managed a $200 million channel business for Veritas Technology. From tackling homelessness to improving our public education system and fostering economic growth through small businesses\u2014my background allows me to understand these challenges deeply and work towards practical solutions. Seattle needs leaders who understand resilience and dedication - My journey began as a college athlete, manifesting a remarkable skill set that I developed in trust, confidence, and connection based on relationships. If you bless me with the opportunity to serve as your Seattle City Councilman, your support would be the intrinsic drive and motivation that fuels me, not the accolades. I will show up when circumstances are tough and work tirelessly for our community\u2019s betterment. My commitment, work ethic and tenacity are bar none, bringing the same resilience and dedication if elected Seattle City Councilman.",
+                  "header": "Statement"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
