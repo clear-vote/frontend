@@ -1,38 +1,56 @@
+// route.ts
+
 import { NextRequest, NextResponse } from 'next/server';
-import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda";
+import { Amplify } from 'aws-amplify';
+import { post } from 'aws-amplify/api';
+import awsconfig from '@/aws-exports';
 
-// Configure the Lambda client
-const client = new LambdaClient({ 
-  region: process.env.AWS_REGION,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!
-  }
-});
+Amplify.configure(awsconfig);
 
-// Call to REAL Lambda
+// Configure Amplify
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    // Invoke the Lambda function
-    const command = new InvokeCommand({
-      FunctionName: process.env.LAMBDA_ARN,
-      Payload: JSON.stringify(body),
+    // Invoke the Amplify function
+    const result = await post({
+      apiName: 'amplifyBackendOrchestrator',
+      path: '/',
+      options: { body }
     });
 
-    const { Payload } = await client.send(command);
-
-    // Parse the Lambda response
-    const result = JSON.parse(new TextDecoder().decode(Payload));
-
-    // Return the Lambda response
+    // Return the function response
     return NextResponse.json(result);
   } catch (error) {
-    console.error('Error invoking Lambda:', error);
+    console.error('Error invoking Amplify function:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
+
+// // Call to REAL Lambda
+// import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda";
+// export async function POST(request: NextRequest) {
+//   try {
+//     const body = await request.json();
+
+//     const command = new InvokeCommand({
+//       FunctionName: process.env.LAMBDA_ARN,
+//       Payload: JSON.stringify(body),
+//     });
+    
+//     // Invoke the Lambda function with the command
+//     const { Payload } = await new LambdaClient({ region: 'us-west-2' }).send(command);
+
+//     // Parse the Lambda response
+//     const result = JSON.parse(new TextDecoder().decode(Payload));
+
+//     // Return the Lambda response
+//     return NextResponse.json(result);
+//   } catch (error) {
+//     console.error('Error invoking Lambda:', error);
+//     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+//   }
+// }
 
 // // Call to mock lambda
 // import fs from 'fs';
@@ -42,8 +60,8 @@ export async function POST(request: NextRequest) {
 //   await new Promise(resolve => setTimeout(resolve, 100));
 
 //   // Read the JSON file
-//   // const filePath = path.join(process.cwd(), 'public', 'data', 'testData.json');
-//   const filePath = path.join(process.cwd(), 'public', 'data', 'queryData.json');
+//   // const filePath = path.join(process.cwd(), 'public', 'data', 'mockData1.json'); // mock dataset 1: one election, one contest/jurisdiction, WITH picture links
+//   const filePath = path.join(process.cwd(), 'public', 'data', 'mockData2.json'); // mock dataset 2: multiple elections, multiple jurisdictions
 //   const fileContents = fs.readFileSync(filePath, 'utf8');
 //   const data = JSON.parse(fileContents);
 
