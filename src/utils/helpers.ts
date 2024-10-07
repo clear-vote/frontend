@@ -125,6 +125,22 @@ export const scalePolitigramScores = (candidates: Record<number, Candidate>): Re
   return candidatesAndComposite;
 }
 
+function reorderPolitigram(politigram: any): any {
+  const orderedPolitigram: { [key: string]: number } = {};
+  const expectedOrder = ['community', 'humanitarianism', 'prosperity', 'liberty', 'stewardship'];
+
+  expectedOrder.forEach((key) => {
+    if (politigram.hasOwnProperty(key)) {
+      orderedPolitigram[key] = politigram[key];
+    } else {
+      console.error(`Error: Missing or mismatched field in politigram: ${key}`);
+      return null;
+    }
+  });
+
+  return orderedPolitigram;
+}
+
 export const getElectionsRecord = (data: any[]): Record<number, Election> => {
   const electionsRecord: Record<number, Election> = {};
   data.forEach(election => {
@@ -132,13 +148,16 @@ export const getElectionsRecord = (data: any[]): Record<number, Election> => {
     election.contests.forEach((contest: any) => {
       const candidatesRecord: Record<number, Candidate> = {};
       contest.candidates.forEach((candidate: any) => {
-        if (candidate.politigram !== null) {
+        let politigram = null;
+        if (candidate.politigram)
+          politigram = reorderPolitigram(candidate.politigram);
+        if (politigram !== null) {
           candidatesRecord[candidate.candidate_id] = {
             id: candidate.candidate_id,
             name: candidate.name,
             website: candidate.website,
             image: candidate.image,
-            politigram: candidate.politigram, //type PolitigramScores
+            politigram: politigram, //type PolitigramScores
             priorities: candidate.priorities,
             voting_record: candidate.voting_record,
             financing: candidate.financing,

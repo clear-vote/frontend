@@ -120,24 +120,25 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
         politigramName: string | null, 
         color: string | null
     ) {
-        if (politigramName === null || !(politigramName in background.politigram)) {
+        if (politigramName === null || 
+            !background.politigram ||  // Add this check
+            !(politigramName in background.politigram) || 
+            background.politigram[politigramName].length === 0) {
             return background.text;
         } else {
             let styledText = '';
             let lastIndex = 0;
-            let afterText = '';
     
+            // TODO: the bug is here
             const politigramEntries = background.politigram[politigramName];
-            if (politigramEntries) {
-                politigramEntries.forEach(([start, end]) => {
-                    const beforeText = background.text.slice(lastIndex, start);
-                    const highlightedText = background.text.slice(start, end);
-                    afterText = background.text.slice(end);
-                    styledText += `${beforeText}<span class="${card.textHighlighted}" data-color="${color}">${highlightedText}</span>`;
-                });
-            }
+            politigramEntries.forEach(([start, end]) => {
+                const beforeText = background.text.slice(lastIndex, start);
+                const highlightedText = background.text.slice(start, end);
+                lastIndex = end;
+                styledText += `${beforeText}<span class="${card.textHighlighted}" data-color="${color}">${highlightedText}</span>`;
+            });
 
-            return styledText + `${afterText}`;
+            return styledText + `${background.text.slice(lastIndex)}`;
         }
     }
 
@@ -167,6 +168,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
             <div>
                 <h2 className={`${card.text} ${card.textHeader}`}>Politigram</h2>
             </div>
+            {/* TODO: card.gridPolitigram must be sticky and smaller and scale */}
             <div className={`${card.grid} ${card.gridPolitigram}`}>
                 <div className={`${card.gridItem} ${card.gridItemPolitigram}`} ref={parentRef}>
                     <PolitigramPie parent={parentRef} politigramScores={candidate.politigram} open={open}/>

@@ -79,7 +79,7 @@ export const CandidateDrawer: React.FC<CandidateDrawerProps> = ({
     return (
       <Dialog open={open} onOpenChange={handleOpenChange}>
         <DialogTrigger asChild>{triggerContent}</DialogTrigger>
-        <DialogContent>
+        <DialogContent className="max-w-[1200px] w-[90vw]">
           <DialogHeader>
             <DialogTitle></DialogTitle>
           </DialogHeader>
