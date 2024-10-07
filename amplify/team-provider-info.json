@@ -10,6 +10,14 @@
       "StackName": "amplify-frontend-main-57b46",
       "StackId": "arn:aws:cloudformation:us-west-2:058264528055:stack/amplify-frontend-main-57b46/96ff1a40-835e-11ef-a21b-0214ccf88ccd",
       "AmplifyAppId": "d1usibm52chveh"
+    },
+    "categories": {
+      "function": {
+        "amplifyBackendOrchestrator": {
+          "deploymentBucketName": "amplify-frontend-main-57b46-deployment",
+          "s3Key": "amplify-builds/amplifyBackendOrchestrator-546c553941434c667a38-build.zip"
+        }
+      }
     }
   }
 }
