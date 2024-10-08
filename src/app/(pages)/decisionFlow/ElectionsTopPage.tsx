@@ -37,61 +37,63 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
   const selectedElectionData = elections[selectedElection!];
   return ( 
     <>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col md:flex-row gap-8">
+
         {MemoizedPrecinctMapCard}
-      </div>
+        
+        <div className="flex flex-col">
+          <div className="border rounded-lg bg-background-white">
+            <div className="gap-16 max-w-[1100px] px-8 py-8">
+              {/* left side */}
+              <div className="flex flex-col gap-6">
+                <ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />
 
-      <div className="flex flex-col md:p-8 p-4">
-        <div className="border rounded-lg bg-background-white">
-          <div className="grid grid-cols-5 gap-16 max-w-[1100px] px-8 py-12">
-            {/* left side */}
-            <div className="col-span-3 flex flex-col gap-6">
-              <ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />
+                <div className="flex flex-col gap-2 flex-1">
+                  <h1 className="font-bold text-header text-text-primary">{selectedElectionData.type} Election</h1>
+                  <p className="text-text-body">A general election and a special election are both types of elections, but they serve different
+                    purposes and occur under different circumstances.</p>
+                </div>
 
-              <div className="flex flex-col gap-2 flex-1">
-                <h1 className="font-bold text-header text-text-primary">{selectedElectionData.type} Election</h1>
-                <p className="text-text-body">A general election and a special election are both types of elections, but they serve different
-                  purposes and occur under different circumstances.</p>
+                {/** TODO: Replace with "Sign up for reminders" modal */}
+                <div className="flex flex-row md:flex-col lg:flex-row gap-2">
+                  <Button variant="brand"><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
+                    <PersonIcon style={{width : '15px'}}/> Sign up for reminders</a>
+                  </Button>
+                  <Button style={{ backgroundColor: 'white', border: '1px solid lightgray', color: 'black' }}><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
+                    <HowToVoteIcon style={{width : '15px'}}/> Get registered</a>
+                  </Button>
+
+                </div>
               </div>
 
-              {/** TODO: Replace with "Sign up for reminders" modal */}
-              <div className="flex gap-2">
-                <Button variant="brand"><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
-                  <PersonIcon style={{width : '15px'}}/> Sign up for reminders</a>
-                </Button>
-                <Button style={{ backgroundColor: 'white', border: '1px solid lightgray', color: 'black' }}><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
-                  <HowToVoteIcon style={{width : '15px'}}/> Get registered</a>
-                </Button>
-
-              </div>
-            </div>
-
-            {/* right side */}
-            <div className="col-span-2 flex flex-col p-6 bg-background-tertiary rounded-lg">
-              <h4 className="text-title mb-4">Dates & Deadlines</h4>
-              <ul className="flex flex-col gap-2">
-                <li className="flex gap-6">
-                  <p className="w-[75px] flex-none text-body-500">April 5</p>
-                  <p className="flex-1 text-text-body">Start of 18-day voting period (through Election Day). Ballots are mailed out and Accessible Voting Units (AVUs) are available at voting centers.</p>
-                </li>
-                <li className="flex gap-6">
-                  <p className="w-[75px] flex-none text-body-500">April 15</p>
-                  <p className="flex-1 text-text-body">Deadline for online & mail registration.</p>
-                </li>
-                <li className="flex gap-6">
-                  <p className="w-[75px] flex-none text-body-500">April 23</p>
-                  <p className="flex-1 text-text-body">Deposit your ballot in an official drop box by 8 p.m. on Election Day.</p>
-                </li>
-              </ul>
+              {/* right side */}
+              {/* <div className="col-span-2 flex flex-col p-6 bg-background-tertiary rounded-lg">
+                <h4 className="text-title mb-4">Dates & Deadlines</h4>
+                <ul className="flex flex-col gap-2">
+                  <li className="flex gap-6">
+                    <p className="w-[75px] flex-none text-body-500">April 5</p>
+                    <p className="flex-1 text-text-body">Start of 18-day voting period (through Election Day). Ballots are mailed out and Accessible Voting Units (AVUs) are available at voting centers.</p>
+                  </li>
+                  <li className="flex gap-6">
+                    <p className="w-[75px] flex-none text-body-500">April 15</p>
+                    <p className="flex-1 text-text-body">Deadline for online & mail registration.</p>
+                  </li>
+                  <li className="flex gap-6">
+                    <p className="w-[75px] flex-none text-body-500">April 23</p>
+                    <p className="flex-1 text-text-body">Deposit your ballot in an official drop box by 8 p.m. on Election Day.</p>
+                  </li>
+                </ul>
+              </div> */}
             </div>
           </div>
-        </div>
 
-        <h3 className="font-bold text-lg">Explore Your Ballot! 
-          <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/>
-        </h3>
-        <ProgressCard onSendResultsClick={onSendResultsClick}/>
+          <h3 className="font-bold text-lg mt-8">Explore Your Ballot! 
+            <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/>
+          </h3>
+          <ProgressCard onSendResultsClick={onSendResultsClick}/>
+        </div>
       </div>
+      
     </>
   );
 };

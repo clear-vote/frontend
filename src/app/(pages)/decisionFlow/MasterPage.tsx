@@ -140,7 +140,10 @@ const DecisionFlow = () => {
             <>
               <div className=""> 
                 <AnimatedPage page='election' isActive={selectedContest === null && !inRightPage && !inSendResultsPage}>
-                  <ElectionsTopPage onSendResultsClick={handleSendResultsClick} />
+                  
+                  {/* <div className="flex flex-col items-center max-w-[1200px]"> */}
+                    <ElectionsTopPage onSendResultsClick={handleSendResultsClick}/>
+                  {/* </div> */}
                   <ElectionsBottomPage onContestClick={handleContestClick} />
                 </AnimatedPage>
               </div>
@@ -155,21 +158,41 @@ const DecisionFlow = () => {
           ) : (
             // Desktop Transitions
             <>
-              <ElectionsTopPage onSendResultsClick={handleSendResultsClick}/>
-              <div style={{ display: 'flex', height: 'calc(100% - 60px)' }}>
+              <div className="flex flex-col items-center w-full px-16 mb-32">
+                  <div className="flex flex-col items-center max-w-[1200px]">
+                    <ElectionsTopPage onSendResultsClick={handleSendResultsClick}/>
+                  </div>
+
+                <div className="grid grid-cols-12 md:p-8 p-4 bg-background-secondary  max-w-[1200px] flex-grow">
+                  <div className="col-span-3">
+                    <ElectionsBottomPage onContestClick={handleContestClick} />
+                  </div>
+                  <div className="col-span-9">
+                    <AnimatedPage page='contest' isActive={!inSendResultsPage && selectedContest !== null && inRightPage}>
+                      <div style={{ height: '100%', backgroundColor: '#f0f0f0' }}>
+                        {selectedContest !== null && (
+                          <ContestPage election={election} onBackClick={handleBackContestClick} />
+                        )}
+                      </div>
+                    </AnimatedPage>
+                  </div>
+                </div>  
+              </div>
+
+              {/* <div style={{ display: 'flex', height: 'calc(100% - 60px)' }}> */}
                 <div style={{ width: '30%', minWidth: '350px' }}>
-                  <ElectionsBottomPage onContestClick={handleContestClick} />
+                  {/* <ElectionsBottomPage onContestClick={handleContestClick} /> */}
                 </div>
                 <div style={{ width: '70%' }}>
-                  <AnimatedPage page='contest' isActive={!inSendResultsPage && selectedContest !== null && inRightPage}>
+                  {/* <AnimatedPage page='contest' isActive={!inSendResultsPage && selectedContest !== null && inRightPage}>
                     <div style={{ height: '100%', backgroundColor: '#f0f0f0' }}>
                       {selectedContest !== null && (
                         <ContestPage election={election} onBackClick={handleBackContestClick} />
                       )}
                     </div>
-                  </AnimatedPage>
+                  </AnimatedPage> */}
                 </div>
-              </div>
+              {/* </div> */}
             </>
           )}
           </>

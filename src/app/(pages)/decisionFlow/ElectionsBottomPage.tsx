@@ -14,6 +14,7 @@ export const ElectionsBottomPage: React.FC<ElectionsBottomPageProps> = ({ onCont
   const { elections, selectedElection } = useDecisionFlowContext();
   const selectedElectionData = elections[selectedElection!];
   const jurisdictions: Record<string, Contest[]> = getJurisdictionLevelPositions(selectedElectionData.contests);
+  
   return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
     <>
       {Object.entries(jurisdictions).map(([jurisdictionName, contests]) => (

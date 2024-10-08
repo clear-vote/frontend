@@ -115,7 +115,7 @@ export default function Map ({ token }: MapProps) {
     }, [lng, lat, precinct]);
 
     return (
-        <div className="flex flex-col w-full max-w-[750px] md:px-16 px-8">
+        <div className="flex flex-col w-full">
             <div ref={mapContainer} className="bg-clip-border border mapbox z-[-1] absolute rounded-lg border"></div>
             <div className="flex px-4 py-3 bg-background-white rounded-lg border border-border-primary items-center gap-4">
                 <PinDropIcon />
