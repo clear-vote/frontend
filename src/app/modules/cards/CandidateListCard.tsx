@@ -20,10 +20,15 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
 
   if (isDesktop) {
       return (
-        <div className="list-item rounded-md">
+        <div className="list-item rounded-md" style={{ width: "90%"}}>
           <button ref={ref} {...props} className="splitscreen">
             <div className="left">
-              <img src={image ? image : '/images/no_candidate_image.png'} alt={name} className="list-item-image" />
+              <img 
+                src={image ? image : '/images/no_candidate_image.png'} 
+                alt={name} 
+                className="list-item-image" 
+                onError={(e) => { e.currentTarget.src = '/images/no_candidate_image.png'; }} 
+              />
             </div>
             <div className="right">
               <div className="list-item-name"><h1 className="font-bold">{name}</h1></div>
@@ -46,9 +51,14 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
     return (
       <div className="list-item rounded-md">
         <button ref={ref} {...props} className="splitscreen">
-          <div className="left">
-            <img src={image ? image : '/images/no_candidate_image.png'} alt={name} className="list-item-image" />
-          </div>
+        <div className="left">
+              <img 
+                src={image ? image : '/images/no_candidate_image.png'} 
+                alt={name} 
+                className="list-item-image" 
+                onError={(e) => { e.currentTarget.src = '/images/no_candidate_image.png'; }} 
+              />
+            </div>
           <div className="right">
             <div className="list-item-name"><h1 className="font-bold">{name}</h1></div>
             <br></br>
