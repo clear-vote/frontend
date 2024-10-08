@@ -18,6 +18,7 @@ import { Election } from '@/types';
 import { SendResultsPage } from './SendResultsPage';
 import { useMasterContext } from '@/context/MasterContext';
 import { ElectionsBottomPage } from './ElectionsBottomPage';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Image from 'next/image';
 
 const DecisionFlow = () => {
@@ -139,7 +140,7 @@ const DecisionFlow = () => {
           {!isDesktop ? (
             // Mobile Transitions
             <>
-              <div className=""> 
+              <div className="flex flex-col items-center w-full px-4 sm:px-8 mb-16"> 
                 <AnimatedPage page='election' isActive={selectedContest === null && !inRightPage && !inSendResultsPage}>
                   
                   {/* <div className="flex flex-col items-center max-w-[1200px]"> */}
@@ -164,14 +165,18 @@ const DecisionFlow = () => {
                     <ElectionsTopPage onSendResultsClick={handleSendResultsClick}/>
                   </div>
 
-                <div className="grid grid-cols-12 md:p-8 p-4 bg-background-secondary  max-w-[1200px] flex-grow">
-                  <div className="col-span-3">
+                <div className="grid grid-cols-12 gap-8 md:p-8 p-4 bg-background-secondary rounded-lg max-w-[1200px] flex-grow">
+                  <div className="col-span-4">
+                    <div className="flex gap-2 items-center mb-4">
+                      <h1 className="text-header">Your Ballot</h1>
+                      <ArrowDownwardIcon fontSize="medium" />
+                    </div>
+
                     <ElectionsBottomPage onContestClick={handleContestClick} />
                   </div>
-                  <div className="col-span-9">
+                  <div className="col-span-8">
                     {selectedContest === null && (
-                      
-                      <Image src="/images/illustration.png" alt="line" width={500} height={500} />
+                      <Image src="/images/illustration.png" alt="line" width={500} height={500} className="mt-20" />
                     )}
                     <AnimatedPage page='contest' isActive={!inSendResultsPage && selectedContest !== null && inRightPage}>
                       <div style={{ height: '100%', backgroundColor: '#f0f0f0' }}>
@@ -183,21 +188,6 @@ const DecisionFlow = () => {
                   </div>
                 </div>  
               </div>
-
-              {/* <div style={{ display: 'flex', height: 'calc(100% - 60px)' }}> */}
-                <div style={{ width: '30%', minWidth: '350px' }}>
-                  {/* <ElectionsBottomPage onContestClick={handleContestClick} /> */}
-                </div>
-                <div style={{ width: '70%' }}>
-                  {/* <AnimatedPage page='contest' isActive={!inSendResultsPage && selectedContest !== null && inRightPage}>
-                    <div style={{ height: '100%', backgroundColor: '#f0f0f0' }}>
-                      {selectedContest !== null && (
-                        <ContestPage election={election} onBackClick={handleBackContestClick} />
-                      )}
-                    </div>
-                  </AnimatedPage> */}
-                </div>
-              {/* </div> */}
             </>
           )}
           </>

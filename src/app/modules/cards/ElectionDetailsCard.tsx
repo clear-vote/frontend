@@ -53,7 +53,7 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
       onValueChange={handleValueChange}
       onOpenChange={handleOpenChange}
     >
-      <SelectTrigger className="w-[275px]" >
+      <SelectTrigger className="w-full max-w-[275px]" >
         <CalendarMonthIcon color="error" />
         <SelectValue placeholder="Select an election" className="">
           {selectedElection !== undefined && formatElectionLabel(elections[selectedElection!])}

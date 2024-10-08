@@ -55,7 +55,7 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
                 </div>
 
                 {/** TODO: Replace with "Sign up for reminders" modal */}
-                <div className="flex flex-row md:flex-col lg:flex-row gap-2">
+                <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-2">
                   <Button variant="brand"><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
                     <PersonIcon style={{width : '15px'}}/> Sign up for reminders</a>
                   </Button>
@@ -87,7 +87,7 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
             </div>
           </div>
 
-          <h3 className="font-bold text-lg mt-8">Explore Your Ballot! 
+          <h3 className="font-bold text-lg mt-8">Explore your ballot!
             <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/>
           </h3>
           <ProgressCard onSendResultsClick={onSendResultsClick}/>
