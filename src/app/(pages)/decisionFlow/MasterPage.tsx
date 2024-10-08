@@ -21,7 +21,6 @@ import WestIcon from '@mui/icons-material/West';
 import { useLocationContext } from '@/context/LocationContext';
 import { useElectionContext } from '@/context/ElectionContext';
 import { useCandidateContext } from '@/context/CandidateContext';
-import { dividerClasses } from '@mui/material';
 const MasterPage = () => {
   const { 
     setPrecinct,
@@ -57,6 +56,7 @@ const MasterPage = () => {
     setPrecinct(data.precinct_id);
     setCoordinates(data.boundary_data);
 
+    console.log("YEET", data)
     const electionsRecord: Record<number, Election> = getElectionsRecord(data.elections);
     if (Object.keys(electionsRecord).length === 0) {
       setNullElectionState(true);

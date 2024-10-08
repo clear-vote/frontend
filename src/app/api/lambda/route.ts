@@ -3,8 +3,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { InvokeCommand, LambdaClient } from '@aws-sdk/client-lambda';
 
-const lambdaClient = new LambdaClient({ region: 'us-west-2' });
-
 // Call to Amplify deployed Lambda
 export async function POST(request: NextRequest) {
   try {
@@ -16,7 +14,7 @@ export async function POST(request: NextRequest) {
       Payload: JSON.stringify(body)
     });
 
-    const { Payload } = await lambdaClient.send(command);
+    const { Payload } = await new LambdaClient({ region: 'us-west-2' }).send(command);
     const result = JSON.parse(new TextDecoder().decode(Payload));
     
     return NextResponse.json(result);
