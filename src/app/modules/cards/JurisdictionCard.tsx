@@ -20,6 +20,9 @@ export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({ jurisdiction
      * TODO: Find a way to implement so different jursidictions have different colors!
     */
     const jurisdictionColors = ["linear-gradient(to right, #ff7e5f, #feb47b)", "linear-gradient(to right, #90C31A, #60D052)", "linear-gradient(to right, #947FEE, #D283FF)"];
+    if (selectedContest && selectedElection && !filteredContests.includes(elections[selectedElection].contests[selectedContest])){
+        return <div></div>;
+    }
     return (
         <div>
         <div className="rounded-sm juristication-card" style={{ maxWidth: "375px" }}>
@@ -32,7 +35,7 @@ export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({ jurisdiction
             {selectedContest ?
                 <div key={selectedContest}
                     style={{ backgroundColor: '#06090B0A', border: 'none', borderTop: '2px solid #24262814', padding: "10px" }}>
-                    <BallotCard contest={elections[selectedElection!].contests[selectedContest!]} />
+                     <BallotCard contest={elections[selectedElection!].contests[selectedContest!]} />
                 </div>
                 : filteredContests.map((contest) => (
                     <div key={contest.id} onClick={() => onContestClick(contest.id)}
@@ -41,7 +44,7 @@ export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({ jurisdiction
                     </div>
                 ))}
         </div>
-        {selectedContest && 
+        {selectedContest && selectedElection && filteredContests.includes(elections[selectedElection].contests[selectedContest]) && 
         <div><br/>
             <PositionInfoCard position={elections[selectedElection!].contests[selectedContest!].position} />
             </div>}
