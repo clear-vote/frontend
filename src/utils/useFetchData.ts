@@ -23,7 +23,8 @@ export function useFetchData<T>() {
         });
 
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}\n${response}${response.statusText}`);
+          const errorText = await response.text();
+          throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
         }
 
         const result = await response.json();
