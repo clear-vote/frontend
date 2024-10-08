@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
 import InfoIcon from '@mui/icons-material/Info';
 import { getJurisdictionLevelDescription } from '@/utils/informationals';
 
+import { IconButton } from '@mui/material';
+
 type JurisdictionModalProps = {
   jurisdiction: string;
 };
@@ -24,7 +26,9 @@ const JurisdictionModal = ({ jurisdiction }: JurisdictionModalProps) => {
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
-        <InfoIcon style={{ color: 'white', float: 'right', marginRight: '5px', marginTop: '-25px', width: "18px"}}/>
+        <InfoIcon fontSize='small' style={{ color: 'white'}}/>
+        {/* <IconButton color="primary" aria-label="info" component="span"
+              sx={{ "&:hover": { color: "blue" } }}> </IconButton> */}
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

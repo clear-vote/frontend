@@ -87,9 +87,9 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
             </div>
           </div>
 
-          <h3 className="font-bold text-lg mt-8">Explore your ballot!
-            <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/>
-          </h3>
+          <h3 className="font-bold text-lg mt-8 mb-1">Explore your ballot below!</h3>
+            {/* <ArrowDownwardIcon style={{ width: "20px", transform: "translateY(-1px)" }}/> */}
+          
           <ProgressCard onSendResultsClick={onSendResultsClick}/>
         </div>
       </div>

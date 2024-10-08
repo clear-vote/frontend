@@ -49,9 +49,12 @@ export const BallotCard: React.FC<BallotCardProps> = ({contest, onClick}) => {
     //Ballot card with no selection
     return (
         <div className="flex flex-col items-center">
-            <h3 className="font-bold">{contest.jurisdiction} {contest.title} &#x2022; {Object.values(contest.candidates).length} candidates</h3>
-            <div className="list-item-plus-card rounded-md flex justify-center items-center" onClick={onClick}>
-                <AddIcon style={{ color: 'darkgray' }} />
+            <div className="flex w-full mb-2">
+                <h3 className="text-subtitle flex-1">{contest.jurisdiction} {contest.title}</h3>
+                <span>{Object.values(contest.candidates).length} candidates</span>
+            </div>
+            <div className="flex w-full py-16 md:py-12 items-center justify-center bg-background-white hover:bg-gray-100 hover:cursor-pointer rounded-md border-dashed border-2 border-border-primary" onClick={onClick}>
+                <AddIcon fontSize="large" style={{ color: 'darkgray' }} />
             </div>
         </div>
     );

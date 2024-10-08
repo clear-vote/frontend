@@ -17,6 +17,7 @@ const config = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
+        "bb": "1200px",
         "xs": "320px",
       },
     },
@@ -58,6 +59,10 @@ const config = {
       }],
       'symbol-caption': ['0.8rem', {
         lineHeight: '1rem',
+        fontWeight: '500',
+      }],
+      'symbol-link': ['0.9rem', {
+        lineHeight: '1.25rem',
         fontWeight: '500',
       }],
     },

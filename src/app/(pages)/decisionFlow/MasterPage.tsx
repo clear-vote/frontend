@@ -165,16 +165,16 @@ const DecisionFlow = () => {
                     <ElectionsTopPage onSendResultsClick={handleSendResultsClick}/>
                   </div>
 
-                <div className="grid grid-cols-12 gap-8 md:p-8 p-4 bg-background-secondary rounded-lg max-w-[1200px] flex-grow">
-                  <div className="col-span-4">
+                <div className="flex gap-8 md:p-8 p-4 bg-background-secondary rounded-lg max-w-[1200px] flex-grow">
+                  <div className="flex-1 min-w-[350px]">
                     <div className="flex gap-2 items-center mb-4">
                       <h1 className="text-header">Your Ballot</h1>
                       <ArrowDownwardIcon fontSize="medium" />
                     </div>
-
+                    
                     <ElectionsBottomPage onContestClick={handleContestClick} />
                   </div>
-                  <div className="col-span-8">
+                  <div className="col-span-5 bb:col-span-8">
                     {selectedContest === null && (
                       <Image src="/images/illustration.png" alt="line" width={500} height={500} className="mt-20" />
                     )}
