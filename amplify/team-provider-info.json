@@ -15,7 +15,7 @@
       "function": {
         "amplifyBackendOrchestrator": {
           "deploymentBucketName": "amplify-frontend-main-57b46-deployment",
-          "s3Key": "amplify-builds/amplifyBackendOrchestrator-414b506b664766785750-build.zip"
+          "s3Key": "amplify-builds/amplifyBackendOrchestrator-37334b6c364541484277-build.zip"
         }
       }
     }

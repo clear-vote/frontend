@@ -1,8 +1,11 @@
+// app/api/lambda/route.ts
+
 import { NextRequest, NextResponse } from 'next/server';
-import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda";
+import { InvokeCommand, LambdaClient } from '@aws-sdk/client-lambda';
 
 const lambdaClient = new LambdaClient({ region: 'us-west-2' });
 
+// Call to Amplify deployed Lambda
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -22,7 +25,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// // Call to REAL Lambda
+// // Call to ECR deployed Lambda
 // import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda";
 // export async function POST(request: NextRequest) {
 //   try {
@@ -47,7 +50,7 @@ export async function POST(request: NextRequest) {
 //   }
 // }
 
-// // Call to mock lambda
+// // Call to mock data. Comment out the mockData you don't want to use
 // import fs from 'fs';
 // import path from 'path';
 // export async function POST(request: NextRequest) {
