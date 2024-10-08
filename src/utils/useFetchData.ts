@@ -12,8 +12,9 @@ export function useFetchData<T>() {
         const queryParams = new URLSearchParams(window.location.search);
         const longitude = queryParams.get('longitude');
         const latitude = queryParams.get('latitude');
-
-        // Call the mock Lambda API route
+  
+        console.log('Sending request with:', { latitude, longitude });
+  
         const response = await fetch('/api/lambda', {
           method: 'POST',
           headers: {
@@ -21,14 +22,25 @@ export function useFetchData<T>() {
           },
           body: JSON.stringify({ latitude: latitude, longitude: longitude }),
         });
-
-        if (!response.ok) {
-          const errorText = await response.text();
-          throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+  
+        console.log('Response status:', response.status);
+        console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+  
+        let responseBody;
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          responseBody = await response.json();
+        } else {
+          responseBody = await response.text();
         }
-
-        const result = await response.json();
-        setData(JSON.parse(result.body) as T);
+  
+        console.log('Response body:', responseBody);
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}, message: ${JSON.stringify(responseBody)}`);
+        }
+  
+        setData(responseBody);
       } catch (err: any) {
         setError(err.message);
       } finally {
