@@ -20,8 +20,8 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
 
   if (isDesktop) {
       return (
-        <div className="list-item rounded-md" style={{ width: "90%"}}>
-          <button ref={ref} {...props} className="splitscreen">
+        <div className="list-item rounded-md" style={{ width: "90%"}} onClick={() => ref} {...props}>
+          <button className="splitscreen">
             <div className="left">
               <img 
                 src={image ? image : '/images/no_candidate_image.png'} 
@@ -49,8 +49,8 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
     }
 
     return (
-      <div className="list-item rounded-md">
-        <button ref={ref} {...props} className="splitscreen">
+      <div className="list-item rounded-md" onClick={() => ref} {...props}>
+        <button className="splitscreen">
         <div className="left">
               <img 
                 src={image ? image : '/images/no_candidate_image.png'} 
