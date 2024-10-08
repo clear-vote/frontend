@@ -23,7 +23,14 @@ export function useFetchData<T>() {
         });
 
         if (!response.ok) {
-          throw new Error(`HTTP error: ${JSON.stringify(response, null, 2)}`);
+          const responseDetails: Record<string, any> = {};
+
+          for (const prop in response) {
+            console.log(`${prop}:`, (response as any)[prop]);
+            responseDetails[prop] = (response as any)[prop];
+          }
+
+          throw new Error(`HTTP error: ${JSON.stringify(responseDetails, null, 2)}`);
         }
 
         const result = await response.json();
