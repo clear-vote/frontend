@@ -43,7 +43,7 @@ export const ElectionsTopPage: React.FC<ElectionsTopPageProps> = ({ onSendResult
         
         <div className="flex flex-col">
           <div className="border rounded-lg bg-background-white">
-            <div className="gap-16 max-w-[1100px] px-8 py-8">
+            <div className="gap-16 px-8 py-8">
               {/* left side */}
               <div className="flex flex-col gap-6">
                 <ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />

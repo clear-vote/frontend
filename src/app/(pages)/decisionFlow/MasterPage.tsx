@@ -18,6 +18,7 @@ import { Election } from '@/types';
 import { SendResultsPage } from './SendResultsPage';
 import { useMasterContext } from '@/context/MasterContext';
 import { ElectionsBottomPage } from './ElectionsBottomPage';
+import Image from 'next/image';
 
 const DecisionFlow = () => {
   const { 
@@ -168,6 +169,10 @@ const DecisionFlow = () => {
                     <ElectionsBottomPage onContestClick={handleContestClick} />
                   </div>
                   <div className="col-span-9">
+                    {selectedContest === null && (
+                      
+                      <Image src="/images/illustration.png" alt="line" width={500} height={500} />
+                    )}
                     <AnimatedPage page='contest' isActive={!inSendResultsPage && selectedContest !== null && inRightPage}>
                       <div style={{ height: '100%', backgroundColor: '#f0f0f0' }}>
                         {selectedContest !== null && (
