@@ -23,11 +23,14 @@ export const PinnedCandidateListItem = forwardRef<HTMLButtonElement, PinnedCandi
     return (
       <div className="list-item rounded-md">
         <button ref={ref} {...props} className="splitscreen">
-          <div className="left">
-            <img src={image ? image : '/images/no_candidate_image.png'} alt={name} className="list-item-image" />
-          </div>
+          <img
+            src={image ? image : '/images/no_candidate_image.png'}
+            alt={name}
+            className="list-item-image"
+            onError={(e) => { e.currentTarget.src = '/images/no_candidate_image.png'; }}
+          />
           <div className="right">
-          <StarIcon style={{ color: "#FBBF24", marginRight: "16px" }} />
+            <StarIcon style={{ color: "#FBBF24", marginRight: "16px" }} />
             <div style={{ display: "flex", alignItems: "center" }}>
               <div className="list-item-name font-bold">{name}</div>
             </div>
@@ -48,11 +51,16 @@ export const PinnedCandidateListItem = forwardRef<HTMLButtonElement, PinnedCandi
   }
 
   return (
-    <div className="list-item rounded-md" style={{ width: "377px", height: "130px"}} key={name}>
+    <div className="list-item rounded-md" style={{width: "95%", height: "130px"}} key={name}>
       <button ref={ref} {...props} className="splitscreen">
         <div className="left">
-          <img src={image ? image : '/images/no_candidate_image.png'} alt={name} className="list-item-image" 
-          style={{height: "130px"}}/>
+          <img
+            src={image ? image : '/images/no_candidate_image.png'}
+            alt={name}
+            className="list-item-image"
+            onError={(e) => { e.currentTarget.src = '/images/no_candidate_image.png'; }}
+            style={{height: "130px", width: "100px"}}
+          />
         </div>
         <div className="right">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
