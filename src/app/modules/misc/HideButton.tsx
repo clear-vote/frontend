@@ -4,8 +4,9 @@ import { HiddenCandidates, PinnedCandidates } from "@/types";
 import { Dispatch, SetStateAction } from "react";
 import { useElectionContext } from "@/context/ElectionContext";
 import { useCandidateContext } from "@/context/CandidateContext";
+import CloseIcon from '@mui/icons-material/Close';
+import UndoIcon from '@mui/icons-material/Undo';
 
-// After
 interface HideButtonProps {
   candidateId: number;
   unpickedCandidates: Set<number>;
@@ -16,13 +17,14 @@ export const HideButton: React.FC<HideButtonProps> = ({candidateId, unpickedCand
   const {selectedElection, selectedContest } = useElectionContext();
   const {pinnedCandidates, hiddenCandidates, setPinnedCandidates, setHiddenCandidates} = useCandidateContext();
   
-  if (selectedElection === null || selectedContest === null) return
+  if (selectedElection === null || selectedContest === null) return null;
 
   return(
     <DrawerClose asChild>
     { !hiddenCandidates[selectedElection][selectedContest].has(candidateId) ?
       <Button 
-        variant="outline"
+        className="bg-red-500 text-white w-1/2 hover:bg-red-700"
+        style={{ width: "47%" }}
         onClick={() => {
           // Remove the candidate from pinned candidates
           if (pinnedCandidates[selectedElection][selectedContest] === candidateId) {
@@ -53,10 +55,11 @@ export const HideButton: React.FC<HideButtonProps> = ({candidateId, unpickedCand
           setHiddenCandidates(updatedHiddenCandidates);
         }}
       >
-        Hide Candidate
+        <CloseIcon/>&nbsp;&nbsp;Hide Candidate
       </Button>
     : <Button
-        variant="outline"
+      className="bg-yellow-500 text-white hover:bg-yellow-700"
+      style={{ width: "47%" }}
         onClick={() => {
           // Remove from hidden candidates
           const updatedHiddenCandidates: HiddenCandidates = {
@@ -73,7 +76,7 @@ export const HideButton: React.FC<HideButtonProps> = ({candidateId, unpickedCand
           setUnpickedCandidates(new Set(unpickedCandidates).add(candidateId));
         }}
       >
-        Unhide Candidate
+        <UndoIcon/>&nbsp;&nbsp;Unhide Candidate
       </Button>
     } 
     </DrawerClose>

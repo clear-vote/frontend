@@ -69,7 +69,7 @@ export const BallotCard: React.FC<BallotCardProps> = ({contest, onClick}) => {
                 </p>
             </div>
                 <div className="flex justify-center items-center">
-            <div className="list-item-plus-card rounded-md flex justify-center items-center" onClick={onClick}>
+            <div className="list-item-plus-card rounded-md flex justify-center items-center hover:bg-gray-200" onClick={onClick}>
                 <AddIcon style={{ color: 'darkgray' }} />
             </div>
             </div>

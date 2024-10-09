@@ -63,8 +63,8 @@ export async function GET(request: NextRequest) {
 //     await new Promise(resolve => setTimeout(resolve, 100));
 
 //     // Read the JSON file
-//     const filePath = path.join(process.cwd(), 'public', 'data', 'mockData1.json'); // mock dataset 1: one election, one contest/jurisdiction, WITH picture links
-//     // const filePath = path.join(process.cwd(), 'public', 'data', 'mockData2.json'); // mock dataset 2: multiple elections, multiple jurisdictions
+//     // const filePath = path.join(process.cwd(), 'public', 'data', 'mockData1.json'); // mock dataset 1: one election, one contest/jurisdiction, WITH picture links
+//     const filePath = path.join(process.cwd(), 'public', 'data', 'mockData2.json'); // mock dataset 2: multiple elections, multiple jurisdictions
 //     const fileContents = fs.readFileSync(filePath, 'utf8');
 //     const data = JSON.parse(fileContents);
 

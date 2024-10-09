@@ -5,6 +5,7 @@ import * as React from "react"
 import { Button } from "@mui/material";
 import { MapboxSearchInput } from '../modules/misc/MapboxSearchInput';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
+import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 
 /** Hardcoded for now; I just imported them from the other website! */
 const WA_STATE: string = [-124.9036503, 45.6798, -116.7196941, 49.1739043].join(',');
@@ -32,7 +33,11 @@ export default function LandingPage() {
         <br></br>
         <small className="text-white"><HorizontalRuleIcon/>Currently only supporting Washington State<HorizontalRuleIcon/></small>
         <br></br>
-        <Button style={{ backgroundColor: '#947FEE', color: 'white'}}><a href="/decisionFlow?latitude=47.65555&longitude=-122.30320">See Example!</a></Button>
+        <a href="/decisionFlow?latitude=47.65555&longitude=-122.30320">
+        <Button className="bg-[#947FEE] hover:bg-purple-200 text-white" style={{fontFamily: "'IBM Plex Sans', sans-serif"}}>
+            <HelpCenterIcon style={{fontSize: "17px"}}/>&nbsp;See An Example Ballot!
+        </Button>
+        </a>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
     window.scrollTo(0, 0)
   }, [])
 
-  const validateEmail = (email: string|null) => {
+  const validateEmail = (email: string | null) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
   };
@@ -42,28 +42,35 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
   };
 
   return (
-    <div>
+    <div className="px-2">
       <div className="font-bold" style={{ padding: "10px", backgroundColor: "#2426280D", borderBottom: '1px solid #24262814' }}>
         <ArrowBackIcon onClick={onBackClick} style={{ width: '20px', transform: "translateY(-2px)" }} />
         &nbsp;&nbsp;&nbsp;Get Your Ballot!
       </div>
       <br></br>
+      <h1 className='font-bold text-xl'>Congratulations!</h1>
+      <br />
+      <p>You've just completed your ballot!
+        Please enter your email address below to recieve a copy of your ballot&#x2c; and thank you for taking the time to vote
+        in this election! Make sure to get your actual ballot in by the deadline&#x2c; Clearvote does not do this for you!
+      </p>
+      <br />
       <div className="flex space-x-2">
-      <Input
+        <Input
           type="email"
           placeholder="Enter your email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onKeyPress={handleKeyPress}
         />
-        <Button onClick={handleSubmit} style={{ backgroundColor: '#60D052' }}>
-          Submit
+        <Button onClick={handleSubmit} className="bg-[#60D052] hover:bg-green-600">
+          Let&apos;s Get My Ballot!
         </Button>
       </div>
       <br></br>
       <div className="flex justify-center items-center">
         {/* donate is a new page */}
-        <Button style={{ backgroundColor: '#947FEE'}}>Donate</Button>
+        <Button className="bg-[#947FEE] hover:bg-purple-800">Donate</Button>
       </div>
       <br></br>
       <div className="flex justify-center items-center">
