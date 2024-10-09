@@ -22,7 +22,7 @@ export const HideButton: React.FC<HideButtonProps> = ({candidateId, unpickedCand
     <DrawerClose asChild>
     { !hiddenCandidates[selectedElection][selectedContest].has(candidateId) ?
       <Button 
-        variant="outline"
+        style={{ backgroundColor: "#FF0000", color: "white", width: "47%" }}
         onClick={() => {
           // Remove the candidate from pinned candidates
           if (pinnedCandidates[selectedElection][selectedContest] === candidateId) {
@@ -56,7 +56,7 @@ export const HideButton: React.FC<HideButtonProps> = ({candidateId, unpickedCand
         Hide Candidate
       </Button>
     : <Button
-        variant="outline"
+      style={{ backgroundColor: "#FDDA0D", color: "white" }}
         onClick={() => {
           // Remove from hidden candidates
           const updatedHiddenCandidates: HiddenCandidates = {

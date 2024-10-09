@@ -19,7 +19,7 @@ export const PinButton: React.FC<PinButtonProps> = ({ candidateId, unpickedCandi
     <DrawerClose asChild>
     { (pinnedCandidates[selectedElection!][selectedContest!] !== candidateId) ?
       <Button
-        variant="outline"
+        style={{ backgroundColor: "#008000", color: "white", width: "47%" }}
         onClick={() => {
           // Move current pinned candidate back to unpinned state
           const currentPinnedCandidate = pinnedCandidates[selectedElection!][selectedContest!];
@@ -55,7 +55,7 @@ export const PinButton: React.FC<PinButtonProps> = ({ candidateId, unpickedCandi
         Pin Candidate
       </Button>
     : <Button 
-        variant="outline"
+      style={{ backgroundColor: "#FDDA0D", color: "white" }}
         onClick={() => {
           // Remove the pinned candidate
           const updatedPinnedCandidates: PinnedCandidates = {

@@ -68,7 +68,7 @@ export const PinnedCandidateListItem = forwardRef<HTMLButtonElement, PinnedCandi
             <StarIcon style={{ color: "#FBBF24", marginRight: "16px" }} />
           </div>
           <br></br>
-          <div className="list-item-website">
+          <div className="list-item-website hover:bg-gray-200">
             {website &&
               <div className="text-sm text-gray-400"
                 style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>

@@ -148,11 +148,12 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                 <h2 className={`${card.text} ${card.textHeader}`}>{position}</h2>
             </div>
             <div className={`${card.grid} ${card.gridHeader}`}>
-                {candidate.image && (
-                    <div className={`${card.gridItem} ${card.gridItemProfile}`}>
-                        <img src={candidate.image ? candidate.image : '/images/no_candidate_image.png'} alt="Candidate Photo" className="list-item-image" />
-                    </div>
-                )}
+            <img 
+              src={candidate.image ? candidate.image : '/images/no_candidate_image.png'} 
+              alt={candidate.name} 
+              className="list-item-image h-full w-full" 
+              onError={(e) => { e.currentTarget.src = '/images/no_candidate_image.png'; }} 
+            />
                 <div className={`${card.gridItem} ${card.gridItemName}`}>
                     <h2 className={`${card.text} ${card.textHeader}`}>{candidate.name}</h2>
                 </div>

@@ -87,13 +87,14 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
               width: "50px", // Increased size
               height: "50px", // Increased size
               borderRadius: "50%",
-              background: "white",
+              background: "#D283FF",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)", // More pronounced drop shadow
               border: "none",
               cursor: "pointer",
+              color: "white",
               fontWeight: "bold", // Bolder text
             }}
           >
@@ -105,13 +106,14 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
               width: "50px", // Increased size
               height: "50px", // Increased size
               borderRadius: "50%",
-              background: "white",
+              background: "#D283FF",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)", // More pronounced drop shadow
               border: "none",
               cursor: "pointer",
+              color: "white",
               fontWeight: "bold", // Bolder text
             }}
           >

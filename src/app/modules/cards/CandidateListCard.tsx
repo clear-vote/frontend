@@ -33,7 +33,7 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
             <div className="right">
               <div className="list-item-name"><h1 className="font-bold">{name}</h1></div>
               <br></br>
-              <div className="list-item-website">
+              <div className="list-item-website hover:bg-gray-200">
                 {website &&
                   <a href={"https://" + website} className="text-sm text-gray-400" 
                   style={{overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}
