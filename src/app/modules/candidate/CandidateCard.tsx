@@ -12,6 +12,7 @@ import PolitigramPie from './PolitigramPie';
 import LinkIcon from '@mui/icons-material/Link';
 import PolitigramInfoModal from '../modals/PolitigramInfoModal';
 import { useUIContext } from '@/context/UIContext';
+import { getPolitigramInfo } from "@/utils/informationals";
 
 interface CandidateCardProps {
     position: string;
@@ -184,9 +185,10 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                             selectedPolitigram
                                 ?
                                 <>
-                                    <h2 className={`${card.text} ${card.textPolitigram}`} style={{ backgroundColor: politigramAttributes[selectedPolitigram].color }}>
-                                        {selectedPolitigram.charAt(0).toUpperCase() + selectedPolitigram.slice(1)}</h2>
-                                    <span>{displayScore}</span>
+                                    <h2 className={`${card.text} ${card.textPolitigram}`} style={{ backgroundColor: politigramAttributes[selectedPolitigram].color, padding: "10px" }}>
+                                      {selectedPolitigram.charAt(0).toUpperCase() + selectedPolitigram.slice(1)}
+                                    </h2>
+                                    <p className="font-bold text-xl">Focus: {displayScore}</p>
                                     <PolitigramInfoModal politigram={selectedPolitigram} />
                                 </>
                                 :

@@ -169,7 +169,7 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
       .append("svg")
       .attr("width", sideSize)
       .attr("height", sideSize)
-      .attr("class", "pulsate"); // Apply the pulsate class
+      .attr("class", "pulsate");
 
     svg.append("g")
       .attr("transform", `translate(${sideSize / 2}, ${sideSize / 2})`);

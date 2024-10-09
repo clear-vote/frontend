@@ -22,8 +22,8 @@ const PolitigramInfoModal = ({ politigram }: PolitigramInfoModalProps) => {
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" className="flex items-center ml-2">
-          <HelpOutlineRoundedIcon />
+        <Button variant="outline" className="flex justify-center font-bold" style={{width: "98%"}}>
+          <HelpOutlineRoundedIcon />&nbsp;Learn More
         </Button>
       </DialogTrigger>
       <DialogContent>

@@ -31,9 +31,10 @@
 
 .gridItemImage {
   grid-area: profile-pic;
-  width: 91px;
+  height: 135px;
   padding: 5px;
   margin: 0;
+  object-fit: cover;
   border-radius: 10px;
 }
 .gridItemName {
@@ -73,6 +74,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding: 3px;
 }
 
 /* Header */
@@ -132,7 +134,7 @@
   font-weight: var(--fw-bold); /* Bold for headers */
 }
 .textPolitigram {
-  font-size: var(--fs-md);
+  font-size: var(--fs-sm);
   overflow-wrap: break-word; /* Ensure text wraps */
   word-break: break-all; /* Break words if necessary */
   border-radius: 5px;
