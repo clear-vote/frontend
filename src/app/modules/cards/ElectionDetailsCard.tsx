@@ -111,14 +111,16 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
           <p>A general election and a special election are both types of elections, but they serve different
             purposes and occur under different circumstances.
           </p>
-          <br/>
+          <br />
           {/** TODO: Replace with "Sign up for reminders" link */}
-          <Button style={{ backgroundColor: '#947FEE', color: 'white' }}><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
-            <PersonIcon style={{ width: '15px' }} /> Sign up for reminders</a>
-          </Button>
-          <Button style={{ backgroundColor: 'white', border: '1px solid lightgray', color: 'black' }}><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
-            <HowToVoteIcon style={{ width: '15px' }} /> Get registered</a>
-          </Button>
+          <div>
+            <Button className="text-white bg-[#947FEE] hover:bg-purple-800"><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
+              <PersonIcon style={{ width: '15px' }} /> Sign up for reminders</a>
+            </Button>
+            <Button className="text-black bg-white hover:bg-gray-200 border border-gray-300"><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
+              <HowToVoteIcon style={{ width: '15px' }} /> Get registered</a>
+            </Button>
+          </div>
         </div>
         {datesAndDeadlines}
       </div>

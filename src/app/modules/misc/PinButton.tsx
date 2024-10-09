@@ -4,6 +4,8 @@ import { HiddenCandidates, PinnedCandidates } from "@/types";
 import { Dispatch, SetStateAction } from "react";
 import { useCandidateContext } from "@/context/CandidateContext";
 import { useElectionContext } from "@/context/ElectionContext";
+import PushPinIcon from '@mui/icons-material/PushPin';
+import UndoIcon from '@mui/icons-material/Undo';
 
 interface PinButtonProps {
   candidateId: number;
@@ -53,7 +55,7 @@ export const PinButton: React.FC<PinButtonProps> = ({ candidateId, unpickedCandi
             setPinnedCandidates(updatedPinnedCandidates);
           }}
         >
-          Pin Candidate
+          <PushPinIcon className="text-sm"/>&nbsp;&nbsp;Pin Candidate
         </Button>
       ) : (
         <Button 
@@ -74,7 +76,7 @@ export const PinButton: React.FC<PinButtonProps> = ({ candidateId, unpickedCandi
             setUnpickedCandidates(new Set(unpickedCandidates).add(candidateId));
           }}
         >
-          Unpin Candidate
+          <UndoIcon/>&nbsp;&nbsp;Unpin Candidate
         </Button>
       )}
     </DrawerClose>

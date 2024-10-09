@@ -51,7 +51,7 @@ export const PinnedCandidateListItem = forwardRef<HTMLButtonElement, PinnedCandi
   }
 
   return (
-    <div className="list-item rounded-md" style={{width: "95%", height: "130px"}} key={name}>
+    <div className="list-item rounded-md hover:bg-gray-200" style={{width: "95%", height: "130px"}} key={name}>
       <button ref={ref} {...props} className="splitscreen">
         <div className="left">
           <img
@@ -68,7 +68,7 @@ export const PinnedCandidateListItem = forwardRef<HTMLButtonElement, PinnedCandi
             <StarIcon style={{ color: "#FBBF24", marginRight: "16px" }} />
           </div>
           <br></br>
-          <div className="list-item-website hover:bg-gray-200">
+          <div className="list-item-website hover:bg-gray-300">
             {website &&
               <div className="text-sm text-gray-400"
                 style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>

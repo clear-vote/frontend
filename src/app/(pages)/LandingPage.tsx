@@ -32,7 +32,11 @@ export default function LandingPage() {
         <br></br>
         <small className="text-white"><HorizontalRuleIcon/>Currently only supporting Washington State<HorizontalRuleIcon/></small>
         <br></br>
-        <Button style={{ backgroundColor: '#947FEE', color: 'white'}}><a href="/decisionFlow?latitude=47.65555&longitude=-122.30320">See Example!</a></Button>
+        <Button className="bg-[#947FEE] hover:bg-gray-300 text-white hover:text-black" style={{fontFamily: "'IBM Plex Sans', sans-serif"}}>
+          <a href="/decisionFlow?latitude=47.65555&longitude=-122.30320">
+            See Example
+          </a>
+        </Button>
       </div>
     </div>
   );

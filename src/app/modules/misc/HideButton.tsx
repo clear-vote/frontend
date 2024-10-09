@@ -4,6 +4,8 @@ import { HiddenCandidates, PinnedCandidates } from "@/types";
 import { Dispatch, SetStateAction } from "react";
 import { useElectionContext } from "@/context/ElectionContext";
 import { useCandidateContext } from "@/context/CandidateContext";
+import CloseIcon from '@mui/icons-material/Close';
+import UndoIcon from '@mui/icons-material/Undo';
 
 interface HideButtonProps {
   candidateId: number;
@@ -53,7 +55,7 @@ export const HideButton: React.FC<HideButtonProps> = ({candidateId, unpickedCand
           setHiddenCandidates(updatedHiddenCandidates);
         }}
       >
-        Hide Candidate
+        <CloseIcon/>&nbsp;&nbsp;Hide Candidate
       </Button>
     : <Button
       className="bg-yellow-500 text-white hover:bg-yellow-700"
@@ -74,7 +76,7 @@ export const HideButton: React.FC<HideButtonProps> = ({candidateId, unpickedCand
           setUnpickedCandidates(new Set(unpickedCandidates).add(candidateId));
         }}
       >
-        Unhide Candidate
+        <UndoIcon/>&nbsp;&nbsp;Unhide Candidate
       </Button>
     } 
     </DrawerClose>

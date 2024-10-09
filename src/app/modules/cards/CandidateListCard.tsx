@@ -20,7 +20,7 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
 
   if (isDesktop) {
       return (
-        <div className="list-item rounded-md" style={{ width: "90%"}} onClick={() => ref} {...props}>
+        <div className="list-item rounded-md hover:bg-gray-200" style={{ width: "90%"}} onClick={() => ref} {...props}>
           <button className="splitscreen">
             <div className="left">
               <img 
@@ -33,7 +33,7 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
             <div className="right">
               <div className="list-item-name"><h1 className="font-bold">{name}</h1></div>
               <br></br>
-              <div className="list-item-website hover:bg-gray-200">
+              <div className="list-item-website hover:bg-gray-300 rounded-sm">
                 {website &&
                   <a href={"https://" + website} className="text-sm text-gray-400" 
                   style={{overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}
