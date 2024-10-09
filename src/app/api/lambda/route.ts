@@ -1,88 +1,82 @@
 // app/api/lambda/route.ts
-
 import { NextRequest, NextResponse } from 'next/server';
-import { InvokeCommand, LambdaClient } from '@aws-sdk/client-lambda';
 
-// Call to Amplify deployed Lambda
-export async function POST(request: NextRequest) {
+const getDataFromApi = async (latitude: string, longitude: string) => {
+  // For server-side code, use process.env directly
+  const baseUrl = process.env.BACKEND_ORCHESTRATOR_API_URL;
+  
+  if (!baseUrl) {
+    throw new Error('API URL not configured');
+  }
+
+  // Construct the full URL with query parameters
+  const apiUrl = `${baseUrl}?latitude=${latitude}&longitude=${longitude}`;
+
+  const response = await fetch(apiUrl);
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return await response.json();
+};
+
+export async function GET(request: NextRequest) {
   try {
-    const body = await request.json();
+    const { searchParams } = new URL(request.url);
+    const latitude = searchParams.get('latitude');
+    const longitude = searchParams.get('longitude');
     
-    // the function name itself must be appended with main
-    const command = new InvokeCommand({
-      FunctionName: 'amplifyBackendOrchestrator-main',
-      Payload: JSON.stringify(body)
-    });
-
-    const { Payload } = await new LambdaClient({ region: 'us-west-2' }).send(command);
-    const result = JSON.parse(new TextDecoder().decode(Payload));
-    
-    return NextResponse.json(result);
-    
-  } catch (error: any) {
-    // Log detailed error information
-    const errorDetails: Record<string, any> = {};
-    
-    // Get all enumerable properties of the error object
-    for (const prop in error) {
-      errorDetails[prop] = error[prop];
+    if (!latitude || !longitude) {
+      return NextResponse.json({ error: 'Missing required parameters' }, { status: 400 });
     }
 
-    return NextResponse.json({ 
-      error: 'Internal Server Error', 
-      errorDetails
-    }, { 
-      status: 500 
-    });
+    // Call getDataFromApi and get the result directly
+    const result = await getDataFromApi(latitude, longitude);
+
+    return NextResponse.json(result);
+  } catch (error: any) {
+    console.error('Error invoking API:', error);
+    return NextResponse.json(
+      { error: 'Internal Server Error', details: error.message },
+      { status: 500 }
+    );
   }
 }
-
-// // Call to ECR deployed Lambda
-// import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda";
-// export async function POST(request: NextRequest) {
-//   try {
-//     const body = await request.json();
-
-//     const command = new InvokeCommand({
-//       FunctionName: process.env.LAMBDA_ARN,
-//       Payload: JSON.stringify(body),
-//     });
-    
-//     // Invoke the Lambda function with the command
-//     const { Payload } = await new LambdaClient({ region: 'us-west-2' }).send(command);
-
-//     // Parse the Lambda response
-//     const result = JSON.parse(new TextDecoder().decode(Payload));
-
-//     // Return the Lambda response
-//     return NextResponse.json(result);
-//   } catch (error) {
-//     console.error('Error invoking Lambda:', error);
-//     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
-//   }
-// }
 
 // // Call to mock data. Comment out the mockData you don't want to use
 // import fs from 'fs';
 // import { NextRequest, NextResponse } from 'next/server';
 // import path from 'path';
-// export async function POST(request: NextRequest) {
-//   // Simulate some delay to mimic a real Lambda invocation
-//   await new Promise(resolve => setTimeout(resolve, 100));
 
-//   // Read the JSON file
-//   // const filePath = path.join(process.cwd(), 'public', 'data', 'mockData1.json'); // mock dataset 1: one election, one contest/jurisdiction, WITH picture links
-//   const filePath = path.join(process.cwd(), 'public', 'data', 'mockData2.json'); // mock dataset 2: multiple elections, multiple jurisdictions
-//   const fileContents = fs.readFileSync(filePath, 'utf8');
-//   const data = JSON.parse(fileContents);
+// export async function GET(request: NextRequest) {
+//   try {
+//     const { searchParams } = new URL(request.url);
+//     const latitude = searchParams.get('latitude');
+//     const longitude = searchParams.get('longitude');
+    
+//     if (!latitude || !longitude) {
+//       return NextResponse.json({ error: 'Missing required parameters' }, { status: 400 });
+//     }
 
-//   // You can process the event here if needed
-//   const body = await request.json();
-//   console.log('Mock Lambda received event:', body);
+//     // Simulate some delay to mimic a real API call
+//     await new Promise(resolve => setTimeout(resolve, 100));
 
-//   // Return the data as if it was a Lambda response
-//   return NextResponse.json({
-//     statusCode: 200,
-//     body: JSON.stringify(data)
-//   });
-//  }
+//     // Read the JSON file
+//     const filePath = path.join(process.cwd(), 'public', 'data', 'mockData1.json'); // mock dataset 1: one election, one contest/jurisdiction, WITH picture links
+//     // const filePath = path.join(process.cwd(), 'public', 'data', 'mockData2.json'); // mock dataset 2: multiple elections, multiple jurisdictions
+//     const fileContents = fs.readFileSync(filePath, 'utf8');
+//     const data = JSON.parse(fileContents);
+
+//     // Log the received parameters (similar to logging the event in the original code)
+//     console.log('Mock API received parameters:', { latitude, longitude });
+
+//     return NextResponse.json(data);
+//   } catch (error: any) {
+//     console.error('Error in mock API:', error);
+//     return NextResponse.json(
+//       { error: 'Internal Server Error', details: error.message },
+//       { status: 500 }
+//     );
+//   }
+// }

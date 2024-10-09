@@ -56,13 +56,12 @@ const MasterPage = () => {
     setPrecinct(data.precinct_id);
     setCoordinates(data.boundary_data);
 
-    console.log("YEET", data)
     const electionsRecord: Record<number, Election> = getElectionsRecord(data.elections);
     if (Object.keys(electionsRecord).length === 0) {
       setNullElectionState(true);
       return;
     }
-
+    
     setElections(electionsRecord);
     const defaultEid: number = getDefaultEid(electionsRecord, new Date());
     setSelectedElection(defaultEid);
