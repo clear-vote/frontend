@@ -1,7 +1,0 @@
-candidate_database.py
-index.py
-setup.py
-amplify_backend_orchestrator.egg-info/PKG-INFO
-amplify_backend_orchestrator.egg-info/SOURCES.txt
-amplify_backend_orchestrator.egg-info/dependency_links.txt
-amplify_backend_orchestrator.egg-info/top_level.txt
