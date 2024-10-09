@@ -40,15 +40,17 @@ const ContestList = ({
         </div>
       )}
       {Array.from(unpickedCandidates).length > 0 && <p className="font-bold text-xl px-1">Candidates</p>}
-      {Array.from(unpickedCandidates).map(unpickedCandidate => (
-        <CandidateDrawer
-          key={election.contests[selectedContest].candidates[unpickedCandidate].name}
-          election={election}
-          candidateId={unpickedCandidate}
-          unpickedCandidates={unpickedCandidates}
-          setUnpickedCandidates={setUnpickedCandidates}
-        />
-      ))}
+      <div className="grid grid-cols-2">
+        {Array.from(unpickedCandidates).map(unpickedCandidate => (
+          <CandidateDrawer
+            key={election.contests[selectedContest].candidates[unpickedCandidate].name}
+            election={election}
+            candidateId={unpickedCandidate}
+            unpickedCandidates={unpickedCandidates}
+            setUnpickedCandidates={setUnpickedCandidates}
+          />
+        ))}
+      </div>
       {hiddenCandidateSet.size > 0 && (
         <Accordion key={pinnedCandidate} type="single" defaultValue={"Visible"} collapsible>
           <AccordionItem value="Hidden">
