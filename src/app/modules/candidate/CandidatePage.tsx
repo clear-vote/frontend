@@ -83,11 +83,11 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
         >
           <button
             onClick={handleLeftSwipe}
+            className="bg-[#D283FF] text-white hover:bg-purple-200"
             style={{
               width: "50px", // Increased size
               height: "50px", // Increased size
               borderRadius: "50%",
-              background: "#D283FF",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -102,11 +102,11 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
           </button>
           <button
             onClick={handleRightSwipe}
+            className="bg-[#D283FF] text-white hover:bg-purple-200"
             style={{
               width: "50px", // Increased size
               height: "50px", // Increased size
               borderRadius: "50%",
-              background: "#D283FF",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",

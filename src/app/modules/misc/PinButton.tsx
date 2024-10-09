@@ -12,68 +12,71 @@ interface PinButtonProps {
 }
 
 export const PinButton: React.FC<PinButtonProps> = ({ candidateId, unpickedCandidates, setUnpickedCandidates }) => {
-  const {selectedElection, selectedContest } = useElectionContext();
+  const { selectedElection, selectedContest } = useElectionContext();
   const { pinnedCandidates, hiddenCandidates, setHiddenCandidates, setPinnedCandidates } = useCandidateContext();
   
-  return(
+  return (
     <DrawerClose asChild>
-    { (pinnedCandidates[selectedElection!][selectedContest!] !== candidateId) ?
-      <Button
-        style={{ backgroundColor: "#008000", color: "white", width: "47%" }}
-        onClick={() => {
-          // Move current pinned candidate back to unpinned state
-          const currentPinnedCandidate = pinnedCandidates[selectedElection!][selectedContest!];
-          if (currentPinnedCandidate) {
-            setUnpickedCandidates(new Set(unpickedCandidates).add(currentPinnedCandidate));
-          }
+      { (pinnedCandidates[selectedElection!][selectedContest!] !== candidateId) ? (
+        <Button
+          className="bg-green-600 text-white hover:bg-green-800"
+          style={{ width: "47%" }}
+          onClick={() => {
+            // Move current pinned candidate back to unpinned state
+            const currentPinnedCandidate = pinnedCandidates[selectedElection!][selectedContest!];
+            if (currentPinnedCandidate) {
+              setUnpickedCandidates(new Set(unpickedCandidates).add(currentPinnedCandidate));
+            }
 
-          // Remove the new candidate from the list of hidden candidates, if they are on it
-          if (hiddenCandidates[selectedElection!][selectedContest!].has(candidateId)) {
-            const updatedHiddenCandidates: HiddenCandidates = {
-              ...hiddenCandidates,
+            // Remove the new candidate from the list of hidden candidates, if they are on it
+            if (hiddenCandidates[selectedElection!][selectedContest!].has(candidateId)) {
+              const updatedHiddenCandidates: HiddenCandidates = {
+                ...hiddenCandidates,
+                [selectedElection!]: {
+                  ...hiddenCandidates[selectedElection!],
+                  [selectedContest!]: new Set(hiddenCandidates[selectedElection!][selectedContest!])
+                }
+              };
+              updatedHiddenCandidates[selectedElection!][selectedContest!].delete(candidateId);
+              setHiddenCandidates(updatedHiddenCandidates);
+            }
+
+            // Pin the new candidate
+            const updatedPinnedCandidates: PinnedCandidates = {
+              ...pinnedCandidates,
               [selectedElection!]: {
-                ...hiddenCandidates[selectedElection!],
-                [selectedContest!]: new Set(hiddenCandidates[selectedElection!][selectedContest!])
+                ...pinnedCandidates[selectedElection!],
+                [selectedContest!]: null
               }
             };
-            updatedHiddenCandidates[selectedElection!][selectedContest!].delete(candidateId);
-            setHiddenCandidates(updatedHiddenCandidates);
-          }
+            updatedPinnedCandidates[selectedElection!][selectedContest!] = candidateId;
+            setPinnedCandidates(updatedPinnedCandidates);
+          }}
+        >
+          Pin Candidate
+        </Button>
+      ) : (
+        <Button 
+          className="bg-yellow-500 text-white hover:bg-yellow-700"
+          style={{ width: "47%" }}
+          onClick={() => {
+            // Remove the pinned candidate
+            const updatedPinnedCandidates: PinnedCandidates = {
+              ...pinnedCandidates,
+              [selectedElection!]: {
+                ...pinnedCandidates[selectedElection!],
+                [selectedContest!!]: null
+              }
+            };
+            setPinnedCandidates(updatedPinnedCandidates);
 
-          // Pin the new candidate
-          const updatedPinnedCandidates: PinnedCandidates = {
-            ...pinnedCandidates,
-            [selectedElection!]: {
-              ...pinnedCandidates[selectedElection!],
-              [selectedContest!]: null
-            }
-          };
-          updatedPinnedCandidates[selectedElection!][selectedContest!] = candidateId;
-          setPinnedCandidates(updatedPinnedCandidates);
-        }}
-      >
-        Pin Candidate
-      </Button>
-    : <Button 
-      style={{ backgroundColor: "#FDDA0D", color: "white" }}
-        onClick={() => {
-          // Remove the pinned candidate
-          const updatedPinnedCandidates: PinnedCandidates = {
-            ...pinnedCandidates,
-            [selectedElection!]: {
-              ...pinnedCandidates[selectedElection!],
-              [selectedContest!!]: null
-            }
-          };
-          setPinnedCandidates(updatedPinnedCandidates);
-
-          // Add the candidate to the unpicked set
-          setUnpickedCandidates(new Set(unpickedCandidates).add(candidateId));
-        }}
-      >
-        Unpin Candidate
-      </Button>
-    } 
-  </DrawerClose>
-  )
+            // Add the candidate to the unpicked set
+            setUnpickedCandidates(new Set(unpickedCandidates).add(candidateId));
+          }}
+        >
+          Unpin Candidate
+        </Button>
+      )}
+    </DrawerClose>
+  );
 }
