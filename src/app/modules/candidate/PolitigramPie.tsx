@@ -56,14 +56,11 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
     event.stopPropagation();
   
     if (selectedPolitigramRef.current === null) {
-      // console.log("clicking into politigram:", d.data.name);
       setSelectedPolitigram(d.data.name);
       setTouchLock(true);
     } else if (selectedPolitigramRef.current !== d.data.name) {
-      // console.log("switching politigram from", selectedPolitigramRef.current, "to", d.data.name);
       setSelectedPolitigram(d.data.name);
     } else {
-      // console.log("clicking out of politigram", selectedPolitigramRef.current);
       setSelectedPolitigram(null);
       setTouchLock(false);
     }
@@ -156,7 +153,7 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
           endAngle: datum.startAngle
         });
         (this as any)._current = interpolate(0);
-        return function(t: number) {
+        return function(t) {
           return arc(interpolate(t) as d3.PieArcDatum<PolitigramData>) || '';
         };
       })
@@ -171,7 +168,8 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
     const svg = d3.select(parent.current)
       .append("svg")
       .attr("width", sideSize)
-      .attr("height", sideSize);
+      .attr("height", sideSize)
+      .attr("class", "pulsate"); // Apply the pulsate class
 
     svg.append("g")
       .attr("transform", `translate(${sideSize / 2}, ${sideSize / 2})`);
@@ -190,7 +188,6 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
 
   useEffect(() => {
     if (!firstRender) return;
-    // console.log("First render");
     firstRender.current = false;
     rotateAndExpandPie();
   }, [open]);

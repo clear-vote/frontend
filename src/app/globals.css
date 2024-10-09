@@ -259,6 +259,9 @@ body {
   height: 100%;
 }
 
+/** CSS Animation Elements! **/
+
+/** Homepage BG **/
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -277,4 +280,22 @@ body {
 
 .bg-gradient-yellow {
   background: linear-gradient(130deg, #FFC554 0%, #FF964B 100%);
+}
+
+
+/** Politigram Pulse **/
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulsate {
+  animation: pulsate 3s infinite;
 }

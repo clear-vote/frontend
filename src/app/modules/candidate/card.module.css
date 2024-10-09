@@ -1,17 +1,19 @@
 /* Grid + Content Layout */
 .grid {
   display: grid;
-  width: 100%;
   gap: 0px;
-  background-color: #DDDDDD;
+  background-color: #E5E7EB;
+  border-radius: 10px;
 }
 
 .gridHeader {
-  grid-template-columns: 1fr 1.41fr;
+  display: grid;
+  grid-template-columns: auto 1fr; /* Adjust columns to fit content and fill remaining space */
   grid-template-rows: auto auto;
   grid-template-areas: 
     "profile-pic name"
     "profile-pic website";
+  gap: 0; /* Remove any gap between grid items */
 }
 
 /* Ensure the parent div expands to fit the height of its children */
@@ -27,20 +29,27 @@
   flex: 1;
 }
 
-.gridItemName { 
-  grid-area: name; 
-  align-items: start; 
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.gridItemImage {
+  grid-area: profile-pic;
+  width: 91px;
+  padding: 5px;
+  margin: 0;
+  border-radius: 10px;
+}
+.gridItemName {
+  grid-area: name;
+  padding: 4px;
+  margin: 0;
 }
 
 .gridItemWebsite {
   grid-area: website;
-  align-self: start;
+  align-self: end;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding: 0;
+  margin: 0;
 }
 
 .gridItemProfile {
@@ -73,6 +82,7 @@
   border-radius: 20px;
   padding: 5px;
 }
+
 .link {
   color: #888888;
   background-color: white;
