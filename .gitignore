@@ -37,6 +37,9 @@ next-env.d.ts
 
 team-provider-info.json
 
+amplify/team-provider-info.json
+.vscode/settings.json
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -58,5 +61,3 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
-amplify/team-provider-info.json
-.vscode/settings.json

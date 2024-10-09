@@ -1,4 +1,3 @@
-// src/utils/useFetchData.ts
 import { useState, useEffect } from 'react';
 
 export function useFetchData<T>() {
@@ -9,32 +8,20 @@ export function useFetchData<T>() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const queryParams = new URLSearchParams(window.location.search);
-        const longitude = queryParams.get('longitude');
-        const latitude = queryParams.get('latitude');
+        const { latitude, longitude } = getCoordinates();
+        
+        if (!latitude || !longitude) {
+          throw new Error('Missing required query parameters');
+        }
 
-        // Call the mock Lambda API route
-        const response = await fetch('/api/lambda', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ latitude: latitude, longitude: longitude }),
-        });
+        const response = await fetch(`/api/lambda?latitude=${latitude}&longitude=${longitude}`);
 
         if (!response.ok) {
-          const responseDetails: Record<string, any> = {};
-
-          for (const prop in response) {
-            console.log(`${prop}:`, (response as any)[prop]);
-            responseDetails[prop] = (response as any)[prop];
-          }
-
-          throw new Error(`HTTP error: ${JSON.stringify(responseDetails, null, 2)}`);
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const result = await response.json();
-        setData(JSON.parse(result.body) as T);
+        setData(result);
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -46,4 +33,12 @@ export function useFetchData<T>() {
   }, []);
 
   return { data, loading, error };
+}
+
+function getCoordinates() {
+  const queryParams = new URLSearchParams(window.location.search);
+  return {
+    latitude: queryParams.get('latitude'),
+    longitude: queryParams.get('longitude')
+  };
 }
