@@ -50,7 +50,7 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
       <br></br>
       <h1 className='font-bold text-xl'>Congratulations!</h1>
       <br />
-      <p>You've just completed your ballot!
+      <p>You&apos;ve just completed your ballot!
         Please enter your email address below to recieve a copy of your ballot&#x2c; and thank you for taking the time to vote
         in this election! Make sure to get your actual ballot in by the deadline&#x2c; Clearvote does not do this for you!
       </p>
