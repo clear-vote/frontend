@@ -6,10 +6,12 @@ const ResultsPage = () => {
   const { email } = useMasterContext();
 
   return (
-    <div>
+    <div className="px-1">
       <p>We&apos;ve sent an email to {email} with your picks. Be sure to fill out your ballot and mail it in before the specified date! Voter turnout in local elections is around 15-27%. You do the math --you&apos;re vote really does matter!</p>
       <br />
-      <p>Clearvote is run by a small team with very limited resources. You can help us empower more communities to vote locally by donating</p>
+      <h1 className="font-bold text-xl">Support Our Mission!</h1>
+      <br></br>
+      <p>Clearvote is run by a small team with very limited resources. You can help us empower more communities to vote locally by donating!</p>
       {/* <DonationsModal/> */}
       {/* TODO: add donations link! */}
     </div>

@@ -144,6 +144,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
 
     return (
         <>
+        <div className="px-2">
             <div>
                 <h2 className={`${card.text} ${card.textHeader}`}>{position}</h2>
             </div>
@@ -195,6 +196,8 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                 <ol ref={prioritiesRef}></ol>
             </div>
             <div className={card.background} ref={backgroundRef}></div>
+            </div>
+            <br/><br/><br/>
         </>
     );
 };
