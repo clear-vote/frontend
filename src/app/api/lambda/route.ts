@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     
     // the function name itself must be appended with main
     const command = new InvokeCommand({
-      FunctionName: 'amplifyBackendOrchestrator-main',
+      FunctionName: 'nodeBackendOrchestrator-main',
       Payload: JSON.stringify(body)
     });
 
