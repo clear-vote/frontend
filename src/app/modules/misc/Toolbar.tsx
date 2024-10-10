@@ -44,6 +44,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({ isDesktop }) => {
         </Link>
       <div className="flex justify-end space-x-4">
         <Link href="/about"><h3 className="font-bold">About</h3></Link>
+        <Link href="https://donate.stripe.com/3cs0061x75s88OA000" target='_blank'><h3 className="font-bold">Donate</h3></Link>
         <Link href="https://medium.com/clearvote"><p className="font-bold">Blog</p></Link>
         <Link href="https://discord.gg/A7teH7NV">
           <Button style={{height: '25px', transform: "translateY(1px)"}}>Join Our Discord</Button>
