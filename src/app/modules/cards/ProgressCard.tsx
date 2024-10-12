@@ -79,7 +79,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({ onSendResultsClick }
               onClick={() => downloadCandidatesPdf(elections[selectedElection!])}
               style={{ backgroundColor: "#60D052" }}
             >
-              &nbsp;Save Your Ballot! <Download></Download>
+              <Download></Download> &nbsp;Save Your Ballot! 
             </Button>
           </div>
       </div>
