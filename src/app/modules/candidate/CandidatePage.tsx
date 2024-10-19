@@ -4,8 +4,15 @@ import { PinButton } from "@/app/modules/misc/PinButton"
 import ScrollArea from "@/app/modules/misc/ScrollArea"
 import { useElectionContext } from "@/context/ElectionContext"
 import { Election } from "@/types"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Dispatch, SetStateAction, useState } from "react"
+import { AlignCenter, ChevronLeft, ChevronRight } from "lucide-react"
+import { Dispatch, SetStateAction, useRef, useState } from "react"
+import { useMasterContext } from "@/context/MasterContext"
+import { useCandidateContext } from "@/context/CandidateContext"
+import PolitigramPie from "./PolitigramPie"
+import PolitigramInfoModal from "../modals/PolitigramInfoModal"
+import { useUIContext } from "@/context/UIContext"
+import { politigramAttributes } from "./politigram"
+import card from './card.module.css';
 
 interface CandidatePageProps {
   election: Election,
@@ -15,8 +22,11 @@ interface CandidatePageProps {
 }
 
 export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidates, open}: CandidatePageProps) => {
-  const {selectedContest, selectedCandidate, setSelectedCandidate} = useElectionContext();
+  const {selectedContest, selectedCandidate, setSelectedCandidate } = useElectionContext();
   const [showButtons, setShowButtons] = useState(true);
+  const { isDesktop } = useMasterContext();
+  const { selectedPolitigram } = useUIContext();
+  const parentRef = useRef<HTMLDivElement>(null); 
   
   if (!selectedContest || !selectedCandidate) return;
   
@@ -50,18 +60,22 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
     setSelectedCandidate(nextCandidate);
   };
 
-  return(
+  const mainContent = (
     <>
       <ScrollArea positionHook={handleShowButtons}>
-        <CandidateCard position={election.contests[selectedContest].title} candidate={election.contests[selectedContest].candidates[selectedCandidate]} open={open}/>
+        <CandidateCard 
+          position={election.contests[selectedContest].title} 
+          candidate={election.contests[selectedContest].candidates[selectedCandidate]} 
+          open={open}
+        />
         <div
           style={{
             position: "sticky",
-            bottom: "0", // Position it just above the buttons
-            height: "50px", // Give it a fixed height
+            bottom: "0",
+            height: "50px",
             background: "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))",
-            zIndex: 9, // Ensure this div is below the buttons but above the content
-            pointerEvents: "none", // Allows interaction with content underneath
+            zIndex: 9,
+            pointerEvents: "none",
           }}
         />
       </ScrollArea>
@@ -69,7 +83,7 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
         <div
           style={{
             position: "fixed",
-            bottom: "60px", // Positioned above the existing buttons
+            bottom: "60px",
             left: 0,
             right: 0,
             height: "50px",
@@ -81,58 +95,26 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
             transition: "opacity 0.3s ease-in-out",
           }}
         >
-          <button
-            onClick={handleLeftSwipe}
-            className="bg-[#D283FF] text-white hover:bg-purple-200"
-            style={{
-              width: "50px", // Increased size
-              height: "50px", // Increased size
-              borderRadius: "50%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)", // More pronounced drop shadow
-              border: "none",
-              cursor: "pointer",
-              color: "white",
-              fontWeight: "bold", // Bolder text
-            }}
-          >
-            <ChevronLeft size={28} /> {/* Increased icon size */}
+          <button onClick={handleLeftSwipe} className="bg-[#D283FF] text-white hover:bg-purple-200" style={{width: "50px", height: "50px", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center", boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)", border: "none", cursor: "pointer", color: "white", fontWeight: "bold"}}>
+            <ChevronLeft size={28} />
           </button>
-          <button
-            onClick={handleRightSwipe}
-            className="bg-[#D283FF] text-white hover:bg-purple-200"
-            style={{
-              width: "50px", // Increased size
-              height: "50px", // Increased size
-              borderRadius: "50%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)", // More pronounced drop shadow
-              border: "none",
-              cursor: "pointer",
-              color: "white",
-              fontWeight: "bold", // Bolder text
-            }}
-          >
-            <ChevronRight size={28} /> {/* Increased icon size */}
+          <button onClick={handleRightSwipe} className="bg-[#D283FF] text-white hover:bg-purple-200" style={{width: "50px", height: "50px", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center", boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)", border: "none", cursor: "pointer", color: "white", fontWeight: "bold"}}>
+            <ChevronRight size={28} />
           </button>
         </div>
       )}
       <div
         style={{
           position: "fixed",
-          bottom: "50px", // Position it just above the buttons
+          bottom: "50px",
           left: 0,
           right: 0,
-          height: "50px", // Give it a fixed height
+          height: "50px",
           background: "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))",
-          zIndex: 9, // Ensure this div is below the buttons but above the content
+          zIndex: 9,
           opacity: showButtons ? 1 : 0,
           transition: "opacity 0.3s ease-in-out",
-          pointerEvents: "none", // Allows interaction with content underneath
+          pointerEvents: "none",
         }}
       />
       <div
@@ -141,9 +123,9 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
           bottom: "0",
           left: 0,
           right: 0,
-          height: "50px", // Match the height of your buttons
+          height: "50px",
           display: "flex",
-          justifyContent: "space-around", // Evenly space the buttons
+          justifyContent: "space-around",
           alignItems: "center",
           background: "white",
           zIndex: 10,
@@ -163,5 +145,53 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
         />
       </div>
     </>
-  )
+  );
+
+  
+  if (isDesktop) {
+    const candidate = election.contests[selectedContest].candidates[selectedCandidate];
+    return (
+      <>
+        <div style={{ display: 'flex'}}>
+          <div style={{ width: '30%', padding: '20px', overflowY: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            {
+              candidate.image && (
+                <div className="rounded-lg">
+                  <img className="rounded-lg h-[200px]" src={candidate.image} alt="Candidate Photo" />
+                </div>
+              )
+            }
+            <div className="overflow-visible w-full" ref={parentRef} style={{ display: 'flex', justifyContent: 'center' }}>
+              <PolitigramPie parent={parentRef} politigramScores={candidate.politigram} open={open}/>
+            </div>
+            <div className="flex flex-col gap-1">
+              {
+                selectedPolitigram 
+                ?
+                <>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <h2 className={`${card.text} ${card.textPolitigram}`} style={{ backgroundColor: politigramAttributes[selectedPolitigram].color }}>
+                      {selectedPolitigram.charAt(0).toUpperCase() + selectedPolitigram.slice(1)}
+                    </h2>
+                    <span>{((candidate.politigram[selectedPolitigram] / 100) * 9 + 1).toFixed(1)}</span>
+                  </div>
+                  {/* <PolitigramInfoModal politigram={selectedPolitigram}/> */}
+                </>
+              :
+                <h2 className={`${card.text} ${card.glow}`}>Click me ⬆</h2>
+              }
+            </div>
+          </div>
+          <div style={{ width: '70%', position: 'relative' }}>
+            <div className="text-title text-text-primary" style={{alignItems: 'center', justifyContent: 'center', display: "flex"}}>
+              <h2>{candidate.name}</h2>
+            </div>
+            {mainContent}
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  return mainContent;
 }

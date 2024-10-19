@@ -2,26 +2,24 @@ import { Contest, Politigram } from './../types/index.d';
 
 interface JurisdictionLevel {
   description: string;
+  color: string;
   positions: string[];
 }
 
 // TODO: complete this
 const jurisdictionLevels: Record<string, JurisdictionLevel> = {
-  "Presidential Contests": {
-    "description": "All these candidates are for a national level election",
-    "positions": [
-      "President"
-    ],
-  },
-  "Federal Legislature": {
+  "Federal Contests": {
     "description": "All these candidates are for the federal legislature",
+    "color": "linear-gradient(to right, #947FEE, #D283FF)",
     "positions": [
       "U.S. Representative",
-      "U.S. Senator"
+      "U.S. Senator",
+      "President"
     ],
   },
   "State Contests": {
     "description": "All these candidates are for a state level election",
+    "color": "linear-gradient(to right, #a1c4fd, #c2e9fb)",
     "positions": [
       "Governor",
       "Lieutenant Governor",
@@ -37,6 +35,7 @@ const jurisdictionLevels: Record<string, JurisdictionLevel> = {
   },
   "State Legislature": {
     "description": "All these candidates are for the state legislature",
+    "color": "linear-gradient(to right, #fbc2eb, #a6c1ee)",
     "positions": [
       "State Senator",
       "State Representative"
@@ -44,6 +43,7 @@ const jurisdictionLevels: Record<string, JurisdictionLevel> = {
   },
   "County Contests": {
     "description": "All these contests are county level or lower",
+    "color": "linear-gradient(to right, #ff7e5f, #feb47b)",
     "positions": [
       "County Council (at Large)",
       "County Executive",
@@ -60,6 +60,7 @@ const jurisdictionLevels: Record<string, JurisdictionLevel> = {
   },
   "City Contests": {
     "description": "All these contests are city level",
+    "color": "linear-gradient(to right, #84fab0, #8fd3f4)",
     "positions": [
       "Mayor",
       "City Council (at Large)",
@@ -70,6 +71,7 @@ const jurisdictionLevels: Record<string, JurisdictionLevel> = {
   },
   "School District Contests": {
     "description": "All these contests are for school districts",
+    "color": "linear-gradient(to right, #c3cfe2, #c3cfe2)",
     "positions": [
       "School District Director"
     ],
@@ -151,6 +153,11 @@ export const getPositionInfo = (position: string): string => {
 export const getJurisdictionLevelDescription = (jurisdiction: string): string|null => {
   const level = jurisdictionLevels[jurisdiction];
   return level ? level.description : null;
+};
+
+export const getJurisdictionColor = (jurisdiction: string): string | null => {
+  const level = jurisdictionLevels[jurisdiction];
+  return level ? level.color : null;
 };
 
 export const getJurisdictionLevelPositions = (contests: Record<number, Contest>): Record<string, Contest[]> => {

@@ -3,24 +3,24 @@ import { createContext, useContext, useState } from "react";
 
 // UIContext.tsx
 interface UIContextProps {
-  touchLock: boolean;
+  clickLock: boolean;
   selectedPolitigram: Politigram | null;
-  setTouchLock: React.Dispatch<React.SetStateAction<boolean>>;
+  setClickLock: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectedPolitigram: React.Dispatch<React.SetStateAction<Politigram | null>>;
 }
 
 const UIContext = createContext<UIContextProps | undefined>(undefined);
 
 export const UIProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [touchLock, setTouchLock] = useState<boolean>(false);
+  const [clickLock, setClickLock] = useState<boolean>(false);
   const [selectedPolitigram, setSelectedPolitigram] = useState<Politigram | null>(null);
 
   return (
     <UIContext.Provider
       value={{
-        touchLock,
+        clickLock,
         selectedPolitigram,
-        setTouchLock,
+        setClickLock,
         setSelectedPolitigram,
       }}
     >
