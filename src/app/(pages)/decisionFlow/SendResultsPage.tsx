@@ -62,7 +62,7 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
         <h1 className='font-bold text-xl'>Congratulations!</h1>
         <br />
         <p>
-          You&apos;ve just completed your ballot!! (well, sort of). Click back and make note of your picks so you're ready to fill it out.
+          You&apos;ve just completed your ballot!! (well, sort of). Click back and make note of your picks so you&apos;re ready to fill it out.
         </p>
         <p>
           Want to stay informed when the next election drops? Join our mailing list!
