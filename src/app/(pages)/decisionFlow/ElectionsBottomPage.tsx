@@ -38,7 +38,7 @@ export const ElectionsBottomPage: React.FC<ElectionsBottomPageProps> = ({ onCont
     );
   }
 return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
-  <div className="py-2" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+  <div>
     {Object.entries(jurisdictions).map(([jurisdictionName, contests]) => (
       <JurisdictionCard
         key={jurisdictionName}

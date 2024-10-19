@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button';
 import PersonIcon from '@mui/icons-material/Person';
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import { useElectionContext } from '@/context/ElectionContext';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 interface ElectionDetailsCardProps {
   setDropdownIsOpen: (isOpen: boolean) => void;
@@ -89,6 +90,7 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
             onOpenChange={handleOpenChange}
           >
             <SelectTrigger className="w-[180px]">
+              <CalendarMonthIcon color="error" />
               <SelectValue placeholder="Select an election">
                 {selectedElection !== undefined && formatElectionLabel(elections[selectedElection!])}
               </SelectValue>

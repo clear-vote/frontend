@@ -23,7 +23,7 @@ export default function LandingPage() {
         <div className="flex w-full items-center space-x-2">
           <MapboxSearchInput
             type="search"
-            placeholder="Enter an address..."
+            placeholder="Enter an address to get started..."
             className="w-full"
             token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
             bounds={WA_STATE}
@@ -33,11 +33,7 @@ export default function LandingPage() {
         <br></br>
         <small className="text-white"><HorizontalRuleIcon/>Currently only supporting Washington State<HorizontalRuleIcon/></small>
         <br></br>
-        <a href="/decisionFlow?latitude=47.65555&longitude=-122.30320">
-        <Button className="bg-[#947FEE] hover:bg-purple-200 text-white" style={{fontFamily: "'IBM Plex Sans', sans-serif"}}>
-            <HelpCenterIcon style={{fontSize: "17px"}}/>&nbsp;See An Example Ballot!
-        </Button>
-        </a>
+        <a href="/decisionFlow"><Button variant="contained">See Example!</Button></a>
       </div>
     </div>
   );

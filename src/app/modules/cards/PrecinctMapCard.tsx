@@ -7,6 +7,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useLocationContext } from "@/context/LocationContext";
+import PinDropIcon from '@mui/icons-material/PinDrop';
 
 interface MapProps {
     token: string | undefined;
@@ -141,18 +142,14 @@ const PrecinctMapCard: React.FC<MapProps> = memo(({ token }) => {
     }
 
     return (
-        <div className="bg-gray-100">
-            <div className="flex justify-between items-center bg-gray-100 py-1">
-                <div className="flex items-center text-sm px-1">
-                    <p>Your Precinct:</p>
+        <div className="flex flex-col w-full">
+            <div ref={mapContainer} className="bg-clip-border border mapbox z-[-1] absolute rounded-lg border"></div>
+            <div className="flex px-4 py-3 bg-background-white rounded-lg border border-border-primary items-center gap-4">
+                <PinDropIcon />
+                <div className="flex flex-col gap-1">
+                    <p className="text-subtitle">Precinct {precinct}</p>
+                    <p className="text-sec text-text-secondary">Washington</p>
                 </div>
-                <div className="flex items-center text-sm justify-end text-gray-600 px-1">
-                    <PlaceIcon style={{ width: "20px", color: "#947FEEE5" }} />
-                    &nbsp;Washington State Precinct {precinct}&nbsp;
-                </div>
-            </div>
-            <div ref={mapContainer} style={{}}
-                className="bg-clip-border border mapbox">
             </div>
         </div>
     );
