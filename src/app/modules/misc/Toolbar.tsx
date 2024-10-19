@@ -37,7 +37,8 @@ export const Toolbar: React.FC<ToolbarProps> = ({ isDesktop }) => {
 
   /** Desktop mode toolbar */
   return (
-    <div className="w-full fixed top-0 z-100 flex items-center justify-between bg-background px-4 py-2">
+    <div className="toolbar-desktop" style={{ position: 'fixed', zIndex: 100, justifyContent: 'space-between', fontFamily: "'IBM Plex Mono', sans-serif"}}>
+    {/* <div className="w-full fixed top-0 z-100 flex items-center justify-between bg-background px-4 py-2"> */}
       <Link href="/">
         <img src="/branding/favicon.svg" alt="Home" style={{ width: '48px', height: '48px' }} />
       </Link>
@@ -45,8 +46,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({ isDesktop }) => {
         <Link href="/about"><Button variant="ghost">About</Button></Link>
         <Link href="https://donate.stripe.com/3cs0061x75s88OA000" target='_blank'><Button variant="ghost">Donate</Button></Link>
         <Link href="https://medium.com/clearvote" target="_blank"><Button variant="ghost">Blog</Button></Link>
-        <Link href="https://discord.gg/SmsS3tP9tk" target="_blank"><Button variant="brand">Join our Discord</Button>
-        </Link>
+        <Link href="https://discord.gg/SmsS3tP9tk" target="_blank"><Button variant="brand">Join our Discord</Button></Link>
       </div>
     </div>
   );

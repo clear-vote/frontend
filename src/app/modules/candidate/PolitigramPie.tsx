@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useCallback, useMemo } from 'react';
+import React, { FC, useEffect, useRef, useCallback, useMemo, MutableRefObject } from 'react';
 import { Politigram, PolitigramScores } from '@/types';
 import * as d3 from 'd3';
 import { politigramAttributes } from './politigram';
@@ -26,11 +26,11 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
   const {
     selectedPolitigram,
     setSelectedPolitigram,
-    touchLock,
-    setTouchLock
+    clickLock,
+    setClickLock
   } = useUIContext();
 
-  const selectedPolitigramRef = useRef(selectedPolitigram);
+  const selectedPolitigramRef: React.MutableRefObject<Politigram|null> = useRef(selectedPolitigram);
   const firstRender = useRef(true);
   const svgRef = useRef<SVGSVGElement | null>(null);
 
@@ -47,24 +47,36 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
   const getColor = useCallback((d: any): string => {
     const baseColor = colorSeries(d.data.name) as string;
     if (selectedPolitigramRef.current === d.data.name) {
-      return touchLock ? lighten(0.1, baseColor) : lighten(0.05, baseColor);
+      return clickLock ? lighten(0.1, baseColor) : lighten(0.05, baseColor);
     }
     return baseColor;
-  }, [selectedPolitigram, touchLock, colorSeries]);
+  }, [selectedPolitigram, clickLock, colorSeries]);
 
   const handleInsideClick = useCallback((event: React.MouseEvent<SVGPathElement>, d: d3.PieArcDatum<PolitigramData>) => {
     event.stopPropagation();
   
     if (selectedPolitigramRef.current === null) {
       setSelectedPolitigram(d.data.name);
-      setTouchLock(true);
+      setClickLock(true);
     } else if (selectedPolitigramRef.current !== d.data.name) {
       setSelectedPolitigram(d.data.name);
     } else {
       setSelectedPolitigram(null);
-      setTouchLock(false);
+      setClickLock(false);
     }
-  }, [setSelectedPolitigram, setTouchLock]);
+  }, [setSelectedPolitigram, setClickLock]);
+
+  const handleMouseEnter = useCallback((event: React.MouseEvent<SVGPathElement>, d: any) => {
+    if (!clickLock) {  // Only apply hover if not touch-locked
+      setSelectedPolitigram(d.data.name);
+    }
+  }, [setSelectedPolitigram, clickLock]);
+
+  const handleMouseLeave = useCallback((event: React.MouseEvent<SVGPathElement>) => {
+    if (!clickLock) {  // Only remove selection if not touch-locked
+      setSelectedPolitigram(null);
+    }
+  }, [setSelectedPolitigram, clickLock]);
 
   const rotateAndExpandPie = useCallback(() => {
     if (!svgRef.current) return;
@@ -72,10 +84,8 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
     const svg = d3.select(svgRef.current);
     const sideSize: number = Number(svg.attr("width"));
   
-    // Set initial state to invisible
     svg.select('g').style("opacity", 0);
   
-    // Wait for 500ms (half a second) before starting the animation
     setTimeout(() => {
       svg.select('g')
         .transition()
@@ -95,9 +105,14 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
   const renderPolitigram = useCallback(() => {
     if (!parent.current || !svgRef.current) return;
 
+    // const totalValue: number = d3.sum(data, d => d.value) || 0;
+    // const sideSize: number = parent.current.getBoundingClientRect().width;
+    // const radiusSize: number = sideSize / 235;
+
     const totalValue: number = d3.sum(data, d => d.value) || 0;
-    const sideSize: number = parent.current.getBoundingClientRect().width;
-    const radiusSize: number = sideSize / 220;
+    const parentRect = parent.current.getBoundingClientRect();
+    const sideSize = Math.min(parentRect.width, parentRect.height);
+    const radiusSize = sideSize / 220;
 
     const arc = d3.arc<d3.PieArcDatum<PolitigramData>>()
       .innerRadius(0)
@@ -108,28 +123,33 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
       .value(d => (((d.value / totalValue) * (1 - MIN_ARC)) + (MIN_ARC / data.length)))
       .sort(null);
 
-    const svg = d3.select(svgRef.current);
+    const svg = d3.select(svgRef.current)
+      .attr("class", selectedPolitigram === null ? "pulsate" : "")
+      .attr("width", sideSize)
+      .attr("height", sideSize)
+      .style("display", "block")
+      .style("margin", "0 auto");
 
-    const g = svg.select('g');
+
+    // Ensure the container g element is properly centered
+    const g = svg.select('g')
 
     // Update scale
     g.transition()
       .duration(TRANSITION_DURATION)
-      .attr("transform", `translate(${sideSize / 2}, ${sideSize / 2}) scale(${selectedPolitigramRef.current !== null ? SCALE : 1})`);
+      .attr("transform", `translate(${sideSize / 2}, ${sideSize / 2})`);
 
-    // Data join
     const path = g.selectAll<SVGPathElement, d3.PieArcDatum<PolitigramData>>("path")
       .data(pie(data), d => d.data.name);
 
-    // Enter
     path.enter()
       .append("path")
       .attr("fill", getColor)
       .attr("d", arc)
       .attr("data-name", d => d.data.name)
-      .on('click', handleInsideClick);
+      .on('click', handleInsideClick)
+      .each(function(d) { (this as any)._current = d; }); // Store initial angles
 
-    // Update
     path.transition()
       .duration(TRANSITION_DURATION)
       .attrTween('d', function(d) {
@@ -141,7 +161,6 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
       })
       .attr("fill", getColor);
 
-    // Exit
     path.exit()
       .transition()
       .duration(TRANSITION_DURATION)
@@ -162,20 +181,18 @@ const PolitigramPie: FC<PolitigramPieProps> = ({ parent, politigramScores, open 
 
   useEffect(() => {
     if (!parent.current) return;
-
+  
     const sideSize = parent.current.getBoundingClientRect().width;
-
+  
     const svg = d3.select(parent.current)
       .append("svg")
       .attr("width", sideSize)
-      .attr("height", sideSize)
-      .attr("class", "pulsate");
-
-    svg.append("g")
-      .attr("transform", `translate(${sideSize / 2}, ${sideSize / 2})`);
-
+      .attr("height", sideSize);
+  
+    svg.append("g");
+  
     svgRef.current = svg.node();
-
+  
     return () => {
       svg.remove();
     };

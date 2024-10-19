@@ -33,7 +33,7 @@ export default function LandingPage() {
         <br></br>
         <small className="text-white"><HorizontalRuleIcon/>Currently only supporting Washington State<HorizontalRuleIcon/></small>
         <br></br>
-        <a href="/decisionFlow"><Button variant="contained">See Example!</Button></a>
+        <a href="/decisionFlow?latitude=47.65555&longitude=-122.30320"><Button variant="contained">See Example!</Button></a>
       </div>
     </div>
   );
