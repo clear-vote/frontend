@@ -16,6 +16,8 @@ import { Election } from '@/types';
 import { SendResultsPage } from './SendResultsPage';
 import { useMasterContext } from '@/context/MasterContext';
 import { ElectionsBottomPage } from './ElectionsBottomPage';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import Image from 'next/image';
 import { ContestSkeleton } from '@/app/modules/skeletons/ContestSkeleton';
 import WestIcon from '@mui/icons-material/West';
 import { useLocationContext } from '@/context/LocationContext';
@@ -80,8 +82,8 @@ const MasterPage = () => {
   if (loading || data && !selectedElection) {
     console.log("Loading...");
     return <div className="flex items-center justify-center h-full w-full">
-        <ContestSkeleton/>
-      </div>
+      <ContestSkeleton/>
+    </div>
   }
   
   const handleContestClick = async (contestId: number) => {
@@ -129,7 +131,7 @@ const MasterPage = () => {
     const election: Election = elections[selectedElection];
 
     return (
-      <div style={{ position: 'relative', width: '100%', height: '100%', fontFamily: "'IBM Plex Sans', sans-serif"}}>
+      <div className="bg-background-tertiary pt-24">
         <AnimatedPage page='election' isActive={!inSendResultsPage}>
           <div
             style={{
@@ -144,29 +146,16 @@ const MasterPage = () => {
           {!isDesktop ? (
             // Mobile Transitions
             <>
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                }}
-              > 
+              <div className="flex flex-col items-center w-full px-4 sm:px-8 mb-16"> 
                 <AnimatedPage page='election' isActive={selectedContest === null && !inRightPage && !inSendResultsPage}>
-                  <ElectionsTopPage onSendResultsClick={handleSendResultsClick} />
+                  
+                  {/* <div className="flex flex-col items-center max-w-[1200px]"> */}
+                    <ElectionsTopPage onSendResultsClick={handleSendResultsClick}/>
+                  {/* </div> */}
                   <ElectionsBottomPage onContestClick={handleContestClick} />
                 </AnimatedPage>
               </div>
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                }}
-              > 
+              <div className=""> 
                 {selectedContest !== null && (
                   <AnimatedPage page='contest' isActive={inRightPage && !inSendResultsPage}>
                     <ContestPage election={election} onBackClick={handleBackContestClick} />
@@ -202,15 +191,7 @@ const MasterPage = () => {
           )}
           </div>
         </AnimatedPage>
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }}
-        >     
+        <div className="top-0 left-0 w-full h-full">     
           {inSendResultsPage && (
             <AnimatedPage page='send-results' isActive={inSendResultsPage && inRightPage}>
               <SendResultsPage

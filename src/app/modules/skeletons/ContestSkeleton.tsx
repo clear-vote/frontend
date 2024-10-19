@@ -8,7 +8,7 @@ export const ContestSkeleton: React.FC = () => {
         <Skeleton variant="rounded"
         className="bg-clip-border border mapbox rounded-md"
         width={516} height={326}>
-            Loading...
+            {/* Loading... */}
         </Skeleton>
     }
 
@@ -16,7 +16,7 @@ export const ContestSkeleton: React.FC = () => {
         <Skeleton variant="rectangular"
             className="bg-clip-border border mapbox"
             width="full" height={326}>
-                Loading...
+                {/* Loading... */}
         </Skeleton>
     );
 }

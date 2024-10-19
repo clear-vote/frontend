@@ -36,29 +36,31 @@ export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({ jurisdiction
     }
     return (
         <div className="flex flex-col items-center py-1" style={{width: "100%"}}>
-        <div className="rounded-sm juristication-card" style={{ maxWidth: "430px", width: "92%" }}>
-            <div className="rounded-t-sm" style={{ background: jurisdictionColors[color] }}>
-                <h3 className="text-white" style={{ fontFamily: "'IBM Plex Mono', monospace", paddingLeft: "5px" }}>{jurisdictionName}</h3>
-                {jurisdictionName !== "Other Contests" && (
-                    <JurisdictionModal jurisdiction={jurisdictionName} />
-                )}
-            </div>
-            {selectedContest ?
-                <div key={selectedContest}
-                    style={{ backgroundColor: '#06090B0A', border: 'none', borderTop: '2px solid #24262814', padding: "10px" }}>
-                     <BallotCard contest={elections[selectedElection!].contests[selectedContest!]} />
+            <div className="rounded-sm juristication-card" style={{ maxWidth: "430px", width: "92%" }}>
+                <div className="rounded-t-sm" style={{ background: jurisdictionColors[color] }}>
+                    <h3 className="text-white" style={{ fontFamily: "'IBM Plex Mono', monospace", paddingLeft: "5px" }}>{jurisdictionName}</h3>
+                    {jurisdictionName !== "Other Contests" && (
+                        <JurisdictionModal jurisdiction={jurisdictionName} />
+                    )}
                 </div>
-                : filteredContests.map((contest) => (
-                    <div key={contest.id} onClick={() => onContestClick(contest.id)}
+                {selectedContest ?
+                    <div key={selectedContest}
                         style={{ backgroundColor: '#06090B0A', border: 'none', borderTop: '2px solid #24262814', padding: "10px" }}>
-                        <BallotCard contest={contest} />
+                        <BallotCard contest={elections[selectedElection!].contests[selectedContest!]} />
                     </div>
-                ))}
-        </div>
-        {selectedContest && selectedElection && filteredContests.includes(elections[selectedElection].contests[selectedContest]) && 
-        <div><br/>
-            <PositionInfoCard position={elections[selectedElection!].contests[selectedContest!].position} />
-            </div>}
+                    : filteredContests.map((contest) => (
+                        <div key={contest.id} onClick={() => onContestClick(contest.id)}
+                            style={{ backgroundColor: '#06090B0A', border: 'none', borderTop: '2px solid #24262814', padding: "10px" }}>
+                            <BallotCard contest={contest} />
+                        </div>
+                    ))}
+                </div>
+                {selectedContest && selectedElection && filteredContests.includes(elections[selectedElection].contests[selectedContest]) && 
+                <div>
+                    <br/>
+                    <PositionInfoCard position={elections[selectedElection!].contests[selectedContest!].position} />
+                </div>
+            }
         </div>
     );
 }

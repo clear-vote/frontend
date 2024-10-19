@@ -10,6 +10,9 @@ import {
 import { politigramAttributes } from './politigram';
 import PolitigramPie from './PolitigramPie';
 import LinkIcon from '@mui/icons-material/Link';
+import CategoryIcon from '@mui/icons-material/Category';
+import FlagRoundedIcon from '@mui/icons-material/FlagRounded';
+import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
 import PolitigramInfoModal from '../modals/PolitigramInfoModal';
 import { useUIContext } from '@/context/UIContext';
 import { getPolitigramInfo } from "@/utils/informationals";
@@ -26,6 +29,17 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
     const backgroundRef = useRef<HTMLDivElement>(null);
     const parentRef = useRef<HTMLDivElement>(null);
     const [displayScore, setDisplayScore] = useState<string>('');
+
+    // Scroll position for candidate name
+    const [scrollPosition, setScrollPosition] = useState(0);
+    useEffect(() => {
+      const handleScroll = () => {
+        setScrollPosition(window.pageYOffset);
+      };
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     // Handles change to selected politigram
     // Repopulates priorities and background items with color changes
@@ -100,13 +114,14 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
         color: string | null,
     ) {
         const div = document.createElement('div');
+        div.classList.add('mb-4');
 
         const h2 = document.createElement('h2');
-        h2.classList.add(card.text, card.textHeader);
+        h2.classList.add('text-symbol-caption', 'font-symbol', 'text-text-secondary', 'underline', 'mb-2');
         h2.textContent = backgroundData['header'];
 
         const p = document.createElement('p');
-        p.classList.add(card.text);
+        p.classList.add('text-body', 'text-text-body');
         p.innerHTML = colorParagraph(backgroundData, politigramName, color);
 
         div.appendChild(h2);
@@ -145,65 +160,76 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
 
     return (
         <>
-            <div className="px-2" style={{fontFamily: "'IBM Plex Sans', sans-serif"}}>
+            <div className="bg-tertiary-background border-b border-border-secondary px-4 py-2 sticky top-0">
+                <h6 className="text-sec text-text-secondary">{position}</h6>
+                
+                {scrollPosition > 100 && (
+                    <h1 className="text-header text-text-primary">{candidate.name}</h1>
+                )}
+            </div>
+            <div className="flex gap-4 p-4 bg-background-tertiary border-b border-border-secondary">
+                {candidate.image && (
+                    <div className="rounded-lg">
+                        <img className="rounded-lg h-[200px]" src={candidate.image} alt="Candidate Photo" />
+                    </div>
+                )}
                 <div>
-                    <h2 className={`${card.text} ${card.textHeader}`}>{position}</h2>
-                </div>
-                <div className={`${card.grid} ${card.gridHeader}`}>
-                    <img
-                        src={candidate.image ? candidate.image : '/images/no_candidate_image.png'}
-                        alt={candidate.name}
-                        className={`${card.gridItemImage}`}
-                        onError={(e) => { e.currentTarget.src = '/images/no_candidate_image.png'; }}
-                    />
-                    <div className={`${card.gridItem} ${card.gridItemName}`}>
-                        <h2 className={`${card.text} ${card.textHeader}`}>{candidate.name}</h2>
+                    <h1 className="text-header text-text-primary max-w-[150px]">{candidate.name}</h1>
                     {candidate.website && (
-                        <div className={`${card.gridItem} ${card.gridItemWebsite}`}>
-                            <br/>
-                            <a className={`${card.link} hover:bg-gray-200`} href={candidate.website}>
-                                <LinkIcon />
-                                <span className={card.text}> {candidate.website}</span>
-                            </a>
-                        </div>
+                    <div className={`${card.gridItem} ${card.gridItemWebsite}`}>
+                        <a className={card.link} href={candidate.website}>
+                            <LinkIcon/>
+                            <span className={card.text}> {candidate.website}</span>
+                        </a>
+                    </div>
                     )}
-                    </div>
                 </div>
-                <br/>
-                <hr style={{ width: '100%', border: '1px solid lightgray', margin: '0 auto' }} />
-                <br/>
-                <div>
-                    <h2 className={`${card.text} ${card.textHeader}`}>Politigram</h2>
+            </div>
+            
+            <div className="flex flex-col gap-2 px-4 py-8">
+                <div className="flex gap-2">
+                    <CategoryIcon />
+                    <h3 className="text-title text-text-primary">Politigram</h3>
                 </div>
-                {/* TODO: card.gridPolitigram must be sticky and smaller and scale */}
-                <div className={`${card.grid} ${card.gridPolitigram}`}>
-                    <div className={`${card.gridItem} ${card.gridItemPolitigram}`} ref={parentRef}>
-                        <PolitigramPie parent={parentRef} politigramScores={candidate.politigram} open={open} />
+                <div className="flex pl-3 pr-2 py-4 border rounded-lg bg-background-secondary">
+                    <div className="overflow-visible w-[32vw] h-[32vw]" ref={parentRef}>
+                        <PolitigramPie parent={parentRef} politigramScores={candidate.politigram} open={open}/>
                     </div>
-                    <div className={`${card.gridItem} ${card.gridItemPolitigramText}`}>
+                    <div className="flex flex-col gap-1">
                         {
-                            selectedPolitigram
-                                ?
-                                <>
-                                    <h2 className={`${card.text} ${card.textPolitigram}`} style={{ backgroundColor: politigramAttributes[selectedPolitigram].color, padding: "10px" }}>
-                                      {selectedPolitigram.charAt(0).toUpperCase() + selectedPolitigram.slice(1)}
-                                    </h2>
-                                    <p className="font-bold text-xl">Focus: {displayScore}</p>
-                                    <PolitigramInfoModal politigram={selectedPolitigram} />
-                                </>
-                                :
-                                <h2 className={`${card.text} ${card.glow}`}>Select</h2>
+                            selectedPolitigram 
+                            ?
+                            <>
+                                <h2 className={`${card.text} ${card.textPolitigram}`} style={{ backgroundColor: politigramAttributes[selectedPolitigram].color }}>
+                                    {selectedPolitigram.charAt(0).toUpperCase() + selectedPolitigram.slice(1)}</h2>
+                                <span>{displayScore}</span>
+                                <PolitigramInfoModal politigram={selectedPolitigram}/>
+                            </>
+                        :
+                            <h2 className={`${card.text} ${card.glow}`}>Select</h2>
                         }
                     </div>
                 </div>
-                {/* TODO: only show tags if they exist! */}
-                <div className={card.priorities}>
-                    <h2 className={`${card.text} ${card.textHeader}`}>Top priorities</h2>
-                    <ol ref={prioritiesRef}></ol>
-                </div>
-                <div className={card.background} ref={backgroundRef}></div>
             </div>
-            <br /><br /><br />
+
+            {/* TODO: only show tags if they exist! */}
+            <div className="flex flex-col gap-2 px-4 py-8">
+                <div className="flex gap-2">
+                    <FlagRoundedIcon />
+                    <h3 className="text-title text-text-primary">Top Priorities</h3>
+                </div>
+                <div className={card.priorities}>
+                    <ul className="list-disc ml-5 text-text-body" ref={prioritiesRef}></ul>
+                </div>
+            </div>
+
+            <div className="flex flex-col gap-4 px-4 py-8">
+                <div className="flex gap-2">
+                    <ArticleRoundedIcon />
+                    <h3 className="text-title text-text-primary">Background</h3>
+                </div>
+                <div ref={backgroundRef}></div>
+            </div>
         </>
     );
 };
