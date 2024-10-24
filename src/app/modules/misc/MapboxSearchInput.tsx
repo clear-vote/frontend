@@ -129,9 +129,7 @@ const MapboxSearchInput = React.forwardRef<HTMLInputElement, MapboxSearchInputPr
               onKeyDown={handleKeyDown}
             />
           </div>
-          <Button onClick={handleEnterKey} variant="brand"><SearchIcon/></Button>
-          {/* <button onClick={handleEnterKey} className="rounded-lg h-full w-1/4 bg-[#947fee] hover:bg-[#D3D3D3] ">
-          <SearchIcon/></button> */}
+          <Button onClick={handleEnterKey} variant="brand" className="bg-[#947fee] hover:bg-[#D3D3D3] text-white"><SearchIcon/></Button>
           
         </div>
         {searchResults?.length > 0 && (

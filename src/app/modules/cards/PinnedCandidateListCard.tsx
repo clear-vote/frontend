@@ -18,7 +18,6 @@ interface PinnedCandidateListItemProps {
 export const PinnedCandidateListItem = forwardRef<HTMLButtonElement, PinnedCandidateListItemProps>(({ name, website, image, ...props }, ref?) => {
   const isDesktop = useMasterContext();
 
-  /** TODO: Fix star justification & sizing! */
   if (!isDesktop) {
     return (
       <div className="list-item rounded-md">
