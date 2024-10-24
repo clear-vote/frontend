@@ -165,8 +165,8 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
             {/* TODO: we can change this to just be if its smaller */}
             { !isDesktop && (
                 <>
-                    <div className="bg-tertiary-background border-b border-border-secondary px-4 py-2 sticky top-0">
-                        <h6 className="text-sec text-text-secondary">{position}</h6>
+                    <div className="bg-tertiary-background border-b border-border-secondary px-4 py-2 sticky top-0 bg-white z-50">
+                      <h6 className="text-sec text-text-secondary">{position}</h6>
                         
                         {scrollPosition > 100 && (
                             <h1 className="text-header text-text-primary">{candidate.name}</h1>
@@ -235,6 +235,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                     <h3 className="text-title text-text-primary">Background</h3>
                 </div>
                 <div ref={backgroundRef}></div>
+                <br/>
             </div>
         </>
     );
