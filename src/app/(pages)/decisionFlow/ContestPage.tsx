@@ -30,6 +30,24 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
   const [unpickedCandidates, setUnpickedCandidates] = useState<Set<number>>(new Set());
   const { isDesktop } = useMasterContext();
 
+  /** I would like to dedicate this function to Copilot and Stack Overflow */
+  useEffect(() => {
+    window.history.pushState(null, '', window.location.href);
+
+    const handlePopState = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+      console.log('Navigation attempt detected. Staying on the page.');
+      onBackClick();
+      window.history.pushState(null, '', window.location.href);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [onBackClick]);
+
   useEffect(() => {
     // update the unpickedCandidates state with the list of candidates
     // who are not pinned and not hidden for the selected election and contest.

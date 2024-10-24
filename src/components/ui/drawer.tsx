@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { Drawer as DrawerPrimitive } from "vaul"
+import CloseIcon from '@mui/icons-material/Close';
 
 import { cn } from "@/lib/utils"
 
@@ -48,7 +49,14 @@ const DrawerContent = React.forwardRef<
       )}
       {...props}
     >
-      <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
+      <div className="relative">
+        <DrawerClose asChild>
+          <button className="absolute top-4 right-4 text-xl">
+            <CloseIcon />
+          </button>
+        </DrawerClose>
+        <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
+      </div>
       {children}
     </DrawerPrimitive.Content>
   </DrawerPortal>

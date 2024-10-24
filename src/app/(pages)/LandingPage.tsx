@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import * as React from "react"
-import { Button } from "@mui/material";
+import { Button, Link } from "@mui/material";
 import { MapboxSearchInput } from '../modules/misc/MapboxSearchInput';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
@@ -33,7 +33,7 @@ export default function LandingPage() {
         <br></br>
         <small className="text-white"><HorizontalRuleIcon/>Currently only supporting Washington State<HorizontalRuleIcon/></small>
         <br></br>
-        <a href="/decisionFlow?latitude=47.65555&longitude=-122.30320"><Button variant="contained">See Example!</Button></a>
+        <Link href="/decisionFlow?latitude=47.65555&longitude=-122.30320"><Button variant="contained" className="bg-[#947fee] hover:bg-[#D3D3D3] text-white font-bold">See Example!</Button></Link>
       </div>
     </div>
   );
