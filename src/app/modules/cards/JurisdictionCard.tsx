@@ -20,6 +20,7 @@ export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({ jurisdiction
     if (selectedContest && selectedElection && !filteredContests.includes(elections[selectedElection].contests[selectedContest])){
         return <div></div>;
     }
+
     return (
         <div className="flex flex-col items-center py-1" style={{width: "100%"}}>
             <div className="rounded-sm juristication-card" style={{ maxWidth: "430px", width: "92%" }}>

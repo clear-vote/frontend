@@ -35,6 +35,8 @@ export const ElectionsBottomPage: React.FC<ElectionsBottomPageProps> = ({ onCont
   //     <p style={{ background: "#F3F4F6"}}>No contests found for the selected election.</p>
   //   );
   // }
+
+  
 return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
   <div>
     {Object.entries(jurisdictions).map(([jurisdictionName, contests]) => (
