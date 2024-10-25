@@ -35,32 +35,50 @@ const getStandardDeviations = (politigramScores: Record<string, number[]>) => {
 }
 
 const getNormalizedCandidates = (politigramScores: Record<string, number[]>, candidates: Record<number, Candidate>) => {
-   // Find min and max values for each politigram
-   const minMaxValues: Record<string, {min: number, max: number}> = {};
-   Object.entries(politigramScores).forEach(([key, scores]) => {
-     minMaxValues[key] = {
-       min: Math.min(...scores),
-       max: Math.max(...scores)
-     };
-   });
- 
-   // Normalize politigram scores for each candidate
-   const normalizedCandidates: Record<number, Candidate> = {};
-   Object.entries(candidates).forEach(([id, candidate]) => {
-     const normalizedPolitigram: PolitigramScores = {} as PolitigramScores;
-     Object.entries(candidate.politigram).forEach(([key, value]) => {
-       const { min, max } = minMaxValues[key];
-       normalizedPolitigram[key as keyof PolitigramScores] = max === min ? 
-         50 : // If all values are the same, set to 50
-         ((value - min) / (max - min)) * 100;
-     });
-     normalizedCandidates[Number(id)] = {
-       ...candidate,
-       politigram: normalizedPolitigram
-     };
-   });
- 
-   return normalizedCandidates;
+  // Find min and max values for each politigram
+  const adjustBy: Record<string, number> = {};
+  Object.entries(politigramScores).forEach(([key, scores]) => {
+    adjustBy[key] = 50 - ((Math.min(...scores) + Math.max(...scores)) / 2);
+  });
+
+  const normalizedCandidates: Record<number, Candidate> = {};
+  Object.entries(candidates).forEach(([id, candidate]) => {
+    const normalizedPolitigram: PolitigramScores = {} as PolitigramScores;
+    Object.entries(candidate.politigram).forEach(([key, value]) => {
+      normalizedPolitigram[key as keyof PolitigramScores] = adjustBy[key] + value;
+    });
+    normalizedCandidates[Number(id)] = {
+      ...candidate,
+      politigram: normalizedPolitigram
+    };
+  });
+
+  // // Find min and max values for each politigram
+  // const minMaxValues: Record<string, {min: number, max: number}> = {};
+  // Object.entries(politigramScores).forEach(([key, scores]) => {
+  //   minMaxValues[key] = {
+  //     min: Math.min(...scores),
+  //     max: Math.max(...scores)
+  //   };
+  // });
+
+  // // Normalize politigram scores for each candidate
+  // const normalizedCandidates: Record<number, Candidate> = {};
+  // Object.entries(candidates).forEach(([id, candidate]) => {
+  //   const normalizedPolitigram: PolitigramScores = {} as PolitigramScores;
+  //   Object.entries(candidate.politigram).forEach(([key, value]) => {
+  //     const { min, max } = minMaxValues[key];
+  //     normalizedPolitigram[key as keyof PolitigramScores] = max === min ? 
+  //       50 : // If all values are the same, set to 50
+  //       ((value - min) / (max - min)) * 100;
+  //   });
+  //   normalizedCandidates[Number(id)] = {
+  //     ...candidate,
+  //     politigram: normalizedPolitigram
+  //   };
+  // });
+
+  return normalizedCandidates;
 }
 
 const getWeightedCandidates = (standardDeviations: Record<string, number>, normalizedCandidates: Record<number, Candidate>) => {
@@ -111,10 +129,10 @@ export const scalePolitigramScores = (candidates: Record<number, Candidate>): Re
     });
   });
 
-  const standardDeviations: Record<string, number> = getStandardDeviations(politigramScores);
+  // const standardDeviations: Record<string, number> = getStandardDeviations(politigramScores);
   const normalizedCandidates: Record<number, Candidate> = getNormalizedCandidates(politigramScores, candidates);
-  const weightedCandidates: Record<number, Candidate> = getWeightedCandidates(standardDeviations, normalizedCandidates);
-  const candidatesAndComposite: Record<number, Candidate> = getCompositeScore(weightedCandidates);
+  // const weightedCandidates: Record<number, Candidate> = getWeightedCandidates(standardDeviations, normalizedCandidates);
+  const candidatesAndComposite: Record<number, Candidate> = getCompositeScore(normalizedCandidates);
 
   // console.log("standard deviation", standardDeviations);
   // console.log("normalized candidates", normalizedCandidates);
@@ -193,7 +211,7 @@ export const getElectionsRecord = (data: any[]): Record<number, Election> => {
       contests: contestsRecord,
     };
   });
-  console.log(electionsRecord);
+  // console.log(electionsRecord);
   return electionsRecord;
 };
 

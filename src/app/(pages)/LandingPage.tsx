@@ -1,3 +1,4 @@
+// LandingPage.tsx
 "use client"
 
 import Image from "next/image";
@@ -5,7 +6,7 @@ import * as React from "react"
 import { Button } from "@mui/material";
 import { MapboxSearchInput } from '../modules/misc/MapboxSearchInput';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
-import HelpCenterIcon from '@mui/icons-material/HelpCenter';
+import Link from "next/link";
 
 /** Hardcoded for now; I just imported them from the other website! */
 const WA_STATE: string = [-124.9036503, 45.6798, -116.7196941, 49.1739043].join(',');
@@ -33,7 +34,9 @@ export default function LandingPage() {
         <br></br>
         <small className="text-white"><HorizontalRuleIcon/>Currently only supporting Washington State<HorizontalRuleIcon/></small>
         <br></br>
-        <a href="/decisionFlow?latitude=47.65555&longitude=-122.30320"><Button variant="contained">See Example!</Button></a>
+        <Link href="/decisionFlow" passHref>
+          <Button variant="contained">See Example!</Button>
+        </Link>
       </div>
     </div>
   );
