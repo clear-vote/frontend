@@ -49,7 +49,7 @@ export const CandidateListItem = forwardRef<HTMLButtonElement, CandidateListItem
     }
 
     return (
-      <div className="list-item rounded-md" onClick={() => ref} {...props}>
+      <div className="list-item rounded-md" style={{ width: "95%"}} onClick={() => ref} {...props}>
         <button className="splitscreen">
         <div className="left">
               <img 
