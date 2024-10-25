@@ -1,4 +1,7 @@
+// useFetchData.ts
 import { useState, useEffect } from 'react';
+import fs from 'fs';
+import path from 'path';
 
 export function useFetchData<T>() {
   const [data, setData] = useState<T | null>(null);
@@ -11,7 +14,13 @@ export function useFetchData<T>() {
         const { latitude, longitude } = getCoordinates();
         
         if (!latitude || !longitude) {
-          throw new Error('Missing required query parameters');
+          const response = await fetch('/data/example.json');
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          setData(data);
+          return;
         }
 
         const response = await fetch(`/api/lambda?latitude=${latitude}&longitude=${longitude}`);
