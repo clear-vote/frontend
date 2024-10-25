@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import * as React from "react"
-import { Button, Link } from "@mui/material";
+import { Button } from "@mui/material";
 import { MapboxSearchInput } from '../modules/misc/MapboxSearchInput';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import Link from "next/link";
