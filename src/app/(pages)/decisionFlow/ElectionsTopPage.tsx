@@ -82,4 +82,4 @@ const ElectionsTopPage: React.FC<ElectionsTopPageProps> = memo(({ onSendResultsC
 
 ElectionsTopPage.displayName = 'ElectionsTopPage';
 
-export { ElectionsTopPage };
+export { ElectionsTopPage }; 
