@@ -36,7 +36,7 @@ const ElectionsTopPage: React.FC<ElectionsTopPageProps> = memo(({ onSendResultsC
     // layout for mobile
     if (!isDesktop) {
       return (
-        <div style={{ paddingTop: '45px' }}>
+        <div>
           <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />
           <div style={{padding: "8px"}}>
             <ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />

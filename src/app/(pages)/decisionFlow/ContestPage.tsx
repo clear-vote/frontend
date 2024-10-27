@@ -100,7 +100,7 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
 
 
   return (
-    <div style={{ paddingTop: '45px' }}>
+    <div>
       <div className="font-bold" style={{ padding: "10px", borderBottom: '1px solid #24262814', backgroundColor: "#2426280D" }}>
         <ArrowBackIcon onClick={onBackClick} style={{ width: '20px', transform: "translateY(-2px)" }} />
         &nbsp;&nbsp;&nbsp;{`${election.contests[selectedContest].jurisdiction} ${election.contests[selectedContest].title}`}
