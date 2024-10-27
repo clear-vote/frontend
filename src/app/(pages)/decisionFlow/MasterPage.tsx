@@ -87,9 +87,9 @@
         <br/>
         <h3 className="font-bold" style={{fontSize: "25px"}}>This could be for a few reasons!</h3>
         <br/>
-        <p style={{maxWidth: "500px", textAlign: "center"}}>Clearvote currently only supports Washington state: so, if you've inputed an address outside
+        <p style={{maxWidth: "500px", textAlign: "center"}}>Clearvote currently only supports Washington state: so, if you&apos;ve inputed an address outside
           of Washington, Clearvote will not be able to provide you with your local election information.
-          If you are a resident of Washington, please make sure you've inputed the correct address and try again!
+          If you are a resident of Washington, please make sure you&apos;ve inputed the correct address and try again!
         </p>
         <br/>
         <Link href="/"><Button variant="default" className="bg-[#947fee] hover:bg-[#D3D3D3] text-white">Take Me Back To Home</Button></Link>
