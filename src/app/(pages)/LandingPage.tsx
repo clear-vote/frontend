@@ -35,7 +35,7 @@ export default function LandingPage() {
         <small className="text-white"><HorizontalRuleIcon/>Currently only supporting Washington State<HorizontalRuleIcon/></small>
         <br></br>
         <Link href="/decisionFlow" passHref>
-          <Button variant="contained">See Example!</Button>
+          <Button variant="contained" className="bg-[#947fee] hover:bg-[#D3D3D3] text-white">See Example!</Button>
         </Link>
       </div>
     </div>

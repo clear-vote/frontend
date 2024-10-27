@@ -75,7 +75,7 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
 
   if (isDesktop) {
     return (
-      <div className="px-3 py-3" style={{ background: 'white' }}>
+      <div className="px-3 py-3" style={{ background: 'white',  }}>
         <div className="rounded-md py-3 px-1" style={{ background: 'white', border: '1px solid lightgray' }}>
           <div style={{ display: 'flex',  }}>
             <button className="px-3" onClick={onBackClick} style={{ paddingTop: "5px" }}>
@@ -105,7 +105,8 @@ const ContestPage: FC<ContestPageProps> = ({ election, onBackClick }) => {
         <ArrowBackIcon onClick={onBackClick} style={{ width: '20px', transform: "translateY(-2px)" }} />
         &nbsp;&nbsp;&nbsp;{`${election.contests[selectedContest].jurisdiction} ${election.contests[selectedContest].title}`}
       </div>
-      <div style={{ padding: '8px' }}>
+      <br></br>
+      <div>
         <PositionInfoCard position={election.contests[selectedContest].title} />
         <ContestAccordions
           election={election}

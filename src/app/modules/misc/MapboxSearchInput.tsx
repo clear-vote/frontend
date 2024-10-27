@@ -18,6 +18,11 @@ interface SearchResult {
   center: [number, number];
 }
 
+/** Set to whatever value we want to wait for Mapbox to update for */
+const MAPBOX_UPDATE_DELAY = 300;
+/** Minimum Mapbox search length */
+const MAPBOX_MIN_SEARCH_LENGTH = 1;
+
 const MapboxSearchInput = React.forwardRef<HTMLInputElement, MapboxSearchInputProps>(
   ({ className, token, bounds, maxResults, ...props }, ref) => {
     const router = useRouter();
@@ -37,7 +42,7 @@ const MapboxSearchInput = React.forwardRef<HTMLInputElement, MapboxSearchInputPr
       if (!token) {
         alert("Mapbox token is required!")
       }
-      if (inputValue.length > 3 && shouldSearch) {
+      if (inputValue.length > MAPBOX_MIN_SEARCH_LENGTH && shouldSearch) {
         const timeoutId = setTimeout(() => {
           const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(inputValue)}.json?access_token=${token}&bbox=${bounds}&fuzzyMatch=true&limit=${maxResults}&routing=false`;
           fetch(url)
@@ -48,7 +53,7 @@ const MapboxSearchInput = React.forwardRef<HTMLInputElement, MapboxSearchInputPr
             .catch(error => {
               console.error('Error fetching search results:', error);
             });
-        }, 500);
+        }, MAPBOX_UPDATE_DELAY);
         return () => {
           clearTimeout(timeoutId);
         };
