@@ -36,14 +36,14 @@ const ElectionsTopPage: React.FC<ElectionsTopPageProps> = memo(({ onSendResultsC
     // layout for mobile
     if (!isDesktop) {
       return (
-        <>
+        <div>
           <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />
           <div style={{padding: "8px"}}>
             <ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />
             <br /><br />
             <ProgressCard onSendResultsClick={onSendResultsClick} />
           </div>
-        </>
+        </div>
       );
     }
     
@@ -82,4 +82,4 @@ const ElectionsTopPage: React.FC<ElectionsTopPageProps> = memo(({ onSendResultsC
 
 ElectionsTopPage.displayName = 'ElectionsTopPage';
 
-export { ElectionsTopPage };
+export { ElectionsTopPage }; 
