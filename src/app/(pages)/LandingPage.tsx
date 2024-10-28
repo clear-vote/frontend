@@ -15,7 +15,7 @@ const MAX_RESULTS: number = 5;
 /** Landing page design works for both desktop & mobile mode */
 export default function LandingPage() {
   return (
-    <div className="min-h-screen pt-24 flex flex-col items-center the-fancy-background">
+    <div className="min-h-screen pt-32 flex flex-col items-center the-fancy-background">
       <div className="flex items-center justify-center h-full" style={{ maxWidth: "95%"}} >
         <Image src="/branding/clearvote-full-banner.svg" alt="Clearvote Logo" width={300} height={300}/>
         <br></br>
@@ -35,7 +35,7 @@ export default function LandingPage() {
         <small className="text-white"><HorizontalRuleIcon/>Currently only supporting Washington State<HorizontalRuleIcon/></small>
         <br></br>
         <Link href="/decisionFlow" passHref>
-          <Button variant="contained" className="bg-[#947fee] hover:bg-[#D3D3D3] text-white">See Example!</Button>
+          <Button variant="contained" className="bg-[#947fee] hover:bg-[#D3D3D3] text-white">See Example</Button>
         </Link>
       </div>
     </div>

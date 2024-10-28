@@ -37,8 +37,8 @@ export const BallotCard: React.FC<BallotCardProps> = ({contest, onClick}) => {
     if (pinnedCandidates[selectedElection][contest.id] !== null) {
         return (
             <div onClick={onClick} className="flex flex-col">
-                <div className="flex justify-between items-center">
-                <h3 className="font-bold mr-auto truncate overflow-hidden whitespace-nowrap max-w-xs">{contest.jurisdiction} {contest.title}</h3>
+                <div className="flex flex-row justify-between items-center">
+                    <h3 className="font-bold mr-auto truncate overflow-hidden whitespace-nowrap max-w-xs">{contest.jurisdiction} {contest.title}</h3>
                     <CheckCircleIcon className="ml-auto" style={{ color: "#947FEE" }} />
                 </div>
                 {/** I probably need to find a better way to do this to be honest */}
@@ -69,7 +69,7 @@ export const BallotCard: React.FC<BallotCardProps> = ({contest, onClick}) => {
                 </p>
             </div>
                 <div className="flex justify-center items-center">
-            <div className="list-item-plus-card rounded-md flex justify-center items-center hover:bg-gray-200" onClick={onClick}>
+            <div className="list-item-plus-card w-full h-[120px] rounded-md flex justify-center items-center w-full hover:bg-gray-200" onClick={onClick}>
                 <AddIcon style={{ color: 'darkgray' }} />
             </div>
             </div>

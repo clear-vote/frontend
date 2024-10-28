@@ -155,8 +155,8 @@ body {
 
 .list-item-plus-card {
   display: flex;
-  width: 290px;
-  height: 100px;
+  /* width: 290px; */
+  /* height: 100px; */
   border: 2px dashed lightgray;
   justify-content: center;
   align-items: center;

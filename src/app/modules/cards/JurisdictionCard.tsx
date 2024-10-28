@@ -22,10 +22,10 @@ export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({ jurisdiction
     }
 
     return (
-        <div className="flex flex-col items-center py-1" style={{width: "100%"}}>
-            <div className="rounded-sm juristication-card" style={{ maxWidth: "430px", width: "92%" }}>
-                <div className="rounded-t-sm" style={{ background: getJurisdictionColor(jurisdictionName)! }}>
-                    <h3 className="text-white" style={{ fontFamily: "'IBM Plex Mono', monospace", paddingLeft: "5px" }}>{jurisdictionName}</h3>
+        <div className="flex flex-col items-center py-1 w-full px-4 my-4">
+            <div className="rounded-sm juristication-card max-w-[430px] w-full">
+                <div className="rounded-t-sm flex flex-row justify-between items-center px-2 py-1" style={{ background: getJurisdictionColor(jurisdictionName)! }}>
+                    <h3 className="text-white" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>{jurisdictionName}</h3>
                     {jurisdictionName !== "Other Contests" && (
                         <JurisdictionModal jurisdiction={jurisdictionName} />
                     )}
