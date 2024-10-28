@@ -175,7 +175,7 @@ export const CandidatePage = ({election, unpickedCandidates, setUnpickedCandidat
                     </h2>
                     <span>{((candidate.politigram[selectedPolitigram] / 100) * 9 + 1).toFixed(1)}</span>
                   </div>
-                  {/* <PolitigramInfoModal politigram={selectedPolitigram}/> */}
+                  <PolitigramInfoModal politigram={selectedPolitigram}/>
                 </>
               :
                 <h2 className={`${card.text} ${card.glow}`}>Click me ⬆</h2>

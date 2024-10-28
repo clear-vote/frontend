@@ -33,10 +33,21 @@ const PolitigramInfoModal = ({ politigram }: PolitigramInfoModalProps) => {
           </DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          <p>The one-dimensional political binary represents local candidates poorly.</p>
           <p>The Politigram is a 5-dimensional representation of a candidate&apos;s political values.</p>
-          <p>We determine this by processing the candidate&apos;s provided statements into an Large Language Model (Artificial Intelligence) that outputs a composite rating for each metric on dozens of qualities</p>
-          <p>{getPolitigramInfo(politigram)}</p>
+          <br/>
+          <p>We determine this by processing the candidate&apos;s provided statements through a Large Language Model (Artificial Intelligence) that outputs a composite rating for each metric on dozens of qualities</p>
+          <br/>
+          <p>
+            {getPolitigramInfo(politigram)} You can learn more at this <span> </span>
+            <a 
+              href="https://medium.com/clearvote/the-need-for-better-measurements-in-politics-20c0e699f290" 
+              style={{ textDecoration: 'underline' }} 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              blog post
+            </a>
+          </p>        
         </DialogDescription>
       </DialogContent>
     </Dialog>
