@@ -43,9 +43,10 @@ export const Toolbar: React.FC<ToolbarProps> = ({ isDesktop }) => {
       </Link>
       <div className="flex justify-end space-x-4">
         <Link href="/about"><Button variant="ghost">About</Button></Link>
-        <Link href={DONATE_LINK} target='_blank'><Button variant="ghost">Donate</Button></Link>
-        <Link href={BLOG_LINK} target="_blank"><Button variant="ghost">Blog</Button></Link>
-        <Link href={DISCORD_LINK} target="_blank"><Button variant="ghost">Join our Discord</Button></Link>
+        <Link href="https://donate.stripe.com/3cs0061x75s88OA000" target='_blank'><Button variant="ghost">Donate</Button></Link>
+        <Link href="https://medium.com/clearvote" target="_blank"><Button variant="ghost">Blog</Button></Link>
+        <Link href="https://www.instagram.com/clearvote.info/" target="_blank"><Button variant="ghost">Instagram</Button></Link>
+        <Link href="https://discord.gg/SmsS3tP9tk" target="_blank"><Button variant="brand">Join our Discord</Button></Link>
       </div>
     </div>
   );

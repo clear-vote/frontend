@@ -181,51 +181,51 @@
       </>
     );
 
-    
-    if (isDesktop) {
-      const candidate = election.contests[selectedContest].candidates[selectedCandidate];
-      return (
-        <>
-          <div style={{ display: 'flex'}}>
-            <div style={{ width: '30%', padding: '20px', overflowY: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              {
-                candidate.image && (
-                  <div className="rounded-lg">
-                    <img className="rounded-lg h-[200px]" src={candidate.image} alt="Candidate Photo" />
-                  </div>
-                )
-              }
-              <div className="overflow-visible w-full" ref={parentRef} style={{ display: 'flex', justifyContent: 'center' }}>
-                <PolitigramPie parent={parentRef} politigramScores={candidate.politigram} open={open}/>
-              </div>
-              <div className="flex flex-col gap-1">
-                {
-                  selectedPolitigram 
-                  ?
-                  <>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                      <h2 className={`${card.text} ${card.textPolitigram}`} style={{ backgroundColor: politigramAttributes[selectedPolitigram].color }}>
-                        {selectedPolitigram.charAt(0).toUpperCase() + selectedPolitigram.slice(1)}
-                      </h2>
-                      <span>{((candidate.politigram[selectedPolitigram] / 100) * 9 + 1).toFixed(1)}</span>
-                    </div>
-                    {/* <PolitigramInfoModal politigram={selectedPolitigram}/> */}
-                  </>
-                :
-                  <h2 className={`${card.text} ${card.glow}`}>Click me ⬆</h2>
-                }
-              </div>
+  
+  if (isDesktop) {
+    const candidate = election.contests[selectedContest].candidates[selectedCandidate];
+    return (
+      <>
+        <div style={{ display: 'flex'}}>
+          <div style={{ width: '30%', padding: '20px', overflowY: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            {
+              candidate.image && (
+                <div className="rounded-lg">
+                  <img className="rounded-lg h-[200px]" src={candidate.image} alt="Candidate Photo" />
+                </div>
+              )
+            }
+            <div className="overflow-visible w-full" ref={parentRef} style={{ display: 'flex', justifyContent: 'center' }}>
+              <PolitigramPie parent={parentRef} politigramScores={candidate.politigram} open={open}/>
             </div>
-            <div style={{ width: '70%', position: 'relative' }}>
-              <div className="text-title text-text-primary" style={{alignItems: 'center', justifyContent: 'center', display: "flex"}}>
-                <h2>{candidate.name}</h2>
-              </div>
-              {mainContent}
+            <div className="flex flex-col gap-1">
+              {
+                selectedPolitigram 
+                ?
+                <>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <h2 className={`${card.text} ${card.textPolitigram}`} style={{ backgroundColor: politigramAttributes[selectedPolitigram].color }}>
+                      {selectedPolitigram.charAt(0).toUpperCase() + selectedPolitigram.slice(1)}
+                    </h2>
+                    <span>{((candidate.politigram[selectedPolitigram] / 100) * 9 + 1).toFixed(1)}</span>
+                  </div>
+                  <PolitigramInfoModal politigram={selectedPolitigram}/>
+                </>
+              :
+                <h2 className={`${card.text} ${card.glow}`}>Click me ⬆</h2>
+              }
             </div>
           </div>
-        </>
-      );
-    }
+          <div style={{ width: '70%', position: 'relative' }}>
+            <div className="text-title text-text-primary" style={{alignItems: 'center', justifyContent: 'center', display: "flex"}}>
+              <h2>{candidate.name}</h2>
+            </div>
+            {mainContent}
+          </div>
+        </div>
+      </>
+    );
+  }
 
     return mainContent;
   }

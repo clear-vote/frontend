@@ -182,14 +182,14 @@ export const getJurisdictionLevelPositions = (contests: Record<number, Contest>)
 export const getPolitigramInfo = (politigram: Politigram): string => {
   switch (politigram) {
     case 'community':
-      return 'Community is a measure of how much a candidate values the well-being of their community.';
+      return 'Community is a measure of how much a candidate values serving the needs of their community.';
     case 'humanitarianism':
-      return 'Humanitarianism is a measure of how much a candidate values the well-being of all people.';
+      return 'Humanitarianism is a measure of how much a candidate prioritizes the well being of those most in need.';
     case 'prosperity':
-      return 'Prosperity is a measure of how much a candidate values economic growth and financial stability.';
+      return 'Prosperity is a measure of how much a candidate values economic growth and societal stability.';
     case 'liberty':
-      return 'Liberty is a measure of how much a candidate values individual freedoms and personal rights.';
+      return 'Liberty is a measure of how much a candidate values individual empowerment, honesty, and transparency.';
     case 'stewardship':
-      return 'Stewardship is a measure of how much a candidate values the environment and natural resources.';
+      return 'Stewardship is a measure of how much a candidate focuses on long-term policies and providing the best outcome for as many people as possible.';
   }
 };
