@@ -63,39 +63,11 @@
       setSelectedCandidate(nextCandidate);
     };
 
-    const handleTouchStart = (e: React.TouchEvent) => {
-        touchStartX.current = e.targetTouches[0].clientX;
-        isSwiping.current = false;
-    };
-    
-    const handleTouchMove = (e: React.TouchEvent) => {
-        touchEndX.current = e.targetTouches[0].clientX;
-        isSwiping.current = true;
-    };
-    
-    const handleTouchEnd = () => {
-        if (isSwiping.current) {
-            if (touchStartX.current - touchEndX.current > 50) {
-                handleLeftSwipe();
-            }
-    
-            if (touchEndX.current - touchStartX.current > 50) {
-                handleRightSwipe();
-            }
-        }
-        touchStartX.current = 0;
-        touchEndX.current = 0;
-        isSwiping.current = false;
-    };
-
 
     const mainContent = (
       <>
         <ScrollArea positionHook={handleShowButtons}>
-          <div className="relative min-h-screen w-full"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}>
+          <div className="relative min-h-screen w-full">
           <CandidateCard 
             position={election.contests[selectedContest].title} 
             candidate={election.contests[selectedContest].candidates[selectedCandidate]} 

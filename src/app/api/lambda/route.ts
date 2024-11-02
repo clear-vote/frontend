@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// Call to mock data. Comment out the mockData you don't want to use
+// // Call to mock data. Comment out the mockData you don't want to use
 // import fs from 'fs';
 // import { NextRequest, NextResponse } from 'next/server';
 // import path from 'path';
