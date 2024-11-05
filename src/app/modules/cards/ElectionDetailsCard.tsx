@@ -76,6 +76,12 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
     return (
       <div>
         {datesAndDeadlines}
+        <Button className="text-white bg-[#947FEE] hover:bg-purple-800"><a href="https://forms.gle/kD2JRBYDt7P6zETX7" target="_blank">
+          <PersonIcon style={{ width: '15px' }} /> Sign up for reminders</a>
+        </Button>
+        <Button className="text-black bg-white hover:bg-gray-200 border border-gray-300"><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state" target="_blank">
+          <HowToVoteIcon style={{ width: '15px' }} /> Get registered</a>
+        </Button>
       </div>
     );
   }
@@ -116,10 +122,10 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
           <br />
           {/** TODO: Replace with "Sign up for reminders" link */}
           <div>
-            <Button className="text-white bg-[#947FEE] hover:bg-purple-800"><a href="https://www.youtube.com/watch?v=rv4wf7bzfFE">
+            <Button className="text-white bg-[#947FEE] hover:bg-purple-800"><a href="https://forms.gle/kD2JRBYDt7P6zETX7" target="_blank">
               <PersonIcon style={{ width: '15px' }} /> Sign up for reminders</a>
             </Button>
-            <Button className="text-black bg-white hover:bg-gray-200 border border-gray-300"><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state">
+            <Button className="text-black bg-white hover:bg-gray-200 border border-gray-300"><a href="https://www.sos.wa.gov/elections/voters/voter-registration/register-vote-washington-state" target="_blank">
               <HowToVoteIcon style={{ width: '15px' }} /> Get registered</a>
             </Button>
           </div>
