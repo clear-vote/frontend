@@ -16,6 +16,7 @@ import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
 import PolitigramInfoModal from '../modals/PolitigramInfoModal';
 import { useUIContext } from '@/context/UIContext';
 import { useMasterContext } from '@/context/MasterContext';
+import Link from 'next/link';
 
 interface CandidateCardProps {
     position: string;
@@ -182,7 +183,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ position, candidat
                             <h1 className="text-header text-text-primary max-w-[150px]">{candidate.name}</h1>
                             {candidate.website && (
                             <div className={`${card.gridItem} ${card.gridItemWebsite}`}>
-                                <a className={card.link} href={candidate.website}>
+                                <a className={card.link} href={candidate.website} target="_blank" rel="noopener noreferrer">
                                     <LinkIcon/>
                                     <span className={card.text}> {candidate.website}</span>
                                 </a>
