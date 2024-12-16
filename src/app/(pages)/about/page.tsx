@@ -29,7 +29,7 @@ export default function AboutPage() {
                 <h2 className="font-semibold text-[#2c3e50]" style={{fontSize: "25pt"}}>How?</h2>
                 <br/>
                 <div className="mb-8 max-w-2xl">
-                    <p>Clearvote allows you to easily access information on the candidates on <strong className="text-[#947fee]">your</strong> ballot at all levels and choose who  <strong className="text-[#947fee]">you</strong> want to vote for.</p>
+                    <p>Clearvote allows you to easily access information on the candidates at all levels on <strong className="text-[#947fee]">your</strong> ballot and choose who  <strong className="text-[#947fee]">you</strong> want to vote for.</p>
                     <br/>
                     <p>We believe through the open-source nature and community-driven approach of Clearvote, we can enhance the political agency of individuals globally on a small scale, where each "chapter" of Clearvote is catered to the needs of that particular community.</p>
                 </div>
