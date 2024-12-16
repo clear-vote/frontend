@@ -23,6 +23,7 @@ const BLOG_LINK = "https://medium.com/clearvote";
 
 export const Toolbar: React.FC<ToolbarProps> = ({ isDesktop }) => {
 
+  /** Mobile mode toolbar */
   if (!isDesktop) {
     return (
       <div className="toolbar-mobile" style={{ position: 'fixed', zIndex: 100, justifyContent: 'space-between', fontFamily: "'IBM Plex Mono', sans-serif"}}>
@@ -37,16 +38,21 @@ export const Toolbar: React.FC<ToolbarProps> = ({ isDesktop }) => {
 
   /** Desktop mode toolbar */
   return (
-    <div className="toolbar-desktop" style={{ position: 'fixed', zIndex: 100, justifyContent: 'space-between', fontFamily: "'IBM Plex Mono', sans-serif"}}>
+    <div className="toolbar-desktop" style={{ position: 'fixed', 
+    zIndex: 100, 
+    justifyContent: 'space-between', 
+    fontFamily: "'IBM Plex Mono', sans-serif",
+    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
+    }}>
       <Link href="/">
-        <img src="/branding/favicon.svg" alt="Home" style={{ width: '48px', height: '48px' }} />
+        <img src="/branding/favicon.svg" alt="Home" style={{ width: '48px', height: '38px' }} />
       </Link>
-      <div className="flex justify-end space-x-4">
+      <div>
         <Link href="/about"><Button variant="ghost">About</Button></Link>
         <Link href="https://donate.stripe.com/3cs0061x75s88OA000" target='_blank'><Button variant="ghost">Donate</Button></Link>
         <Link href="https://medium.com/clearvote" target="_blank"><Button variant="ghost">Blog</Button></Link>
         <Link href="https://www.instagram.com/clearvote.info/" target="_blank"><Button variant="ghost">Instagram</Button></Link>
-        <Link href="https://discord.gg/SmsS3tP9tk" target="_blank"><Button variant="brand">Join our Discord</Button></Link>
+        <Link href="https://discord.gg/SmsS3tP9tk" target="_blank"><Button variant="ghost">Join our Discord</Button></Link>
       </div>
     </div>
   );
