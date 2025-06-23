@@ -3,7 +3,9 @@ import { BallotCard } from "./BallotCard";
 import JurisdictionModal from "../modals/JurisdictionModal";
 import PositionInfoCard from "./PositionInfoCard";
 import { useElectionContext } from "@/context/ElectionContext";
+import { useCandidateContext } from "@/context/CandidateContext";
 import { getJurisdictionColor } from "@/utils/informationals";
+import ProgressBar from '@/components/ui/progress-bar';
 
 interface JurisdictionCardProps {
     jurisdictionName: string;
@@ -15,9 +17,12 @@ interface JurisdictionCardProps {
 
 export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({ jurisdictionName, filteredContests, onContestClick }) => {
     const { elections, selectedElection, selectedContest } = useElectionContext();
+    const {
+        pinnedCandidates,
+    } = useCandidateContext();
     //Default color (orange gradient) for county-level contests and lower
-    
-    if (selectedContest && selectedElection && !filteredContests.includes(elections[selectedElection].contests[selectedContest])){
+
+    if (selectedContest && selectedElection && !filteredContests.includes(elections[selectedElection].contests[selectedContest])) {
         return <div></div>;
     }
 
@@ -35,14 +40,23 @@ export const JurisdictionCard: React.FC<JurisdictionCardProps> = ({ jurisdiction
                         style={{ backgroundColor: '#06090B0A', border: 'none', borderTop: '2px solid #24262814', padding: "10px" }}>
                         <BallotCard contest={elections[selectedElection!].contests[selectedContest!]} />
                     </div>
-                    : filteredContests.map((contest) => (
-                        <div key={contest.id} onClick={() => onContestClick(contest.id)}
-                            style={{ backgroundColor: '#06090B0A', border: 'none', borderTop: '2px solid #24262814', padding: "10px" }}>
-                            <BallotCard contest={contest} />
-                        </div>
-                    ))}
-                </div>
-                {selectedContest && selectedElection && filteredContests.includes(elections[selectedElection].contests[selectedContest]) && 
+                    : <div>
+                        {filteredContests.map((contest) => (
+                            (!pinnedCandidates[selectedElection!][contest.id] && <div key={contest.id} onClick={() => onContestClick(contest.id)}
+                                style={{ backgroundColor: '#06090B0A', border: 'none', borderTop: '2px solid #24262814', padding: "10px" }}>
+                                <BallotCard contest={contest} />
+                            </div>)
+                        ))}
+                        {filteredContests.map((contest) => (
+                            (pinnedCandidates[selectedElection!][contest.id] && <div key={contest.id} onClick={() => onContestClick(contest.id)}
+                                style={{ backgroundColor: '#06090B0A', border: 'none', borderTop: '2px solid #24262814', padding: "10px" }}>
+                                <BallotCard contest={contest} />
+                            </div>)
+                        ))}
+                    </div>
+                }
+            </div>
+            {selectedContest && selectedElection && filteredContests.includes(elections[selectedElection].contests[selectedContest]) &&
                 <div>
                     <br/>
                     <PositionInfoCard position={elections[selectedElection!].contests[selectedContest!].title} />

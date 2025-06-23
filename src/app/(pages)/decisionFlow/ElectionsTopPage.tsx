@@ -65,12 +65,12 @@ const ElectionsTopPage: React.FC<ElectionsTopPageProps> = memo(({ onSendResultsC
     // Layout for screens larger than 1000px
     return (
       <div className="flex justify-center">
-        <div style={{ width: "60%", paddingRight: "16px" }}>
+        <div style={{ width: "60%", paddingLeft: "16px" }}>
           <ElectionDetailsCard setDropdownIsOpen={setDropdownIsOpen} />
           <br />
           <ProgressCard onSendResultsClick={onSendResultsClick} />
         </div>
-        <div style={{ width: "40%" }}>
+        <div style={{ width: "40%", paddingRight: "16px", paddingLeft: "16px" }}>
           <PrecinctMapCard token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN} />
         </div>
       </div>
