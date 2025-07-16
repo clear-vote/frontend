@@ -18,11 +18,11 @@ export default function AboutPage() {
                 <h2 className="font-semibold text-[#2c3e50]" style={{fontSize: "25pt"}}>Why?</h2>
                 <br/>
                 <div className="mb-8 max-w-2xl">
-                    <p className="mb-4">Urban estimates for voter turnout in <strong>federal elections</strong> are around <strong>70%</strong> with <strong>off-cycle elections</strong> in contests like primary elections being as low as <strong>20%</strong>. Many people are interested in participating but do not, mainly because they either:</p>
+                    <p className="mb-4">Urban estimates for voter turnout in <strong className="text-[#947fee]">federal elections</strong> are around <strong className="text-[#947fee]">70%</strong> with <strong className="text-[#947fee]">off-cycle elections</strong> in contests like primary elections being as low as <strong className="text-[#947fee]">20%</strong>. Many people are interested in participating but do not, mainly because they either:</p>
                     <ol className="list-decimal list-inside space-y-2 pl-4">
-                        <li>Do not even know there is an election going on.</li>
-                        <li>Don&apos;t have the time to figure out how to participate.</li>
-                        <li>Are not able to keep track of the key dates and miss the voting schedule.</li>
+                        <strong><li>Do not even know there is an election going on.</li></strong>
+                        <strong><li>Don&apos;t have the time to figure out how to participate.</li></strong>
+                        <strong><li>Are not able to keep track of the key dates and miss the voting schedule.</li></strong>
                     </ol>
                 </div>
 
@@ -38,12 +38,12 @@ export default function AboutPage() {
                 <br/>
                 <div className="text-lg mb-8 max-w-2xl">
                     <p className="mb-4">An application like this could in theory be used for control, but we believe this isn&apos;t possible for the main reason that people are more skeptical when it comes to politics than anything else. Our primary asset is <strong className="text-[#947fee]">Trust</strong>. We are not:</p>
-                    <ul className="list-disc list-inside space-y-2 pl-4">
-                        <li>Data Collectors</li>
-                        <li>Political Analysts</li>
-                        <li>Think Tanks</li>
-                        <li>Lobbyists</li>
-                        <li>All other forms of Corporate Shills</li>
+                    <ul className="list-disc list-inside space-y-2 pl-4 text-[#947fee]">
+                        <li><strong>Data Collectors</strong></li>
+                        <li><strong>Political Analysts</strong></li>
+                        <li><strong>Think Tanks</strong></li>
+                        <li><strong>Lobbyists</strong></li>
+                        <li><strong>All other forms of Corporate Shills</strong></li>
                     </ul>
                 </div>
 

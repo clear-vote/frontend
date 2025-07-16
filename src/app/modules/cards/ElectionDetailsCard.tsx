@@ -76,6 +76,7 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
     return (
       <div>
         {datesAndDeadlines}
+        <br/>
         <Button className="text-white bg-[#947FEE] hover:bg-purple-800"><a href="https://forms.gle/kD2JRBYDt7P6zETX7" target="_blank">
           <PersonIcon style={{ width: '15px' }} /> Sign up for reminders</a>
         </Button>
@@ -122,6 +123,7 @@ export const ElectionDetailsCard: React.FC<ElectionDetailsCardProps> = ({ setDro
           <br />
           {/** TODO: Replace with "Sign up for reminders" link */}
           <div>
+            <br/>
             <Button className="text-white bg-[#947FEE] hover:bg-purple-800"><a href="https://forms.gle/kD2JRBYDt7P6zETX7" target="_blank">
               <PersonIcon style={{ width: '15px' }} /> Sign up for reminders</a>
             </Button>
