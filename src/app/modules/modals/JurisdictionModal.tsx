@@ -25,7 +25,12 @@ const JurisdictionModal = ({ jurisdiction }: JurisdictionModalProps) => {
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
-        <InfoIcon fontSize='small' style={{ color: 'white'}}/>
+        <InfoIcon 
+          fontSize="small" 
+          sx={{ 
+            color: 'white',
+            '&:hover': { color: 'lightgray', cursor: 'pointer' } 
+          }} />
         {/* <IconButton color="primary" aria-label="info" component="span"
               sx={{ "&:hover": { color: "blue" } }}> </IconButton> */}
       </DialogTrigger>
