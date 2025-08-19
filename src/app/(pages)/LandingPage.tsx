@@ -27,21 +27,7 @@ export default function LandingPage() {
       <CountdownToDate targetDate="2025-12-31T23:59:59" />
       <br/>
       <h1 className="text-white font-bold"></h1>
-      {/* <div className="flex flex-col items-center justify-center" style={{ padding: "8px", width: "90%", maxWidth: "500px", textAlign: "center"}}>
-        <div className="flex w-full items-center space-x-2">
-          <MapboxSearchInput
-            type="search"
-            placeholder="Enter an address to get started..."
-            className="w-full"
-            token={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-            bounds={WA_STATE}
-            maxResults={MAX_RESULTS}
-          />
-        </div>
-        <br></br>
-        <small className="text-white"><HorizontalRuleIcon/>Currently supporting Washington State elections<HorizontalRuleIcon/></small>
-      </div> */}
-              <h2 className="text-white"><HorizontalRuleIcon/>In the meantime, check out an example ballot below:<HorizontalRuleIcon/></h2>
+          <h2 className="text-white"><HorizontalRuleIcon/>In the meantime, check out an example ballot below!<HorizontalRuleIcon/></h2>
         <br/>
         <Link href="/decisionFlow" passHref>
           <Button className="bg-[#947fee] hover:bg-[#D3D3D3] text-white font-bold">See Example Ballot!</Button>
@@ -82,7 +68,7 @@ const CountdownToDate = ({ targetDate }: { targetDate: string }) => {
   }, [timeLeft]);
 
   if (!timeLeft) {
-    return <h1>Time's up!</h1>;
+    return <h1>It&apos;s go time! We&apos;ll be back soon!</h1>;
   }
 
   return (
