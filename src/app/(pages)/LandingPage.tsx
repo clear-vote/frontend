@@ -23,8 +23,8 @@ export default function LandingPage() {
         <br></br>
       </div>
       <br></br>
-      <h1 className="text-white font-bold">Clearvote will return for the 2025 General Election on October 17th, 2025:</h1>
-      <CountdownToDate targetDate="2025-10-17T23:59:59" />
+      <h1 className="text-white font-bold">Clearvote will return for the 2025 General Election on October 24th, 2025:</h1>
+      <CountdownToDate targetDate="2025-10-24T00:00:00" />
       <br/>
       <h1 className="text-white font-bold"></h1>
           <h2 className="text-white"><HorizontalRuleIcon/>In the meantime, check out an example ballot below!<HorizontalRuleIcon/></h2>
