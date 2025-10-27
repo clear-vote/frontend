@@ -7,7 +7,6 @@ import { Button } from "@mui/material";
 import { MapboxSearchInput } from '../modules/misc/MapboxSearchInput';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import Link from "next/link";
-import { useState, useEffect } from 'react';
 
 /** We're pushing this off a little bit... */
 const PRIMARY_DATE = '2025-07-28T23:59:59';
