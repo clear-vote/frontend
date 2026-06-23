@@ -83,13 +83,17 @@
       return (
         <div className="flex justify-center p-2" style={{fontFamily: "'IBM Plex Sans', sans-serif", paddingTop: TOOLBAR_HEIGHT}}>
         <div className="mb-4 w-full max-w-[calc(100%-2rem)] flex flex-col items-center py-5">
-        <h3 className="font-bold" style={{fontSize: "25px"}}>Looks like we ran into an error: {error}</h3>
+        <h3 className="font-bold" style={{fontSize: "25px"}}>Looks like this address currently does not have election information available!</h3>
         <br/>
         <h3 className="font-bold" style={{fontSize: "25px"}}>This could be for a few reasons!</h3>
         <br/>
-        <p style={{maxWidth: "500px", textAlign: "center"}}>Clearvote currently only supports Washington state: so, if you&apos;ve inputed an address outside
-          of Washington, Clearvote will not be able to provide you with your local election information.
-          If you are a resident of Washington, please make sure you&apos;ve inputed the correct address and try again!
+        <p style={{maxWidth: "500px", textAlign: "center"}}>Clearvote currently only supports Washington state addresses. So, if you&apos;ve inputed an address outside
+          of Washington, Clearvote is not yet able to provide you with your local election information.
+        </p>
+        <br/>
+        <p style={{maxWidth: "500px", textAlign: "center"}}>
+          Alternatively, there may not currently be an election taking place: in this case, we recommend checking out our example ballot on the homepage
+          to see how Clearvote works!
         </p>
         <br/>
         <Link href="/"><Button variant="default" className="bg-[#947fee] hover:bg-[#D3D3D3] text-white">Take Me Back To Home</Button></Link>
