@@ -13,6 +13,12 @@ interface BallotCardProps {
     onClick?: () => void;
 }
 
+const getContestHeading = (contest: Contest): string => {
+    const heading = `${contest.jurisdiction} ${contest.title}`;
+    if (!contest.position) return heading;
+    return /^\d+$/.test(contest.position) ? `${heading} Pos. ${contest.position}` : `${heading} ${contest.position}`;
+}
+
 /**
  * Shows the pinned candidate of the user, or indicates that they need to pin a candidate for the contest
  * @param props Ballot Card Props for the Ballot Card
@@ -38,7 +44,7 @@ export const BallotCard: React.FC<BallotCardProps> = ({contest, onClick}) => {
         return (
             <div onClick={onClick} className="flex flex-col">
                 <div className="flex flex-row justify-between items-center">
-                    <h3 className="font-bold mr-auto truncate overflow-hidden whitespace-nowrap max-w-xs">{contest.jurisdiction} {contest.title}</h3>
+                    <h3 className="font-bold mr-auto truncate overflow-hidden whitespace-nowrap max-w-xs">{getContestHeading(contest)}</h3>
                     <CheckCircleIcon className="ml-auto" style={{ color: "#947FEE" }} />
                 </div>
                 {/** I probably need to find a better way to do this to be honest */}
@@ -62,7 +68,7 @@ export const BallotCard: React.FC<BallotCardProps> = ({contest, onClick}) => {
         <div className="flex flex-col">
             <div className="flex justify-between items-center">
                 <h3 className="font-bold mr-4 truncate overflow-hidden whitespace-nowrap max-w-xs">
-                    {contest.jurisdiction} {contest.title}
+                    {getContestHeading(contest)}
                 </h3>
                 <p className='text-xs text-gray-500 flex-shrink-0'>
                     {Object.values(contest.candidates).length} {Object.values(contest.candidates).length > 1 ? "Candidates" : "Candidate"}
