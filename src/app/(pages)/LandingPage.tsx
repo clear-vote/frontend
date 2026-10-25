@@ -34,7 +34,7 @@ export default function LandingPage() {
           />
         </div>
         <br></br>
-        <small className="text-white"><HorizontalRuleIcon/>Currently supporting Washington State elections<HorizontalRuleIcon/></small>
+        <small className="text-white"><HorizontalRuleIcon/>Supporting Washington State elections since 2024<HorizontalRuleIcon/></small>
       </div>
               <small className="text-white"><HorizontalRuleIcon/>Check out an example ballot below!<HorizontalRuleIcon/></small>
         <br/>

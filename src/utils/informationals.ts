@@ -53,7 +53,11 @@ const jurisdictionLevels: Record<string, JurisdictionLevel> = {
       "County Prosecuting Attorney",
       "County Sheriff",
       "County Treasurer",
+      "County Clerk",
+      "County Coroner",
+      "County Director of Community Development",
       "Superior Court Justice",
+      "District Court Judge",
       "County Council",
       "County Commissioner"
     ],
@@ -125,9 +129,17 @@ export const getPositionInfo = (position: string): string => {
     case 'County Sheriff':
       return 'The County Sheriff is responsible for law enforcement in the county, including operating the county jail, serving warrants, and ensuring public safety.';
     case 'County Treasurer':
-      return 'The County Treasurer manages the county’s finances, including tax collection, revenue disbursement, and managing county funds and investments.';
+      return 'The County Treasurer manages the county\'s finances, including tax collection, revenue disbursement, and managing county funds and investments.';
+    case 'County Clerk':
+      return 'The County Clerk keeps the official records of the superior court, managing case files, court fees, and legal documents for the county.';
+    case 'County Coroner':
+      return 'The County Coroner investigates sudden, unexpected, or suspicious deaths in the county, determining the cause and manner of death.';
+    case 'County Director of Community Development':
+      return 'The County Director of Community Development oversees land use planning, building permits, and code enforcement for the county.';
     case 'Superior Court Justice':
-      return 'A Superior Court Justice presides over trials and hearings in the state’s superior courts, dealing with serious criminal cases, civil disputes, and appeals from lower courts.';
+      return 'A Superior Court Justice presides over trials and hearings in the state\'s superior courts, dealing with serious criminal cases, civil disputes, and appeals from lower courts.';
+    case 'District Court Judge':
+      return 'A District Court Judge hears misdemeanor criminal cases, traffic infractions, small claims, and smaller civil disputes within the county.';
     case 'County Council':
       return 'A County Council member represents a district within the county, creating and voting on county policies, ordinances, and budgets.';
     case 'County Commissioner':
