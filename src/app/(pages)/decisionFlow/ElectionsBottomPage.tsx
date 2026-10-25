@@ -6,6 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { Contest } from "@/types";
 import { getJurisdictionLevelPositions } from "@/utils/informationals";
 import { useMasterContext } from "@/context/MasterContext";
+import { useCandidateContext } from "@/context/CandidateContext";
 
 interface ElectionsBottomPageProps {
   onContestClick: (contestId: number) => void;
@@ -15,6 +16,12 @@ export const ElectionsBottomPage: React.FC<ElectionsBottomPageProps> = ({ onCont
   const { elections, selectedElection } = useElectionContext();
   const selectedElectionData = elections[selectedElection!];
   const jurisdictions: Record<string, Contest[]> = getJurisdictionLevelPositions(selectedElectionData.contests);
+  const { pinnedCandidates } = useCandidateContext();
+
+  const isComplete = (contests: Contest[]) =>
+    contests.every((contest) => pinnedCandidates[selectedElection!]?.[contest.id] != null);
+  const sortedJurisdictions = Object.entries(jurisdictions)
+    .sort(([, a], [, b]) => Number(isComplete(a)) - Number(isComplete(b)));
   // const { isDesktop } = useMasterContext();
 
   // if (isDesktop) {
@@ -39,7 +46,7 @@ export const ElectionsBottomPage: React.FC<ElectionsBottomPageProps> = ({ onCont
   
 return selectedElectionData && selectedElectionData.contests && Object.keys(selectedElectionData.contests).length > 0 ? (
   <div>
-    {Object.entries(jurisdictions).map(([jurisdictionName, contests]) => (
+    {sortedJurisdictions.map(([jurisdictionName, contests]) => (
       <JurisdictionCard
         key={jurisdictionName}
         jurisdictionName={jurisdictionName}

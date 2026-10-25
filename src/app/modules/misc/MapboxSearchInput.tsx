@@ -31,10 +31,12 @@ const MapboxSearchInput = React.forwardRef<HTMLInputElement, MapboxSearchInputPr
     const [inputValue, setInputValue] = React.useState('');
     const [selectedItem, setSelectedItem] = React.useState({});
     const [shouldSearch, setShouldSearch] = React.useState(true);
+    const hasSelection = Object.keys(selectedItem).length > 0;
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setFocusedItemIndex(-1);
       setInputValue(event.target.value);
+      setSelectedItem({}); // Editing the text un-selects the address
       setShouldSearch(true);
     };
 
@@ -82,12 +84,7 @@ const MapboxSearchInput = React.forwardRef<HTMLInputElement, MapboxSearchInputPr
         setSearchResults([]);
         setFocusedItemIndex(-1);
         setShouldSearch(false);
-      } else if (!selectedItem && searchResults.length === 0) {
-        alert("you must enter an item!");
-      } else {
-        if (searchResults.length > 0) {
-          setSelectedItem(searchResults[0]);
-        }
+      } else if (hasSelection) {
         handleCoordinates(selectedItem);
         setShouldSearch(false);
       }
@@ -137,7 +134,14 @@ const MapboxSearchInput = React.forwardRef<HTMLInputElement, MapboxSearchInputPr
               onKeyDown={handleKeyDown}
             />
           </div>
-          <Button onClick={handleEnterKey} variant="brand" className="bg-[#947fee] hover:bg-[#D3D3D3] text-white"><SearchIcon/></Button>
+          <Button
+            onClick={handleEnterKey}
+            disabled={!hasSelection}
+            variant="brand"
+            className={hasSelection ? "bg-[#947fee] hover:bg-[#D3D3D3] text-white" : "bg-[#D3D3D3] text-white cursor-not-allowed"}
+          >
+            <SearchIcon/>
+          </Button>
           
         </div>
         {searchResults?.length > 0 && (

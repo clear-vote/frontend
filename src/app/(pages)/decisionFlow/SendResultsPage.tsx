@@ -99,7 +99,7 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
         </h2>
         <div className="flex flex-wrap justify-center gap-3" style={{ marginTop: '20px' }}>
           <a
-            href="https://forms.gle/zmTGWCvHDgNQjrJf7"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfJv_dhF3NUDy8ENPxXcwMwqfOAlu7Yl8s6EM6madDgzjbseA/viewform"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center h-12 px-6 rounded-md font-bold text-white bg-[#2D3142] hover:bg-[#1F222E]"
