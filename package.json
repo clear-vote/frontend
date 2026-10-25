@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "mkdir -p public/pdfjs && cp node_modules/pdfjs-dist/build/pdf.min.mjs node_modules/pdfjs-dist/build/pdf.worker.min.mjs public/pdfjs/"
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^6.5.2",
@@ -23,6 +24,7 @@
     "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@react-pdf/renderer": "^4.9.0",
     "aws-amplify": "^6.6.4",
     "aws-sdk": "^2.1691.0",
     "class-variance-authority": "^0.7.0",
@@ -32,6 +34,7 @@
     "lucide-react": "^0.428.0",
     "mapbox-gl": "^3.6.0",
     "next": "^14.2.14",
+    "pdfjs-dist": "5.4.296",
     "polished": "^4.3.1",
     "react": "^18",
     "react-dom": "^18",

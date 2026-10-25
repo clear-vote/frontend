@@ -5,6 +5,9 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 // import { DonationsModal } from '@/app/modules/modals/DonationsModal';
 import { useMasterContext } from '@/context/MasterContext';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+// @react-pdf/renderer and react-pdf only run in the browser
+const BallotPdfPreview = dynamic(() => import('@/app/modules/cards/BallotPdfPreview'), { ssr: false });
 
 interface SendResultsPageProps {
   onBackClick: () => void;
@@ -62,8 +65,13 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
         <h1 className='font-bold text-xl'>Congratulations!</h1>
         <br />
         <p>
-          You&apos;ve just completed your ballot!! (well, sort of). Click back and make note of your picks so you&apos;re ready to fill it out.
+          You&apos;ve just completed your ballot!! (well, sort of). Download your picks below so you&apos;re ready to fill it out.
         </p>
+        <br />
+        <div style={{ width: '90%', maxWidth: '600px' }}>
+          <BallotPdfPreview />
+        </div>
+        <br />
         <p>
           Want to stay informed when the next election drops? Join our mailing list!
         </p>

@@ -106,7 +106,7 @@ export default function AboutPage() {
 
             <section className="px-4 py-20 text-center">
                 <Link href="/decisionFlow" passHref>
-                    <Button className="bg-[#947fee] hover:bg-[#D3D3D3] text-white">Let&apos;s Get Started!</Button>
+                    <Button className="bg-[#947fee] hover:bg-[#D3D3D3] text-white">Check Out An Example Ballot Here!</Button>
                 </Link>
             </section>
         </div>

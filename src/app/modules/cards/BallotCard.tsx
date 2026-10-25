@@ -13,7 +13,7 @@ interface BallotCardProps {
     onClick?: () => void;
 }
 
-const getContestHeading = (contest: Contest): string => {
+export const getContestHeading = (contest: Contest): string => {
     const heading = `${contest.jurisdiction} ${contest.title}`;
     if (!contest.position) return heading;
     return /^\d+$/.test(contest.position) ? `${heading} Pos. ${contest.position}` : `${heading} ${contest.position}`;
