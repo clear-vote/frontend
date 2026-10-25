@@ -1,12 +1,13 @@
 import React, { useState, KeyboardEvent, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input"
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CheckIcon from '@mui/icons-material/Check';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 // import { DonationsModal } from '@/app/modules/modals/DonationsModal';
 import { useMasterContext } from '@/context/MasterContext';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-// @react-pdf/renderer and react-pdf only run in the browser
+// @react-pdf/renderer and pdfjs only run in the browser
 const BallotPdfPreview = dynamic(() => import('@/app/modules/cards/BallotPdfPreview'), { ssr: false });
 
 interface SendResultsPageProps {
@@ -46,44 +47,74 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
   };
 
   return (
-    <div style={{ 
-      position: 'relative', 
-      width: '100%', 
-      height: '100%', 
+    <div style={{
+      position: 'relative',
+      width: '100%',
+      minHeight: '100vh',
       fontFamily: "'IBM Plex Sans', sans-serif",
-      paddingTop: isDesktop ? '80px' : '0px', // Add padding to account for the toolbar
-    }}> 
-      <div className="font-bold" style={{ padding: "10px", backgroundColor: "#2426280D", borderBottom: '1px solid #24262814' }}>
-        <ArrowBackIcon onClick={onBackClick} style={{ width: '20px', transform: "translateY(-2px)" }} />
-        &nbsp;&nbsp;&nbsp;Get Your Ballot!
-      </div>
-      <div style={{      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      textAlign: 'center'}}>
-        <br></br>
-        <h1 className='font-bold text-xl'>Congratulations!</h1>
-        <br />
-        <p>
-          You&apos;ve just completed your ballot!! (well, sort of). Download your picks below so you&apos;re ready to fill it out.
-        </p>
-        <br />
-        <div style={{ width: '90%', maxWidth: '600px' }}>
-          <BallotPdfPreview />
+      background: 'linear-gradient(160deg, #E06AAE 0%, #E8848A 100%)',
+      paddingTop: isDesktop ? '80px' : '45px', // Add padding to account for the toolbar
+      paddingBottom: '48px',
+    }}>
+      <div
+        className="mx-auto bg-white flex flex-col items-center text-center"
+        style={{
+          width: 'calc(100% - 32px)',
+          maxWidth: '736px',
+          marginTop: isDesktop ? '48px' : '24px',
+          borderRadius: '24px',
+          padding: isDesktop ? '40px 40px 48px' : '32px 20px 40px',
+          boxShadow: '0 20px 50px rgba(120, 30, 70, 0.25)',
+        }}
+      >
+        {/* Check badge */}
+        <div
+          className="flex items-center justify-center rounded-full"
+          style={{ width: '110px', height: '110px', backgroundColor: '#EEEAFD' }}
+        >
+          <div
+            className="flex items-center justify-center rounded-full"
+            style={{ width: '90px', height: '90px', backgroundColor: '#947FEE' }}
+          >
+            <CheckIcon style={{ color: 'white', fontSize: '44px' }} />
+          </div>
         </div>
-        <br />
-        <p>
-          Want to stay informed when the next election drops? Join our mailing list!
+
+        <h1 className="font-bold" style={{ fontSize: isDesktop ? '44px' : '34px', color: '#2D3142', marginTop: '20px' }}>
+          Congratulations!
+        </h1>
+        <p style={{ fontSize: '18px', lineHeight: 1.7, color: '#242628', marginTop: '12px', maxWidth: '620px' }}>
+          You&apos;ve just completed your ballot... well, almost. You still need to vote!
+          Download your picks as a PDF so you&apos;re ready to fill out the real one.
         </p>
-        <br></br>
-        <a href="https://forms.gle/zmTGWCvHDgNQjrJf7" target="_blank" rel="noopener noreferrer" className="bg-[#60D052] hover:bg-green-600 text-white py-2 px-4 rounded">
-          Join Mailing List
-        </a>
-        <br></br>
-        <p>
-          If you find this service valuable, please consider donating to help us make voting a better experience for everyone.
-        </p>
-        <br />
+
+        <div className="w-full" style={{ marginTop: '32px' }}>
+          <BallotPdfPreview onEditClick={onBackClick} />
+        </div>
+
+        <hr className="w-full border-gray-200" style={{ margin: '32px 0' }} />
+
+        <h2 className="font-bold" style={{ fontSize: '24px', color: '#2D3142' }}>
+          Stay informed when the next election drops
+        </h2>
+        <div className="flex flex-wrap justify-center gap-3" style={{ marginTop: '20px' }}>
+          <a
+            href="https://forms.gle/zmTGWCvHDgNQjrJf7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center h-12 px-6 rounded-md font-bold text-white bg-[#2D3142] hover:bg-[#1F222E]"
+          >
+            Join mailing list
+          </a>
+          <Link
+            href="https://donate.stripe.com/3cs0061x75s88OA000"
+            target="_blank"
+            className="inline-flex items-center h-12 px-6 rounded-md font-bold text-white bg-[#E57AA3] hover:bg-[#D9628F]"
+          >
+            <FavoriteBorderIcon style={{ fontSize: '20px' }} />&nbsp;Donate
+          </Link>
+        </div>
+
         {/* <div className="flex space-x-2">
           <Input
             type="email"
@@ -96,19 +127,6 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
             Let&apos;s Get My Ballot!
           </Button>
         </div> */}
-        <br></br>
-        <div className="flex justify-center items-center">
-          {/* donate is a new page */}
-          <Link href="https://donate.stripe.com/3cs0061x75s88OA000" target='_blank'>
-  <Button className="bg-[#60D052] hover:bg-green-600 text-white py-2 px-4 rounded">
-    Donate
-  </Button>
-</Link>        </div>
-        <br></br>
-        <div className="flex justify-center items-center">
-          {/* <DonationsModal /> */}
-          {/* TODO: add donations link! */}
-        </div>
       </div>
     </div>
   );

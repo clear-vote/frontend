@@ -53,6 +53,11 @@
     // when a contest is clicked, this there is a slight delay before this is set
     const [inRightPage, setInRightPage] = useState(false);
     const [inSendResultsPage, setInSendResultsPage] = useState(false);
+
+    // Send results page is long; once it's gone, start the ballot back at the very top
+    useEffect(() => {
+      if (!inSendResultsPage) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, [inSendResultsPage]);
     
     // This renders page when new data is available
     useEffect(() => {
@@ -169,6 +174,7 @@
                 left: 0,
                 width: '100%',
                 height: `calc(100% - ${TOOLBAR_HEIGHT}px)`, // Adjust height to account for toolbar
+                overflow: inSendResultsPage ? 'hidden' : undefined, // Hidden ballot shouldn't extend the send results page's scroll
               }}
             > 
             {!isDesktop ? (

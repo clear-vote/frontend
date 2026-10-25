@@ -12,6 +12,10 @@ import { useBallotSelections } from './BallotSummary';
 const PDFJS_URL = '/pdfjs/pdf.min.mjs';
 const PDFJS_WORKER_URL = '/pdfjs/pdf.worker.min.mjs';
 
+const PDF_FILENAME = 'clearvote-ballot.pdf';
+/** Height / width of a US Letter page, which BallotPdf uses */
+const PAGE_ASPECT = 11 / 8.5;
+
 type Pdfjs = typeof import('pdfjs-dist');
 let pdfjsPromise: Promise<Pdfjs> | null = null;
 
@@ -73,20 +77,27 @@ const PdfPageCanvas: React.FC<PdfPageCanvasProps> = ({ doc, pageNumber, width })
     };
   }, [doc, pageNumber, width]);
 
-  return <canvas ref={canvasRef} className="block bg-white shadow-md" />;
+  return <canvas ref={canvasRef} className="block bg-white" />;
 };
+
+interface BallotPdfPreviewProps {
+  /** Takes the user back to their ballot */
+  onEditClick: () => void;
+}
 
 /**
  * Renders the user's ballot to a PDF, shows its pages in a scrollable preview, and lets the user download it.
  * Client-only: import with next/dynamic and ssr: false.
  */
-export const BallotPdfPreview: React.FC = () => {
+export const BallotPdfPreview: React.FC<BallotPdfPreviewProps> = ({ onEditClick }) => {
   const { elections, selectedElection } = useElectionContext();
   const selections = useBallotSelections();
   const [blob, setBlob] = useState<Blob | null>(null);
   const [doc, setDoc] = useState<PDFDocumentProxy | null>(null);
   const [pageWidth, setPageWidth] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
+  const pageHeight = Math.round(pageWidth * PAGE_ASPECT);
 
   // Only regenerate the PDF when the picks actually change
   const selectionsKey = selections.map(({ contest, candidate }) => `${contest.id}:${candidate.id}`).join(',');
@@ -155,34 +166,72 @@ export const BallotPdfPreview: React.FC = () => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'clearvote-ballot.pdf';
+    link.download = PDF_FILENAME;
     link.click();
     URL.revokeObjectURL(url);
   };
 
+  const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
+    if (pageHeight === 0) return;
+    setCurrentPage(Math.min(doc?.numPages ?? 1, Math.round(event.currentTarget.scrollTop / pageHeight) + 1));
+  };
+
   return (
-    <div className="flex flex-col items-center w-full gap-4">
-      <div
-        className="w-full rounded-md border border-gray-300 overflow-y-auto"
-        style={{ maxHeight: '70vh', backgroundColor: '#E5E7EB', padding: '16px' }}
-      >
-        <div ref={containerRef} className="w-full flex flex-col gap-4">
-          {!doc || pageWidth === 0 ? (
-            <p className="text-sm text-gray-500 py-8">Preparing your ballot…</p>
-          ) : (
-            Array.from({ length: doc.numPages }, (_, i) => (
-              <PdfPageCanvas key={i} doc={doc} pageNumber={i + 1} width={pageWidth} />
-            ))
-          )}
+    <div className="flex flex-col items-center w-full">
+      {/* Document preview */}
+      <div className="w-full" style={{ maxWidth: '460px' }}>
+        <p className="text-left font-bold text-gray-500" style={{ fontSize: '14px', marginBottom: '8px' }}>
+          Preview
+        </p>
+        <div
+          className="w-full overflow-hidden bg-white"
+          style={{
+            borderRadius: '8px',
+            borderTop: '6px solid #E57AA3',
+            boxShadow: '0 10px 30px rgba(36, 38, 40, 0.18), 0 2px 6px rgba(36, 38, 40, 0.08)',
+          }}
+        >
+          <div
+            className="overflow-y-auto"
+            style={{ height: pageHeight || undefined, aspectRatio: pageHeight ? undefined : `1 / ${PAGE_ASPECT}` }}
+            onScroll={handleScroll}
+          >
+            <div ref={containerRef} className="w-full divide-y divide-gray-200">
+              {!doc || pageWidth === 0 ? (
+                <p className="text-sm text-gray-500 text-center" style={{ paddingTop: '45%' }}>Preparing your ballot…</p>
+              ) : (
+                Array.from({ length: doc.numPages }, (_, i) => (
+                  <PdfPageCanvas key={i} doc={doc} pageNumber={i + 1} width={pageWidth} />
+                ))
+              )}
+            </div>
+          </div>
+          <div
+            className="flex justify-between items-center font-bold text-gray-600 border-t border-gray-200"
+            style={{ fontSize: '11px', padding: '8px 16px', backgroundColor: '#F9FAFB' }}
+          >
+            <span>{PDF_FILENAME}</span>
+            <span>{doc ? `Page ${currentPage} of ${doc.numPages}` : ''}</span>
+          </div>
         </div>
       </div>
-      <Button
-        onClick={handleDownload}
-        disabled={!blob || selections.length === 0}
-        className="bg-[#947FEE] hover:bg-purple-800 text-white py-2 px-4 rounded"
-      >
-        <DownloadIcon style={{ width: '18px' }} />&nbsp;{blob ? 'Download PDF' : 'Generating…'}
-      </Button>
+
+      {/* Actions */}
+      <div className="flex flex-wrap justify-center gap-3" style={{ marginTop: '28px' }}>
+        <Button
+          onClick={handleDownload}
+          disabled={!blob || selections.length === 0}
+          className="h-12 px-7 text-white font-bold bg-[#947FEE] hover:bg-[#7D66E0]"
+        >
+          <DownloadIcon style={{ width: '20px' }} />&nbsp;{blob ? 'Download PDF' : 'Generating…'}
+        </Button>
+        <Button
+          onClick={onEditClick}
+          className="h-12 px-6 font-bold text-[#242628] bg-white hover:bg-gray-100 border-2 border-gray-300"
+        >
+          Edit my picks
+        </Button>
+      </div>
     </div>
   );
 };
