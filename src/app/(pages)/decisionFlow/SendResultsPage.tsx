@@ -47,12 +47,12 @@ export const SendResultsPage: React.FC<SendResultsPageProps> = ({ onBackClick })
   };
 
   return (
-    <div style={{
+    <div className="the-fancy-background" style={{
       position: 'relative',
       width: '100%',
+      height: 'auto',
       minHeight: '100vh',
       fontFamily: "'IBM Plex Sans', sans-serif",
-      background: 'linear-gradient(160deg, #E06AAE 0%, #E8848A 100%)',
       paddingTop: isDesktop ? '80px' : '45px', // Add padding to account for the toolbar
       paddingBottom: '48px',
     }}>

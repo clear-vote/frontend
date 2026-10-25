@@ -999,9 +999,9 @@
     "elections": [
         {
             "election_type": "General",
-            "register_by": "20240729",
-            "voting_start": "20240719",
-            "voting_end": "20240806",
+            "register_by": "20261026",
+            "voting_start": "20261016",
+            "voting_end": "20261103",
             "election_id": 899,
             "contests": [
                 {

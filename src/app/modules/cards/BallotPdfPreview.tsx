@@ -7,8 +7,8 @@ import { useElectionContext } from '@/context/ElectionContext';
 import { BallotPdf } from './BallotPdf';
 import { useBallotSelections } from './BallotSummary';
 
-// pdfjs is served from public/pdfjs (copied there on postinstall) and loaded with a native import,
-// because Next 14's webpack can't bundle pdfjs-dist 5
+// pdfjs's legacy build (polyfilled for older browsers, e.g. iOS < 17.4) is served from public/pdfjs
+// (copied there on postinstall) and loaded with a native import, because Next 14's webpack can't bundle pdfjs-dist 5
 const PDFJS_URL = '/pdfjs/pdf.min.mjs';
 const PDFJS_WORKER_URL = '/pdfjs/pdf.worker.min.mjs';
 
